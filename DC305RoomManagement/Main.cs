@@ -41,6 +41,8 @@ namespace DC305RoomManagement
                     DisplayInPlanel(roomManager, "Room Manager");
                     break;
                 case "btnClass":
+                    ClassManager classManager = new ClassManager();
+                    DisplayInPlanel(classManager, "Class Manager");
                     break;
                 case "btnCourse":
                     break;
@@ -55,6 +57,8 @@ namespace DC305RoomManagement
                     DisplayInPlanel(issueManager, "Issue Manager");
                     break;
                 case "btnInventory":
+                    InventoryManager inventoryManager = new InventoryManager();
+                    DisplayInPlanel(inventoryManager, "Inventory Manager");
                     break;
                 case "btnCalendar":
                     break;
