@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DC305RoomManagement
 {
-    public partial class BookingManager : Form
+    public partial class RoomManager : Form
     {
-        public BookingManager()
+        public RoomManager()
         {
             InitializeComponent();
         }

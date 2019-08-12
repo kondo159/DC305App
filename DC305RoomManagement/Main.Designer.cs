@@ -88,6 +88,7 @@
             this.btnInventory.TabIndex = 9;
             this.btnInventory.Text = "Inventory";
             this.btnInventory.UseVisualStyleBackColor = true;
+            this.btnInventory.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
             // btnIssue
             // 
@@ -99,6 +100,7 @@
             this.btnIssue.TabIndex = 8;
             this.btnIssue.Text = "Issue Manager";
             this.btnIssue.UseVisualStyleBackColor = true;
+            this.btnIssue.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
             // btnCalendar
             // 
@@ -110,6 +112,7 @@
             this.btnCalendar.TabIndex = 10;
             this.btnCalendar.Text = "View Calendar";
             this.btnCalendar.UseVisualStyleBackColor = true;
+            this.btnCalendar.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
             // btnUser
             // 
@@ -121,7 +124,7 @@
             this.btnUser.TabIndex = 7;
             this.btnUser.Text = "User Manager";
             this.btnUser.UseVisualStyleBackColor = true;
-            this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
+            this.btnUser.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
             // btnExit
             // 
@@ -133,7 +136,7 @@
             this.btnExit.TabIndex = 11;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.Button10_Click);
+            this.btnExit.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
             // btnClass
             // 
@@ -145,6 +148,7 @@
             this.btnClass.TabIndex = 4;
             this.btnClass.Text = "Class Manager";
             this.btnClass.UseVisualStyleBackColor = true;
+            this.btnClass.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
             // btnGroup
             // 
@@ -156,6 +160,7 @@
             this.btnGroup.TabIndex = 6;
             this.btnGroup.Text = "Group Manager";
             this.btnGroup.UseVisualStyleBackColor = true;
+            this.btnGroup.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
             // btnCourse
             // 
@@ -167,6 +172,7 @@
             this.btnCourse.TabIndex = 5;
             this.btnCourse.Text = "Course Manager";
             this.btnCourse.UseVisualStyleBackColor = true;
+            this.btnCourse.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
             // btnRoom
             // 
@@ -178,6 +184,7 @@
             this.btnRoom.TabIndex = 3;
             this.btnRoom.Text = "Room Manager";
             this.btnRoom.UseVisualStyleBackColor = true;
+            this.btnRoom.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
             // btnBooking
             // 
@@ -189,7 +196,7 @@
             this.btnBooking.TabIndex = 2;
             this.btnBooking.Text = "Booking Manager";
             this.btnBooking.UseVisualStyleBackColor = true;
-            this.btnBooking.Click += new System.EventHandler(this.BtnBooking_Click);
+            this.btnBooking.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
             // pnlHeader
             // 

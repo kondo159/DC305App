@@ -27,28 +27,45 @@ namespace DC305RoomManagement
             page.Show();
             lblHeader.Text = Header;
         }
-        private void BtnBooking_Click(object sender, EventArgs e)
+        protected void BtnMenu_Click(object sender, EventArgs e)
         {
-            BookingManager bookingManager = new BookingManager();
-
-            DisplayInPlanel(bookingManager, "Booking Manager");
+            // Loading the required form depending on which button was clicked
+            switch ((sender as Button).Name)
+            {
+                case "btnBooking":
+                    BookingManager bookingManager = new BookingManager();
+                    DisplayInPlanel(bookingManager, "Booking Manager");
+                    break;
+                case "btnRoom":
+                    RoomManager roomManager = new RoomManager();
+                    DisplayInPlanel(roomManager, "Room Manager");
+                    break;
+                case "btnClass":
+                    break;
+                case "btnCourse":
+                    break;
+                case "btnGroup":
+                    break;
+                case "btnUser":
+                    Login login = new Login();
+                    DisplayInPlanel(login, "User Manager");
+                    break;
+                case "btnIssue":
+                    IssueManager issueManager = new IssueManager();
+                    DisplayInPlanel(issueManager, "Issue Manager");
+                    break;
+                case "btnInventory":
+                    break;
+                case "btnCalendar":
+                    break;
+                case "btnExit":
+                    Application.Exit();
+                    break;
+            }
         }
-        private void btnUser_Click(object sender, EventArgs e)
-        {
-            Login login = new Login();
-            DisplayInPlanel(login, "User Manager");
-        }
-
         private void Main_Load(object sender, EventArgs e)
         {
 
         }
-
-        private void Button10_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-
     }
 }
