@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlSideMenu = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lnkLabel = new System.Windows.Forms.LinkLabel();
             this.btnInventory = new System.Windows.Forms.Button();
             this.btnIssue = new System.Windows.Forms.Button();
             this.btnCalendar = new System.Windows.Forms.Button();
@@ -50,7 +50,7 @@
             // pnlSideMenu
             // 
             this.pnlSideMenu.BackColor = System.Drawing.Color.Teal;
-            this.pnlSideMenu.Controls.Add(this.label1);
+            this.pnlSideMenu.Controls.Add(this.lnkLabel);
             this.pnlSideMenu.Controls.Add(this.btnInventory);
             this.pnlSideMenu.Controls.Add(this.btnIssue);
             this.pnlSideMenu.Controls.Add(this.btnCalendar);
@@ -67,16 +67,20 @@
             this.pnlSideMenu.Size = new System.Drawing.Size(155, 601);
             this.pnlSideMenu.TabIndex = 0;
             // 
-            // label1
+            // lnkLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(32, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 33);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "ITEdu";
+            this.lnkLabel.AutoSize = true;
+            this.lnkLabel.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.lnkLabel.LinkColor = System.Drawing.Color.White;
+            this.lnkLabel.Location = new System.Drawing.Point(32, 34);
+            this.lnkLabel.Name = "lnkLabel";
+            this.lnkLabel.Size = new System.Drawing.Size(96, 33);
+            this.lnkLabel.TabIndex = 12;
+            this.lnkLabel.TabStop = true;
+            this.lnkLabel.Text = "ITEdu";
+            this.lnkLabel.VisitedLinkColor = System.Drawing.Color.White;
+            this.lnkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LnkLabel_LinkClicked);
             // 
             // btnInventory
             // 
@@ -133,7 +137,7 @@
             this.btnExit.TabIndex = 11;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.Button10_Click);
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnClass
             // 
@@ -229,6 +233,8 @@
             this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.pnlSideMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
@@ -255,8 +261,8 @@
         private System.Windows.Forms.Button btnGroup;
         private System.Windows.Forms.Button btnCourse;
         private System.Windows.Forms.Button btnRoom;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Panel pnlMain;
+        private System.Windows.Forms.LinkLabel lnkLabel;
     }
 }

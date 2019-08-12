@@ -44,11 +44,17 @@ namespace DC305RoomManagement
 
         }
 
-        private void Button10_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        private void LnkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Home home = new Home();
+            DisplayInPlanel(home, "Main Menu");
+
+        }
 
     }
 }
