@@ -1,0 +1,12 @@
+C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\bin\Debug\DC305RoomManagement.exe.config
+C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\bin\Debug\DC305RoomManagement.exe
+C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\bin\Debug\DC305RoomManagement.pdb
+C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.csprojAssemblyReference.cache
+C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.Login.resources
+C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.Main.resources
+C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.Properties.Resources.resources
+C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.csproj.GenerateResource.cache
+C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.csproj.CoreCompileInputs.cache
+C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.exe
+C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.pdb
+C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.BookingManager.resources
