@@ -231,6 +231,7 @@
         }
 
         #endregion
+
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
@@ -248,6 +249,5 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnPrint;
-
     }
 }
