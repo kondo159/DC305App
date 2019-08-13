@@ -1,3 +1,4 @@
+
 C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\bin\Debug\DC305RoomManagement.exe.config
 C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\bin\Debug\DC305RoomManagement.exe
 C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\bin\Debug\DC305RoomManagement.pdb
@@ -10,6 +11,8 @@ C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug
 C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.exe
 C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.pdb
 C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.BookingManager.resources
+C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.Home.resources
+C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.UserManager.resources
 C:\Sources\DC305\DC305App\DC305RoomManagement\bin\Debug\DC305RoomManagement.exe.config
 C:\Sources\DC305\DC305App\DC305RoomManagement\bin\Debug\DC305RoomManagement.exe
 C:\Sources\DC305\DC305App\DC305RoomManagement\bin\Debug\DC305RoomManagement.pdb
