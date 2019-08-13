@@ -10,22 +10,11 @@ using System.Windows.Forms;
 
 namespace DC305RoomManagement
 {
-    public partial class BookingManager : Form
+    public partial class ClassManager : Form
     {
-        public BookingManager()
+        public ClassManager()
         {
             InitializeComponent();
         }
-
-        private void Label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BtnUpdate_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
-

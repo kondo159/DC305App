@@ -52,6 +52,36 @@
     <Compile Include="BookingManager.Designer.cs">
       <DependentUpon>BookingManager.cs</DependentUpon>
     </Compile>
+	<Compile Include="ClassManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClassManager.Designer.cs">
+      <DependentUpon>ClassManager.cs</DependentUpon>
+    </Compile>
+	<Compile Include="CourseManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CourseManager.Designer.cs">
+      <DependentUpon>CourseManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GroupManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GroupManager.Designer.cs">
+      <DependentUpon>GroupManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryManager.Designer.cs">
+      <DependentUpon>InventoryManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IssueManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IssueManager.Designer.cs">
+      <DependentUpon>IssueManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,8 +108,29 @@
     <Compile Include="UserManager.Designer.cs">
       <DependentUpon>UserManager.cs</DependentUpon>
     </Compile>
+	<Compile Include="RoomManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoomManager.Designer.cs">
+      <DependentUpon>RoomManager.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BookingManager.resx">
       <DependentUpon>BookingManager.cs</DependentUpon>
+    </EmbeddedResource>
+	<EmbeddedResource Include="ClassManager.resx">
+      <DependentUpon>ClassManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CourseManager.resx">
+      <DependentUpon>CourseManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupManager.resx">
+      <DependentUpon>GroupManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryManager.resx">
+      <DependentUpon>InventoryManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IssueManager.resx">
+      <DependentUpon>IssueManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
@@ -100,6 +151,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+	    <EmbeddedResource Include="RoomManager.resx">
+      <DependentUpon>RoomManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserManager.resx">
       <DependentUpon>UserManager.cs</DependentUpon>
     </EmbeddedResource>
