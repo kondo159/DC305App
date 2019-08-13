@@ -35,8 +35,8 @@ namespace DC305RoomManagement
         }
         private void btnUser_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
-            DisplayInPlanel(login, "User Manager");
+            UserManager userManager = new UserManager();
+            DisplayInPlanel(userManager, "User Manager");
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -44,11 +44,17 @@ namespace DC305RoomManagement
 
         }
 
-        private void Button10_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        private void LnkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Home home = new Home();
+            DisplayInPlanel(home, "Main Menu");
+
+        }
 
     }
 }
