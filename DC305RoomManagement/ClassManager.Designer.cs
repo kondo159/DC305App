@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.pnlMainContent = new System.Windows.Forms.Panel();
+            this.btnAddGroup = new System.Windows.Forms.Button();
+            this.btnDeleteGroup = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.dgvInventory = new System.Windows.Forms.DataGridView();
             this.lblStaff = new System.Windows.Forms.Label();
             this.lblCourseTitle = new System.Windows.Forms.Label();
             this.lbIClassName = new System.Windows.Forms.Label();
+            this.txtGroupOfStudentsValue = new System.Windows.Forms.TextBox();
+            this.txtStaffNameValue = new System.Windows.Forms.TextBox();
             this.txtCourseTitleValue = new System.Windows.Forms.TextBox();
             this.txtClassNameValue = new System.Windows.Forms.TextBox();
             this.lblGroupOfStudents = new System.Windows.Forms.Label();
-            this.txtStaffNameValue = new System.Windows.Forms.TextBox();
-            this.txtGroupOfStudentsValue = new System.Windows.Forms.TextBox();
-            this.btnDeleteGroup = new System.Windows.Forms.Button();
-            this.btnAddGroup = new System.Windows.Forms.Button();
             this.pnlMainContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).BeginInit();
             this.SuspendLayout();
@@ -67,6 +67,24 @@
             this.pnlMainContent.Name = "pnlMainContent";
             this.pnlMainContent.Size = new System.Drawing.Size(764, 450);
             this.pnlMainContent.TabIndex = 2;
+            // 
+            // btnAddGroup
+            // 
+            this.btnAddGroup.Location = new System.Drawing.Point(70, 351);
+            this.btnAddGroup.Name = "btnAddGroup";
+            this.btnAddGroup.Size = new System.Drawing.Size(75, 23);
+            this.btnAddGroup.TabIndex = 9;
+            this.btnAddGroup.Text = "Add";
+            this.btnAddGroup.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteGroup
+            // 
+            this.btnDeleteGroup.Location = new System.Drawing.Point(151, 351);
+            this.btnDeleteGroup.Name = "btnDeleteGroup";
+            this.btnDeleteGroup.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteGroup.TabIndex = 9;
+            this.btnDeleteGroup.Text = "Delete";
+            this.btnDeleteGroup.UseVisualStyleBackColor = true;
             // 
             // btnCreate
             // 
@@ -121,6 +139,21 @@
             this.lbIClassName.TabIndex = 2;
             this.lbIClassName.Text = "Class Name";
             // 
+            // txtGroupOfStudentsValue
+            // 
+            this.txtGroupOfStudentsValue.Location = new System.Drawing.Point(15, 233);
+            this.txtGroupOfStudentsValue.Multiline = true;
+            this.txtGroupOfStudentsValue.Name = "txtGroupOfStudentsValue";
+            this.txtGroupOfStudentsValue.Size = new System.Drawing.Size(259, 102);
+            this.txtGroupOfStudentsValue.TabIndex = 5;
+            // 
+            // txtStaffNameValue
+            // 
+            this.txtStaffNameValue.Location = new System.Drawing.Point(15, 165);
+            this.txtStaffNameValue.Name = "txtStaffNameValue";
+            this.txtStaffNameValue.Size = new System.Drawing.Size(259, 22);
+            this.txtStaffNameValue.TabIndex = 5;
+            // 
             // txtCourseTitleValue
             // 
             this.txtCourseTitleValue.Location = new System.Drawing.Point(15, 102);
@@ -143,39 +176,6 @@
             this.lblGroupOfStudents.Size = new System.Drawing.Size(116, 16);
             this.lblGroupOfStudents.TabIndex = 3;
             this.lblGroupOfStudents.Text = "Group Of Students";
-            // 
-            // txtStaffNameValue
-            // 
-            this.txtStaffNameValue.Location = new System.Drawing.Point(15, 165);
-            this.txtStaffNameValue.Name = "txtStaffNameValue";
-            this.txtStaffNameValue.Size = new System.Drawing.Size(259, 22);
-            this.txtStaffNameValue.TabIndex = 5;
-            // 
-            // txtGroupOfStudentsValue
-            // 
-            this.txtGroupOfStudentsValue.Location = new System.Drawing.Point(15, 233);
-            this.txtGroupOfStudentsValue.Multiline = true;
-            this.txtGroupOfStudentsValue.Name = "txtGroupOfStudentsValue";
-            this.txtGroupOfStudentsValue.Size = new System.Drawing.Size(259, 102);
-            this.txtGroupOfStudentsValue.TabIndex = 5;
-            // 
-            // btnDeleteGroup
-            // 
-            this.btnDeleteGroup.Location = new System.Drawing.Point(199, 341);
-            this.btnDeleteGroup.Name = "btnDeleteGroup";
-            this.btnDeleteGroup.Size = new System.Drawing.Size(75, 23);
-            this.btnDeleteGroup.TabIndex = 9;
-            this.btnDeleteGroup.Text = "Delete";
-            this.btnDeleteGroup.UseVisualStyleBackColor = true;
-            // 
-            // btnAddGroup
-            // 
-            this.btnAddGroup.Location = new System.Drawing.Point(118, 341);
-            this.btnAddGroup.Name = "btnAddGroup";
-            this.btnAddGroup.Size = new System.Drawing.Size(75, 23);
-            this.btnAddGroup.TabIndex = 9;
-            this.btnAddGroup.Text = "Add";
-            this.btnAddGroup.UseVisualStyleBackColor = true;
             // 
             // ClassManager
             // 

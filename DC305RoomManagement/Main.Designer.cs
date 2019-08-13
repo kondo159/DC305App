@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlSideMenu = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblLogo = new System.Windows.Forms.Label();
             this.btnInventory = new System.Windows.Forms.Button();
             this.btnIssue = new System.Windows.Forms.Button();
             this.btnCalendar = new System.Windows.Forms.Button();
@@ -50,7 +50,7 @@
             // pnlSideMenu
             // 
             this.pnlSideMenu.BackColor = System.Drawing.Color.Teal;
-            this.pnlSideMenu.Controls.Add(this.label1);
+            this.pnlSideMenu.Controls.Add(this.lblLogo);
             this.pnlSideMenu.Controls.Add(this.btnInventory);
             this.pnlSideMenu.Controls.Add(this.btnIssue);
             this.pnlSideMenu.Controls.Add(this.btnCalendar);
@@ -67,16 +67,16 @@
             this.pnlSideMenu.Size = new System.Drawing.Size(155, 601);
             this.pnlSideMenu.TabIndex = 0;
             // 
-            // label1
+            // lblLogo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(32, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 33);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "ITEdu";
+            this.lblLogo.AutoSize = true;
+            this.lblLogo.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogo.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblLogo.Location = new System.Drawing.Point(32, 32);
+            this.lblLogo.Name = "lblLogo";
+            this.lblLogo.Size = new System.Drawing.Size(96, 33);
+            this.lblLogo.TabIndex = 12;
+            this.lblLogo.Text = "ITEdu";
             // 
             // btnInventory
             // 
@@ -262,7 +262,7 @@
         private System.Windows.Forms.Button btnGroup;
         private System.Windows.Forms.Button btnCourse;
         private System.Windows.Forms.Button btnRoom;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblLogo;
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Panel pnlMain;
     }

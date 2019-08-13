@@ -26,3 +26,5 @@ C:\Sources\DC305\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.pdb
 C:\Sources\DC305\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.IssueManager.resources
 C:\Sources\DC305\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.InventoryManager.resources
 C:\Sources\DC305\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.ClassManager.resources
+C:\Sources\DC305\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.GroupManager.resources
+C:\Sources\DC305\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.CourseManager.resources

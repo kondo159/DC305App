@@ -36,32 +36,45 @@ namespace DC305RoomManagement
                     BookingManager bookingManager = new BookingManager();
                     DisplayInPlanel(bookingManager, "Booking Manager");
                     break;
+
                 case "btnRoom":
                     RoomManager roomManager = new RoomManager();
                     DisplayInPlanel(roomManager, "Room Manager");
                     break;
+
                 case "btnClass":
                     ClassManager classManager = new ClassManager();
                     DisplayInPlanel(classManager, "Class Manager");
                     break;
+
                 case "btnCourse":
+                    CourseManager courseManager = new CourseManager();
+                    DisplayInPlanel(courseManager, "Course Manager");
                     break;
+
                 case "btnGroup":
+                    GroupManager groupManager = new GroupManager();
+                    DisplayInPlanel(groupManager, "Group Manager");
                     break;
+
                 case "btnUser":
                     Login login = new Login();
                     DisplayInPlanel(login, "User Manager");
                     break;
+
                 case "btnIssue":
                     IssueManager issueManager = new IssueManager();
                     DisplayInPlanel(issueManager, "Issue Manager");
                     break;
+
                 case "btnInventory":
                     InventoryManager inventoryManager = new InventoryManager();
                     DisplayInPlanel(inventoryManager, "Inventory Manager");
                     break;
+
                 case "btnCalendar":
                     break;
+
                 case "btnExit":
                     Application.Exit();
                     break;
