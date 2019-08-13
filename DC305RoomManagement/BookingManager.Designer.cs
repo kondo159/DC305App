@@ -28,17 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.SuspendLayout();
             // 
-            // label1
+            // monthCalendar1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(102, 55);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.monthCalendar1.CalendarDimensions = new System.Drawing.Size(3, 3);
+            this.monthCalendar1.Location = new System.Drawing.Point(18, 18);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 0;
             // 
             // BookingManager
             // 
@@ -46,16 +44,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(837, 465);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.monthCalendar1);
             this.Name = "BookingManager";
             this.Text = "BookingManager";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
     }
 }

@@ -28,26 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblHome = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // lblHome
+            // label1
             // 
-            this.lblHome.AutoSize = true;
-            this.lblHome.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHome.Location = new System.Drawing.Point(12, 9);
-            this.lblHome.Name = "lblHome";
-            this.lblHome.Size = new System.Drawing.Size(251, 35);
-            this.lblHome.TabIndex = 0;
-            this.lblHome.Text = "Welcome to ITEdu";
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(364, 35);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "ITEdu Information Systems";
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::DC305RoomManagement.Properties.Resources.placeimg_837_465_tech;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(837, 465);
-            this.Controls.Add(this.lblHome);
+            this.Controls.Add(this.label1);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Home";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -56,6 +63,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblHome;
+        private System.Windows.Forms.Label label1;
     }
 }

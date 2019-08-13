@@ -35,8 +35,8 @@ namespace DC305RoomManagement
         }
         private void btnUser_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
-            DisplayInPlanel(login, "User Manager");
+            UserManager userManager = new UserManager();
+            DisplayInPlanel(userManager, "User Manager");
         }
 
         private void Main_Load(object sender, EventArgs e)

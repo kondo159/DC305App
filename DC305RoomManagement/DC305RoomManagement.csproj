@@ -72,6 +72,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserManager.Designer.cs">
+      <DependentUpon>UserManager.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BookingManager.resx">
       <DependentUpon>BookingManager.cs</DependentUpon>
     </EmbeddedResource>
@@ -92,7 +98,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserManager.resx">
+      <DependentUpon>UserManager.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -105,6 +115,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\placeimg_837_465_tech.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

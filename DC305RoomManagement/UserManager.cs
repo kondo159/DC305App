@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace DC305RoomManagement
 {
-    public partial class Login : Form
+    public partial class UserManager : Form
     {
-        public Login()
+        public UserManager()
         {
             InitializeComponent();
-        }
-
-
-        private void BtnLogin_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

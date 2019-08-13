@@ -11,3 +11,4 @@ C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug
 C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.pdb
 C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.BookingManager.resources
 C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.Home.resources
+C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.UserManager.resources
