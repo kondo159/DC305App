@@ -1,4 +1,3 @@
-
 C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\bin\Debug\DC305RoomManagement.exe.config
 C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\bin\Debug\DC305RoomManagement.exe
 C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\bin\Debug\DC305RoomManagement.pdb
@@ -31,3 +30,9 @@ C:\Sources\DC305\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.Inve
 C:\Sources\DC305\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.ClassManager.resources
 C:\Sources\DC305\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.GroupManager.resources
 C:\Sources\DC305\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.CourseManager.resources
+C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.ClassManager.resources
+C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.CourseManager.resources
+C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.GroupManager.resources
+C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.InventoryManager.resources
+C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.IssueManager.resources
+C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.RoomManager.resources

@@ -266,3 +266,4 @@
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Panel pnlMain;
     }
+}

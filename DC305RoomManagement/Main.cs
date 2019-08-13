@@ -58,8 +58,8 @@ namespace DC305RoomManagement
                     break;
 
                 case "btnUser":
-                    Login login = new Login();
-                    DisplayInPlanel(login, "User Manager");
+                    UserManager usermanager = new UserManager();
+                    DisplayInPlanel(usermanager, "User Manager");
                     break;
 
                 case "btnIssue":
