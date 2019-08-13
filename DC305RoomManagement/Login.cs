@@ -17,9 +17,11 @@ namespace DC305RoomManagement
             InitializeComponent();
         }
 
-        private void Label1_Click(object sender, EventArgs e)
+
+        private void BtnLogin_Click(object sender, EventArgs e)
         {
 
         }
     }
 }
+

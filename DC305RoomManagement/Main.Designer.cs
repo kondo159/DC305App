@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlSideMenu = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblLogo = new System.Windows.Forms.Label();
             this.btnInventory = new System.Windows.Forms.Button();
             this.btnIssue = new System.Windows.Forms.Button();
             this.btnCalendar = new System.Windows.Forms.Button();
@@ -50,7 +50,7 @@
             // pnlSideMenu
             // 
             this.pnlSideMenu.BackColor = System.Drawing.Color.Teal;
-            this.pnlSideMenu.Controls.Add(this.label1);
+            this.pnlSideMenu.Controls.Add(this.lblLogo);
             this.pnlSideMenu.Controls.Add(this.btnInventory);
             this.pnlSideMenu.Controls.Add(this.btnIssue);
             this.pnlSideMenu.Controls.Add(this.btnCalendar);
@@ -67,16 +67,16 @@
             this.pnlSideMenu.Size = new System.Drawing.Size(155, 601);
             this.pnlSideMenu.TabIndex = 0;
             // 
-            // label1
+            // lblLogo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(32, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 33);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "ITEdu";
+            this.lblLogo.AutoSize = true;
+            this.lblLogo.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogo.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblLogo.Location = new System.Drawing.Point(32, 32);
+            this.lblLogo.Name = "lblLogo";
+            this.lblLogo.Size = new System.Drawing.Size(96, 33);
+            this.lblLogo.TabIndex = 12;
+            this.lblLogo.Text = "ITEdu";
             // 
             // btnInventory
             // 
@@ -88,6 +88,7 @@
             this.btnInventory.TabIndex = 9;
             this.btnInventory.Text = "Inventory";
             this.btnInventory.UseVisualStyleBackColor = true;
+            this.btnInventory.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
             // btnIssue
             // 
@@ -99,6 +100,7 @@
             this.btnIssue.TabIndex = 8;
             this.btnIssue.Text = "Issue Manager";
             this.btnIssue.UseVisualStyleBackColor = true;
+            this.btnIssue.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
             // btnCalendar
             // 
@@ -110,6 +112,7 @@
             this.btnCalendar.TabIndex = 10;
             this.btnCalendar.Text = "View Calendar";
             this.btnCalendar.UseVisualStyleBackColor = true;
+            this.btnCalendar.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
             // btnUser
             // 
@@ -121,7 +124,7 @@
             this.btnUser.TabIndex = 7;
             this.btnUser.Text = "User Manager";
             this.btnUser.UseVisualStyleBackColor = true;
-            this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
+            this.btnUser.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
             // btnExit
             // 
@@ -133,7 +136,7 @@
             this.btnExit.TabIndex = 11;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.Button10_Click);
+            this.btnExit.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
             // btnClass
             // 
@@ -145,6 +148,7 @@
             this.btnClass.TabIndex = 4;
             this.btnClass.Text = "Class Manager";
             this.btnClass.UseVisualStyleBackColor = true;
+            this.btnClass.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
             // btnGroup
             // 
@@ -156,6 +160,7 @@
             this.btnGroup.TabIndex = 6;
             this.btnGroup.Text = "Group Manager";
             this.btnGroup.UseVisualStyleBackColor = true;
+            this.btnGroup.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
             // btnCourse
             // 
@@ -167,6 +172,7 @@
             this.btnCourse.TabIndex = 5;
             this.btnCourse.Text = "Course Manager";
             this.btnCourse.UseVisualStyleBackColor = true;
+            this.btnCourse.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
             // btnRoom
             // 
@@ -178,6 +184,7 @@
             this.btnRoom.TabIndex = 3;
             this.btnRoom.Text = "Room Manager";
             this.btnRoom.UseVisualStyleBackColor = true;
+            this.btnRoom.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
             // btnBooking
             // 
@@ -189,7 +196,7 @@
             this.btnBooking.TabIndex = 2;
             this.btnBooking.Text = "Booking Manager";
             this.btnBooking.UseVisualStyleBackColor = true;
-            this.btnBooking.Click += new System.EventHandler(this.BtnBooking_Click);
+            this.btnBooking.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
             // pnlHeader
             // 
@@ -255,7 +262,7 @@
         private System.Windows.Forms.Button btnGroup;
         private System.Windows.Forms.Button btnCourse;
         private System.Windows.Forms.Button btnRoom;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblLogo;
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Panel pnlMain;
     }
