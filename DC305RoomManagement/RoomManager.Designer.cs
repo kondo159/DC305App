@@ -43,8 +43,8 @@
             this.btnUpdateRoom = new System.Windows.Forms.Button();
             this.btnCreateRoom = new System.Windows.Forms.Button();
             this.Equipments = new System.Windows.Forms.Label();
-            this.btnEditEquipment = new System.Windows.Forms.Button();
-            this.btnDisableEquipment = new System.Windows.Forms.Button();
+            this.btnAddEquipment = new System.Windows.Forms.Button();
+            this.btnRemoveEquipment = new System.Windows.Forms.Button();
             this.numCapacity = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoomList)).BeginInit();
             this.pnlMainContent.SuspendLayout();
@@ -105,15 +105,20 @@
             // 
             // dgvRoomList
             // 
+            this.dgvRoomList.AllowUserToAddRows = false;
+            this.dgvRoomList.AllowUserToDeleteRows = false;
             this.dgvRoomList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRoomList.Location = new System.Drawing.Point(299, 41);
+            this.dgvRoomList.MultiSelect = false;
             this.dgvRoomList.Name = "dgvRoomList";
+            this.dgvRoomList.ReadOnly = true;
             this.dgvRoomList.Size = new System.Drawing.Size(319, 155);
             this.dgvRoomList.TabIndex = 2;
             // 
             // btnDisableRoom
             // 
-            this.btnDisableRoom.Location = new System.Drawing.Point(543, 15);
+            this.btnDisableRoom.Enabled = false;
+            this.btnDisableRoom.Location = new System.Drawing.Point(184, 414);
             this.btnDisableRoom.Name = "btnDisableRoom";
             this.btnDisableRoom.Size = new System.Drawing.Size(75, 23);
             this.btnDisableRoom.TabIndex = 3;
@@ -122,15 +127,17 @@
             // 
             // btnEditRoom
             // 
-            this.btnEditRoom.Location = new System.Drawing.Point(462, 15);
+            this.btnEditRoom.Location = new System.Drawing.Point(543, 15);
             this.btnEditRoom.Name = "btnEditRoom";
             this.btnEditRoom.Size = new System.Drawing.Size(75, 23);
             this.btnEditRoom.TabIndex = 3;
             this.btnEditRoom.Text = "Edit";
             this.btnEditRoom.UseVisualStyleBackColor = true;
+            this.btnEditRoom.Click += new System.EventHandler(this.BtnEditRoom_Click);
             // 
             // pnlMainContent
             // 
+            this.pnlMainContent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pnlMainContent.Controls.Add(this.numCapacity);
             this.pnlMainContent.Controls.Add(this.btnResetData);
             this.pnlMainContent.Controls.Add(this.dgvEquipments);
@@ -141,10 +148,10 @@
             this.pnlMainContent.Controls.Add(this.txtRoomNameValue);
             this.pnlMainContent.Controls.Add(this.dgvRoomList);
             this.pnlMainContent.Controls.Add(this.lblDescription);
-            this.pnlMainContent.Controls.Add(this.btnEditEquipment);
+            this.pnlMainContent.Controls.Add(this.btnAddEquipment);
             this.pnlMainContent.Controls.Add(this.txtDescriptionValue);
             this.pnlMainContent.Controls.Add(this.lblRoomList);
-            this.pnlMainContent.Controls.Add(this.btnDisableEquipment);
+            this.pnlMainContent.Controls.Add(this.btnRemoveEquipment);
             this.pnlMainContent.Controls.Add(this.btnEditRoom);
             this.pnlMainContent.Controls.Add(this.lblCapacity);
             this.pnlMainContent.Controls.Add(this.btnDisableRoom);
@@ -156,24 +163,31 @@
             // 
             // btnResetData
             // 
-            this.btnResetData.Location = new System.Drawing.Point(346, 414);
+            this.btnResetData.Location = new System.Drawing.Point(265, 414);
             this.btnResetData.Name = "btnResetData";
             this.btnResetData.Size = new System.Drawing.Size(75, 23);
             this.btnResetData.TabIndex = 0;
             this.btnResetData.Text = "Reset";
             this.btnResetData.UseVisualStyleBackColor = true;
+            this.btnResetData.Click += new System.EventHandler(this.BtnResetData_Click);
             // 
             // dgvEquipments
             // 
+            this.dgvEquipments.AllowUserToAddRows = false;
+            this.dgvEquipments.AllowUserToDeleteRows = false;
+            this.dgvEquipments.AllowUserToOrderColumns = true;
             this.dgvEquipments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEquipments.Location = new System.Drawing.Point(299, 245);
+            this.dgvEquipments.MultiSelect = false;
             this.dgvEquipments.Name = "dgvEquipments";
+            this.dgvEquipments.ReadOnly = true;
             this.dgvEquipments.Size = new System.Drawing.Size(319, 155);
             this.dgvEquipments.TabIndex = 2;
             // 
             // btnUpdateRoom
             // 
-            this.btnUpdateRoom.Location = new System.Drawing.Point(265, 414);
+            this.btnUpdateRoom.Enabled = false;
+            this.btnUpdateRoom.Location = new System.Drawing.Point(103, 414);
             this.btnUpdateRoom.Name = "btnUpdateRoom";
             this.btnUpdateRoom.Size = new System.Drawing.Size(75, 23);
             this.btnUpdateRoom.TabIndex = 0;
@@ -182,7 +196,7 @@
             // 
             // btnCreateRoom
             // 
-            this.btnCreateRoom.Location = new System.Drawing.Point(184, 414);
+            this.btnCreateRoom.Location = new System.Drawing.Point(22, 414);
             this.btnCreateRoom.Name = "btnCreateRoom";
             this.btnCreateRoom.Size = new System.Drawing.Size(75, 23);
             this.btnCreateRoom.TabIndex = 0;
@@ -198,23 +212,23 @@
             this.Equipments.TabIndex = 0;
             this.Equipments.Text = "Equipments";
             // 
-            // btnEditEquipment
+            // btnAddEquipment
             // 
-            this.btnEditEquipment.Location = new System.Drawing.Point(462, 219);
-            this.btnEditEquipment.Name = "btnEditEquipment";
-            this.btnEditEquipment.Size = new System.Drawing.Size(75, 23);
-            this.btnEditEquipment.TabIndex = 3;
-            this.btnEditEquipment.Text = "Edit";
-            this.btnEditEquipment.UseVisualStyleBackColor = true;
+            this.btnAddEquipment.Location = new System.Drawing.Point(462, 219);
+            this.btnAddEquipment.Name = "btnAddEquipment";
+            this.btnAddEquipment.Size = new System.Drawing.Size(75, 23);
+            this.btnAddEquipment.TabIndex = 3;
+            this.btnAddEquipment.Text = "Add";
+            this.btnAddEquipment.UseVisualStyleBackColor = true;
             // 
-            // btnDisableEquipment
+            // btnRemoveEquipment
             // 
-            this.btnDisableEquipment.Location = new System.Drawing.Point(543, 219);
-            this.btnDisableEquipment.Name = "btnDisableEquipment";
-            this.btnDisableEquipment.Size = new System.Drawing.Size(75, 23);
-            this.btnDisableEquipment.TabIndex = 3;
-            this.btnDisableEquipment.Text = "Disable";
-            this.btnDisableEquipment.UseVisualStyleBackColor = true;
+            this.btnRemoveEquipment.Location = new System.Drawing.Point(543, 219);
+            this.btnRemoveEquipment.Name = "btnRemoveEquipment";
+            this.btnRemoveEquipment.Size = new System.Drawing.Size(75, 23);
+            this.btnRemoveEquipment.TabIndex = 3;
+            this.btnRemoveEquipment.Text = "Remove";
+            this.btnRemoveEquipment.UseVisualStyleBackColor = true;
             // 
             // numCapacity
             // 
@@ -261,8 +275,8 @@
         private System.Windows.Forms.Panel pnlMainContent;
         private System.Windows.Forms.DataGridView dgvEquipments;
         private System.Windows.Forms.Label Equipments;
-        private System.Windows.Forms.Button btnEditEquipment;
-        private System.Windows.Forms.Button btnDisableEquipment;
+        private System.Windows.Forms.Button btnAddEquipment;
+        private System.Windows.Forms.Button btnRemoveEquipment;
         private System.Windows.Forms.Button btnCreateRoom;
         private System.Windows.Forms.Button btnResetData;
         private System.Windows.Forms.Button btnUpdateRoom;

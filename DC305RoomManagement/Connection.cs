@@ -12,7 +12,7 @@ namespace DC305RoomManagement
     class Connection
     {
         SqlConnection conn;
-        string conStr = ConfigurationManager.ConnectionStrings["Aspire2StudentT2"].ConnectionString;
+        string conStr = ConfigurationManager.ConnectionStrings["DC305RoomManagementDB"].ConnectionString;
         public Connection()
         {
             conn = new SqlConnection(conStr);
