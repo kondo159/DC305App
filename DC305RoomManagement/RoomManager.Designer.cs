@@ -38,18 +38,27 @@
             this.btnDisableRoom = new System.Windows.Forms.Button();
             this.btnEditRoom = new System.Windows.Forms.Button();
             this.pnlMainContent = new System.Windows.Forms.Panel();
+            this.numCapacity = new System.Windows.Forms.NumericUpDown();
             this.btnResetData = new System.Windows.Forms.Button();
             this.dgvEquipments = new System.Windows.Forms.DataGridView();
+            this.EquipName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EquipQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EquipDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EquipId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnUpdateRoom = new System.Windows.Forms.Button();
             this.btnCreateRoom = new System.Windows.Forms.Button();
             this.Equipments = new System.Windows.Forms.Label();
             this.btnAddEquipment = new System.Windows.Forms.Button();
             this.btnRemoveEquipment = new System.Windows.Forms.Button();
-            this.numCapacity = new System.Windows.Forms.NumericUpDown();
+            this.RoomName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomCapacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomEnable = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoomList)).BeginInit();
             this.pnlMainContent.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEquipments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCapacity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEquipments)).BeginInit();
             this.SuspendLayout();
             // 
             // lblRoomName
@@ -107,12 +116,19 @@
             // 
             this.dgvRoomList.AllowUserToAddRows = false;
             this.dgvRoomList.AllowUserToDeleteRows = false;
+            this.dgvRoomList.AllowUserToOrderColumns = true;
             this.dgvRoomList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRoomList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.RoomName,
+            this.RoomCapacity,
+            this.RoomId,
+            this.RoomDescription,
+            this.RoomEnable});
             this.dgvRoomList.Location = new System.Drawing.Point(299, 41);
             this.dgvRoomList.MultiSelect = false;
             this.dgvRoomList.Name = "dgvRoomList";
             this.dgvRoomList.ReadOnly = true;
-            this.dgvRoomList.Size = new System.Drawing.Size(319, 155);
+            this.dgvRoomList.Size = new System.Drawing.Size(446, 172);
             this.dgvRoomList.TabIndex = 2;
             // 
             // btnDisableRoom
@@ -127,7 +143,7 @@
             // 
             // btnEditRoom
             // 
-            this.btnEditRoom.Location = new System.Drawing.Point(543, 15);
+            this.btnEditRoom.Location = new System.Drawing.Point(670, 12);
             this.btnEditRoom.Name = "btnEditRoom";
             this.btnEditRoom.Size = new System.Drawing.Size(75, 23);
             this.btnEditRoom.TabIndex = 3;
@@ -158,8 +174,20 @@
             this.pnlMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMainContent.Location = new System.Drawing.Point(0, 0);
             this.pnlMainContent.Name = "pnlMainContent";
-            this.pnlMainContent.Size = new System.Drawing.Size(638, 461);
+            this.pnlMainContent.Size = new System.Drawing.Size(757, 461);
             this.pnlMainContent.TabIndex = 4;
+            // 
+            // numCapacity
+            // 
+            this.numCapacity.Location = new System.Drawing.Point(15, 103);
+            this.numCapacity.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.numCapacity.Name = "numCapacity";
+            this.numCapacity.Size = new System.Drawing.Size(58, 22);
+            this.numCapacity.TabIndex = 4;
             // 
             // btnResetData
             // 
@@ -177,12 +205,46 @@
             this.dgvEquipments.AllowUserToDeleteRows = false;
             this.dgvEquipments.AllowUserToOrderColumns = true;
             this.dgvEquipments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEquipments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.EquipName,
+            this.EquipQuantity,
+            this.EquipDescription,
+            this.EquipId});
             this.dgvEquipments.Location = new System.Drawing.Point(299, 245);
             this.dgvEquipments.MultiSelect = false;
             this.dgvEquipments.Name = "dgvEquipments";
             this.dgvEquipments.ReadOnly = true;
-            this.dgvEquipments.Size = new System.Drawing.Size(319, 155);
+            this.dgvEquipments.Size = new System.Drawing.Size(446, 155);
             this.dgvEquipments.TabIndex = 2;
+            // 
+            // EquipName
+            // 
+            this.EquipName.DataPropertyName = "name";
+            this.EquipName.HeaderText = "Name";
+            this.EquipName.Name = "EquipName";
+            this.EquipName.ReadOnly = true;
+            // 
+            // EquipQuantity
+            // 
+            this.EquipQuantity.DataPropertyName = "Quantity";
+            this.EquipQuantity.HeaderText = "Quantity";
+            this.EquipQuantity.Name = "EquipQuantity";
+            this.EquipQuantity.ReadOnly = true;
+            // 
+            // EquipDescription
+            // 
+            this.EquipDescription.DataPropertyName = "Description";
+            this.EquipDescription.HeaderText = "Description";
+            this.EquipDescription.Name = "EquipDescription";
+            this.EquipDescription.ReadOnly = true;
+            // 
+            // EquipId
+            // 
+            this.EquipId.DataPropertyName = "EquipId";
+            this.EquipId.HeaderText = "ID";
+            this.EquipId.Name = "EquipId";
+            this.EquipId.ReadOnly = true;
+            this.EquipId.Visible = false;
             // 
             // btnUpdateRoom
             // 
@@ -202,6 +264,7 @@
             this.btnCreateRoom.TabIndex = 0;
             this.btnCreateRoom.Text = "Create";
             this.btnCreateRoom.UseVisualStyleBackColor = true;
+            this.btnCreateRoom.Click += new System.EventHandler(this.BtnCreateRoom_Click);
             // 
             // Equipments
             // 
@@ -214,7 +277,7 @@
             // 
             // btnAddEquipment
             // 
-            this.btnAddEquipment.Location = new System.Drawing.Point(462, 219);
+            this.btnAddEquipment.Location = new System.Drawing.Point(500, 219);
             this.btnAddEquipment.Name = "btnAddEquipment";
             this.btnAddEquipment.Size = new System.Drawing.Size(75, 23);
             this.btnAddEquipment.TabIndex = 3;
@@ -223,30 +286,55 @@
             // 
             // btnRemoveEquipment
             // 
-            this.btnRemoveEquipment.Location = new System.Drawing.Point(543, 219);
+            this.btnRemoveEquipment.Location = new System.Drawing.Point(581, 219);
             this.btnRemoveEquipment.Name = "btnRemoveEquipment";
             this.btnRemoveEquipment.Size = new System.Drawing.Size(75, 23);
             this.btnRemoveEquipment.TabIndex = 3;
             this.btnRemoveEquipment.Text = "Remove";
             this.btnRemoveEquipment.UseVisualStyleBackColor = true;
+            this.btnRemoveEquipment.Click += new System.EventHandler(this.BtnRemoveEquipment_Click);
             // 
-            // numCapacity
+            // RoomName
             // 
-            this.numCapacity.Location = new System.Drawing.Point(15, 103);
-            this.numCapacity.Maximum = new decimal(new int[] {
-            200,
-            0,
-            0,
-            0});
-            this.numCapacity.Name = "numCapacity";
-            this.numCapacity.Size = new System.Drawing.Size(58, 22);
-            this.numCapacity.TabIndex = 4;
+            this.RoomName.DataPropertyName = "Name";
+            this.RoomName.HeaderText = "Room Name";
+            this.RoomName.Name = "RoomName";
+            this.RoomName.ReadOnly = true;
+            // 
+            // RoomCapacity
+            // 
+            this.RoomCapacity.DataPropertyName = "Capacity";
+            this.RoomCapacity.HeaderText = "Capacity";
+            this.RoomCapacity.Name = "RoomCapacity";
+            this.RoomCapacity.ReadOnly = true;
+            // 
+            // RoomId
+            // 
+            this.RoomId.DataPropertyName = "RoomId";
+            this.RoomId.HeaderText = "Id";
+            this.RoomId.Name = "RoomId";
+            this.RoomId.ReadOnly = true;
+            this.RoomId.Visible = false;
+            // 
+            // RoomDescription
+            // 
+            this.RoomDescription.DataPropertyName = "Description";
+            this.RoomDescription.HeaderText = "Description";
+            this.RoomDescription.Name = "RoomDescription";
+            this.RoomDescription.ReadOnly = true;
+            // 
+            // RoomEnable
+            // 
+            this.RoomEnable.DataPropertyName = "Enable";
+            this.RoomEnable.HeaderText = "Enable";
+            this.RoomEnable.Name = "RoomEnable";
+            this.RoomEnable.ReadOnly = true;
             // 
             // RoomManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(638, 461);
+            this.ClientSize = new System.Drawing.Size(757, 461);
             this.Controls.Add(this.pnlMainContent);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -255,8 +343,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoomList)).EndInit();
             this.pnlMainContent.ResumeLayout(false);
             this.pnlMainContent.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEquipments)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCapacity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEquipments)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -281,5 +369,14 @@
         private System.Windows.Forms.Button btnResetData;
         private System.Windows.Forms.Button btnUpdateRoom;
         private System.Windows.Forms.NumericUpDown numCapacity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EquipName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EquipQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EquipDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EquipId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoomName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoomCapacity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoomId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoomDescription;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn RoomEnable;
     }
 }
