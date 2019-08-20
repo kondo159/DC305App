@@ -45,6 +45,8 @@
     <Compile Include="Models\Equipment.cs" />
     <Compile Include="Models\EquipmentType.cs" />
     <Compile Include="Models\Inventory.cs" />
+    <Compile Include="Models\Issue.cs" />
+    <Compile Include="Models\IssueView.cs" />
     <Compile Include="Models\Repository\IDataStore.cs" />
     <Compile Include="Models\Repository\Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

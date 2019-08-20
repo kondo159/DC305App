@@ -10,7 +10,6 @@ namespace DC305RoomManagementClassLibrary.Models
     {
         public int EquipmentID { get; set; } = 0;
         public EquipmentType EType { get; set; }
-        //public int ETypeID { get; set; } = 0;
         public string EquipmentName { get; set; }
         public int Quantity { get; set; }
         public string Description { get; set; }

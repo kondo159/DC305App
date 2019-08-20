@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -62,6 +63,65 @@ namespace DC305RoomManagementClassLibrary.Models.Repository
                    );
         }
 
+        public DataTable GetIssues()
+        {
+            DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(
+                ConfigurationManager.ConnectionStrings[ConnectionName].ConnectionString))
+            {
+                SqlDataAdapter sqlData = new SqlDataAdapter("spIssue_GetAll", connection);
+                sqlData.SelectCommand.CommandType = CommandType.StoredProcedure;
+                
+                sqlData.Fill(dataTable);
+            }
+
+            return dataTable;
+        }
+
+        public int SaveIssue(Issue issue)
+        {
+            return ExecSqlQueryScalar(ConnectionName, "spIssue_Save",
+                    new SqlParameter("@IssueID", issue.IssueID),
+                    new SqlParameter("@IssueName", issue.Title),
+                    new SqlParameter("@Status", issue.Status),
+                    new SqlParameter("@Description", issue.Description),
+                    new SqlParameter("@CreatedDate", issue.CreatedAt),
+                    new SqlParameter("@ClosedDate", issue.ClosedAt),
+                    new SqlParameter("@RoomID", issue.RoomID)
+                );
+        }
+
+        public DataTable GetRooms()
+        {
+            DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(
+                ConfigurationManager.ConnectionStrings[ConnectionName].ConnectionString))
+            {
+                SqlDataAdapter sqlData = new SqlDataAdapter("spRoom_GetAll", connection);
+                sqlData.SelectCommand.CommandType = CommandType.StoredProcedure;
+                sqlData.Fill(dataTable);
+            }
+
+            return dataTable;
+        }
+
+        public DataTable GetRoomsByName(string RoomName = "")
+        {
+            DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(
+                ConfigurationManager.ConnectionStrings[ConnectionName].ConnectionString))
+            {
+                SqlDataAdapter sqlData = new SqlDataAdapter("spRoom_GetNames", connection);
+                sqlData.SelectCommand.CommandType = CommandType.StoredProcedure;
+                sqlData.SelectCommand.Parameters.Add(new SqlParameter("@RoomName", RoomName));
+                sqlData.Fill(dataTable);
+            }
+
+            return dataTable;
+        }
         /// <summary>
         /// Execute StoredProcedure with Parameters
         /// </summary>
@@ -112,8 +172,6 @@ namespace DC305RoomManagementClassLibrary.Models.Repository
 
                 result.Add(t);
             }
-            reader.Close();
-            conn.Close();
             return result;
 
         }
