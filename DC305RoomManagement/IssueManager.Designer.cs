@@ -48,12 +48,20 @@
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClosedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblDateFrom = new System.Windows.Forms.Label();
+            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
+            this.lblDateTo = new System.Windows.Forms.Label();
+            this.dtpTo = new System.Windows.Forms.DateTimePicker();
             this.pnlMainContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIssues)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMainContent
             // 
+            this.pnlMainContent.Controls.Add(this.dtpTo);
+            this.pnlMainContent.Controls.Add(this.dtpFrom);
+            this.pnlMainContent.Controls.Add(this.lblDateTo);
+            this.pnlMainContent.Controls.Add(this.lblDateFrom);
             this.pnlMainContent.Controls.Add(this.cbRoomName);
             this.pnlMainContent.Controls.Add(this.lblRoomName);
             this.pnlMainContent.Controls.Add(this.btnPrint);
@@ -93,21 +101,23 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(713, 20);
+            this.btnPrint.Location = new System.Drawing.Point(742, 17);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(75, 23);
             this.btnPrint.TabIndex = 9;
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.BtnPrint_Click);
             // 
             // btnFilterDate
             // 
-            this.btnFilterDate.Location = new System.Drawing.Point(627, 20);
+            this.btnFilterDate.Location = new System.Drawing.Point(639, 18);
             this.btnFilterDate.Name = "btnFilterDate";
             this.btnFilterDate.Size = new System.Drawing.Size(80, 23);
             this.btnFilterDate.TabIndex = 9;
-            this.btnFilterDate.Text = "Filter Date";
+            this.btnFilterDate.Text = "Filter";
             this.btnFilterDate.UseVisualStyleBackColor = true;
+            this.btnFilterDate.Click += new System.EventHandler(this.BtnFilterDate_Click);
             // 
             // btnCreateIssue
             // 
@@ -138,7 +148,6 @@
             this.dgvIssues.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvIssues.Size = new System.Drawing.Size(493, 359);
             this.dgvIssues.TabIndex = 8;
-            this.dgvIssues.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvIssues_CellContentClick);
             this.dgvIssues.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvIssues_CellDoubleClick);
             // 
             // cbIssueStatusValue
@@ -242,6 +251,42 @@
             this.ClosedAt.HeaderText = "Closed Date";
             this.ClosedAt.Name = "ClosedAt";
             // 
+            // lblDateFrom
+            // 
+            this.lblDateFrom.AutoSize = true;
+            this.lblDateFrom.Location = new System.Drawing.Point(321, 20);
+            this.lblDateFrom.Name = "lblDateFrom";
+            this.lblDateFrom.Size = new System.Drawing.Size(42, 16);
+            this.lblDateFrom.TabIndex = 12;
+            this.lblDateFrom.Text = "From:";
+            // 
+            // dtpFrom
+            // 
+            this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFrom.Location = new System.Drawing.Point(369, 18);
+            this.dtpFrom.MinDate = new System.DateTime(2019, 8, 1, 0, 0, 0, 0);
+            this.dtpFrom.Name = "dtpFrom";
+            this.dtpFrom.Size = new System.Drawing.Size(102, 22);
+            this.dtpFrom.TabIndex = 13;
+            // 
+            // lblDateTo
+            // 
+            this.lblDateTo.AutoSize = true;
+            this.lblDateTo.Location = new System.Drawing.Point(487, 20);
+            this.lblDateTo.Name = "lblDateTo";
+            this.lblDateTo.Size = new System.Drawing.Size(28, 16);
+            this.lblDateTo.TabIndex = 12;
+            this.lblDateTo.Text = "To:";
+            // 
+            // dtpTo
+            // 
+            this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpTo.Location = new System.Drawing.Point(521, 18);
+            this.dtpTo.MinDate = new System.DateTime(2019, 8, 1, 0, 0, 0, 0);
+            this.dtpTo.Name = "dtpTo";
+            this.dtpTo.Size = new System.Drawing.Size(102, 22);
+            this.dtpTo.TabIndex = 13;
+            // 
             // IssueManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -280,5 +325,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn CreatedAt;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClosedAt;
+        private System.Windows.Forms.DateTimePicker dtpFrom;
+        private System.Windows.Forms.Label lblDateFrom;
+        private System.Windows.Forms.DateTimePicker dtpTo;
+        private System.Windows.Forms.Label lblDateTo;
     }
 }

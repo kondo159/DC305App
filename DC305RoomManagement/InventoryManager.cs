@@ -15,10 +15,9 @@ namespace DC305RoomManagement
     public partial class InventoryManager : Form
     {
         Equipment Equipment { get; set; } = new Equipment();
-        //EquipmentType EType { get; set; } = new EquipmentType();
-        List<EquipmentType> ETypeList { get; set; } = new List<EquipmentType>();
 
         Repository repository = new Repository();
+
         public InventoryManager()
         {
             InitializeComponent();
@@ -31,130 +30,21 @@ namespace DC305RoomManagement
         /// </summary>
         private void LoadETypeNames()
         {
-            List<string> ETypeNameList = new List<string>();
-            ETypeList = repository.GetETypes();
-
-            foreach(EquipmentType EType in ETypeList)
-            {
-                ETypeNameList.Add(EType.ETypeName);
-            }
-
-            cbItemTypeValue.DataSource = ETypeNameList;
+            cbItemTypeValue.ValueMember = "ETypeID";
+            cbItemTypeValue.DisplayMember = "ETypeName";
+            cbItemTypeValue.DataSource = repository.GetETypes();
             cbItemTypeValue.SelectedIndex = -1;
         }
+
         /// <summary>
         /// Loads the Inventory list into the GridView and setting the order of the collumns.
         /// </summary>
         private void LoadEquipmentList()
         {
-            // Bind the List with DataGridView
-            List<Inventory> list = repository.GetEquipment();
-            BindingList<Inventory> bindingList = new BindingList<Inventory>(list);
-            BindingSource source = new BindingSource(bindingList, null);
-            dgvInventory.DataSource = source;
-            
-            // Hides, reorders and renames some columns
-            for(int i = 0; i < dgvInventory.Columns.Count; i++)
-            {
-                string columnName = dgvInventory.Columns[i].Name;
-                switch (columnName)
-                {
-                    case "EquipmentID":
-                        dgvInventory.Columns[columnName].Visible = false;
-                        dgvInventory.Columns[columnName].DisplayIndex = 0;
-                        break;
-                    case "ETypeID":
-                        dgvInventory.Columns[columnName].Visible = false;
-                        dgvInventory.Columns[columnName].DisplayIndex = 1;
-                        break;
-                    case "EquipmentName":
-                        dgvInventory.Columns[columnName].DisplayIndex = 2;
-                        dgvInventory.Columns[columnName].HeaderText = "Name";
-                        break;
-                    case "ETypeName":
-                        dgvInventory.Columns[columnName].DisplayIndex = 3;
-                        dgvInventory.Columns[columnName].HeaderText = "Type";
-                        break;
-                    case "Quantity":
-                        dgvInventory.Columns[columnName].DisplayIndex = 4;
-                        break;
-                    case "Description":
-                        dgvInventory.Columns[columnName].DisplayIndex = 5;
-                        break;
-                    case "Active":
-                        dgvInventory.Columns[columnName].DisplayIndex = 6;
-                        break;
-                    default:
-                        MessageBox.Show(dgvInventory.Columns[columnName].Name);
-                        break;
-                }
-            }
-            
-        }
-
-        /// <summary>
-        /// Adds a new Equipment to the database
-        /// </summary>
-        private void BtnAdd_Click(object sender, EventArgs e)
-        {
-            EquipmentType EType = new EquipmentType(getETypeID(cbItemTypeValue.Text), cbItemTypeValue.Text);
-            
-            // If it is a new Equipment
-            if(IsValid() && Equipment.EquipmentID == 0)
-            {
-                Equipment = new Equipment(
-                    txtItemNameValue.Text, 
-                    decimal.ToInt32(nudQtyValue.Value), 
-                    txtDescriptionValue.Text, false
-                );
-                Equipment.EType = EType;
-
-                // If there is a new EquipmentType it will be added to the database
-                if (EType.ETypeID == 0)
-                {
-                    Equipment.EType.ETypeID = repository.SaveEType(EType);
-                    LoadETypeNames();
-                }
-
-                // Reloads the List of Inventory
-                if (repository.SaveEquipment(Equipment) > 0)
-                {
-                    LoadEquipmentList();
-                }
-
-                // Clear the Equipment property
-                Equipment = new Equipment();
-            }
-
-            ClearFields(typeof(TextBox));
-            ClearFields(typeof(ComboBox));
-            ClearFields(typeof(NumericUpDown));
-        }
-
-        /// <summary>
-        /// Clear Values of Fields of the particular Type (TextBox, ComboBox)
-        /// </summary>
-        private void ClearFields(Type type)
-        {
-            List<Control> items = GetControls(pnlMainContent, type).ToList();
-            string test = type.Name;
-            foreach (Control item in items)
-            {
-                switch (type.Name)
-                {
-                    case "TextBox":
-                        (item as TextBox).Text = string.Empty;
-                        break;
-                    case "ComboBox":
-                        (item as ComboBox).Text = string.Empty;
-                        break;
-                    case "NumericUpDown":
-                        (item as NumericUpDown).Value = 0;
-                        break;
-                }
-
-                errorProvider.Clear();
-            }
+            EType.ValueMember = "ETypeID";
+            EType.DisplayMember = "ETypeName";
+            EType.DataSource = repository.GetETypes();
+            dgvInventory.DataSource = repository.GetEquipment();
         }
 
         /// <summary>
@@ -172,45 +62,7 @@ namespace DC305RoomManagement
                                       .Where(c => c.GetType() == type);
         }
 
-        private int getETypeID(string TypeName)
-        {
-            EquipmentType EType = ETypeList.Find(t => t.ETypeName == TypeName) ?? new EquipmentType();
-            return EType.ETypeID;
-        }
-
-        private void BtnUpdate_Click(object sender, EventArgs e)
-        {
-            Equipment.EType = new EquipmentType(getETypeID(cbItemTypeValue.Text), cbItemTypeValue.Text);
-
-            if (IsValid() && (Equipment.EquipmentID != 0))
-            {
-                //
-                if (Equipment.EType.ETypeID == 0)
-                {
-                    Equipment.EType.ETypeID = repository.SaveEType(Equipment.EType);
-                    LoadETypeNames();
-                }
-
-                Equipment.EquipmentName = txtItemNameValue.Text;
-                Equipment.Quantity = (int)nudQtyValue.Value;
-                Equipment.Description = txtDescriptionValue.Text;
-                Equipment.Active = false;
-
-                if (repository.SaveEquipment(Equipment) > 0)
-                {
-                    LoadEquipmentList();
-                }
-
-                // Clear the Equipment property
-                Equipment = new Equipment(); ;
-            }
-
-            ClearFields(typeof(TextBox));
-            ClearFields(typeof(ComboBox));
-            ClearFields(typeof(NumericUpDown));
-        }
-
-        private void BtnDisable_Click(object sender, EventArgs e)
+        private void BtnEnableDisable_Click(object sender, EventArgs e)
         {
             DataGridViewRow row = dgvInventory.CurrentRow;
             fillEquipmentData(row);
@@ -235,7 +87,18 @@ namespace DC305RoomManagement
             txtItemNameValue.Text = Equipment.EquipmentName;
             nudQtyValue.Value = Equipment.Quantity;
             txtDescriptionValue.Text = Equipment.Description;
-            cbItemTypeValue.SelectedIndex = cbItemTypeValue.FindStringExact(Equipment.EType.ETypeName);
+            cbItemTypeValue.SelectedValue = Equipment.ETypeID;
+        }
+
+        public void fillEquipment()
+        {
+            Equipment.EquipmentName = txtItemNameValue.Text;
+            Equipment.Quantity = (int)nudQtyValue.Value;
+            Equipment.Description = txtDescriptionValue.Text;
+            if(Equipment.EquipmentID == 0)
+            {
+                Equipment.Active = false;
+            } 
         }
 
         private void fillEquipmentData(DataGridViewRow row)
@@ -244,7 +107,7 @@ namespace DC305RoomManagement
             Equipment.EquipmentName = row.Cells["EquipmentName"].Value.ToString();
             Equipment.Quantity = (int)row.Cells["Quantity"].Value;
             Equipment.Description = row.Cells["Description"].Value.ToString();
-            Equipment.EType = new EquipmentType((int)row.Cells["ETypeID"].Value, row.Cells["ETypeName"].Value.ToString());
+            Equipment.ETypeID = (int)row.Cells["EType"].Value;
             Equipment.Active = (bool)row.Cells["Active"].Value;
         }
 
@@ -309,11 +172,47 @@ namespace DC305RoomManagement
             DataGridViewRow row = (sender as DataGridView).CurrentRow;
             if ((bool)row.Cells["Active"].Value)
             {
-                btnDisable.Text = "Disable";
+                btnEnableDisable.Text = "Disable";
             }
             else
             {
-                btnDisable.Text = "Activate";
+                btnEnableDisable.Text = "Activate";
+            }
+        }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            if (IsValid())
+            {
+                int ETypeID = (int)(cbItemTypeValue.SelectedValue ?? 0);
+
+                if (Equipment.ETypeID == 0)
+
+                {
+                    if(ETypeID == 0)
+                    {
+                        ETypeID = repository.SaveEType(new EquipmentType(ETypeID, cbItemTypeValue.Text));
+                    }
+
+                    Equipment.ETypeID = ETypeID;
+                }
+
+                fillEquipment();
+
+                int id = repository.SaveEquipment(Equipment);
+                if (id != 0)
+                {
+                    FormHelper.ClearFields(pnlMainContent, typeof(TextBox));
+                    FormHelper.ClearFields(pnlMainContent, typeof(ComboBox));
+                    LoadEquipmentList();
+                    MessageBox.Show("Data was saved successfully!", "Operation result",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("An error occured.\nData was not saved!", "Operation result",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

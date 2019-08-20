@@ -1,15 +1,8 @@
 ﻿using DC305RoomManagementClassLibrary.Models;
 using DC305RoomManagementClassLibrary.Models.Repository;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
 using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing.Printing;
 using System.Windows.Forms;
 
 namespace DC305RoomManagement
@@ -24,31 +17,36 @@ namespace DC305RoomManagement
         {
             InitializeComponent();
         }
-        // TODO: Update Issue Data
-        // TODO: Filter Issue By Date
-        // TODO: Print Issue
 
+        /// <summary>
+        /// A handler for saving data to the database
+        /// </summary>
+        /// <param name="sender">Button Object</param>
+        /// <param name="e">Arguments of Event</param>
         private void BtnSaveIssue_Click(object sender, EventArgs e)
         {
             if (IsValid())
             {
                 int roomID = (int)cbRoomName.SelectedValue;
 
+                // If it is a new Issue
                 if (Issue.IssueID == 0)
-
                 {
                     Issue.CreatedAt = DateTime.Now;
                     Issue.RoomID = roomID;
                 }
 
-                fillIssue();
+                fillIssue(); // Fills the Issue property by data from the form fields
 
                 int id = repository.SaveIssue(Issue);
+                
+                // If data was saved successfully
                 if (id != 0)
                 {
                     FormHelper.ClearFields(pnlMainContent, typeof(TextBox));
                     FormHelper.ClearFields(pnlMainContent, typeof(ComboBox));
                     LoadIssueList();
+
                     MessageBox.Show("Data was saved successfully!", "Operation result", 
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -61,7 +59,7 @@ namespace DC305RoomManagement
         }
 
         /// <summary>
-        /// Fills form fields with data
+        /// Fills form fields with data from the Issue object
         /// </summary>
         /// <param name="issue">Issue</param>
         private void fillFields(Issue issue)
@@ -85,6 +83,10 @@ namespace DC305RoomManagement
             Issue.RoomID = (int)cbRoomName.SelectedValue;
         }
 
+        /// <summary>
+        /// Validation of the form fields
+        /// </summary>
+        /// <returns>Returns true if form filds are filled</returns>
         private bool IsValid()
         {
             bool valid = true;
@@ -120,7 +122,7 @@ namespace DC305RoomManagement
         }
 
         /// <summary>
-        /// Loads the list of the Enable Rooms into ComboBox (cbRoomName)
+        /// Loads the list of the Rooms into ComboBox (cbRoomName)
         /// </summary>
         private void LoadRoomList()
         {
@@ -130,12 +132,24 @@ namespace DC305RoomManagement
             cbRoomName.SelectedIndex = -1;
         }
 
+        /// <summary>
+        /// A handler of the main form loading. 
+        /// Loading Issues and Rooms list into controls of the form.
+        /// </summary>
+        /// <param name="sender">Main Form</param>
+        /// <param name="e">Arguments</param>
         private void IssueManager_Load(object sender, EventArgs e)
         {
             LoadIssueList();
             LoadRoomList();
         }
 
+        /// <summary>
+        /// A handler of the CellDoubleClick Event.
+        /// Data of selected Row in DataGridView insert into form fields.
+        /// </summary>
+        /// <param name="sender">Row of the DataGridView</param>
+        /// <param name="e">Arguments</param>
         private void DgvIssues_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = dgvIssues.Rows[e.RowIndex];
@@ -143,6 +157,10 @@ namespace DC305RoomManagement
             fillFields(Issue);
         }
 
+        /// <summary>
+        /// Fills Issue property by data from the row of the DataGridView
+        /// </summary>
+        /// <param name="row">DataGridView Row of data</param>
         private void fillIssueData(DataGridViewRow row)
         {
             Issue.IssueID = (int)row.Cells["IssueID"].Value;
@@ -153,10 +171,44 @@ namespace DC305RoomManagement
             Issue.ClosedAt = (DateTime)row.Cells["ClosedAt"].Value;
             Issue.RoomID = (int)row.Cells["Room"].Value;
         }
-
-        private void DgvIssues_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        
+        /// <summary>
+        /// A handler for filtering rows of DataGridView by Created Date of Issue 
+        /// depends on started and ended dates. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnFilterDate_Click(object sender, EventArgs e)
         {
+            Button filter = (sender as Button);
+            if(filter.Text == "Filter")
+            {
+                (dgvIssues.DataSource as DataTable).DefaultView.RowFilter = string.Format(
+                    "CreatedAt > '{0}' and CreatedAt < '{1}'", dtpFrom.Value.AddDays(-1), dtpTo.Value.AddDays(1));
+                filter.Text = "Clear Filter";
+            }
+            else
+            {
+                (dgvIssues.DataSource as DataTable).DefaultView.RowFilter = string.Empty;
+                filter.Text = "Filter";
+            }
+        }
 
+        /// <summary>
+        /// A handler for printing data of DataGridView
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnPrint_Click(object sender, EventArgs e)
+        {
+            PrintDialog printDlg = new PrintDialog();
+            PrintDocument printDoc = new PrintDocument();
+            printDoc.DocumentName = "Issues Report";
+            printDlg.Document = printDoc;
+            printDlg.AllowSelection = true;
+            printDlg.AllowSomePages = true;
+            //Call ShowDialog  
+            if (printDlg.ShowDialog() == DialogResult.OK) printDoc.Print();
         }
     }
 }

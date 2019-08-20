@@ -32,9 +32,7 @@
             this.pnlMainContent = new System.Windows.Forms.Panel();
             this.cbItemTypeValue = new System.Windows.Forms.ComboBox();
             this.nudQtyValue = new System.Windows.Forms.NumericUpDown();
-            this.btnDisable = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnEnableDisable = new System.Windows.Forms.Button();
             this.dgvInventory = new System.Windows.Forms.DataGridView();
             this.lblItemQty = new System.Windows.Forms.Label();
             this.lblItemName = new System.Windows.Forms.Label();
@@ -43,6 +41,12 @@
             this.lblDescription = new System.Windows.Forms.Label();
             this.txtDescriptionValue = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.EquipmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EquipmentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btnSave = new System.Windows.Forms.Button();
             this.pnlMainContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudQtyValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).BeginInit();
@@ -53,9 +57,8 @@
             // 
             this.pnlMainContent.Controls.Add(this.cbItemTypeValue);
             this.pnlMainContent.Controls.Add(this.nudQtyValue);
-            this.pnlMainContent.Controls.Add(this.btnDisable);
-            this.pnlMainContent.Controls.Add(this.btnAdd);
-            this.pnlMainContent.Controls.Add(this.btnUpdate);
+            this.pnlMainContent.Controls.Add(this.btnEnableDisable);
+            this.pnlMainContent.Controls.Add(this.btnSave);
             this.pnlMainContent.Controls.Add(this.dgvInventory);
             this.pnlMainContent.Controls.Add(this.lblItemQty);
             this.pnlMainContent.Controls.Add(this.lblItemName);
@@ -86,41 +89,27 @@
             this.nudQtyValue.Size = new System.Drawing.Size(84, 22);
             this.nudQtyValue.TabIndex = 2;
             // 
-            // btnDisable
+            // btnEnableDisable
             // 
-            this.btnDisable.Location = new System.Drawing.Point(455, 395);
-            this.btnDisable.Name = "btnDisable";
-            this.btnDisable.Size = new System.Drawing.Size(75, 23);
-            this.btnDisable.TabIndex = 6;
-            this.btnDisable.Text = "Disable";
-            this.btnDisable.UseVisualStyleBackColor = true;
-            this.btnDisable.Click += new System.EventHandler(this.BtnDisable_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(293, 395);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 4;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(374, 395);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdate.TabIndex = 5;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
+            this.btnEnableDisable.Location = new System.Drawing.Point(737, 395);
+            this.btnEnableDisable.Name = "btnEnableDisable";
+            this.btnEnableDisable.Size = new System.Drawing.Size(75, 23);
+            this.btnEnableDisable.TabIndex = 6;
+            this.btnEnableDisable.Text = "Disable";
+            this.btnEnableDisable.UseVisualStyleBackColor = true;
+            this.btnEnableDisable.Click += new System.EventHandler(this.BtnEnableDisable_Click);
             // 
             // dgvInventory
             // 
             this.dgvInventory.AllowUserToAddRows = false;
             this.dgvInventory.AllowUserToDeleteRows = false;
             this.dgvInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInventory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.EquipmentID,
+            this.EquipmentName,
+            this.EType,
+            this.Quantity,
+            this.Active});
             this.dgvInventory.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvInventory.Location = new System.Drawing.Point(324, 39);
             this.dgvInventory.Name = "dgvInventory";
@@ -186,6 +175,53 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // EquipmentID
+            // 
+            this.EquipmentID.DataPropertyName = "EquipmentID";
+            this.EquipmentID.HeaderText = "EquipmentID";
+            this.EquipmentID.Name = "EquipmentID";
+            this.EquipmentID.Visible = false;
+            // 
+            // EquipmentName
+            // 
+            this.EquipmentName.DataPropertyName = "EquipmentName";
+            this.EquipmentName.HeaderText = "Equipment Name";
+            this.EquipmentName.MinimumWidth = 50;
+            this.EquipmentName.Name = "EquipmentName";
+            // 
+            // EType
+            // 
+            this.EType.DataPropertyName = "ETypeID";
+            this.EType.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.EType.HeaderText = "Type";
+            this.EType.Name = "EType";
+            this.EType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.EType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Quantity
+            // 
+            this.Quantity.DataPropertyName = "Quantity";
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // Active
+            // 
+            this.Active.DataPropertyName = "Active";
+            this.Active.HeaderText = "Active";
+            this.Active.Name = "Active";
+            this.Active.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Active.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(199, 395);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 4;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
+            // 
             // InventoryManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -206,8 +242,7 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlMainContent;
-        private System.Windows.Forms.Button btnDisable;
-        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnEnableDisable;
         private System.Windows.Forms.DataGridView dgvInventory;
         private System.Windows.Forms.Label lbIItemType;
         private System.Windows.Forms.Label lblDescription;
@@ -216,8 +251,13 @@
         private System.Windows.Forms.TextBox txtItemNameValue;
         private System.Windows.Forms.NumericUpDown nudQtyValue;
         private System.Windows.Forms.Label lblItemQty;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.ComboBox cbItemTypeValue;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EquipmentID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EquipmentName;
+        private System.Windows.Forms.DataGridViewComboBoxColumn EType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Active;
+        private System.Windows.Forms.Button btnSave;
     }
 }

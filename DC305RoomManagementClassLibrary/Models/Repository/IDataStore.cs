@@ -9,16 +9,15 @@ namespace DC305RoomManagementClassLibrary.Models.Repository
 {
     public interface IDataStore
     {
-        List<Inventory> GetEquipment();
+        DataTable GetEquipment();
         int SaveEquipment(Equipment equipment);
         
-        List<EquipmentType> GetETypes();
+        DataTable GetETypes();
         int SaveEType(EquipmentType equipmentType);
 
         DataTable GetIssues();
         int SaveIssue(Issue issue);
 
         DataTable GetRooms();
-        DataTable GetRoomsByName(string RoomName);
     }
 }

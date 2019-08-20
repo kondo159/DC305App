@@ -19,42 +19,67 @@ namespace DC305RoomManagementClassLibrary.Models.Repository
         static string ConnectionName = "rms";
 
         /// <summary>
-        /// Getting the List of the all equipment from database
+        /// Gets data from the database
         /// </summary>
-        /// <returns>List of all equipment</returns>
-        public List<Inventory> GetEquipment()
+        /// <param name="StoredProcedure">Stored Procedure using to get data from the database</param>
+        /// <returns>A DataTable containing requested data</returns>
+        public DataTable GetData(string StoredProcedure)
         {
-            List<Inventory> items = new List<Inventory>();
-            items = ExecSqlQuery<Inventory>(ConnectionName, "spEquipment_GetAll", null);
+            DataTable dataTable = new DataTable();
 
-            return items;
+            using (SqlConnection connection = new SqlConnection(
+                ConfigurationManager.ConnectionStrings[ConnectionName].ConnectionString))
+            {
+                SqlDataAdapter sqlData = new SqlDataAdapter(StoredProcedure, connection);
+                sqlData.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+                sqlData.Fill(dataTable);
+            }
+
+            return dataTable;
         }
 
         /// <summary>
-        /// Save data of the equipment to the database
+        /// Gets all the equipment from the database
+        /// </summary>
+        /// <returns>A DataTable containing requested data</returns>
+        public DataTable GetEquipment()
+        {
+            return GetData("spEquipment_GetAll");
+        }
+
+        /// <summary>
+        /// Saves data of the equipment to the database
         /// </summary>
         /// <param name="equipment">Data of the Equipment</param>
-        /// <returns>Returns ID of new record</returns>
+        /// <returns>Returns int ID of saved record</returns>
         public int SaveEquipment(Equipment equipment)
         {
             return ExecSqlQueryScalar(ConnectionName, "spEquipment_Save",
                         new SqlParameter("@EquipmentId", equipment.EquipmentID),
                         new SqlParameter("@EquipmentName", equipment.EquipmentName),
-                        new SqlParameter("@ETypeID", equipment.EType.ETypeID),
-                        new SqlParameter("@ETypeName", equipment.EType.ETypeName),
+                        new SqlParameter("@ETypeID", equipment.ETypeID),
+                        //new SqlParameter("@ETypeName", equipment.EType.ETypeName),
                         new SqlParameter("@Quantity", equipment.Quantity),
                         new SqlParameter("@Description", equipment.Description),
                         new SqlParameter("@Active", equipment.Active)
                    );
         }
 
-        public List<EquipmentType> GetETypes()
+        /// <summary>
+        /// Gets all Equipment Types
+        /// </summary>
+        /// <returns>A DataTable containing requested data</returns>
+        public DataTable GetETypes()
         {
-            List<EquipmentType> items = new List<EquipmentType>();
-            items = ExecSqlQuery<EquipmentType>(ConnectionName, "spEType_GetAll", null);
-
-            return items;
+            return GetData("spEType_GetAll");
         }
+
+        /// <summary>
+        /// Saves data of the Equipment Type to the database
+        /// </summary>
+        /// <param name="equipmentType">Data of the Equipment Type</param>
+        /// <returns>Returns int ID of saved record</returns>
         public int SaveEType(EquipmentType equipmentType)
         {
             return ExecSqlQueryScalar(ConnectionName, "spEType_Save",
@@ -63,22 +88,20 @@ namespace DC305RoomManagementClassLibrary.Models.Repository
                    );
         }
 
+        /// <summary>
+        /// Gets all issues from the database
+        /// </summary>
+        /// <returns>A DataTable containing of the Issues</returns>
         public DataTable GetIssues()
         {
-            DataTable dataTable = new DataTable();
-
-            using (SqlConnection connection = new SqlConnection(
-                ConfigurationManager.ConnectionStrings[ConnectionName].ConnectionString))
-            {
-                SqlDataAdapter sqlData = new SqlDataAdapter("spIssue_GetAll", connection);
-                sqlData.SelectCommand.CommandType = CommandType.StoredProcedure;
-                
-                sqlData.Fill(dataTable);
-            }
-
-            return dataTable;
+            return GetData("spIssue_GetAll");
         }
 
+        /// <summary>
+        /// Saves the Issue to the database
+        /// </summary>
+        /// <param name="issue">Issue object containing data for saving to the database</param>
+        /// <returns>Integer number of ID of saved record</returns>
         public int SaveIssue(Issue issue)
         {
             return ExecSqlQueryScalar(ConnectionName, "spIssue_Save",
@@ -92,43 +115,22 @@ namespace DC305RoomManagementClassLibrary.Models.Repository
                 );
         }
 
+        /// <summary>
+        /// Gets all rooms from database
+        /// </summary>
+        /// <returns>A DataTable containing of the Rooms</returns>
         public DataTable GetRooms()
         {
-            DataTable dataTable = new DataTable();
-
-            using (SqlConnection connection = new SqlConnection(
-                ConfigurationManager.ConnectionStrings[ConnectionName].ConnectionString))
-            {
-                SqlDataAdapter sqlData = new SqlDataAdapter("spRoom_GetAll", connection);
-                sqlData.SelectCommand.CommandType = CommandType.StoredProcedure;
-                sqlData.Fill(dataTable);
-            }
-
-            return dataTable;
+            return GetData("spRoom_GetAll");
         }
 
-        public DataTable GetRoomsByName(string RoomName = "")
-        {
-            DataTable dataTable = new DataTable();
-
-            using (SqlConnection connection = new SqlConnection(
-                ConfigurationManager.ConnectionStrings[ConnectionName].ConnectionString))
-            {
-                SqlDataAdapter sqlData = new SqlDataAdapter("spRoom_GetNames", connection);
-                sqlData.SelectCommand.CommandType = CommandType.StoredProcedure;
-                sqlData.SelectCommand.Parameters.Add(new SqlParameter("@RoomName", RoomName));
-                sqlData.Fill(dataTable);
-            }
-
-            return dataTable;
-        }
         /// <summary>
         /// Execute StoredProcedure with Parameters
         /// </summary>
         /// <param name="ConnectionName">Name of the connection to the database</param>
         /// <param name="StoredProcedureName">Name of the Stored Procedure in the database</param>
         /// <param name="StoredProcedureParams">Set of params for Stored Procedure</param>
-        /// <returns></returns>
+        /// <returns>Returns int ID of saved record</returns>
         private int ExecSqlQueryScalar(string ConnectionName, string StoredProcedureName, params SqlParameter[] StoredProcedureParams)
         {
             using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(
@@ -142,40 +144,22 @@ namespace DC305RoomManagementClassLibrary.Models.Repository
                     connection.Open();
                     string recordID = cmd.ExecuteScalar().ToString();
 
-
                     return int.Parse(recordID);
                 }
                 catch (Exception err)
                 {
                     return 0;
-                    //
                 }
             }
         }
 
-        private List<T> SqlQuery<T>(SqlCommand cmd, SqlConnection conn) where T : new()
-        {
-            List<T> result = new List<T>();
-
-            conn.Open();
-            SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                T t = new T();
-
-                for (int inc = 0; inc < reader.FieldCount; inc++)
-                {
-                    Type type = t.GetType();
-                    PropertyInfo prop = type.GetProperty(reader.GetName(inc));
-                    prop.SetValue(t, reader.GetValue(inc), null);
-                }
-
-                result.Add(t);
-            }
-            return result;
-
-        }
-
+        /// <summary>
+        /// Creates the SqlCommand and sets parameters for the SqlCommand
+        /// </summary>
+        /// <param name="Connection">An SqlConnection that will be used in SqlCommand</param>
+        /// <param name="StoredProcedureName">A Stored Procedure that will be used for getting data</param>
+        /// <param name="StoredProcedureParams">Parameters for the Store Procedure</param>
+        /// <returns></returns>
         private SqlCommand prepareSqlCmd(SqlConnection Connection, string StoredProcedureName, params SqlParameter[] StoredProcedureParams)
         {
             SqlCommand cmd = new SqlCommand(StoredProcedureName, Connection)
@@ -192,39 +176,6 @@ namespace DC305RoomManagementClassLibrary.Models.Repository
             }
             return cmd;
         }
-
-        private List<T> ExecSqlQuery<T>(string ConnectionName, string StoredProcedureName, params SqlParameter[] StoredProcedureParams) where T : new()
-        {
-            List<T> items = new List<T>();
-
-            using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(
-                ConfigurationManager.ConnectionStrings[ConnectionName].ConnectionString)
-            )
-            {
-                try
-                {
-                    SqlCommand cmd = prepareSqlCmd(connection, StoredProcedureName, StoredProcedureParams);
-                    items = SqlQuery<T>(cmd, connection);
-                    return items;
-                }
-                catch (Exception err)
-                {
-                    return items;
-                }
-            }
-        }
-
-        private List<EquipmentType> ReaderToETypeList(SqlDataReader reader)
-        {
-            List<EquipmentType> equipmentTypes = new List<EquipmentType>();
-            if (reader.HasRows)
-            {
-                while (reader.Read())
-                {
-                    equipmentTypes.Add(new EquipmentType(reader.GetInt32(0), reader.GetString(1)));
-                }
-            }
-            return equipmentTypes;
-        }
+        
     }
 }
