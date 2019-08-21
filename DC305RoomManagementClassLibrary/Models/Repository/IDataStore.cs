@@ -11,7 +11,7 @@ namespace DC305RoomManagementClassLibrary.Models.Repository
     {
         DataTable GetEquipment();
         int SaveEquipment(Equipment equipment);
-        
+
         DataTable GetETypes();
         int SaveEType(EquipmentType equipmentType);
 
@@ -19,5 +19,11 @@ namespace DC305RoomManagementClassLibrary.Models.Repository
         int SaveIssue(Issue issue);
 
         DataTable GetRooms();
+
+        DataTable GetGroups();
+        DataTable GetGroupMembers(int GroupID);
+        int SaveGroup(Group group);
+        void SaveGroupMember(int GroupID, int UserID);
+        void RemoveGroupMember(int GroupID, int UserID);
     }
 }

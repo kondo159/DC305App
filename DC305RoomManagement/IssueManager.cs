@@ -68,7 +68,6 @@ namespace DC305RoomManagement
             txtDescriptionValue.Text = issue.Description;
             cbIssueStatusValue.SelectedIndex = cbIssueStatusValue.FindStringExact(issue.Status);
             cbRoomName.SelectedValue = issue.RoomID;
-
         }
 
         /// <summary>
@@ -101,7 +100,12 @@ namespace DC305RoomManagement
                 valid = false;
             }
 
-            if (string.IsNullOrWhiteSpace(txtDescriptionValue.Text))
+            if (string.IsNullOrWhiteSpace(txtIssueNameValue.Text))
+            {
+                valid = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtIssueNameValue.Text))
             {
                 valid = false;
             }
@@ -209,6 +213,40 @@ namespace DC305RoomManagement
             printDlg.AllowSomePages = true;
             //Call ShowDialog  
             if (printDlg.ShowDialog() == DialogResult.OK) printDoc.Print();
+        }
+
+        private void IssueManager_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            switch (sender.GetType().Name)
+            {
+                case "ComboBox":
+                    string cbMsg = (sender as ComboBox).Name == "cbRoomName" ?
+                        "A room name must be specified!"
+                        : "An issue status must be specified!";
+
+                    if (string.IsNullOrWhiteSpace((sender as ComboBox).Text))
+                    {
+                        errorProvider.SetError((sender as ComboBox), cbMsg);
+                    }
+                    else
+                    {
+                        errorProvider.SetError((sender as ComboBox), string.Empty);
+                    }
+
+                    break;
+
+                case "TextBox":
+                    if (string.IsNullOrWhiteSpace((sender as TextBox).Text))
+                    {
+                        errorProvider.SetError((sender as TextBox), "An issue title must be specified!");
+                    }
+                    else
+                    {
+                        errorProvider.SetError((sender as TextBox), string.Empty);
+                    }
+
+                    break;
+            }
         }
     }
 }

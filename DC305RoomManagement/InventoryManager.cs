@@ -118,23 +118,13 @@ namespace DC305RoomManagement
             // EType
             if(string.IsNullOrWhiteSpace(cbItemTypeValue.Text))
             {
-                errorProvider.SetError(cbItemTypeValue, "A type must be specified!");
                 valid = false;
-            }
-            else
-            {
-                errorProvider.SetError(cbItemTypeValue, string.Empty);
             }
 
             // Equipment Name
             if (string.IsNullOrWhiteSpace(txtItemNameValue.Text))
             {
-                errorProvider.SetError(txtItemNameValue, "An equipment name must be specified!");
                 valid = false;
-            }
-            else
-            {
-                errorProvider.SetError(txtItemNameValue, string.Empty);
             }
 
             return valid;

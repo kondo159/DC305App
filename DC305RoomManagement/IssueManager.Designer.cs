@@ -28,19 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlMainContent = new System.Windows.Forms.Panel();
+            this.dtpTo = new System.Windows.Forms.DateTimePicker();
+            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
+            this.lblDateTo = new System.Windows.Forms.Label();
+            this.lblDateFrom = new System.Windows.Forms.Label();
             this.cbRoomName = new System.Windows.Forms.ComboBox();
             this.lblRoomName = new System.Windows.Forms.Label();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnFilterDate = new System.Windows.Forms.Button();
             this.btnCreateIssue = new System.Windows.Forms.Button();
             this.dgvIssues = new System.Windows.Forms.DataGridView();
-            this.cbIssueStatusValue = new System.Windows.Forms.ComboBox();
-            this.lblIssueStatus = new System.Windows.Forms.Label();
-            this.lblIssueTitle = new System.Windows.Forms.Label();
-            this.txtIssueNameValue = new System.Windows.Forms.TextBox();
-            this.lblDescription = new System.Windows.Forms.Label();
-            this.txtDescriptionValue = new System.Windows.Forms.TextBox();
             this.IssueId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IssueName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Room = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -48,12 +47,16 @@
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClosedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblDateFrom = new System.Windows.Forms.Label();
-            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
-            this.lblDateTo = new System.Windows.Forms.Label();
-            this.dtpTo = new System.Windows.Forms.DateTimePicker();
+            this.cbIssueStatusValue = new System.Windows.Forms.ComboBox();
+            this.lblIssueStatus = new System.Windows.Forms.Label();
+            this.lblIssueTitle = new System.Windows.Forms.Label();
+            this.txtIssueNameValue = new System.Windows.Forms.TextBox();
+            this.lblDescription = new System.Windows.Forms.Label();
+            this.txtDescriptionValue = new System.Windows.Forms.TextBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlMainContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIssues)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMainContent
@@ -81,6 +84,42 @@
             this.pnlMainContent.Size = new System.Drawing.Size(829, 479);
             this.pnlMainContent.TabIndex = 0;
             // 
+            // dtpTo
+            // 
+            this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpTo.Location = new System.Drawing.Point(521, 18);
+            this.dtpTo.MinDate = new System.DateTime(2019, 8, 1, 0, 0, 0, 0);
+            this.dtpTo.Name = "dtpTo";
+            this.dtpTo.Size = new System.Drawing.Size(102, 22);
+            this.dtpTo.TabIndex = 13;
+            // 
+            // dtpFrom
+            // 
+            this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFrom.Location = new System.Drawing.Point(369, 18);
+            this.dtpFrom.MinDate = new System.DateTime(2019, 8, 1, 0, 0, 0, 0);
+            this.dtpFrom.Name = "dtpFrom";
+            this.dtpFrom.Size = new System.Drawing.Size(102, 22);
+            this.dtpFrom.TabIndex = 13;
+            // 
+            // lblDateTo
+            // 
+            this.lblDateTo.AutoSize = true;
+            this.lblDateTo.Location = new System.Drawing.Point(487, 20);
+            this.lblDateTo.Name = "lblDateTo";
+            this.lblDateTo.Size = new System.Drawing.Size(28, 16);
+            this.lblDateTo.TabIndex = 12;
+            this.lblDateTo.Text = "To:";
+            // 
+            // lblDateFrom
+            // 
+            this.lblDateFrom.AutoSize = true;
+            this.lblDateFrom.Location = new System.Drawing.Point(321, 20);
+            this.lblDateFrom.Name = "lblDateFrom";
+            this.lblDateFrom.Size = new System.Drawing.Size(42, 16);
+            this.lblDateFrom.TabIndex = 12;
+            this.lblDateFrom.Text = "From:";
+            // 
             // cbRoomName
             // 
             this.cbRoomName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -89,6 +128,7 @@
             this.cbRoomName.Name = "cbRoomName";
             this.cbRoomName.Size = new System.Drawing.Size(259, 24);
             this.cbRoomName.TabIndex = 11;
+            this.cbRoomName.Validating += new System.ComponentModel.CancelEventHandler(this.IssueManager_Validating);
             // 
             // lblRoomName
             // 
@@ -150,61 +190,6 @@
             this.dgvIssues.TabIndex = 8;
             this.dgvIssues.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvIssues_CellDoubleClick);
             // 
-            // cbIssueStatusValue
-            // 
-            this.cbIssueStatusValue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbIssueStatusValue.FormattingEnabled = true;
-            this.cbIssueStatusValue.Items.AddRange(new object[] {
-            "Initiated",
-            "In Work",
-            "Fixed"});
-            this.cbIssueStatusValue.Location = new System.Drawing.Point(15, 384);
-            this.cbIssueStatusValue.Name = "cbIssueStatusValue";
-            this.cbIssueStatusValue.Size = new System.Drawing.Size(259, 24);
-            this.cbIssueStatusValue.TabIndex = 7;
-            // 
-            // lblIssueStatus
-            // 
-            this.lblIssueStatus.AutoSize = true;
-            this.lblIssueStatus.Location = new System.Drawing.Point(12, 364);
-            this.lblIssueStatus.Name = "lblIssueStatus";
-            this.lblIssueStatus.Size = new System.Drawing.Size(45, 16);
-            this.lblIssueStatus.TabIndex = 2;
-            this.lblIssueStatus.Text = "Status";
-            // 
-            // lblIssueTitle
-            // 
-            this.lblIssueTitle.AutoSize = true;
-            this.lblIssueTitle.Location = new System.Drawing.Point(12, 83);
-            this.lblIssueTitle.Name = "lblIssueTitle";
-            this.lblIssueTitle.Size = new System.Drawing.Size(34, 16);
-            this.lblIssueTitle.TabIndex = 2;
-            this.lblIssueTitle.Text = "Title";
-            // 
-            // txtIssueNameValue
-            // 
-            this.txtIssueNameValue.Location = new System.Drawing.Point(15, 102);
-            this.txtIssueNameValue.Name = "txtIssueNameValue";
-            this.txtIssueNameValue.Size = new System.Drawing.Size(259, 22);
-            this.txtIssueNameValue.TabIndex = 5;
-            // 
-            // lblDescription
-            // 
-            this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(12, 142);
-            this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(76, 16);
-            this.lblDescription.TabIndex = 3;
-            this.lblDescription.Text = "Description";
-            // 
-            // txtDescriptionValue
-            // 
-            this.txtDescriptionValue.Location = new System.Drawing.Point(15, 161);
-            this.txtDescriptionValue.Multiline = true;
-            this.txtDescriptionValue.Name = "txtDescriptionValue";
-            this.txtDescriptionValue.Size = new System.Drawing.Size(259, 185);
-            this.txtDescriptionValue.TabIndex = 6;
-            // 
             // IssueId
             // 
             this.IssueId.DataPropertyName = "IssueId";
@@ -251,41 +236,66 @@
             this.ClosedAt.HeaderText = "Closed Date";
             this.ClosedAt.Name = "ClosedAt";
             // 
-            // lblDateFrom
+            // cbIssueStatusValue
             // 
-            this.lblDateFrom.AutoSize = true;
-            this.lblDateFrom.Location = new System.Drawing.Point(321, 20);
-            this.lblDateFrom.Name = "lblDateFrom";
-            this.lblDateFrom.Size = new System.Drawing.Size(42, 16);
-            this.lblDateFrom.TabIndex = 12;
-            this.lblDateFrom.Text = "From:";
+            this.cbIssueStatusValue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbIssueStatusValue.FormattingEnabled = true;
+            this.cbIssueStatusValue.Items.AddRange(new object[] {
+            "Initiated",
+            "In Work",
+            "Fixed"});
+            this.cbIssueStatusValue.Location = new System.Drawing.Point(15, 384);
+            this.cbIssueStatusValue.Name = "cbIssueStatusValue";
+            this.cbIssueStatusValue.Size = new System.Drawing.Size(259, 24);
+            this.cbIssueStatusValue.TabIndex = 7;
+            this.cbIssueStatusValue.Validating += new System.ComponentModel.CancelEventHandler(this.IssueManager_Validating);
             // 
-            // dtpFrom
+            // lblIssueStatus
             // 
-            this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFrom.Location = new System.Drawing.Point(369, 18);
-            this.dtpFrom.MinDate = new System.DateTime(2019, 8, 1, 0, 0, 0, 0);
-            this.dtpFrom.Name = "dtpFrom";
-            this.dtpFrom.Size = new System.Drawing.Size(102, 22);
-            this.dtpFrom.TabIndex = 13;
+            this.lblIssueStatus.AutoSize = true;
+            this.lblIssueStatus.Location = new System.Drawing.Point(12, 364);
+            this.lblIssueStatus.Name = "lblIssueStatus";
+            this.lblIssueStatus.Size = new System.Drawing.Size(45, 16);
+            this.lblIssueStatus.TabIndex = 2;
+            this.lblIssueStatus.Text = "Status";
             // 
-            // lblDateTo
+            // lblIssueTitle
             // 
-            this.lblDateTo.AutoSize = true;
-            this.lblDateTo.Location = new System.Drawing.Point(487, 20);
-            this.lblDateTo.Name = "lblDateTo";
-            this.lblDateTo.Size = new System.Drawing.Size(28, 16);
-            this.lblDateTo.TabIndex = 12;
-            this.lblDateTo.Text = "To:";
+            this.lblIssueTitle.AutoSize = true;
+            this.lblIssueTitle.Location = new System.Drawing.Point(12, 83);
+            this.lblIssueTitle.Name = "lblIssueTitle";
+            this.lblIssueTitle.Size = new System.Drawing.Size(34, 16);
+            this.lblIssueTitle.TabIndex = 2;
+            this.lblIssueTitle.Text = "Title";
             // 
-            // dtpTo
+            // txtIssueNameValue
             // 
-            this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpTo.Location = new System.Drawing.Point(521, 18);
-            this.dtpTo.MinDate = new System.DateTime(2019, 8, 1, 0, 0, 0, 0);
-            this.dtpTo.Name = "dtpTo";
-            this.dtpTo.Size = new System.Drawing.Size(102, 22);
-            this.dtpTo.TabIndex = 13;
+            this.txtIssueNameValue.Location = new System.Drawing.Point(15, 102);
+            this.txtIssueNameValue.Name = "txtIssueNameValue";
+            this.txtIssueNameValue.Size = new System.Drawing.Size(259, 22);
+            this.txtIssueNameValue.TabIndex = 5;
+            this.txtIssueNameValue.Validating += new System.ComponentModel.CancelEventHandler(this.IssueManager_Validating);
+            // 
+            // lblDescription
+            // 
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.Location = new System.Drawing.Point(12, 142);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(76, 16);
+            this.lblDescription.TabIndex = 3;
+            this.lblDescription.Text = "Description";
+            // 
+            // txtDescriptionValue
+            // 
+            this.txtDescriptionValue.Location = new System.Drawing.Point(15, 161);
+            this.txtDescriptionValue.Multiline = true;
+            this.txtDescriptionValue.Name = "txtDescriptionValue";
+            this.txtDescriptionValue.Size = new System.Drawing.Size(259, 185);
+            this.txtDescriptionValue.TabIndex = 6;
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // IssueManager
             // 
@@ -299,6 +309,7 @@
             this.pnlMainContent.ResumeLayout(false);
             this.pnlMainContent.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIssues)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -329,5 +340,6 @@
         private System.Windows.Forms.Label lblDateFrom;
         private System.Windows.Forms.DateTimePicker dtpTo;
         private System.Windows.Forms.Label lblDateTo;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

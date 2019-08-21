@@ -23,7 +23,7 @@ namespace DC305RoomManagementClassLibrary.Models.Repository
         /// </summary>
         /// <param name="StoredProcedure">Stored Procedure using to get data from the database</param>
         /// <returns>A DataTable containing requested data</returns>
-        public DataTable GetData(string StoredProcedure)
+        public DataTable GetData(string StoredProcedure, params SqlParameter[] StoredProcedureParams)
         {
             DataTable dataTable = new DataTable();
 
@@ -33,7 +33,23 @@ namespace DC305RoomManagementClassLibrary.Models.Repository
                 SqlDataAdapter sqlData = new SqlDataAdapter(StoredProcedure, connection);
                 sqlData.SelectCommand.CommandType = CommandType.StoredProcedure;
 
-                sqlData.Fill(dataTable);
+                if (StoredProcedureParams != null)
+                {
+                    foreach (SqlParameter param in StoredProcedureParams)
+                    {
+                        sqlData.SelectCommand.Parameters.Add(param);
+                    }
+                }
+
+                try
+                {
+                    sqlData.Fill(dataTable);
+                }
+                catch (Exception err)
+                {
+
+                    throw;
+                }
             }
 
             return dataTable;
@@ -123,6 +139,57 @@ namespace DC305RoomManagementClassLibrary.Models.Repository
         {
             return GetData("spRoom_GetAll");
         }
+
+        /// <summary>
+        /// Gets all groups from database
+        /// </summary>
+        /// <returns>A DataTable containing of the Groups</returns>
+        public DataTable GetGroups()
+        {
+            return GetData("spGroup_GetAll");
+        }
+
+        /// <summary>
+        /// Saves the Group to the database
+        /// </summary>
+        /// <param name="group">Group object containing data for saving to the database</param>
+        /// <returns>Integer number of ID of saved record</returns>
+        public int SaveGroup(Group group)
+        {
+            return ExecSqlQueryScalar(ConnectionName, "spGroup_Save",
+                    new SqlParameter("@GroupID", group.GroupID),
+                    new SqlParameter("@GroupName", group.GroupName),
+                    new SqlParameter("@Description", group.Description),
+                    new SqlParameter("@Active", group.Active)
+                );
+        }
+
+        public DataTable GetGroupMembers(int GroupID)
+        {
+            return GetData("spGroupMembers_GetAll", new SqlParameter("@GroupID", GroupID));
+        }
+
+        public void SaveGroupMember(int GroupID, int UserID)
+        {
+            ExecSqlQueryScalar(ConnectionName, "spGroupOfStudents_Save",
+                    new SqlParameter("@GroupID", GroupID),
+                    new SqlParameter("@UserID", UserID)
+                );
+        }
+
+        public void RemoveGroupMember(int GroupID, int UserID)
+        {
+            ExecSqlQueryScalar(ConnectionName, "spGroupOfStudents_Remove",
+                    new SqlParameter("@GroupID", GroupID),
+                    new SqlParameter("@UserID", UserID)
+                );
+        }
+
+        public DataTable GetUsers(int RoleID = 0)
+        {
+            return GetData("spUsers_GetAll", new SqlParameter("@RoleID", RoleID));
+        }
+
 
         /// <summary>
         /// Execute StoredProcedure with Parameters

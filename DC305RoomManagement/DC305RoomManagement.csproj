@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddMembersToGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddMembersToGroup.Designer.cs">
+      <DependentUpon>AddMembersToGroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="BookingManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     <Compile Include="RoomManager.Designer.cs">
       <DependentUpon>RoomManager.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddMembersToGroup.resx">
+      <DependentUpon>AddMembersToGroup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BookingManager.resx">
       <DependentUpon>BookingManager.cs</DependentUpon>
     </EmbeddedResource>
