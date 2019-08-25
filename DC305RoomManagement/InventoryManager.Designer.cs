@@ -28,81 +28,124 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlMainContent = new System.Windows.Forms.Panel();
-            this.btnView = new System.Windows.Forms.Button();
-            this.btnDisable = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
+            this.cbItemTypeValue = new System.Windows.Forms.ComboBox();
+            this.nudQtyValue = new System.Windows.Forms.NumericUpDown();
+            this.btnEnableDisable = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.dgvInventory = new System.Windows.Forms.DataGridView();
+            this.lblItemQty = new System.Windows.Forms.Label();
+            this.lblItemName = new System.Windows.Forms.Label();
             this.lbIItemType = new System.Windows.Forms.Label();
-            this.txtItemTypeValue = new System.Windows.Forms.TextBox();
+            this.txtItemNameValue = new System.Windows.Forms.TextBox();
             this.lblDescription = new System.Windows.Forms.Label();
             this.txtDescriptionValue = new System.Windows.Forms.TextBox();
-            this.txtItemNameValue = new System.Windows.Forms.TextBox();
-            this.lblItemName = new System.Windows.Forms.Label();
-            this.lblItemQty = new System.Windows.Forms.Label();
-            this.nudQtyValue = new System.Windows.Forms.NumericUpDown();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.EquipmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EquipmentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.pnlMainContent.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQtyValue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMainContent
             // 
+            this.pnlMainContent.Controls.Add(this.cbItemTypeValue);
             this.pnlMainContent.Controls.Add(this.nudQtyValue);
-            this.pnlMainContent.Controls.Add(this.btnView);
-            this.pnlMainContent.Controls.Add(this.btnDisable);
-            this.pnlMainContent.Controls.Add(this.btnAdd);
-            this.pnlMainContent.Controls.Add(this.btnUpdate);
+            this.pnlMainContent.Controls.Add(this.btnEnableDisable);
+            this.pnlMainContent.Controls.Add(this.btnSave);
             this.pnlMainContent.Controls.Add(this.dgvInventory);
             this.pnlMainContent.Controls.Add(this.lblItemQty);
             this.pnlMainContent.Controls.Add(this.lblItemName);
             this.pnlMainContent.Controls.Add(this.lbIItemType);
             this.pnlMainContent.Controls.Add(this.txtItemNameValue);
-            this.pnlMainContent.Controls.Add(this.txtItemTypeValue);
             this.pnlMainContent.Controls.Add(this.lblDescription);
             this.pnlMainContent.Controls.Add(this.txtDescriptionValue);
             this.pnlMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMainContent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlMainContent.Location = new System.Drawing.Point(0, 0);
             this.pnlMainContent.Name = "pnlMainContent";
-            this.pnlMainContent.Size = new System.Drawing.Size(800, 450);
+            this.pnlMainContent.Size = new System.Drawing.Size(837, 450);
             this.pnlMainContent.TabIndex = 1;
             // 
-            // btnView
+            // cbItemTypeValue
             // 
-            this.btnView.Location = new System.Drawing.Point(500, 394);
-            this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(75, 23);
-            this.btnView.TabIndex = 9;
-            this.btnView.Text = "View";
-            this.btnView.UseVisualStyleBackColor = true;
+            this.cbItemTypeValue.FormattingEnabled = true;
+            this.cbItemTypeValue.Location = new System.Drawing.Point(15, 39);
+            this.cbItemTypeValue.Name = "cbItemTypeValue";
+            this.cbItemTypeValue.Size = new System.Drawing.Size(259, 24);
+            this.cbItemTypeValue.TabIndex = 9;
+            this.cbItemTypeValue.Validating += new System.ComponentModel.CancelEventHandler(this.Value_Validating);
             // 
-            // btnDisable
+            // nudQtyValue
             // 
-            this.btnDisable.Location = new System.Drawing.Point(414, 394);
-            this.btnDisable.Name = "btnDisable";
-            this.btnDisable.Size = new System.Drawing.Size(75, 23);
-            this.btnDisable.TabIndex = 9;
-            this.btnDisable.Text = "Disable";
-            this.btnDisable.UseVisualStyleBackColor = true;
+            this.nudQtyValue.Location = new System.Drawing.Point(18, 166);
+            this.nudQtyValue.Name = "nudQtyValue";
+            this.nudQtyValue.Size = new System.Drawing.Size(84, 22);
+            this.nudQtyValue.TabIndex = 2;
             // 
-            // btnUpdate
+            // btnEnableDisable
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(333, 394);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdate.TabIndex = 9;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnEnableDisable.Location = new System.Drawing.Point(737, 395);
+            this.btnEnableDisable.Name = "btnEnableDisable";
+            this.btnEnableDisable.Size = new System.Drawing.Size(75, 23);
+            this.btnEnableDisable.TabIndex = 6;
+            this.btnEnableDisable.Text = "Disable";
+            this.btnEnableDisable.UseVisualStyleBackColor = true;
+            this.btnEnableDisable.Click += new System.EventHandler(this.BtnEnableDisable_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(199, 395);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 4;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // dgvInventory
             // 
+            this.dgvInventory.AllowUserToAddRows = false;
+            this.dgvInventory.AllowUserToDeleteRows = false;
             this.dgvInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInventory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.EquipmentID,
+            this.EquipmentName,
+            this.EType,
+            this.Quantity,
+            this.Active});
+            this.dgvInventory.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvInventory.Location = new System.Drawing.Point(324, 39);
             this.dgvInventory.Name = "dgvInventory";
-            this.dgvInventory.Size = new System.Drawing.Size(418, 325);
+            this.dgvInventory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvInventory.Size = new System.Drawing.Size(488, 317);
             this.dgvInventory.TabIndex = 8;
+            this.dgvInventory.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvInventory_CellDoubleClick);
+            this.dgvInventory.SelectionChanged += new System.EventHandler(this.DgvInventory_SelectionChanged);
+            // 
+            // lblItemQty
+            // 
+            this.lblItemQty.AutoSize = true;
+            this.lblItemQty.Location = new System.Drawing.Point(15, 146);
+            this.lblItemQty.Name = "lblItemQty";
+            this.lblItemQty.Size = new System.Drawing.Size(56, 16);
+            this.lblItemQty.TabIndex = 2;
+            this.lblItemQty.Text = "Quantity";
+            // 
+            // lblItemName
+            // 
+            this.lblItemName.AutoSize = true;
+            this.lblItemName.Location = new System.Drawing.Point(12, 83);
+            this.lblItemName.Name = "lblItemName";
+            this.lblItemName.Size = new System.Drawing.Size(73, 16);
+            this.lblItemName.TabIndex = 2;
+            this.lblItemName.Text = "Item Name";
             // 
             // lbIItemType
             // 
@@ -113,12 +156,13 @@
             this.lbIItemType.TabIndex = 2;
             this.lbIItemType.Text = "Type";
             // 
-            // txtItemTypeValue
+            // txtItemNameValue
             // 
-            this.txtItemTypeValue.Location = new System.Drawing.Point(15, 39);
-            this.txtItemTypeValue.Name = "txtItemTypeValue";
-            this.txtItemTypeValue.Size = new System.Drawing.Size(259, 22);
-            this.txtItemTypeValue.TabIndex = 5;
+            this.txtItemNameValue.Location = new System.Drawing.Point(15, 102);
+            this.txtItemNameValue.Name = "txtItemNameValue";
+            this.txtItemNameValue.Size = new System.Drawing.Size(259, 22);
+            this.txtItemNameValue.TabIndex = 1;
+            this.txtItemNameValue.Validating += new System.ComponentModel.CancelEventHandler(this.Value_Validating);
             // 
             // lblDescription
             // 
@@ -135,61 +179,63 @@
             this.txtDescriptionValue.Multiline = true;
             this.txtDescriptionValue.Name = "txtDescriptionValue";
             this.txtDescriptionValue.Size = new System.Drawing.Size(259, 123);
-            this.txtDescriptionValue.TabIndex = 6;
+            this.txtDescriptionValue.TabIndex = 3;
             // 
-            // txtItemNameValue
+            // errorProvider
             // 
-            this.txtItemNameValue.Location = new System.Drawing.Point(15, 102);
-            this.txtItemNameValue.Name = "txtItemNameValue";
-            this.txtItemNameValue.Size = new System.Drawing.Size(259, 22);
-            this.txtItemNameValue.TabIndex = 5;
+            this.errorProvider.ContainerControl = this;
             // 
-            // lblItemName
+            // EquipmentID
             // 
-            this.lblItemName.AutoSize = true;
-            this.lblItemName.Location = new System.Drawing.Point(12, 83);
-            this.lblItemName.Name = "lblItemName";
-            this.lblItemName.Size = new System.Drawing.Size(73, 16);
-            this.lblItemName.TabIndex = 2;
-            this.lblItemName.Text = "Item Name";
+            this.EquipmentID.DataPropertyName = "EquipmentID";
+            this.EquipmentID.HeaderText = "EquipmentID";
+            this.EquipmentID.Name = "EquipmentID";
+            this.EquipmentID.Visible = false;
             // 
-            // lblItemQty
+            // EquipmentName
             // 
-            this.lblItemQty.AutoSize = true;
-            this.lblItemQty.Location = new System.Drawing.Point(15, 146);
-            this.lblItemQty.Name = "lblItemQty";
-            this.lblItemQty.Size = new System.Drawing.Size(56, 16);
-            this.lblItemQty.TabIndex = 2;
-            this.lblItemQty.Text = "Quantity";
+            this.EquipmentName.DataPropertyName = "EquipmentName";
+            this.EquipmentName.HeaderText = "Equipment Name";
+            this.EquipmentName.MinimumWidth = 50;
+            this.EquipmentName.Name = "EquipmentName";
+            this.EquipmentName.Width = 200;
             // 
-            // nudQtyValue
+            // EType
             // 
-            this.nudQtyValue.Location = new System.Drawing.Point(18, 166);
-            this.nudQtyValue.Name = "nudQtyValue";
-            this.nudQtyValue.Size = new System.Drawing.Size(84, 22);
-            this.nudQtyValue.TabIndex = 10;
+            this.EType.DataPropertyName = "ETypeID";
+            this.EType.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.EType.HeaderText = "Type";
+            this.EType.Name = "EType";
+            this.EType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.EType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // btnAdd
+            // Quantity
             // 
-            this.btnAdd.Location = new System.Drawing.Point(252, 394);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 9;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.Quantity.DataPropertyName = "Quantity";
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // Active
+            // 
+            this.Active.DataPropertyName = "Active";
+            this.Active.HeaderText = "Active";
+            this.Active.Name = "Active";
+            this.Active.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Active.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // InventoryManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(837, 450);
             this.Controls.Add(this.pnlMainContent);
             this.Name = "InventoryManager";
             this.Text = "InventoryManager";
             this.pnlMainContent.ResumeLayout(false);
             this.pnlMainContent.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQtyValue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -197,18 +243,22 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlMainContent;
-        private System.Windows.Forms.Button btnView;
-        private System.Windows.Forms.Button btnDisable;
-        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnEnableDisable;
         private System.Windows.Forms.DataGridView dgvInventory;
         private System.Windows.Forms.Label lbIItemType;
-        private System.Windows.Forms.TextBox txtItemTypeValue;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.TextBox txtDescriptionValue;
         private System.Windows.Forms.Label lblItemName;
         private System.Windows.Forms.TextBox txtItemNameValue;
         private System.Windows.Forms.NumericUpDown nudQtyValue;
         private System.Windows.Forms.Label lblItemQty;
-        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.ComboBox cbItemTypeValue;
+        private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EquipmentID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EquipmentName;
+        private System.Windows.Forms.DataGridViewComboBoxColumn EType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Active;
     }
 }
