@@ -14,15 +14,21 @@ namespace DC305RoomManagement
 {
     public partial class RoomManager : Form
     { //variable to store the active room in the form, -1 it means the form is empty
-        int activeRoom=-1;
-        Connection conn = new Connection();
-        List<RoomEquip> roomEquips = new List<RoomEquip>();
+        private int activeRoom=-1;
+        private Connection conn = new Connection();
+        private List<RoomEquip> roomEquips = new List<RoomEquip>();
+        private List<RoomEquip> oldRoomEquips = new List<RoomEquip>();
         public RoomManager()
         {
             InitializeComponent();
             //fill the table of Rooms
             LoadRoomList();
+            //initializing the datagrid
+            dgvEquipments.AutoGenerateColumns = false;//prevent to reset the columns layout
+            DataTable dt = new DataTable();
+            dgvEquipments.DataSource = dt;
         }
+        //method to load the list of Rooms
         private void LoadRoomList()
         {
             DataTable dt = new DataTable();
@@ -37,7 +43,7 @@ namespace DC305RoomManagement
                 }
                 else
                 {
-                    MessageBox.Show("No Data");
+                    MessageBox.Show("No Rooms Created");
                 }
             }
             catch (Exception)
@@ -70,9 +76,10 @@ namespace DC305RoomManagement
             btnCreateRoom.Enabled = false;
             btnUpdateRoom.Enabled = true;
         }
+        //Method to load the list of Equipment of the selected room and populate the list object to control the objects before save
         public void LoadRoomEquip()
         {
-            DataTable dt = new DataTable();
+            DataTable dt = new DataTable();            
             dgvEquipments.DataSource = dt;
             try
             {
@@ -81,7 +88,8 @@ namespace DC305RoomManagement
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {
-                    dt.Load(reader);    
+                    dt.Load(reader);   
+                    //populating the list object to control the equipments before save 
                    for(int c=0;c< dt.Rows.Count;c++)
                     {
                         RoomEquip equip = new RoomEquip();
@@ -90,8 +98,9 @@ namespace DC305RoomManagement
                         equip.Quantity = Convert.ToInt32(dt.Rows[c]["Quantity"].ToString());
                         equip.Desc = dt.Rows[c]["Description"].ToString();
                         roomEquips.Add(equip);
-
+                        oldRoomEquips.Add(equip);
                     }
+                   //populating datagrid
                     dgvEquipments.DataSource = dt;
                 }
                 else
@@ -108,15 +117,17 @@ namespace DC305RoomManagement
                 conn.CloseConn();
             }
         }
-        //reset all the form and the equipment table
+        //reset all the form and the equipment table by button
         private void BtnResetData_Click(object sender, EventArgs e)
         {
             ResetForm();
         }
+        //method to reset the form
         public void ResetForm()
         {
             activeRoom = -1;
             roomEquips.Clear();
+            oldRoomEquips.Clear();
             txtRoomNameValue.Text = "";
             numCapacity.Value = 0;
             txtDescriptionValue.Text = "";
@@ -124,33 +135,19 @@ namespace DC305RoomManagement
             btnDisableRoom.Enabled = false;
             btnCreateRoom.Enabled = true;
             btnUpdateRoom.Enabled = false;
-            DataTable dt = new DataTable();
+            DataTable dt = new DataTable();            
             dgvEquipments.DataSource = dt;
+            
         }
 
         private void BtnRemoveEquipment_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure to remove this Equipment?", "DataGridView", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                /* try
-                 {
-                     string equipId = dgvEquipments.Rows[dgvEquipments.SelectedCells[0].RowIndex].Cells["EquipId"].Value.ToString();
-                     SqlCommand cmd = new SqlCommand("DELETE FROM RoomEquipment  Where EquipId =" + equipId + "AND RoomId=" + activeRoom, conn.OpenConn());
-                     cmd.ExecuteNonQuery();
-
-                 }
-                 catch (Exception)
-                 {
-                     throw;
-                 }
-                 finally
-                 {
-                     conn.CloseConn();
-                     LoadRoomEquip();
-                 }*/
+            {                
                 string equipId = dgvEquipments.Rows[dgvEquipments.SelectedCells[0].RowIndex].Cells["EquipId"].Value.ToString();
+                //for used to find and remove the equiment from the list and from the datagrid
                 for(int i=0;i< roomEquips.Count; i++)
-                {
+                {                    
                     if (roomEquips[i].EquipId ==Convert.ToInt32( equipId))
                     {
                         roomEquips.RemoveAt(i);
@@ -163,6 +160,7 @@ namespace DC305RoomManagement
 
         private void BtnCreateRoom_Click(object sender, EventArgs e)
         {
+            //Variable created to hold the connection Open until the end of the function
             SqlConnection opencon=conn.OpenConn();
             try
             {
@@ -170,8 +168,10 @@ namespace DC305RoomManagement
                 cmd.Parameters.AddWithValue("@name", txtRoomNameValue.Text);
                 cmd.Parameters.AddWithValue("@cap", Convert.ToInt32(numCapacity.Text));
                 cmd.Parameters.AddWithValue("@desc", txtDescriptionValue.Text);
-                cmd.Parameters.AddWithValue("@enable", btnDisableRoom.Text == "Disable"?true:false);                
+                cmd.Parameters.AddWithValue("@enable", btnDisableRoom.Text == "Disable"?true:false);
+                //ExecuteScaler used to get the ID of the new room
                 activeRoom = Convert.ToInt32(cmd.ExecuteScalar());
+                //for used to insert all the Equipments to the room
                 for (int i = 0; i < roomEquips.Count; i++)
                 {
                     cmd = new SqlCommand("Insert into RoomEquipment (RoomId,EquipId,Quantity) values(@room,@equip,@quantity)", opencon);
@@ -191,6 +191,99 @@ namespace DC305RoomManagement
                 conn.CloseConn();
                 ResetForm();
                 LoadRoomList();
+            }
+        }
+
+        private void BtnUpdateRoom_Click(object sender, EventArgs e)
+        {
+            SqlConnection opencon = conn.OpenConn();
+            try
+            {
+                SqlCommand cmd = new SqlCommand("Update Rooms Set Name=@name, Capacity=@cap, Description=@desc ,Enable=@enable where roomId=@roomid", opencon);
+                cmd.Parameters.AddWithValue("@name", txtRoomNameValue.Text);
+                cmd.Parameters.AddWithValue("@cap", Convert.ToInt32(numCapacity.Text));
+                cmd.Parameters.AddWithValue("@desc", txtDescriptionValue.Text);
+                cmd.Parameters.AddWithValue("@enable", btnDisableRoom.Text == "Disable" ? true : false);
+                cmd.Parameters.AddWithValue("@roomid", activeRoom); 
+                cmd.ExecuteNonQuery();
+                
+                //for used to insert all the Equipments to the room
+                
+                
+                for (int c = 0; c < oldRoomEquips.Count; c++)
+                {
+                    bool exist = false;
+                    for (int i = 0; i < roomEquips.Count; i++)
+                    {
+                        if(oldRoomEquips[c].EquipId==roomEquips[i].EquipId)
+                        {
+                            exist = true;
+                            if(oldRoomEquips[c].Quantity != roomEquips[i].Quantity)
+                            {
+                                cmd = new SqlCommand("Update RoomEquipment Set Quantity=@quantity where roomId=@roomid AND EquipId=@equipid", opencon);
+                                cmd.Parameters.AddWithValue("@quantity", roomEquips[i].Quantity);
+                                cmd.Parameters.AddWithValue("@roomid", activeRoom);
+                                cmd.Parameters.AddWithValue("@equipid", roomEquips[i].EquipId);
+                                cmd.ExecuteNonQuery();
+                            }
+                            roomEquips.RemoveAt(i);    
+                            break;
+                        }
+                    }
+                    if (!exist)
+                    {
+                        cmd = new SqlCommand("DELETE FROM RoomEquipment where roomId=@roomid AND EquipId=@equipid", opencon);
+                        cmd.Parameters.AddWithValue("@roomid", activeRoom);
+                        cmd.Parameters.AddWithValue("@equipid", oldRoomEquips[c].EquipId);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                for (int i = 0; i < roomEquips.Count; i++)
+                {
+                    cmd = new SqlCommand("Insert into RoomEquipment (RoomId,EquipId,Quantity) values(@room,@equip,@quantity)", opencon);
+                    cmd.Parameters.AddWithValue("@room", activeRoom);
+                    cmd.Parameters.AddWithValue("@equip", roomEquips[i].EquipId);
+                    cmd.Parameters.AddWithValue("@quantity", roomEquips[i].Quantity);
+                    cmd.ExecuteNonQuery();
+                }                                
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conn.CloseConn();
+                ResetForm();
+                LoadRoomList();
+            }
+        }
+
+        private void BtnAddEquipment_Click(object sender, EventArgs e)
+        {                        
+            using (RoomManagerAddEquip addEquipWin = new RoomManagerAddEquip())
+            {
+                var result = addEquipWin.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    roomEquips.Add(new RoomEquip(addEquipWin.equipId, addEquipWin.name, addEquipWin.quantity, addEquipWin.desc));
+                    DataTable dt = dgvEquipments.DataSource as DataTable;
+                    if (dgvEquipments.Rows.Count == 0)//if table dont have row is necessary define the columns for the datatable
+                    {
+                        dt.Columns.Add("EquipId");
+                        dt.Columns.Add("Name");
+                        dt.Columns.Add("Quantity");
+                        dt.Columns.Add("Description");
+                    }                    
+                    DataRow equip = dt.NewRow();                    
+                    equip[0] = addEquipWin.equipId;
+                    equip[1] = addEquipWin.name;
+                    equip[2] = addEquipWin.desc;
+                    equip[3] = addEquipWin.quantity;
+                    dt.Rows.Add(equip);
+
+                }
             }
         }
     }    

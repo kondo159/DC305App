@@ -35,26 +35,26 @@
             this.txtDescriptionValue = new System.Windows.Forms.TextBox();
             this.lblRoomList = new System.Windows.Forms.Label();
             this.dgvRoomList = new System.Windows.Forms.DataGridView();
+            this.RoomName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomCapacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomEnable = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnDisableRoom = new System.Windows.Forms.Button();
             this.btnEditRoom = new System.Windows.Forms.Button();
             this.pnlMainContent = new System.Windows.Forms.Panel();
             this.numCapacity = new System.Windows.Forms.NumericUpDown();
             this.btnResetData = new System.Windows.Forms.Button();
             this.dgvEquipments = new System.Windows.Forms.DataGridView();
-            this.EquipName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EquipQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EquipDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EquipId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnUpdateRoom = new System.Windows.Forms.Button();
             this.btnCreateRoom = new System.Windows.Forms.Button();
             this.Equipments = new System.Windows.Forms.Label();
             this.btnAddEquipment = new System.Windows.Forms.Button();
             this.btnRemoveEquipment = new System.Windows.Forms.Button();
-            this.RoomName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomCapacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomEnable = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.EquipId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EquipName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EquipQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EquipDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoomList)).BeginInit();
             this.pnlMainContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCapacity)).BeginInit();
@@ -131,6 +131,42 @@
             this.dgvRoomList.Size = new System.Drawing.Size(446, 172);
             this.dgvRoomList.TabIndex = 2;
             // 
+            // RoomName
+            // 
+            this.RoomName.DataPropertyName = "Name";
+            this.RoomName.HeaderText = "Room Name";
+            this.RoomName.Name = "RoomName";
+            this.RoomName.ReadOnly = true;
+            // 
+            // RoomCapacity
+            // 
+            this.RoomCapacity.DataPropertyName = "Capacity";
+            this.RoomCapacity.HeaderText = "Capacity";
+            this.RoomCapacity.Name = "RoomCapacity";
+            this.RoomCapacity.ReadOnly = true;
+            // 
+            // RoomId
+            // 
+            this.RoomId.DataPropertyName = "RoomId";
+            this.RoomId.HeaderText = "Id";
+            this.RoomId.Name = "RoomId";
+            this.RoomId.ReadOnly = true;
+            this.RoomId.Visible = false;
+            // 
+            // RoomDescription
+            // 
+            this.RoomDescription.DataPropertyName = "Description";
+            this.RoomDescription.HeaderText = "Description";
+            this.RoomDescription.Name = "RoomDescription";
+            this.RoomDescription.ReadOnly = true;
+            // 
+            // RoomEnable
+            // 
+            this.RoomEnable.DataPropertyName = "Enable";
+            this.RoomEnable.HeaderText = "Enable";
+            this.RoomEnable.Name = "RoomEnable";
+            this.RoomEnable.ReadOnly = true;
+            // 
             // btnDisableRoom
             // 
             this.btnDisableRoom.Enabled = false;
@@ -206,45 +242,16 @@
             this.dgvEquipments.AllowUserToOrderColumns = true;
             this.dgvEquipments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEquipments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.EquipId,
             this.EquipName,
             this.EquipQuantity,
-            this.EquipDescription,
-            this.EquipId});
+            this.EquipDescription});
             this.dgvEquipments.Location = new System.Drawing.Point(299, 245);
             this.dgvEquipments.MultiSelect = false;
             this.dgvEquipments.Name = "dgvEquipments";
             this.dgvEquipments.ReadOnly = true;
             this.dgvEquipments.Size = new System.Drawing.Size(446, 155);
             this.dgvEquipments.TabIndex = 2;
-            // 
-            // EquipName
-            // 
-            this.EquipName.DataPropertyName = "name";
-            this.EquipName.HeaderText = "Name";
-            this.EquipName.Name = "EquipName";
-            this.EquipName.ReadOnly = true;
-            // 
-            // EquipQuantity
-            // 
-            this.EquipQuantity.DataPropertyName = "Quantity";
-            this.EquipQuantity.HeaderText = "Quantity";
-            this.EquipQuantity.Name = "EquipQuantity";
-            this.EquipQuantity.ReadOnly = true;
-            // 
-            // EquipDescription
-            // 
-            this.EquipDescription.DataPropertyName = "Description";
-            this.EquipDescription.HeaderText = "Description";
-            this.EquipDescription.Name = "EquipDescription";
-            this.EquipDescription.ReadOnly = true;
-            // 
-            // EquipId
-            // 
-            this.EquipId.DataPropertyName = "EquipId";
-            this.EquipId.HeaderText = "ID";
-            this.EquipId.Name = "EquipId";
-            this.EquipId.ReadOnly = true;
-            this.EquipId.Visible = false;
             // 
             // btnUpdateRoom
             // 
@@ -255,6 +262,7 @@
             this.btnUpdateRoom.TabIndex = 0;
             this.btnUpdateRoom.Text = "Update";
             this.btnUpdateRoom.UseVisualStyleBackColor = true;
+            this.btnUpdateRoom.Click += new System.EventHandler(this.BtnUpdateRoom_Click);
             // 
             // btnCreateRoom
             // 
@@ -283,6 +291,7 @@
             this.btnAddEquipment.TabIndex = 3;
             this.btnAddEquipment.Text = "Add";
             this.btnAddEquipment.UseVisualStyleBackColor = true;
+            this.btnAddEquipment.Click += new System.EventHandler(this.BtnAddEquipment_Click);
             // 
             // btnRemoveEquipment
             // 
@@ -294,41 +303,34 @@
             this.btnRemoveEquipment.UseVisualStyleBackColor = true;
             this.btnRemoveEquipment.Click += new System.EventHandler(this.BtnRemoveEquipment_Click);
             // 
-            // RoomName
+            // EquipId
             // 
-            this.RoomName.DataPropertyName = "Name";
-            this.RoomName.HeaderText = "Room Name";
-            this.RoomName.Name = "RoomName";
-            this.RoomName.ReadOnly = true;
+            this.EquipId.DataPropertyName = "EquipId";
+            this.EquipId.HeaderText = "ID";
+            this.EquipId.Name = "EquipId";
+            this.EquipId.ReadOnly = true;
+            this.EquipId.Visible = false;
             // 
-            // RoomCapacity
+            // EquipName
             // 
-            this.RoomCapacity.DataPropertyName = "Capacity";
-            this.RoomCapacity.HeaderText = "Capacity";
-            this.RoomCapacity.Name = "RoomCapacity";
-            this.RoomCapacity.ReadOnly = true;
+            this.EquipName.DataPropertyName = "name";
+            this.EquipName.HeaderText = "Name";
+            this.EquipName.Name = "EquipName";
+            this.EquipName.ReadOnly = true;
             // 
-            // RoomId
+            // EquipQuantity
             // 
-            this.RoomId.DataPropertyName = "RoomId";
-            this.RoomId.HeaderText = "Id";
-            this.RoomId.Name = "RoomId";
-            this.RoomId.ReadOnly = true;
-            this.RoomId.Visible = false;
+            this.EquipQuantity.DataPropertyName = "Quantity";
+            this.EquipQuantity.HeaderText = "Quantity";
+            this.EquipQuantity.Name = "EquipQuantity";
+            this.EquipQuantity.ReadOnly = true;
             // 
-            // RoomDescription
+            // EquipDescription
             // 
-            this.RoomDescription.DataPropertyName = "Description";
-            this.RoomDescription.HeaderText = "Description";
-            this.RoomDescription.Name = "RoomDescription";
-            this.RoomDescription.ReadOnly = true;
-            // 
-            // RoomEnable
-            // 
-            this.RoomEnable.DataPropertyName = "Enable";
-            this.RoomEnable.HeaderText = "Enable";
-            this.RoomEnable.Name = "RoomEnable";
-            this.RoomEnable.ReadOnly = true;
+            this.EquipDescription.DataPropertyName = "Description";
+            this.EquipDescription.HeaderText = "Description";
+            this.EquipDescription.Name = "EquipDescription";
+            this.EquipDescription.ReadOnly = true;
             // 
             // RoomManager
             // 
@@ -369,14 +371,14 @@
         private System.Windows.Forms.Button btnResetData;
         private System.Windows.Forms.Button btnUpdateRoom;
         private System.Windows.Forms.NumericUpDown numCapacity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EquipName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EquipQuantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EquipDescription;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EquipId;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomName;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomCapacity;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomId;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomDescription;
         private System.Windows.Forms.DataGridViewCheckBoxColumn RoomEnable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EquipId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EquipName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EquipQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EquipDescription;
     }
 }

@@ -36,3 +36,4 @@ C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug
 C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.InventoryManager.resources
 C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.IssueManager.resources
 C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.RoomManager.resources
+C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.RoomManagerAddEquip.resources

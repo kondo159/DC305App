@@ -1,0 +1,81 @@
+﻿using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.Windows.Forms;
+
+namespace DC305RoomManagement
+{
+    public partial class RoomManagerAddEquip : Form
+    {
+        public int equipId { get; set; }
+        public string name { get; set; }
+        public int quantity { get; set; }
+        public string desc { get; set; }
+
+        private Connection conn = new Connection();
+        DataTable dtEquipments = new DataTable();
+        public RoomManagerAddEquip()
+        {
+            InitializeComponent();
+            LoadCB();
+        }
+        private void LoadCB()
+        {
+            cboxEquip.DisplayMember = "Name";
+            cboxEquip.ValueMember = "id";
+            cboxEquip.Items.Add(new { Name = "-Select-", id = "0" });
+            cboxEquip.SelectedIndex = 0;
+            //SELECT to get only Available Equipments
+            SqlCommand cmd = new SqlCommand("SELECT Equipment.EquipId,Equipment.Name,Equipment.Description,Equipment.Quantity, COALESCE(SUM(RoomEquipment.Quantity),0) as EQuantity "
+            + "FROM  Equipment LEFT JOIN RoomEquipment "
+            + "ON RoomEquipment.EquipId = Equipment.EquipId "
+            + "where  Equipment.Active = 1 "
+            + "Group BY Equipment.EquipId, Equipment.Name, Equipment.Description, Equipment.Quantity"
+            + " HAVING Equipment.Quantity > COALESCE(SUM(RoomEquipment.Quantity), 0) ", conn.OpenConn());
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                dtEquipments.Load(reader);
+                for (int c = 0; c < dtEquipments.Rows.Count; c++)
+                {
+                    cboxEquip.Items.Add(new { Name = dtEquipments.Rows[c]["Name"].ToString(), id = dtEquipments.Rows[c]["EquipId"].ToString() });
+                }
+
+            }
+
+
+
+        }        
+
+        //Change max value to number of available equipments
+        private void CboxEquip_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var item = cboxEquip.SelectedItem;//get the selected equip
+            for (int c = 0; c < dtEquipments.Rows.Count; c++)//search in the dataTable to get the number available
+            {
+                if (dtEquipments.Rows[c]["EquipID"].ToString() == item.GetType().GetProperty("id").GetValue(item, null).ToString())
+                {
+                    numEquip.Maximum = Convert.ToInt32(dtEquipments.Rows[c]["Quantity"].ToString()) - Convert.ToInt32(dtEquipments.Rows[c]["EQuantity"].ToString());
+                    this.equipId = Convert.ToInt32(item.GetType().GetProperty("id").GetValue(item, null).ToString());
+                    this.name = item.GetType().GetProperty("Name").GetValue(item, null).ToString();
+                    this.desc = dtEquipments.Rows[c]["Description"].ToString();
+                }
+                    
+            }
+
+        }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            this.quantity=Convert.ToInt32(numEquip.Value);
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+    }
+}
