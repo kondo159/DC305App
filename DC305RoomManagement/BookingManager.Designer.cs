@@ -230,22 +230,22 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnPrint;
-        private System.Windows.Forms.Button btnReset;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnCreate;
-        private System.Windows.Forms.Button btnFilter;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label lblClass;
-        private System.Windows.Forms.Label lblStaff;
-        private System.Windows.Forms.Label lblRoom;
-        private System.Windows.Forms.Label lblToDate;
-        private System.Windows.Forms.Label lblFromDate;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Label lblFromDate;
+        private System.Windows.Forms.Label lblToDate;
+        private System.Windows.Forms.Label lblRoom;
+        private System.Windows.Forms.Label lblStaff;
+        private System.Windows.Forms.Label lblClass;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Button btnFilter;
+        private System.Windows.Forms.Button btnCreate;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Button btnPrint;
     }
 }
