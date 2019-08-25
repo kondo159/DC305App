@@ -168,7 +168,7 @@ namespace DC305RoomManagement
         /// <param name="e">Event Arguments</param>
         private void BtnAddMember_Click(object sender, EventArgs e)
         {
-            int GroupID = (int)(dgvGroups.CurrentRow.Cells["GroupID"].Value ?? 0);
+            int GroupID = (int)(dgvGroups.CurrentRow?.Cells["GroupID"].Value ?? 0);
 
             if(GroupID != 0)
             {

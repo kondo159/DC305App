@@ -25,5 +25,11 @@ namespace DC305RoomManagementClassLibrary.Models.Repository
         int SaveGroup(Group group);
         void SaveGroupMember(int GroupID, int UserID);
         void RemoveGroupMember(int GroupID, int UserID);
+
+        DataTable GetCourses();
+        int SaveCourse(Course course);
+
+        DataTable GetClasses();
+        int SaveClass(ClassEvent classEvent);
     }
 }

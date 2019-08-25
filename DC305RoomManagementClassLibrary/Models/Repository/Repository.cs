@@ -190,6 +190,38 @@ namespace DC305RoomManagementClassLibrary.Models.Repository
             return GetData("spUsers_GetAll", new SqlParameter("@RoleID", RoleID));
         }
 
+        public DataTable GetCourses()
+        {
+            return GetData("spCourses_GetAll");
+        }
+
+        public int SaveCourse(Course course)
+        {
+            return ExecSqlQueryScalar(ConnectionName, "spCourses_Save",
+                    new SqlParameter("@CourseID", course.CourseID),
+                    new SqlParameter("@CourseName", course.CourseName),
+                    new SqlParameter("@Description", course.Description),
+                    new SqlParameter("@Duration", course.Duration),
+                    new SqlParameter("@Level", course.Level)
+                );
+        }
+
+        public DataTable GetClasses()
+        {
+            return GetData("spClass_GetAll");
+        }
+
+        public int SaveClass(ClassEvent classEvent)
+        {
+            return ExecSqlQueryScalar(ConnectionName, "spClass_Save",
+                    new SqlParameter("@ClassID", classEvent.ClassID),
+                    new SqlParameter("@ClassName", classEvent.ClassName),
+                    new SqlParameter("@CourseID", classEvent.CourseID),
+                    new SqlParameter("@StaffID", classEvent.StaffID),
+                    new SqlParameter("@GroupID", classEvent.GroupID)
+                );
+        }
+
 
         /// <summary>
         /// Execute StoredProcedure with Parameters
