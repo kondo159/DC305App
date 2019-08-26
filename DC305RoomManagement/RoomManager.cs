@@ -66,7 +66,7 @@ namespace DC305RoomManagement
             txtRoomNameValue.Text = row.Cells["RoomName"].Value.ToString();
             numCapacity.Value= decimal.Parse(row.Cells["RoomCapacity"].Value.ToString());
             txtDescriptionValue.Text = row.Cells["RoomDescription"].Value.ToString();
-            if(row.Cells["RoomEnable"].Value.ToString()=="true")
+            if(row.Cells["RoomEnable"].Value.ToString()==true.ToString())
              btnDisableRoom.Text = "Disable";
             else
              btnDisableRoom.Text = "Enable";
@@ -350,6 +350,14 @@ namespace DC305RoomManagement
             }
             errorProvider1.SetError(txtRoomNameValue, "");
             return true;
+        }
+
+        private void BtnDisableRoom_Click(object sender, EventArgs e)
+        {
+            if(btnDisableRoom.Text =="Enable")
+                btnDisableRoom.Text = "Disable";
+            else
+                btnDisableRoom.Text = "Enable";
         }
     }    
 }

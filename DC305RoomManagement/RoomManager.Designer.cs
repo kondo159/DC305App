@@ -47,15 +47,15 @@
             this.numCapacity = new System.Windows.Forms.NumericUpDown();
             this.btnResetData = new System.Windows.Forms.Button();
             this.dgvEquipments = new System.Windows.Forms.DataGridView();
+            this.EquipId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EquipName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EquipQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EquipDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnUpdateRoom = new System.Windows.Forms.Button();
             this.btnCreateRoom = new System.Windows.Forms.Button();
             this.Equipments = new System.Windows.Forms.Label();
             this.btnAddEquipment = new System.Windows.Forms.Button();
             this.btnRemoveEquipment = new System.Windows.Forms.Button();
-            this.EquipId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EquipName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EquipQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EquipDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoomList)).BeginInit();
             this.pnlMainContent.SuspendLayout();
@@ -179,6 +179,7 @@
             this.btnDisableRoom.TabIndex = 3;
             this.btnDisableRoom.Text = "Disable";
             this.btnDisableRoom.UseVisualStyleBackColor = true;
+            this.btnDisableRoom.Click += new System.EventHandler(this.BtnDisableRoom_Click);
             // 
             // btnEditRoom
             // 
@@ -266,6 +267,35 @@
             this.dgvEquipments.Size = new System.Drawing.Size(446, 155);
             this.dgvEquipments.TabIndex = 2;
             // 
+            // EquipId
+            // 
+            this.EquipId.DataPropertyName = "EquipId";
+            this.EquipId.HeaderText = "ID";
+            this.EquipId.Name = "EquipId";
+            this.EquipId.ReadOnly = true;
+            this.EquipId.Visible = false;
+            // 
+            // EquipName
+            // 
+            this.EquipName.DataPropertyName = "name";
+            this.EquipName.HeaderText = "Name";
+            this.EquipName.Name = "EquipName";
+            this.EquipName.ReadOnly = true;
+            // 
+            // EquipQuantity
+            // 
+            this.EquipQuantity.DataPropertyName = "Quantity";
+            this.EquipQuantity.HeaderText = "Quantity";
+            this.EquipQuantity.Name = "EquipQuantity";
+            this.EquipQuantity.ReadOnly = true;
+            // 
+            // EquipDescription
+            // 
+            this.EquipDescription.DataPropertyName = "Description";
+            this.EquipDescription.HeaderText = "Description";
+            this.EquipDescription.Name = "EquipDescription";
+            this.EquipDescription.ReadOnly = true;
+            // 
             // btnUpdateRoom
             // 
             this.btnUpdateRoom.Enabled = false;
@@ -315,35 +345,6 @@
             this.btnRemoveEquipment.Text = "Remove";
             this.btnRemoveEquipment.UseVisualStyleBackColor = true;
             this.btnRemoveEquipment.Click += new System.EventHandler(this.BtnRemoveEquipment_Click);
-            // 
-            // EquipId
-            // 
-            this.EquipId.DataPropertyName = "EquipId";
-            this.EquipId.HeaderText = "ID";
-            this.EquipId.Name = "EquipId";
-            this.EquipId.ReadOnly = true;
-            this.EquipId.Visible = false;
-            // 
-            // EquipName
-            // 
-            this.EquipName.DataPropertyName = "name";
-            this.EquipName.HeaderText = "Name";
-            this.EquipName.Name = "EquipName";
-            this.EquipName.ReadOnly = true;
-            // 
-            // EquipQuantity
-            // 
-            this.EquipQuantity.DataPropertyName = "Quantity";
-            this.EquipQuantity.HeaderText = "Quantity";
-            this.EquipQuantity.Name = "EquipQuantity";
-            this.EquipQuantity.ReadOnly = true;
-            // 
-            // EquipDescription
-            // 
-            this.EquipDescription.DataPropertyName = "Description";
-            this.EquipDescription.HeaderText = "Description";
-            this.EquipDescription.Name = "EquipDescription";
-            this.EquipDescription.ReadOnly = true;
             // 
             // errorProvider1
             // 

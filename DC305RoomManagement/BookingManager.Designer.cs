@@ -44,8 +44,17 @@
             this.lblFromDate = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dgvBookingList = new System.Windows.Forms.DataGridView();
+            this.BookingId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClassId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClassName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SDateTIme = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBookingList)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPrint
@@ -189,13 +198,75 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(175, 20);
             this.dateTimePicker1.TabIndex = 19;
             // 
-            // dataGridView1
+            // dgvBookingList
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(295, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(534, 441);
-            this.dataGridView1.TabIndex = 18;
+            this.dgvBookingList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBookingList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.BookingId,
+            this.RoomId,
+            this.RoomName,
+            this.ClassId,
+            this.ClassName,
+            this.UserId,
+            this.UserName,
+            this.SDateTIme,
+            this.EDateTime});
+            this.dgvBookingList.Location = new System.Drawing.Point(295, 12);
+            this.dgvBookingList.Name = "dgvBookingList";
+            this.dgvBookingList.Size = new System.Drawing.Size(534, 441);
+            this.dgvBookingList.TabIndex = 18;
+            // 
+            // BookingId
+            // 
+            this.BookingId.DataPropertyName = "BookingId";
+            this.BookingId.HeaderText = "BookingId";
+            this.BookingId.Name = "BookingId";
+            this.BookingId.Visible = false;
+            // 
+            // RoomId
+            // 
+            this.RoomId.DataPropertyName = "RoomId";
+            this.RoomId.HeaderText = "RoomId";
+            this.RoomId.Name = "RoomId";
+            this.RoomId.Visible = false;
+            // 
+            // RoomName
+            // 
+            this.RoomName.HeaderText = "Room";
+            this.RoomName.Name = "RoomName";
+            // 
+            // ClassId
+            // 
+            this.ClassId.HeaderText = "Class Id";
+            this.ClassId.Name = "ClassId";
+            this.ClassId.Visible = false;
+            // 
+            // ClassName
+            // 
+            this.ClassName.HeaderText = "Class Name";
+            this.ClassName.Name = "ClassName";
+            // 
+            // UserId
+            // 
+            this.UserId.HeaderText = "User ID";
+            this.UserId.Name = "UserId";
+            this.UserId.Visible = false;
+            // 
+            // UserName
+            // 
+            this.UserName.HeaderText = "Booked by";
+            this.UserName.Name = "UserName";
+            this.UserName.Visible = false;
+            // 
+            // SDateTIme
+            // 
+            this.SDateTIme.HeaderText = "Start Date Time";
+            this.SDateTIme.Name = "SDateTIme";
+            // 
+            // EDateTime
+            // 
+            this.EDateTime.HeaderText = "End Date Time";
+            this.EDateTime.Name = "EDateTime";
             // 
             // BookingManager
             // 
@@ -219,10 +290,10 @@
             this.Controls.Add(this.lblFromDate);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvBookingList);
             this.Name = "BookingManager";
             this.Text = "BookingManager";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBookingList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,7 +302,7 @@
         #endregion
 
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvBookingList;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label lblFromDate;
@@ -248,6 +319,14 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnPrint;
-
+        private System.Windows.Forms.DataGridViewTextBoxColumn BookingId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoomId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoomName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClassId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClassName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SDateTIme;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EDateTime;
     }
 }
