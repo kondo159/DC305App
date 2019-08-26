@@ -58,6 +58,8 @@ namespace DC305RoomManagement
         //Fuction to Edit the selected room on the table, bring the information to the form
         private void BtnEditRoom_Click(object sender, EventArgs e)
         {
+            //Clear form before include the information
+            ResetForm();
             //bring the room information to the from
             DataGridViewRow row = dgvRoomList.Rows[dgvRoomList.SelectedCells[0].RowIndex];
             activeRoom = int.Parse(row.Cells["RoomId"].Value.ToString());
@@ -92,13 +94,14 @@ namespace DC305RoomManagement
                     //populating the list object to control the equipments before save 
                    for(int c=0;c< dt.Rows.Count;c++)
                     {
-                        RoomEquip equip = new RoomEquip();
+                        RoomEquip equip = new RoomEquip();                        
                         equip.EquipId=Convert.ToInt32(dt.Rows[c]["EquipId"].ToString());
                         equip.Name = dt.Rows[c]["Name"].ToString();
                         equip.Quantity = Convert.ToInt32(dt.Rows[c]["Quantity"].ToString());
                         equip.Desc = dt.Rows[c]["Description"].ToString();
                         roomEquips.Add(equip);
-                        oldRoomEquips.Add(equip);
+                        RoomEquip oldEquip = new RoomEquip(equip.EquipId,equip.Name,equip.Quantity,equip.Desc);
+                        oldRoomEquips.Add(oldEquip);
                     }
                    //populating datagrid
                     dgvEquipments.DataSource = dt;
@@ -267,7 +270,7 @@ namespace DC305RoomManagement
                 var result = addEquipWin.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    roomEquips.Add(new RoomEquip(addEquipWin.equipId, addEquipWin.name, addEquipWin.quantity, addEquipWin.desc));
+                    
                     DataTable dt = dgvEquipments.DataSource as DataTable;
                     if (dgvEquipments.Rows.Count == 0)//if table dont have row is necessary define the columns for the datatable
                     {
@@ -275,14 +278,55 @@ namespace DC305RoomManagement
                         dt.Columns.Add("Name");
                         dt.Columns.Add("Quantity");
                         dt.Columns.Add("Description");
-                    }                    
-                    DataRow equip = dt.NewRow();                    
-                    equip[0] = addEquipWin.equipId;
-                    equip[1] = addEquipWin.name;
-                    equip[2] = addEquipWin.desc;
-                    equip[3] = addEquipWin.quantity;
-                    dt.Rows.Add(equip);
+                    }
+                    bool exist = false;
+                    int maxEquip = 0;
+                    for (int i = 0; i < roomEquips.Count; i++)
+                    {
+                        if(roomEquips[i].EquipId==addEquipWin.EquipId)
+                        {
+                            maxEquip = addEquipWin.Maxquantity;
+                            for (int x = 0; x < oldRoomEquips.Count; x++)
+                            {
+                                if (oldRoomEquips[x].EquipId == addEquipWin.EquipId) {
+                                    maxEquip = addEquipWin.Maxquantity + oldRoomEquips[x].Quantity;
+                                    break;
+                                }
 
+                            }
+
+                            for (int c = 0; c < dt.Rows.Count; c++) {
+                                if(dt.Rows[c]["EquipId"].ToString()== addEquipWin.EquipId.ToString())
+                                {
+                                    int qnt = Convert.ToInt32(dt.Rows[c]["Quantity"].ToString());
+                                    qnt+= addEquipWin.Quantity;                                    
+                                    if (maxEquip >= qnt)
+                                    {
+                                        dt.Rows[c]["Quantity"] = qnt;
+                                        roomEquips[i].Quantity = qnt;
+                                    }
+                                    else {
+                                        MessageBox.Show("Equipment couldnt be add because the max number is "+maxEquip, "Equip not available",MessageBoxButtons.OK);
+                                    }                                    
+                                    break;
+                                }
+                                  
+                            }
+                            exist = true;
+                            break;
+                        }
+
+                    }
+                    if (!exist)
+                    {
+                        roomEquips.Add(new RoomEquip(addEquipWin.EquipId, addEquipWin.Name, addEquipWin.Quantity, addEquipWin.Desc));
+                        DataRow equip = dt.NewRow();
+                        equip[0] = addEquipWin.EquipId;
+                        equip[1] = addEquipWin.Name;                        
+                        equip[2] = addEquipWin.Quantity;
+                        equip[3] = addEquipWin.Desc;
+                        dt.Rows.Add(equip);
+                    }                    
                 }
             }
         }

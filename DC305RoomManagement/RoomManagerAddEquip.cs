@@ -7,10 +7,11 @@ namespace DC305RoomManagement
 {
     public partial class RoomManagerAddEquip : Form
     {
-        public int equipId { get; set; }
-        public string name { get; set; }
-        public int quantity { get; set; }
-        public string desc { get; set; }
+        public int EquipId { get; set; }
+        public string Name { get; set; }
+        public int Quantity { get; set; }
+        public int Maxquantity { get; set; }
+        public string Desc { get; set; }
 
         private Connection conn = new Connection();
         DataTable dtEquipments = new DataTable();
@@ -56,9 +57,10 @@ namespace DC305RoomManagement
                 if (dtEquipments.Rows[c]["EquipID"].ToString() == item.GetType().GetProperty("id").GetValue(item, null).ToString())
                 {
                     numEquip.Maximum = Convert.ToInt32(dtEquipments.Rows[c]["Quantity"].ToString()) - Convert.ToInt32(dtEquipments.Rows[c]["EQuantity"].ToString());
-                    this.equipId = Convert.ToInt32(item.GetType().GetProperty("id").GetValue(item, null).ToString());
-                    this.name = item.GetType().GetProperty("Name").GetValue(item, null).ToString();
-                    this.desc = dtEquipments.Rows[c]["Description"].ToString();
+                    this.Maxquantity = Convert.ToInt32(numEquip.Maximum);                    
+                    this.EquipId = Convert.ToInt32(item.GetType().GetProperty("id").GetValue(item, null).ToString());
+                    this.Name = item.GetType().GetProperty("Name").GetValue(item, null).ToString();
+                    this.Desc = dtEquipments.Rows[c]["Description"].ToString();
                 }
                     
             }
@@ -67,7 +69,7 @@ namespace DC305RoomManagement
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            this.quantity=Convert.ToInt32(numEquip.Value);
+            this.Quantity=Convert.ToInt32(numEquip.Value);            
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
