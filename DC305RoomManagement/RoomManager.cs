@@ -332,10 +332,10 @@ namespace DC305RoomManagement
                     {
                         roomEquips.Add(new RoomEquip(addEquipWin.EquipId, addEquipWin.Name, addEquipWin.Quantity, addEquipWin.Desc));
                         DataRow equip = dt.NewRow();
-                        equip[0] = addEquipWin.EquipId;
-                        equip[1] = addEquipWin.Name;                        
-                        equip[2] = addEquipWin.Quantity;
-                        equip[3] = addEquipWin.Desc;
+                        equip["EquipId"] = addEquipWin.EquipId;
+                        equip["Name"] = addEquipWin.Name;                        
+                        equip["Quantity"] = addEquipWin.Quantity;
+                        equip["Description"] = addEquipWin.Desc;
                         dt.Rows.Add(equip);
                     }                    
                 }
