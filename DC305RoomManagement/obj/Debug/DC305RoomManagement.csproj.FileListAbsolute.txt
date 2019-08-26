@@ -56,3 +56,7 @@ C:\Sources\tmp-merge\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.
 C:\Sources\tmp-merge\DC305App\DC305RoomManagement\bin\Debug\DC305RoomManagement.exe.config
 C:\Sources\tmp-merge\DC305App\DC305RoomManagement\bin\Debug\DC305RoomManagement.exe
 C:\Sources\tmp-merge\DC305App\DC305RoomManagement\bin\Debug\DC305RoomManagement.pdb
+C:\Sources\tmp-merge\DC305App\DC305RoomManagement\bin\Debug\DC305RoomManagementClassLibrary.dll
+C:\Sources\tmp-merge\DC305App\DC305RoomManagement\bin\Debug\DC305RoomManagementClassLibrary.pdb
+C:\Sources\tmp-merge\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.AddMembersToGroup.resources
+C:\Sources\tmp-merge\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.csproj.CopyComplete

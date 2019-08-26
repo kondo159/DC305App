@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Data.SqlTypes;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DC305RoomManagementClassLibrary.Models.Repository
 {
@@ -16,7 +10,7 @@ namespace DC305RoomManagementClassLibrary.Models.Repository
         /// <summary>
         /// The name of the connection to the database
         /// </summary>
-        static string ConnectionName = "rms";
+        static string ConnectionName = "DC305RoomManagementDB";
 
         /// <summary>
         /// Gets data from the database
