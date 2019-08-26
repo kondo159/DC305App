@@ -56,14 +56,14 @@
             // 
             // numEquip
             // 
-            this.numEquip.Location = new System.Drawing.Point(171, 13);
+            this.numEquip.Location = new System.Drawing.Point(139, 12);
             this.numEquip.Maximum = new decimal(new int[] {
             0,
             0,
             0,
             0});
             this.numEquip.Name = "numEquip";
-            this.numEquip.Size = new System.Drawing.Size(120, 20);
+            this.numEquip.Size = new System.Drawing.Size(45, 20);
             this.numEquip.TabIndex = 3;
             // 
             // btnCancel
