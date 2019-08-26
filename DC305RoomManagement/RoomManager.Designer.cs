@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblRoomName = new System.Windows.Forms.Label();
             this.txtRoomNameValue = new System.Windows.Forms.TextBox();
             this.lblCapacity = new System.Windows.Forms.Label();
@@ -55,10 +56,12 @@
             this.EquipName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EquipQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EquipDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoomList)).BeginInit();
             this.pnlMainContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCapacity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipments)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblRoomName
@@ -221,9 +224,19 @@
             0,
             0,
             0});
+            this.numCapacity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numCapacity.Name = "numCapacity";
             this.numCapacity.Size = new System.Drawing.Size(58, 22);
             this.numCapacity.TabIndex = 4;
+            this.numCapacity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // btnResetData
             // 
@@ -332,6 +345,10 @@
             this.EquipDescription.Name = "EquipDescription";
             this.EquipDescription.ReadOnly = true;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // RoomManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -347,6 +364,7 @@
             this.pnlMainContent.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCapacity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipments)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -380,5 +398,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipName;
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipDescription;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

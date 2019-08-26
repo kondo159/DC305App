@@ -41,11 +41,7 @@ namespace DC305RoomManagement
                 {
                     cboxEquip.Items.Add(new { Name = dtEquipments.Rows[c]["Name"].ToString(), id = dtEquipments.Rows[c]["EquipId"].ToString() });
                 }
-
             }
-
-
-
         }        
 
         //Change max value to number of available equipments

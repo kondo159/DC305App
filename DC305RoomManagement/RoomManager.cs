@@ -132,7 +132,8 @@ namespace DC305RoomManagement
             roomEquips.Clear();
             oldRoomEquips.Clear();
             txtRoomNameValue.Text = "";
-            numCapacity.Value = 0;
+            numCapacity.Value = 1;
+            errorProvider1.SetError(txtRoomNameValue, "");
             txtDescriptionValue.Text = "";
             btnDisableRoom.Text = "Disable";
             btnDisableRoom.Enabled = false;
@@ -163,6 +164,7 @@ namespace DC305RoomManagement
 
         private void BtnCreateRoom_Click(object sender, EventArgs e)
         {
+            if (FieldValidation()) { 
             //Variable created to hold the connection Open until the end of the function
             SqlConnection opencon=conn.OpenConn();
             try
@@ -195,10 +197,15 @@ namespace DC305RoomManagement
                 ResetForm();
                 LoadRoomList();
             }
+
+            }
         }
 
         private void BtnUpdateRoom_Click(object sender, EventArgs e)
         {
+            if (FieldValidation())
+            {
+
             SqlConnection opencon = conn.OpenConn();
             try
             {
@@ -208,10 +215,7 @@ namespace DC305RoomManagement
                 cmd.Parameters.AddWithValue("@desc", txtDescriptionValue.Text);
                 cmd.Parameters.AddWithValue("@enable", btnDisableRoom.Text == "Disable" ? true : false);
                 cmd.Parameters.AddWithValue("@roomid", activeRoom); 
-                cmd.ExecuteNonQuery();
-                
-                //for used to insert all the Equipments to the room
-                
+                cmd.ExecuteNonQuery();                                            
                 
                 for (int c = 0; c < oldRoomEquips.Count; c++)
                 {
@@ -221,7 +225,7 @@ namespace DC305RoomManagement
                         if(oldRoomEquips[c].EquipId==roomEquips[i].EquipId)
                         {
                             exist = true;
-                            if(oldRoomEquips[c].Quantity != roomEquips[i].Quantity)
+                            if(oldRoomEquips[c].Quantity != roomEquips[i].Quantity)//will update all equipment that suffer any alterations on qunatity
                             {
                                 cmd = new SqlCommand("Update RoomEquipment Set Quantity=@quantity where roomId=@roomid AND EquipId=@equipid", opencon);
                                 cmd.Parameters.AddWithValue("@quantity", roomEquips[i].Quantity);
@@ -233,7 +237,7 @@ namespace DC305RoomManagement
                             break;
                         }
                     }
-                    if (!exist)
+                    if (!exist)//will delete all the equipment that has been removed from the room
                     {
                         cmd = new SqlCommand("DELETE FROM RoomEquipment where roomId=@roomid AND EquipId=@equipid", opencon);
                         cmd.Parameters.AddWithValue("@roomid", activeRoom);
@@ -241,7 +245,7 @@ namespace DC305RoomManagement
                         cmd.ExecuteNonQuery();
                     }
                 }
-                for (int i = 0; i < roomEquips.Count; i++)
+                for (int i = 0; i < roomEquips.Count; i++)//insert all the new equipment for that room
                 {
                     cmd = new SqlCommand("Insert into RoomEquipment (RoomId,EquipId,Quantity) values(@room,@equip,@quantity)", opencon);
                     cmd.Parameters.AddWithValue("@room", activeRoom);
@@ -261,11 +265,14 @@ namespace DC305RoomManagement
                 ResetForm();
                 LoadRoomList();
             }
+
+            }
+
         }
 
         private void BtnAddEquipment_Click(object sender, EventArgs e)
         {                        
-            using (RoomManagerAddEquip addEquipWin = new RoomManagerAddEquip())
+            using (RoomManagerAddEquip addEquipWin = new RoomManagerAddEquip())//opens another window to select the equipment
             {
                 var result = addEquipWin.ShowDialog();
                 if (result == DialogResult.OK)
@@ -279,14 +286,16 @@ namespace DC305RoomManagement
                         dt.Columns.Add("Quantity");
                         dt.Columns.Add("Description");
                     }
+
                     bool exist = false;
                     int maxEquip = 0;
+
                     for (int i = 0; i < roomEquips.Count; i++)
                     {
                         if(roomEquips[i].EquipId==addEquipWin.EquipId)
                         {
-                            maxEquip = addEquipWin.Maxquantity;
-                            for (int x = 0; x < oldRoomEquips.Count; x++)
+                            maxEquip = addEquipWin.Maxquantity;//define a base maxquantity of equip can be linked to this room
+                            for (int x = 0; x < oldRoomEquips.Count; x++)//for used to check if equipment was already linked if so it will define what is the maxquantity for this room
                             {
                                 if (oldRoomEquips[x].EquipId == addEquipWin.EquipId) {
                                     maxEquip = addEquipWin.Maxquantity + oldRoomEquips[x].Quantity;
@@ -295,7 +304,7 @@ namespace DC305RoomManagement
 
                             }
 
-                            for (int c = 0; c < dt.Rows.Count; c++) {
+                            for (int c = 0; c < dt.Rows.Count; c++) {//finding equipment on the table if finds it validates and updated the quantity
                                 if(dt.Rows[c]["EquipId"].ToString()== addEquipWin.EquipId.ToString())
                                 {
                                     int qnt = Convert.ToInt32(dt.Rows[c]["Quantity"].ToString());
@@ -317,7 +326,7 @@ namespace DC305RoomManagement
                         }
 
                     }
-                    if (!exist)
+                    if (!exist)//if equip does not exist on the table it will be add to the datagrid and to the RoomEquips Object
                     {
                         roomEquips.Add(new RoomEquip(addEquipWin.EquipId, addEquipWin.Name, addEquipWin.Quantity, addEquipWin.Desc));
                         DataRow equip = dt.NewRow();
@@ -329,6 +338,16 @@ namespace DC305RoomManagement
                     }                    
                 }
             }
+        }
+        private bool FieldValidation()
+        {
+            if (txtRoomNameValue.Text == "")
+            {
+                errorProvider1.SetError(txtRoomNameValue,"Name must be inserted");
+                return false;
+            }
+            errorProvider1.SetError(txtRoomNameValue, "");
+            return true;
         }
     }    
 }
