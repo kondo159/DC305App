@@ -209,6 +209,7 @@ namespace DC305RoomManagement
             SqlConnection opencon = conn.OpenConn();
             try
             {
+                    //Command to update the information of the room
                 SqlCommand cmd = new SqlCommand("Update Rooms Set Name=@name, Capacity=@cap, Description=@desc ,Enable=@enable where roomId=@roomid", opencon);
                 cmd.Parameters.AddWithValue("@name", txtRoomNameValue.Text);
                 cmd.Parameters.AddWithValue("@cap", Convert.ToInt32(numCapacity.Text));
@@ -217,6 +218,7 @@ namespace DC305RoomManagement
                 cmd.Parameters.AddWithValue("@roomid", activeRoom); 
                 cmd.ExecuteNonQuery();                                            
                 
+                //For to update the linked Equipments
                 for (int c = 0; c < oldRoomEquips.Count; c++)
                 {
                     bool exist = false;
@@ -275,7 +277,7 @@ namespace DC305RoomManagement
             using (RoomManagerAddEquip addEquipWin = new RoomManagerAddEquip())//opens another window to select the equipment
             {
                 var result = addEquipWin.ShowDialog();
-                if (result == DialogResult.OK)
+                if (result == DialogResult.OK && addEquipWin.EquipId!= 0)
                 {
                     
                     DataTable dt = dgvEquipments.DataSource as DataTable;

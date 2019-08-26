@@ -7,6 +7,7 @@ namespace DC305RoomManagement
 {
     public partial class RoomManagerAddEquip : Form
     {
+        //variables to get back to the Room Management Screen
         public int EquipId { get; set; }
         public string Name { get; set; }
         public int Quantity { get; set; }
@@ -14,14 +15,15 @@ namespace DC305RoomManagement
         public string Desc { get; set; }
 
         private Connection conn = new Connection();
-        DataTable dtEquipments = new DataTable();
+        DataTable dtEquipments = new DataTable();//variable to hold the Equipment Information
         public RoomManagerAddEquip()
         {
             InitializeComponent();
             LoadCB();
         }
-        private void LoadCB()
+        private void LoadCB()//Method to Load Data into the ComboBox
         {
+            //setting the default option
             cboxEquip.DisplayMember = "Name";
             cboxEquip.ValueMember = "id";
             cboxEquip.Items.Add(new { Name = "-Select-", id = "0" });
