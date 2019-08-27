@@ -82,7 +82,7 @@ namespace DC305RoomManagement
         }
         private void Main_Load(object sender, EventArgs e)
         {
-
+      
         }
     }
 }

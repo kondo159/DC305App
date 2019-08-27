@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -52,13 +53,13 @@
     <Compile Include="BookingManager.Designer.cs">
       <DependentUpon>BookingManager.cs</DependentUpon>
     </Compile>
-	<Compile Include="ClassManager.cs">
+    <Compile Include="ClassManager.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ClassManager.Designer.cs">
       <DependentUpon>ClassManager.cs</DependentUpon>
     </Compile>
-	<Compile Include="CourseManager.cs">
+    <Compile Include="CourseManager.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CourseManager.Designer.cs">
@@ -108,7 +109,7 @@
     <Compile Include="UserManager.Designer.cs">
       <DependentUpon>UserManager.cs</DependentUpon>
     </Compile>
-	<Compile Include="RoomManager.cs">
+    <Compile Include="RoomManager.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RoomManager.Designer.cs">
@@ -117,7 +118,7 @@
     <EmbeddedResource Include="BookingManager.resx">
       <DependentUpon>BookingManager.cs</DependentUpon>
     </EmbeddedResource>
-	<EmbeddedResource Include="ClassManager.resx">
+    <EmbeddedResource Include="ClassManager.resx">
       <DependentUpon>ClassManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CourseManager.resx">
@@ -151,7 +152,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-	    <EmbeddedResource Include="RoomManager.resx">
+    <EmbeddedResource Include="RoomManager.resx">
       <DependentUpon>RoomManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserManager.resx">
