@@ -39,7 +39,7 @@ namespace DC305RoomManagementClassLibrary.Models.Repository
                 {
                     sqlData.Fill(dataTable);
                 }
-                catch (Exception err)
+                catch (Exception)
                 {
 
                     throw;
@@ -239,7 +239,7 @@ namespace DC305RoomManagementClassLibrary.Models.Repository
 
                     return int.Parse(recordID);
                 }
-                catch (Exception err)
+                catch (Exception)
                 {
                     return 0;
                 }

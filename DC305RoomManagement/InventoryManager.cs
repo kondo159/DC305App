@@ -174,18 +174,15 @@ namespace DC305RoomManagement
         {
             if (IsValid())
             {
-                int ETypeID = (int)(cbItemTypeValue.SelectedValue ?? 0);
+                int ETypeID = (cbItemTypeValue.FindStringExact(cbItemTypeValue.Text)) == -1 ? 0
+                    : (int)(cbItemTypeValue.SelectedValue ?? 0);
 
-                if (Equipment.ETypeID == 0)
-
+                if(ETypeID == 0)
                 {
-                    if(ETypeID == 0)
-                    {
-                        ETypeID = repository.SaveEType(new EquipmentType(ETypeID, cbItemTypeValue.Text));
-                    }
-
-                    Equipment.ETypeID = ETypeID;
+                    ETypeID = repository.SaveEType(new EquipmentType(ETypeID, cbItemTypeValue.Text));
                 }
+
+                Equipment.ETypeID = ETypeID;
 
                 fillEquipment();
 
@@ -194,7 +191,9 @@ namespace DC305RoomManagement
                 {
                     FormHelper.ClearFields(pnlMainContent, typeof(TextBox));
                     FormHelper.ClearFields(pnlMainContent, typeof(ComboBox));
+                    LoadETypeNames();
                     LoadEquipmentList();
+
                     MessageBox.Show("Data was saved successfully!", "Operation result",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -202,6 +201,19 @@ namespace DC305RoomManagement
                 {
                     MessageBox.Show("An error occured.\nData was not saved!", "Operation result",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void DgvInventory_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            if (e.Exception.Message == "DataGridViewComboBoxCell value is not valid.")
+            {
+                object value = dgvInventory.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                if (!((DataGridViewComboBoxColumn)dgvInventory.Columns[e.ColumnIndex]).Items.Contains(value))
+                {
+                    ((DataGridViewComboBoxColumn)dgvInventory.Columns[e.ColumnIndex]).DataSource = repository.GetETypes();
+                    e.ThrowException = false;
                 }
             }
         }

@@ -31,7 +31,7 @@ namespace DC305RoomManagement
         {
             txtCourseNameValue.Text = course.CourseName;
             txtDescriptionValue.Text = course.Description;
-            cbDuration.SelectedIndex = cbDuration.FindStringExact(course.Duration);
+            txtDuration.Text = course.Duration;
             setLevelField(course.Level);
         }
 
@@ -57,7 +57,7 @@ namespace DC305RoomManagement
         {
             Course.CourseName = txtCourseNameValue.Text;
             Course.Description = txtDescriptionValue.Text;
-            Course.Duration = cbDuration.Text;
+            Course.Duration = txtDuration.Text;
             Course.Level = getLevelField();
         }
 
@@ -100,7 +100,7 @@ namespace DC305RoomManagement
                 valid = false;
             }
 
-            if (string.IsNullOrWhiteSpace(cbDuration.Text))
+            if (string.IsNullOrWhiteSpace(txtDuration.Text))
             {
                 valid = false;
             }
