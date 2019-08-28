@@ -174,5 +174,17 @@
   <ItemGroup>
     <None Include="Resources\placeimg_837_465_tech.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ITEdu Information Systems Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ITEdu Information Systems Logo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rsz_itedu_information_systems_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ITEdu Information Systems Logo2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
