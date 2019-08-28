@@ -256,7 +256,11 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
-
+#############################################
+ DC305RoomManagement/bin/**
+ DC305RoomManagement/obj/**
+ DC305RoomManagementClassLibrary/bin/**
+ DC305RoomManagementClassLibrary/obj/**
 #############################################
 DC305RoomManagement/.vs/DC305RoomManagement/v16/.suo
 DC305RoomManagement/obj/Debug/DC305RoomManagement.csprojAssemblyReference.cache
