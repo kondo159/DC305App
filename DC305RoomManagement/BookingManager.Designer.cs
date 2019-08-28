@@ -34,16 +34,16 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
             this.btnFilter = new System.Windows.Forms.Button();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboxClass = new System.Windows.Forms.ComboBox();
+            this.cboxStaff = new System.Windows.Forms.ComboBox();
+            this.cboxRoom = new System.Windows.Forms.ComboBox();
             this.lblClass = new System.Windows.Forms.Label();
             this.lblStaff = new System.Windows.Forms.Label();
             this.lblRoom = new System.Windows.Forms.Label();
             this.lblToDate = new System.Windows.Forms.Label();
             this.lblFromDate = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
+            this.dtpStart = new System.Windows.Forms.DateTimePicker();
             this.dgvBookingList = new System.Windows.Forms.DataGridView();
             this.BookingId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RoomId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -111,29 +111,29 @@
             this.btnFilter.Text = "Filter";
             this.btnFilter.UseVisualStyleBackColor = true;
             // 
-            // comboBox3
+            // cboxClass
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(72, 224);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(175, 21);
-            this.comboBox3.TabIndex = 28;
+            this.cboxClass.FormattingEnabled = true;
+            this.cboxClass.Location = new System.Drawing.Point(72, 224);
+            this.cboxClass.Name = "cboxClass";
+            this.cboxClass.Size = new System.Drawing.Size(175, 21);
+            this.cboxClass.TabIndex = 28;
             // 
-            // comboBox2
+            // cboxStaff
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(72, 197);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(175, 21);
-            this.comboBox2.TabIndex = 27;
+            this.cboxStaff.FormattingEnabled = true;
+            this.cboxStaff.Location = new System.Drawing.Point(72, 197);
+            this.cboxStaff.Name = "cboxStaff";
+            this.cboxStaff.Size = new System.Drawing.Size(175, 21);
+            this.cboxStaff.TabIndex = 27;
             // 
-            // comboBox1
+            // cboxRoom
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(72, 170);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(175, 21);
-            this.comboBox1.TabIndex = 26;
+            this.cboxRoom.FormattingEnabled = true;
+            this.cboxRoom.Location = new System.Drawing.Point(72, 170);
+            this.cboxRoom.Name = "cboxRoom";
+            this.cboxRoom.Size = new System.Drawing.Size(175, 21);
+            this.cboxRoom.TabIndex = 26;
             // 
             // lblClass
             // 
@@ -180,26 +180,29 @@
             this.lblFromDate.TabIndex = 21;
             this.lblFromDate.Text = "From Date:";
             // 
-            // dateTimePicker2
+            // dtpEnd
             // 
-            this.dateTimePicker2.CustomFormat = "ddMMMMyyyy hh:mm:ss tt";
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(72, 144);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(175, 20);
-            this.dateTimePicker2.TabIndex = 20;
+            this.dtpEnd.CustomFormat = "ddMMMMyyyy hh:mm:ss tt";
+            this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpEnd.Location = new System.Drawing.Point(72, 144);
+            this.dtpEnd.Name = "dtpEnd";
+            this.dtpEnd.Size = new System.Drawing.Size(175, 20);
+            this.dtpEnd.TabIndex = 20;
             // 
-            // dateTimePicker1
+            // dtpStart
             // 
-            this.dateTimePicker1.CustomFormat = "ddMMMMyyyy hh:mm:ss tt";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(72, 118);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(175, 20);
-            this.dateTimePicker1.TabIndex = 19;
+            this.dtpStart.CustomFormat = "ddMMMMyyyy hh:mm:ss tt";
+            this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpStart.Location = new System.Drawing.Point(72, 118);
+            this.dtpStart.Name = "dtpStart";
+            this.dtpStart.Size = new System.Drawing.Size(175, 20);
+            this.dtpStart.TabIndex = 19;
             // 
             // dgvBookingList
             // 
+            this.dgvBookingList.AllowUserToAddRows = false;
+            this.dgvBookingList.AllowUserToDeleteRows = false;
+            this.dgvBookingList.AllowUserToOrderColumns = true;
             this.dgvBookingList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBookingList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BookingId,
@@ -211,16 +214,19 @@
             this.UserName,
             this.SDateTIme,
             this.EDateTime});
-            this.dgvBookingList.Location = new System.Drawing.Point(295, 12);
+            this.dgvBookingList.Location = new System.Drawing.Point(291, 12);
             this.dgvBookingList.Name = "dgvBookingList";
+            this.dgvBookingList.ReadOnly = true;
             this.dgvBookingList.Size = new System.Drawing.Size(534, 441);
             this.dgvBookingList.TabIndex = 18;
+            this.dgvBookingList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvBookingList_CellContentClick);
             // 
             // BookingId
             // 
             this.BookingId.DataPropertyName = "BookingId";
             this.BookingId.HeaderText = "BookingId";
             this.BookingId.Name = "BookingId";
+            this.BookingId.ReadOnly = true;
             this.BookingId.Visible = false;
             // 
             // RoomId
@@ -228,45 +234,59 @@
             this.RoomId.DataPropertyName = "RoomId";
             this.RoomId.HeaderText = "RoomId";
             this.RoomId.Name = "RoomId";
+            this.RoomId.ReadOnly = true;
             this.RoomId.Visible = false;
             // 
             // RoomName
             // 
+            this.RoomName.DataPropertyName = "RoomName";
             this.RoomName.HeaderText = "Room";
             this.RoomName.Name = "RoomName";
+            this.RoomName.ReadOnly = true;
             // 
             // ClassId
             // 
+            this.ClassId.DataPropertyName = "ClassId";
             this.ClassId.HeaderText = "Class Id";
             this.ClassId.Name = "ClassId";
+            this.ClassId.ReadOnly = true;
             this.ClassId.Visible = false;
             // 
             // ClassName
             // 
+            this.ClassName.DataPropertyName = "ClassName";
             this.ClassName.HeaderText = "Class Name";
             this.ClassName.Name = "ClassName";
+            this.ClassName.ReadOnly = true;
             // 
             // UserId
             // 
+            this.UserId.DataPropertyName = "UserId";
             this.UserId.HeaderText = "User ID";
             this.UserId.Name = "UserId";
+            this.UserId.ReadOnly = true;
             this.UserId.Visible = false;
             // 
             // UserName
             // 
+            this.UserName.DataPropertyName = "UserName";
             this.UserName.HeaderText = "Booked by";
             this.UserName.Name = "UserName";
-            this.UserName.Visible = false;
+            this.UserName.ReadOnly = true;
             // 
             // SDateTIme
             // 
+            this.SDateTIme.DataPropertyName = "SDateTime";
             this.SDateTIme.HeaderText = "Start Date Time";
             this.SDateTIme.Name = "SDateTIme";
+            this.SDateTIme.ReadOnly = true;
             // 
             // EDateTime
             // 
+            this.EDateTime.DataPropertyName = "EDateTime";
             this.EDateTime.HeaderText = "End Date Time";
             this.EDateTime.Name = "EDateTime";
+            this.EDateTime.ReadOnly = true;
             // 
             // BookingManager
             // 
@@ -280,16 +300,16 @@
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.btnFilter);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cboxClass);
+            this.Controls.Add(this.cboxStaff);
+            this.Controls.Add(this.cboxRoom);
             this.Controls.Add(this.lblClass);
             this.Controls.Add(this.lblStaff);
             this.Controls.Add(this.lblRoom);
             this.Controls.Add(this.lblToDate);
             this.Controls.Add(this.lblFromDate);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpEnd);
+            this.Controls.Add(this.dtpStart);
             this.Controls.Add(this.dgvBookingList);
             this.Name = "BookingManager";
             this.Text = "BookingManager";
@@ -303,16 +323,16 @@
 
 
         private System.Windows.Forms.DataGridView dgvBookingList;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpStart;
+        private System.Windows.Forms.DateTimePicker dtpEnd;
         private System.Windows.Forms.Label lblFromDate;
         private System.Windows.Forms.Label lblToDate;
         private System.Windows.Forms.Label lblRoom;
         private System.Windows.Forms.Label lblStaff;
         private System.Windows.Forms.Label lblClass;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cboxRoom;
+        private System.Windows.Forms.ComboBox cboxStaff;
+        private System.Windows.Forms.ComboBox cboxClass;
         private System.Windows.Forms.Button btnFilter;
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Button btnUpdate;

@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
-//COME BACK TO REVISE THE SAVE METHOD 
+
 namespace DC305RoomManagement
 {
     public partial class RoomManager : Form
-    { //variable to store the active room in the form, -1 it means the form is empty
-        private int activeRoom=-1;
+    { 
+        private int activeRoom=-1;//variable to store the active room in the form, -1 it means the form is empty
         private Connection conn = new Connection();
         private List<RoomEquip> roomEquips = new List<RoomEquip>();
         private List<RoomEquip> oldRoomEquips = new List<RoomEquip>();
@@ -125,8 +125,8 @@ namespace DC305RoomManagement
         {
             ResetForm();
         }
-        //method to reset the form
-        public void ResetForm()
+        
+        public void ResetForm()//method to reset the form
         {
             activeRoom = -1;
             roomEquips.Clear();
