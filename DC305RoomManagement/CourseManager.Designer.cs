@@ -34,21 +34,21 @@
             this.rbLevel7 = new System.Windows.Forms.RadioButton();
             this.rbLevel6 = new System.Windows.Forms.RadioButton();
             this.rbLevel5 = new System.Windows.Forms.RadioButton();
-            this.cbDuration = new System.Windows.Forms.ComboBox();
+            this.btnResetData = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.dgvCourses = new System.Windows.Forms.DataGridView();
-            this.lblDuration = new System.Windows.Forms.Label();
-            this.lbICourseName = new System.Windows.Forms.Label();
-            this.txtCourseNameValue = new System.Windows.Forms.TextBox();
-            this.lblCourseDescription = new System.Windows.Forms.Label();
-            this.txtDescriptionValue = new System.Windows.Forms.TextBox();
             this.CourseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Level = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnResetData = new System.Windows.Forms.Button();
+            this.lblDuration = new System.Windows.Forms.Label();
+            this.lbICourseName = new System.Windows.Forms.Label();
+            this.txtCourseNameValue = new System.Windows.Forms.TextBox();
+            this.lblCourseDescription = new System.Windows.Forms.Label();
+            this.txtDescriptionValue = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtDuration = new System.Windows.Forms.TextBox();
             this.pnlMainContent.SuspendLayout();
             this.gbLevels.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourses)).BeginInit();
@@ -57,8 +57,8 @@
             // 
             // pnlMainContent
             // 
+            this.pnlMainContent.Controls.Add(this.txtDuration);
             this.pnlMainContent.Controls.Add(this.gbLevels);
-            this.pnlMainContent.Controls.Add(this.cbDuration);
             this.pnlMainContent.Controls.Add(this.btnResetData);
             this.pnlMainContent.Controls.Add(this.btnSave);
             this.pnlMainContent.Controls.Add(this.dgvCourses);
@@ -120,13 +120,15 @@
             this.rbLevel5.Text = "Level 5";
             this.rbLevel5.UseVisualStyleBackColor = true;
             // 
-            // cbDuration
+            // btnResetData
             // 
-            this.cbDuration.FormattingEnabled = true;
-            this.cbDuration.Location = new System.Drawing.Point(15, 223);
-            this.cbDuration.Name = "cbDuration";
-            this.cbDuration.Size = new System.Drawing.Size(259, 24);
-            this.cbDuration.TabIndex = 11;
+            this.btnResetData.Location = new System.Drawing.Point(147, 353);
+            this.btnResetData.Name = "btnResetData";
+            this.btnResetData.Size = new System.Drawing.Size(75, 23);
+            this.btnResetData.TabIndex = 9;
+            this.btnResetData.Text = "Reset";
+            this.btnResetData.UseVisualStyleBackColor = true;
+            this.btnResetData.Click += new System.EventHandler(this.BtnResetData_Click);
             // 
             // btnSave
             // 
@@ -156,6 +158,44 @@
             this.dgvCourses.Size = new System.Drawing.Size(517, 337);
             this.dgvCourses.TabIndex = 8;
             this.dgvCourses.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCourses_CellDoubleClick);
+            // 
+            // CourseID
+            // 
+            this.CourseID.DataPropertyName = "CourseID";
+            this.CourseID.HeaderText = "CourseID";
+            this.CourseID.Name = "CourseID";
+            this.CourseID.ReadOnly = true;
+            this.CourseID.Visible = false;
+            // 
+            // CourseName
+            // 
+            this.CourseName.DataPropertyName = "CourseName";
+            this.CourseName.HeaderText = "Course Name";
+            this.CourseName.Name = "CourseName";
+            this.CourseName.ReadOnly = true;
+            this.CourseName.Width = 200;
+            // 
+            // Description
+            // 
+            this.Description.DataPropertyName = "Description";
+            this.Description.HeaderText = "Description";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            this.Description.Width = 200;
+            // 
+            // Duration
+            // 
+            this.Duration.DataPropertyName = "Description";
+            this.Duration.HeaderText = "Duration";
+            this.Duration.Name = "Duration";
+            this.Duration.ReadOnly = true;
+            // 
+            // Level
+            // 
+            this.Level.DataPropertyName = "Level";
+            this.Level.HeaderText = "Level";
+            this.Level.Name = "Level";
+            this.Level.ReadOnly = true;
             // 
             // lblDuration
             // 
@@ -200,57 +240,16 @@
             this.txtDescriptionValue.Size = new System.Drawing.Size(259, 72);
             this.txtDescriptionValue.TabIndex = 6;
             // 
-            // CourseID
-            // 
-            this.CourseID.DataPropertyName = "CourseID";
-            this.CourseID.HeaderText = "CourseID";
-            this.CourseID.Name = "CourseID";
-            this.CourseID.ReadOnly = true;
-            this.CourseID.Visible = false;
-            // 
-            // CourseName
-            // 
-            this.CourseName.DataPropertyName = "CourseName";
-            this.CourseName.HeaderText = "Course Name";
-            this.CourseName.Name = "CourseName";
-            this.CourseName.ReadOnly = true;
-            this.CourseName.Width = 200;
-            // 
-            // Description
-            // 
-            this.Description.DataPropertyName = "Description";
-            this.Description.HeaderText = "Description";
-            this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
-            this.Description.Width = 200;
-            // 
-            // Duration
-            // 
-            this.Duration.DataPropertyName = "Description";
-            this.Duration.HeaderText = "Duration";
-            this.Duration.Name = "Duration";
-            this.Duration.ReadOnly = true;
-            // 
-            // Level
-            // 
-            this.Level.DataPropertyName = "Level";
-            this.Level.HeaderText = "Level";
-            this.Level.Name = "Level";
-            this.Level.ReadOnly = true;
-            // 
-            // btnResetData
-            // 
-            this.btnResetData.Location = new System.Drawing.Point(147, 353);
-            this.btnResetData.Name = "btnResetData";
-            this.btnResetData.Size = new System.Drawing.Size(75, 23);
-            this.btnResetData.TabIndex = 9;
-            this.btnResetData.Text = "Reset";
-            this.btnResetData.UseVisualStyleBackColor = true;
-            this.btnResetData.Click += new System.EventHandler(this.BtnResetData_Click);
-            // 
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
+            // 
+            // txtDuration
+            // 
+            this.txtDuration.Location = new System.Drawing.Point(15, 222);
+            this.txtDuration.Name = "txtDuration";
+            this.txtDuration.Size = new System.Drawing.Size(259, 22);
+            this.txtDuration.TabIndex = 13;
             // 
             // CourseManager
             // 
@@ -281,7 +280,6 @@
         private System.Windows.Forms.TextBox txtCourseNameValue;
         private System.Windows.Forms.Label lblCourseDescription;
         private System.Windows.Forms.TextBox txtDescriptionValue;
-        private System.Windows.Forms.ComboBox cbDuration;
         private System.Windows.Forms.GroupBox gbLevels;
         private System.Windows.Forms.RadioButton rbLevel7;
         private System.Windows.Forms.RadioButton rbLevel6;
@@ -293,5 +291,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Level;
         private System.Windows.Forms.Button btnResetData;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.TextBox txtDuration;
     }
 }

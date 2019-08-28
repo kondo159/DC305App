@@ -45,6 +45,7 @@
             this.EquipmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EquipmentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.pnlMainContent.SuspendLayout();
@@ -118,15 +119,17 @@
             this.EquipmentID,
             this.EquipmentName,
             this.EType,
+            this.Description,
             this.Quantity,
             this.Active});
             this.dgvInventory.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvInventory.Location = new System.Drawing.Point(324, 39);
             this.dgvInventory.Name = "dgvInventory";
             this.dgvInventory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvInventory.Size = new System.Drawing.Size(488, 317);
+            this.dgvInventory.Size = new System.Drawing.Size(488, 350);
             this.dgvInventory.TabIndex = 8;
             this.dgvInventory.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvInventory_CellDoubleClick);
+            this.dgvInventory.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DgvInventory_DataError);
             this.dgvInventory.SelectionChanged += new System.EventHandler(this.DgvInventory_SelectionChanged);
             // 
             // lblItemQty
@@ -209,6 +212,13 @@
             this.EType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.EType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // Description
+            // 
+            this.Description.DataPropertyName = "Description";
+            this.Description.HeaderText = "Description";
+            this.Description.Name = "Description";
+            this.Description.Width = 200;
+            // 
             // Quantity
             // 
             this.Quantity.DataPropertyName = "Quantity";
@@ -258,6 +268,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipmentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipmentName;
         private System.Windows.Forms.DataGridViewComboBoxColumn EType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Active;
     }

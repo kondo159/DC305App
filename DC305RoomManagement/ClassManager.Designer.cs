@@ -30,24 +30,24 @@
         {
             this.components = new System.ComponentModel.Container();
             this.pnlMainContent = new System.Windows.Forms.Panel();
+            this.cbGroupNameValue = new System.Windows.Forms.ComboBox();
+            this.cbStaffNameValue = new System.Windows.Forms.ComboBox();
+            this.cbCourseTitleValue = new System.Windows.Forms.ComboBox();
             this.btnDeleteGroup = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
             this.dgvClasses = new System.Windows.Forms.DataGridView();
-            this.lblStaff = new System.Windows.Forms.Label();
-            this.lblCourseTitle = new System.Windows.Forms.Label();
-            this.lbIClassName = new System.Windows.Forms.Label();
-            this.txtClassNameValue = new System.Windows.Forms.TextBox();
-            this.lblGroupOfStudents = new System.Windows.Forms.Label();
-            this.cbCourseTitleValue = new System.Windows.Forms.ComboBox();
-            this.cbStaffNameValue = new System.Windows.Forms.ComboBox();
-            this.cbGroupNameValue = new System.Windows.Forms.ComboBox();
-            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnReset = new System.Windows.Forms.Button();
             this.ClassID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClassName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Course = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Staff = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Group = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.lblStaff = new System.Windows.Forms.Label();
+            this.lblCourseTitle = new System.Windows.Forms.Label();
+            this.lbIClassName = new System.Windows.Forms.Label();
+            this.txtClassNameValue = new System.Windows.Forms.TextBox();
+            this.lblGroupOfStudents = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlMainContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClasses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -74,6 +74,33 @@
             this.pnlMainContent.Size = new System.Drawing.Size(840, 450);
             this.pnlMainContent.TabIndex = 2;
             // 
+            // cbGroupNameValue
+            // 
+            this.cbGroupNameValue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGroupNameValue.FormattingEnabled = true;
+            this.cbGroupNameValue.Location = new System.Drawing.Point(15, 233);
+            this.cbGroupNameValue.Name = "cbGroupNameValue";
+            this.cbGroupNameValue.Size = new System.Drawing.Size(259, 24);
+            this.cbGroupNameValue.TabIndex = 10;
+            // 
+            // cbStaffNameValue
+            // 
+            this.cbStaffNameValue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbStaffNameValue.FormattingEnabled = true;
+            this.cbStaffNameValue.Location = new System.Drawing.Point(15, 165);
+            this.cbStaffNameValue.Name = "cbStaffNameValue";
+            this.cbStaffNameValue.Size = new System.Drawing.Size(259, 24);
+            this.cbStaffNameValue.TabIndex = 10;
+            // 
+            // cbCourseTitleValue
+            // 
+            this.cbCourseTitleValue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCourseTitleValue.FormattingEnabled = true;
+            this.cbCourseTitleValue.Location = new System.Drawing.Point(15, 102);
+            this.cbCourseTitleValue.Name = "cbCourseTitleValue";
+            this.cbCourseTitleValue.Size = new System.Drawing.Size(259, 24);
+            this.cbCourseTitleValue.TabIndex = 10;
+            // 
             // btnDeleteGroup
             // 
             this.btnDeleteGroup.Location = new System.Drawing.Point(386, 398);
@@ -82,6 +109,16 @@
             this.btnDeleteGroup.TabIndex = 9;
             this.btnDeleteGroup.Text = "Delete";
             this.btnDeleteGroup.UseVisualStyleBackColor = true;
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(199, 283);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 9;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.BtnResetData_Click);
             // 
             // btnCreate
             // 
@@ -110,6 +147,46 @@
             this.dgvClasses.Size = new System.Drawing.Size(504, 325);
             this.dgvClasses.TabIndex = 8;
             this.dgvClasses.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvClasses_CellDoubleClick);
+            // 
+            // ClassID
+            // 
+            this.ClassID.DataPropertyName = "ClassID";
+            this.ClassID.HeaderText = "ClassID";
+            this.ClassID.Name = "ClassID";
+            this.ClassID.ReadOnly = true;
+            this.ClassID.Visible = false;
+            // 
+            // ClassName
+            // 
+            this.ClassName.DataPropertyName = "ClassName";
+            this.ClassName.HeaderText = "Class Name";
+            this.ClassName.Name = "ClassName";
+            this.ClassName.ReadOnly = true;
+            this.ClassName.Width = 200;
+            // 
+            // Course
+            // 
+            this.Course.DataPropertyName = "CourseID";
+            this.Course.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.Course.HeaderText = "Course";
+            this.Course.Name = "Course";
+            this.Course.ReadOnly = true;
+            // 
+            // Staff
+            // 
+            this.Staff.DataPropertyName = "StaffID";
+            this.Staff.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.Staff.HeaderText = "Staff";
+            this.Staff.Name = "Staff";
+            this.Staff.ReadOnly = true;
+            // 
+            // Group
+            // 
+            this.Group.DataPropertyName = "GroupID";
+            this.Group.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.Group.HeaderText = "Group";
+            this.Group.Name = "Group";
+            this.Group.ReadOnly = true;
             // 
             // lblStaff
             // 
@@ -155,83 +232,9 @@
             this.lblGroupOfStudents.TabIndex = 3;
             this.lblGroupOfStudents.Text = "Group Of Students";
             // 
-            // cbCourseTitleValue
-            // 
-            this.cbCourseTitleValue.FormattingEnabled = true;
-            this.cbCourseTitleValue.Location = new System.Drawing.Point(15, 102);
-            this.cbCourseTitleValue.Name = "cbCourseTitleValue";
-            this.cbCourseTitleValue.Size = new System.Drawing.Size(259, 24);
-            this.cbCourseTitleValue.TabIndex = 10;
-            // 
-            // cbStaffNameValue
-            // 
-            this.cbStaffNameValue.FormattingEnabled = true;
-            this.cbStaffNameValue.Location = new System.Drawing.Point(15, 165);
-            this.cbStaffNameValue.Name = "cbStaffNameValue";
-            this.cbStaffNameValue.Size = new System.Drawing.Size(259, 24);
-            this.cbStaffNameValue.TabIndex = 10;
-            // 
-            // cbGroupNameValue
-            // 
-            this.cbGroupNameValue.FormattingEnabled = true;
-            this.cbGroupNameValue.Location = new System.Drawing.Point(15, 233);
-            this.cbGroupNameValue.Name = "cbGroupNameValue";
-            this.cbGroupNameValue.Size = new System.Drawing.Size(259, 24);
-            this.cbGroupNameValue.TabIndex = 10;
-            // 
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
-            // 
-            // btnReset
-            // 
-            this.btnReset.Location = new System.Drawing.Point(199, 283);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 9;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.BtnResetData_Click);
-            // 
-            // ClassID
-            // 
-            this.ClassID.DataPropertyName = "ClassID";
-            this.ClassID.HeaderText = "ClassID";
-            this.ClassID.Name = "ClassID";
-            this.ClassID.ReadOnly = true;
-            this.ClassID.Visible = false;
-            // 
-            // ClassName
-            // 
-            this.ClassName.DataPropertyName = "ClassName";
-            this.ClassName.HeaderText = "Class Name";
-            this.ClassName.Name = "ClassName";
-            this.ClassName.ReadOnly = true;
-            this.ClassName.Width = 200;
-            // 
-            // Course
-            // 
-            this.Course.DataPropertyName = "CourseID";
-            this.Course.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.Course.HeaderText = "Course";
-            this.Course.Name = "Course";
-            this.Course.ReadOnly = true;
-            // 
-            // Staff
-            // 
-            this.Staff.DataPropertyName = "StaffID";
-            this.Staff.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.Staff.HeaderText = "Staff";
-            this.Staff.Name = "Staff";
-            this.Staff.ReadOnly = true;
-            // 
-            // Group
-            // 
-            this.Group.DataPropertyName = "GroupID";
-            this.Group.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.Group.HeaderText = "Group";
-            this.Group.Name = "Group";
-            this.Group.ReadOnly = true;
             // 
             // ClassManager
             // 
