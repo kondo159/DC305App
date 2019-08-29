@@ -118,19 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="rsz_itedu_information_systems_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rsz_itedu_information_systems_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ITEdu Information Systems Logo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ITEdu Information Systems Logo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ITEdu Information Systems Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ITEdu Information Systems Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="placeimg_837_465_tech" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\placeimg_837_465_tech.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ITEdu Information Systems Logo2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ITEdu Information Systems Logo2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
