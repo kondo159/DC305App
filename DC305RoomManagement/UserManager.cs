@@ -104,6 +104,7 @@ namespace DC305RoomManagement
 
         private void UserManager_Load(object sender, EventArgs e)
         {
+            this.dtgGrid.DefaultCellStyle.Font = new Font("Segoe UI", 11);
             LoadData();
         }
         private void LoadData()
