@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -42,6 +43,7 @@
             this.btnReset = new System.Windows.Forms.Button();
             this.btnDisable = new System.Windows.Forms.Button();
             this.dtgGrid = new System.Windows.Forms.DataGridView();
+            this.UserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dtDOB = new System.Windows.Forms.DateTimePicker();
             this.lblDOB = new System.Windows.Forms.Label();
@@ -50,7 +52,6 @@
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.grpGender = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.UserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgGrid)).BeginInit();
@@ -188,12 +189,29 @@
             this.dtgGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UserId});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgGrid.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dtgGrid.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dtgGrid.Location = new System.Drawing.Point(269, 84);
             this.dtgGrid.Name = "dtgGrid";
             this.dtgGrid.ReadOnly = true;
             this.dtgGrid.Size = new System.Drawing.Size(556, 288);
             this.dtgGrid.TabIndex = 16;
             this.dtgGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgGrid_CellContentClick);
+            // 
+            // UserId
+            // 
+            this.UserId.DataPropertyName = "UserId";
+            this.UserId.HeaderText = "UserId";
+            this.UserId.Name = "UserId";
+            this.UserId.ReadOnly = true;
+            this.UserId.Visible = false;
             // 
             // txtSearch
             // 
@@ -274,14 +292,6 @@
             this.label6.TabIndex = 26;
             this.label6.Text = "Search by Name or Email";
             // 
-            // UserId
-            // 
-            this.UserId.DataPropertyName = "UserId";
-            this.UserId.HeaderText = "UserId";
-            this.UserId.Name = "UserId";
-            this.UserId.ReadOnly = true;
-            this.UserId.Visible = false;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -303,7 +313,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(837, 465);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
@@ -325,6 +335,8 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtEmail);
+            this.DoubleBuffered = true;
+            this.MaximizeBox = false;
             this.Name = "UserManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserManager";
