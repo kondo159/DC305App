@@ -47,6 +47,7 @@
             // 
             // cboxEquip
             // 
+            this.cboxEquip.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxEquip.FormattingEnabled = true;
             this.cboxEquip.Location = new System.Drawing.Point(12, 12);
             this.cboxEquip.Name = "cboxEquip";
