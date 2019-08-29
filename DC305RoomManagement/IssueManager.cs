@@ -1,6 +1,7 @@
 ﻿using DC305RoomManagementClassLibrary.Models;
 using DC305RoomManagementClassLibrary.Models.Repository;
 using System;
+using System.ComponentModel;
 using System.Data;
 using System.Drawing.Printing;
 using System.Windows.Forms;
@@ -188,7 +189,8 @@ namespace DC305RoomManagement
             if(filter.Text == "Filter")
             {
                 (dgvIssues.DataSource as DataTable).DefaultView.RowFilter = string.Format(
-                    "CreatedAt > '{0}' and CreatedAt < '{1}'", dtpFrom.Value.AddDays(-1), dtpTo.Value.AddDays(1));
+                    "CreatedAt >= '{0}' and CreatedAt < '{1}'", 
+                    dtpFrom.Value.Date, dtpTo.Value.AddDays(1).Date);
                 filter.Text = "Clear Filter";
             }
             else
@@ -215,7 +217,12 @@ namespace DC305RoomManagement
             if (printDlg.ShowDialog() == DialogResult.OK) printDoc.Print();
         }
 
-        private void IssueManager_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        /// <summary>
+        /// Checks if the field was filled
+        /// </summary>
+        /// <param name="sender">Field</param>
+        /// <param name="e">Event Arguments</param>
+        private void IssueManager_Validating(object sender, CancelEventArgs e)
         {
             switch (sender.GetType().Name)
             {

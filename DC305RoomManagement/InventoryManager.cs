@@ -14,9 +14,9 @@ namespace DC305RoomManagement
 {
     public partial class InventoryManager : Form
     {
-        Equipment Equipment { get; set; } = new Equipment();
+        private Equipment Equipment { get; set; } = new Equipment();
 
-        Repository repository = new Repository();
+        private static Repository repository = new Repository();
 
         public InventoryManager()
         {
@@ -28,12 +28,13 @@ namespace DC305RoomManagement
         /// <summary>
         /// Fills the list of Equipment Type Name (ComboBox - Type)
         /// </summary>
-        private void LoadETypeNames()
+        private void LoadETypeNames(int selectedID = 0)
         {
             cbItemTypeValue.ValueMember = "ETypeID";
             cbItemTypeValue.DisplayMember = "ETypeName";
             cbItemTypeValue.DataSource = repository.GetETypes();
-            cbItemTypeValue.SelectedIndex = -1;
+            //cbItemTypeValue.SelectedIndex = selectedIndex;
+            cbItemTypeValue.SelectedValue = selectedID;
         }
 
         /// <summary>
@@ -62,6 +63,11 @@ namespace DC305RoomManagement
                                       .Where(c => c.GetType() == type);
         }
 
+        /// <summary>
+        /// Disables the Equipment selected in DataGridView
+        /// </summary>
+        /// <param name="sender">Button</param>
+        /// <param name="e">Event Arguments</param>
         private void BtnEnableDisable_Click(object sender, EventArgs e)
         {
             DataGridViewRow row = dgvInventory.CurrentRow;
@@ -75,6 +81,12 @@ namespace DC305RoomManagement
             Equipment = new Equipment();
         }
 
+
+        /// <summary>
+        /// Selects the Equipment for updating and fills fields its data
+        /// </summary>
+        /// <param name="sender">Cell of DataGridView</param>
+        /// <param name="e">Event Arguments</param>
         private void DgvInventory_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = dgvInventory.Rows[e.RowIndex];
@@ -82,6 +94,9 @@ namespace DC305RoomManagement
             fillFields();
         }
 
+        /// <summary>
+        /// Fills the fields the Equipment data
+        /// </summary>
         private void fillFields()
         {
             txtItemNameValue.Text = Equipment.EquipmentName;
@@ -90,6 +105,9 @@ namespace DC305RoomManagement
             cbItemTypeValue.SelectedValue = Equipment.ETypeID;
         }
 
+        /// <summary>
+        /// Fills the Equipment data using fields data
+        /// </summary>
         public void fillEquipment()
         {
             Equipment.EquipmentName = txtItemNameValue.Text;
@@ -101,6 +119,10 @@ namespace DC305RoomManagement
             } 
         }
 
+        /// <summary>
+        /// Fills the Equipment data using data from DataGridView Row
+        /// </summary>
+        /// <param name="row">Row of DataGridView</param>
         private void fillEquipmentData(DataGridViewRow row)
         {
             Equipment.EquipmentID = (int)row.Cells["EquipmentID"].Value;
@@ -111,6 +133,10 @@ namespace DC305RoomManagement
             Equipment.Active = (bool)row.Cells["Active"].Value;
         }
 
+        /// <summary>
+        /// Checks if the fields were filled
+        /// </summary>
+        /// <returns>True or False</returns>
         private bool IsValid()
         {
             bool valid = true;
@@ -130,6 +156,11 @@ namespace DC305RoomManagement
             return valid;
         }
 
+        /// <summary>
+        /// Checks if the field was filled
+        /// </summary>
+        /// <param name="sender">Field</param>
+        /// <param name="e">Event Arguments</param>
         private void Value_Validating(object sender, CancelEventArgs e)
         {
             switch (sender.GetType().Name)
@@ -157,6 +188,11 @@ namespace DC305RoomManagement
             }
         }
 
+        /// <summary>
+        /// Changes the text of Button (btnEnableDisable) depends on the selected equipment is active or not
+        /// </summary>
+        /// <param name="sender">DataGridView</param>
+        /// <param name="e">Event Arguments</param>
         private void DgvInventory_SelectionChanged(object sender, EventArgs e)
         {
             DataGridViewRow row = (sender as DataGridView).CurrentRow;
@@ -170,6 +206,11 @@ namespace DC305RoomManagement
             }
         }
 
+        /// <summary>
+        /// Saves the Equipment data to the database
+        /// </summary>
+        /// <param name="sender">Button</param>
+        /// <param name="e">Event Arguments</param>
         private void BtnSave_Click(object sender, EventArgs e)
         {
             if (IsValid())
@@ -180,6 +221,7 @@ namespace DC305RoomManagement
                 if(ETypeID == 0)
                 {
                     ETypeID = repository.SaveEType(new EquipmentType(ETypeID, cbItemTypeValue.Text));
+                    LoadETypeNames(ETypeID);
                 }
 
                 Equipment.ETypeID = ETypeID;
@@ -191,7 +233,7 @@ namespace DC305RoomManagement
                 {
                     FormHelper.ClearFields(pnlMainContent, typeof(TextBox));
                     FormHelper.ClearFields(pnlMainContent, typeof(ComboBox));
-                    LoadETypeNames();
+                    
                     LoadEquipmentList();
 
                     MessageBox.Show("Data was saved successfully!", "Operation result",
@@ -205,6 +247,11 @@ namespace DC305RoomManagement
             }
         }
 
+        /// <summary>
+        /// Handles errors iserting Equipment Type into DataGridView
+        /// </summary>
+        /// <param name="sender">DataGridView</param>
+        /// <param name="e">Event Arguments</param>
         private void DgvInventory_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             if (e.Exception.Message == "DataGridViewComboBoxCell value is not valid.")

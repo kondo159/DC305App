@@ -94,10 +94,9 @@ namespace DC305RoomManagement
         /// </summary>
         private void LoadStaff()
         {
-            cbStaffNameValue.Items.Insert(0, "----");
-            cbStaffNameValue.ValueMember = "StaffID";
-            cbStaffNameValue.DisplayMember = "StaffName";
-            cbStaffNameValue.DataSource = repository.GetUsers();
+            cbStaffNameValue.ValueMember = "UserID";
+            cbStaffNameValue.DisplayMember = "UserName";
+            cbStaffNameValue.DataSource = repository.GetUsers(2);
             cbStaffNameValue.SelectedIndex = -1;
         }
 

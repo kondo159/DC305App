@@ -17,7 +17,7 @@ namespace DC305RoomManagement
         
         SqlCommand cmd;
          
-        string connStr = ConfigurationManager.ConnectionStrings["aspire2"].ConnectionString;
+        string connStr = ConfigurationManager.ConnectionStrings["DC305RoomManagementDB"].ConnectionString;
         DataTable dt;
         SqlDataAdapter sqlda;
         
