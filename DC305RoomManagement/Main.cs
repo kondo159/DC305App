@@ -20,7 +20,8 @@ namespace DC305RoomManagement
             
             this.user = user;
             this.role = role;
-
+            label1.Text = "Current User:";
+            label2.Text = user;
             
         }
         private void DisplayInPlanel(Form page, String Header)
@@ -92,10 +93,37 @@ namespace DC305RoomManagement
         }
         private void UserValidation(int role)
         {
-            if (role==1)
-            btnUser.Visible = true;
+            //btnExit.Location=new Point( 0, 153);
+            if(role==2)
+            {
+                btnUser.Visible = false;
+                btnGroup.Visible = false;
+                btnCourse.Visible = false;
+                btnClass.Visible = false;
+                btnRoom.Visible = false;
+                btnInventory.Visible = false;
+                btnExit.Location=new Point(0, 209);
+
+            }
+            if (role==3)
+            {
+                btnIssue.Visible = false;
+                btnUser.Visible = false;
+                btnGroup.Visible = false;
+                btnCourse.Visible = false;
+                btnClass.Visible = false;
+                btnRoom.Visible = false;
+                btnInventory.Visible = false;
+                btnExit.Location = new Point(0, 153);
+            }
+            
+        }
+
+        private void Label2_Click(object sender, EventArgs e)
+        {
 
         }
     }
 }
+
 
