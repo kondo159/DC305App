@@ -92,6 +92,7 @@
             this.btnCreate.TabIndex = 30;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.BtnCreate_Click);
             // 
             // btnFilter
             // 
@@ -222,6 +223,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "BookingManager";
             this.Text = "BookingManager";
+            this.Load += new System.EventHandler(this.BookingManager_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -26,6 +26,16 @@ namespace DC305RoomManagement
         {
 
         }
+
+        private void BtnCreate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BookingManager_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

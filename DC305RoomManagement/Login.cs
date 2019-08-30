@@ -22,19 +22,31 @@ namespace DC305RoomManagement
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-
-            SqlConnection sqlcon = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\DC305RoomManagementDB.mdf; Integrated Security = True; Connect Timeout = 30");
-            string query = "Select * from [Users] where Email = '" + txtUser.Text + "' and Password = '" + txtPass.Text + "'";
-            SqlDataAdapter sda = new SqlDataAdapter(query, sqlcon);
+            Connection con = new Connection();
+            SqlCommand cmd = new SqlCommand("Select * from [Users] where Email = '" + txtUser.Text + "' and Password = '" + txtPass.Text + "'", con.OpenConn());
+            SqlDataReader reader = cmd.ExecuteReader();
             DataTable dtbl = new DataTable();
-            sda.Fill(dtbl);
+            
 
-            if (dtbl.Rows.Count == 1)
+            if (reader.HasRows)
             {
-                this.Hide();
-                Main ss = new Main();
-                ss.Show();
+                
+                string uemail="";
+                int urole=0;
+               while (reader.Read())
+                {
+                    uemail= reader.GetString(4);
+                    urole= reader.GetInt32(6);
+                       
+
+                }
+               this.Hide();
+               Main ss = new Main(uemail, urole);
+               ss.Show();
+               
+                
             }
+                
             else
             {
                 MessageBox.Show("Incorrect Username or Password", "Login",MessageBoxButtons.OK);

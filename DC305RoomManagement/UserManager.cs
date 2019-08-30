@@ -17,7 +17,7 @@ namespace DC305RoomManagement
         
         SqlCommand cmd;
          
-        string connStr = ConfigurationManager.ConnectionStrings["aspire2"].ConnectionString;
+        string connStr = ConfigurationManager.ConnectionStrings["DC305RoomManagementDB"].ConnectionString;
         DataTable dt;
         SqlDataAdapter sqlda;
         
@@ -104,7 +104,19 @@ namespace DC305RoomManagement
 
         private void UserManager_Load(object sender, EventArgs e)
         {
-            this.dtgGrid.DefaultCellStyle.Font = new Font("Segoe UI", 11);
+            this.dtgGrid.DefaultCellStyle.Font = new Font("Proxima Nova", 8.5F);
+            dtgGrid.BorderStyle = BorderStyle.None;
+            dtgGrid.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            dtgGrid.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dtgGrid.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
+            dtgGrid.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            dtgGrid.BackgroundColor = Color.White;
+
+            dtgGrid.EnableHeadersVisualStyles = false;
+            dtgGrid.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dtgGrid.ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue;
+            dtgGrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dtgGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Proxima Nova", 9.5F, FontStyle.Bold);
             LoadData();
         }
         private void LoadData()
@@ -177,27 +189,7 @@ namespace DC305RoomManagement
 
         }
 
-        private void DtgGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            ClearForm();
-            DataGridViewRow row = dtgGrid.Rows[e.RowIndex];
-            txtEmail.Text = row.Cells["Email"].Value.ToString();
-            txtName.Text = row.Cells["Name"].Value.ToString();
-            dtDOB.Text = row.Cells["DOB"].Value.ToString();
-            txtPassword.Text = row.Cells["Password"].Value.ToString();
-            cboRole.Text = row.Cells["Role"].Value.ToString();
-            txtID.Text = row.Cells["UserId"].Value.ToString();
-            if (row.Cells["Gender"].Value.ToString().Trim().Equals("Female"))
-            {
-                rbtnFemale.Checked = true;
-            }
-            else
-            {
-                rbtnMale.Checked = true;
-            }
-        }
-
-        private void BtnSearch_Click(object sender, EventArgs e)
+               private void BtnSearch_Click(object sender, EventArgs e)
         {
            
 
@@ -232,6 +224,35 @@ namespace DC305RoomManagement
         private void TxtSearchName_TextChanged(object sender, EventArgs e)
         {
            
+        }
+
+        private void DtgGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > 0)
+            {
+                ClearForm();
+                DataGridViewRow row = dtgGrid.Rows[e.RowIndex];
+                txtEmail.Text = row.Cells["Email"].Value.ToString();
+                txtName.Text = row.Cells["Name"].Value.ToString();
+                dtDOB.Text = row.Cells["DOB"].Value.ToString();
+                txtPassword.Text = row.Cells["Password"].Value.ToString();
+                cboRole.Text = row.Cells["Role"].Value.ToString();
+                txtID.Text = row.Cells["UserId"].Value.ToString();
+                if (row.Cells["Gender"].Value.ToString().Trim().Equals("Female"))
+                {
+                    rbtnFemale.Checked = true;
+                }
+                else
+                {
+                    rbtnMale.Checked = true;
+                }
+            }
+            
+        }
+
+        private void CboRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
     }

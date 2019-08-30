@@ -12,9 +12,15 @@ namespace DC305RoomManagement
 {
     public partial class Main : Form
     {
-        public Main()
+        string user;
+        int role;
+        public Main(string user, int role)
         {
             InitializeComponent();
+            
+            this.user = user;
+            this.role = role;
+
             
         }
         private void DisplayInPlanel(Form page, String Header)
@@ -82,7 +88,13 @@ namespace DC305RoomManagement
         }
         private void Main_Load(object sender, EventArgs e)
         {
-      
+            UserValidation(role);
+        }
+        private void UserValidation(int role)
+        {
+            if (role==1)
+            btnUser.Visible = true;
+
         }
     }
 }

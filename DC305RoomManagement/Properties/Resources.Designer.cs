@@ -63,29 +63,9 @@ namespace DC305RoomManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ITEdu_Information_Systems_Logo {
+        internal static System.Drawing.Bitmap download {
             get {
-                object obj = ResourceManager.GetObject("ITEdu Information Systems Logo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ITEdu_Information_Systems_Logo1 {
-            get {
-                object obj = ResourceManager.GetObject("ITEdu Information Systems Logo1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ITEdu_Information_Systems_Logo2 {
-            get {
-                object obj = ResourceManager.GetObject("ITEdu Information Systems Logo2", resourceCulture);
+                object obj = ResourceManager.GetObject("download", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -96,16 +76,6 @@ namespace DC305RoomManagement.Properties {
         internal static System.Drawing.Bitmap placeimg_837_465_tech {
             get {
                 object obj = ResourceManager.GetObject("placeimg_837_465_tech", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap rsz_itedu_information_systems_logo {
-            get {
-                object obj = ResourceManager.GetObject("rsz_itedu_information_systems_logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
