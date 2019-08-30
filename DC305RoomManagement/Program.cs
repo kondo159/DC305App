@@ -16,7 +16,7 @@ namespace DC305RoomManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Application.Run(new UserManager());
         }
     }
 }
