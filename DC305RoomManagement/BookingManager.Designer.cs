@@ -54,6 +54,8 @@
             this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SDateTIme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rdoCUD = new System.Windows.Forms.RadioButton();
+            this.rdoFilter = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookingList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,9 +103,11 @@
             this.btnCreate.TabIndex = 30;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.BtnCreate_Click);
             // 
             // btnFilter
             // 
+            this.btnFilter.Enabled = false;
             this.btnFilter.Location = new System.Drawing.Point(121, 280);
             this.btnFilter.Name = "btnFilter";
             this.btnFilter.Size = new System.Drawing.Size(75, 23);
@@ -116,15 +120,16 @@
             this.cboxClass.FormattingEnabled = true;
             this.cboxClass.Location = new System.Drawing.Point(72, 224);
             this.cboxClass.Name = "cboxClass";
-            this.cboxClass.Size = new System.Drawing.Size(175, 21);
+            this.cboxClass.Size = new System.Drawing.Size(195, 21);
             this.cboxClass.TabIndex = 28;
+            this.cboxClass.Text = "-Select a Staff First-";
             // 
             // cboxStaff
             // 
             this.cboxStaff.FormattingEnabled = true;
             this.cboxStaff.Location = new System.Drawing.Point(72, 197);
             this.cboxStaff.Name = "cboxStaff";
-            this.cboxStaff.Size = new System.Drawing.Size(175, 21);
+            this.cboxStaff.Size = new System.Drawing.Size(195, 21);
             this.cboxStaff.TabIndex = 27;
             // 
             // cboxRoom
@@ -132,7 +137,7 @@
             this.cboxRoom.FormattingEnabled = true;
             this.cboxRoom.Location = new System.Drawing.Point(72, 170);
             this.cboxRoom.Name = "cboxRoom";
-            this.cboxRoom.Size = new System.Drawing.Size(175, 21);
+            this.cboxRoom.Size = new System.Drawing.Size(195, 21);
             this.cboxRoom.TabIndex = 26;
             // 
             // lblClass
@@ -182,20 +187,20 @@
             // 
             // dtpEnd
             // 
-            this.dtpEnd.CustomFormat = "ddMMMMyyyy hh:mm:ss tt";
+            this.dtpEnd.CustomFormat = "dd MMMM yyyy hh:mm tt";
             this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpEnd.Location = new System.Drawing.Point(72, 144);
             this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.Size = new System.Drawing.Size(175, 20);
+            this.dtpEnd.Size = new System.Drawing.Size(195, 20);
             this.dtpEnd.TabIndex = 20;
             // 
             // dtpStart
             // 
-            this.dtpStart.CustomFormat = "ddMMMMyyyy hh:mm:ss tt";
+            this.dtpStart.CustomFormat = "dd MMMM yyyy hh:mm tt";
             this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpStart.Location = new System.Drawing.Point(72, 118);
             this.dtpStart.Name = "dtpStart";
-            this.dtpStart.Size = new System.Drawing.Size(175, 20);
+            this.dtpStart.Size = new System.Drawing.Size(195, 20);
             this.dtpStart.TabIndex = 19;
             // 
             // dgvBookingList
@@ -219,7 +224,6 @@
             this.dgvBookingList.ReadOnly = true;
             this.dgvBookingList.Size = new System.Drawing.Size(534, 441);
             this.dgvBookingList.TabIndex = 18;
-            this.dgvBookingList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvBookingList_CellContentClick);
             // 
             // BookingId
             // 
@@ -288,12 +292,38 @@
             this.EDateTime.Name = "EDateTime";
             this.EDateTime.ReadOnly = true;
             // 
+            // rdoCUD
+            // 
+            this.rdoCUD.AutoSize = true;
+            this.rdoCUD.Checked = true;
+            this.rdoCUD.Location = new System.Drawing.Point(37, 26);
+            this.rdoCUD.Name = "rdoCUD";
+            this.rdoCUD.Size = new System.Drawing.Size(134, 17);
+            this.rdoCUD.TabIndex = 35;
+            this.rdoCUD.TabStop = true;
+            this.rdoCUD.Text = "Create/Update/Cancel";
+            this.rdoCUD.UseVisualStyleBackColor = true;
+            this.rdoCUD.CheckedChanged += new System.EventHandler(this.RdoCUD_CheckedChanged);
+            // 
+            // rdoFilter
+            // 
+            this.rdoFilter.AutoSize = true;
+            this.rdoFilter.Location = new System.Drawing.Point(177, 26);
+            this.rdoFilter.Name = "rdoFilter";
+            this.rdoFilter.Size = new System.Drawing.Size(47, 17);
+            this.rdoFilter.TabIndex = 36;
+            this.rdoFilter.Text = "Filter";
+            this.rdoFilter.UseVisualStyleBackColor = true;
+            this.rdoFilter.CheckedChanged += new System.EventHandler(this.rdoFilter_CheckedChanged);
+            // 
             // BookingManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(837, 465);
+            this.Controls.Add(this.rdoFilter);
+            this.Controls.Add(this.rdoCUD);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnCancel);
@@ -313,6 +343,7 @@
             this.Controls.Add(this.dgvBookingList);
             this.Name = "BookingManager";
             this.Text = "BookingManager";
+            this.Load += new System.EventHandler(this.BookingManager_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookingList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -348,5 +379,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
         private System.Windows.Forms.DataGridViewTextBoxColumn SDateTIme;
         private System.Windows.Forms.DataGridViewTextBoxColumn EDateTime;
+        private System.Windows.Forms.RadioButton rdoCUD;
+        private System.Windows.Forms.RadioButton rdoFilter;
     }
 }
