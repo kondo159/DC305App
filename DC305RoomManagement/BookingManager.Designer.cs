@@ -232,6 +232,7 @@
             this.dgvBookingList.ReadOnly = true;
             this.dgvBookingList.Size = new System.Drawing.Size(534, 441);
             this.dgvBookingList.TabIndex = 18;
+            this.dgvBookingList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvBookingList_CellDoubleClick);
             // 
             // BookingId
             // 

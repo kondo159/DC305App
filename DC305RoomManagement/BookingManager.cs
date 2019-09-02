@@ -17,6 +17,7 @@ namespace DC305RoomManagement
         private Connection conn = new Connection();
         private int userId = 6;
         private int userRole = 1;//1=admin 2= staff 3=student
+        private int activedBooking = 0;
         public BookingManager()
         {
             InitializeComponent();
@@ -177,41 +178,21 @@ namespace DC305RoomManagement
         }
 
         private void BtnFilter_Click(object sender, EventArgs e)
-        {
-
-            DataTable dt = new DataTable();
-
-            string commandString = "Select Bookings.*,Class.Name as ClassName,Class.Teacher,t.Name as teacherName,Rooms.Name as RoomName,Users.Name as UserName " +
-            "from Bookings " +
-            "Left join Class on Class.ClassId = Bookings.ClassId " +
-            "left join Rooms on Rooms.RoomId = Bookings.RoomId " +
-            "left join users on Users.UserId = Bookings.UserId " +
-            "left join users t on T.UserId = Class.Teacher "+
-            "where ((@room = 0 AND Bookings.RoomId is NOT NULL) OR (@room != 0 AND Bookings.RoomId=@room))";
+        {            
+            string filter = "1=1";
             if (!cballdates.Checked)
             {
-                commandString += "AND (Bookings.SDateTime BETWEEN @Stime AND @Etime)";
-                commandString += " OR Bookings.EDateTime BETWEEN @Stime AND @Etime";
+                filter += string.Format("AND SDateTime > '{0}' and SDateTime < '{1}'", dtpStart.Value, dtpEnd.Value);
+                filter += string.Format("AND EDateTime > '{0}' and EDateTime < '{1}'", dtpStart.Value, dtpEnd.Value);
             }
                 
-
-            commandString += " AND ((@class = 0 AND Bookings.ClassId is NOT NULL) OR (@class != 0 AND Bookings.ClassId=@class))";
-            SqlCommand cmd = new SqlCommand(commandString, conn.OpenConn());
-            cmd.Parameters.AddWithValue("@room", cboxRoom.SelectedValue.ToString());
-            cmd.Parameters.AddWithValue("@Stime", dtpStart.Value.ToString());
-            cmd.Parameters.AddWithValue("@Etime", dtpEnd.Value.ToString());
-            cmd.Parameters.AddWithValue("@class", cboxClass.SelectedValue.ToString());
-            SqlDataReader reader = cmd.ExecuteReader();
-            if (reader.HasRows) 
-            {
-                dt.Load(reader);
-                dgvBookingList.DataSource = dt;
-            }
-            else
-            {
-                MessageBox.Show("No Bookings to list");
-            }
-            conn.CloseConn();
+            if (cboxRoom.SelectedValue.ToString() != "0")
+                filter += " AND RoomId= " + cboxRoom.SelectedValue.ToString();
+            if(cboxClass.SelectedValue.ToString()!= "0")
+                filter += " AND ClassId= " + cboxClass.SelectedValue.ToString();
+            if(cboxStaff.SelectedValue.ToString()!="0")
+                filter += " AND Teacher= " + cboxStaff.SelectedValue.ToString();
+            (dgvBookingList.DataSource as DataTable).DefaultView.RowFilter = filter;            
         }
 
         private void Cballdates_CheckedChanged(object sender, EventArgs e)
@@ -223,6 +204,7 @@ namespace DC305RoomManagement
         private void ResetForm()
         {
             LoadBookingList();
+            activedBooking = 0;
             cboxRoom.SelectedIndex = 0;
             if(userRole==2 && rdoFilter.Checked || userRole==1)
                 cboxStaff.SelectedIndex = 0;
@@ -253,6 +235,22 @@ namespace DC305RoomManagement
         private void BtnReset_Click(object sender, EventArgs e)
         {
             ResetForm();
+        }
+
+        private void DgvBookingList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (rdoCUD.Checked)
+            {
+                DataGridViewRow row = dgvBookingList.Rows[e.RowIndex];
+                activedBooking = (int)row.Cells["BookingId"].Value;
+                dtpStart.Value = (DateTime)row.Cells["SDateTime"].Value;
+                dtpEnd.Value = (DateTime)row.Cells["EDateTime"].Value;
+                cboxRoom.SelectedValue = (int)row.Cells["RoomId"].Value;
+                if (userRole != 2)
+                    cboxStaff.SelectedValue = (int)row.Cells["Teacher"].Value;
+                cboxClass.SelectedValue = (int)row.Cells["ClassId"].Value;
+            }            
+            
         }
     }
     
