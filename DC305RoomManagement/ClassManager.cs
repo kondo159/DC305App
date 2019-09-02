@@ -1,4 +1,5 @@
-﻿using DC305RoomManagementClassLibrary.Models;
+﻿using DC305RoomManagementClassLibrary;
+using DC305RoomManagementClassLibrary.Models;
 using DC305RoomManagementClassLibrary.Models.Repository;
 using System;
 using System.ComponentModel;
