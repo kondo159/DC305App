@@ -38,7 +38,7 @@
             this.cboxStaff = new System.Windows.Forms.ComboBox();
             this.cboxRoom = new System.Windows.Forms.ComboBox();
             this.lblClass = new System.Windows.Forms.Label();
-            this.lblStaff = new System.Windows.Forms.Label();
+            this.lblTeacher = new System.Windows.Forms.Label();
             this.lblRoom = new System.Windows.Forms.Label();
             this.lblToDate = new System.Windows.Forms.Label();
             this.lblFromDate = new System.Windows.Forms.Label();
@@ -50,12 +50,14 @@
             this.RoomName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClassId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClassName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TeacherId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Teacher = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SDateTIme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rdoCUD = new System.Windows.Forms.RadioButton();
             this.rdoFilter = new System.Windows.Forms.RadioButton();
+            this.cballdates = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookingList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,9 +78,11 @@
             this.btnReset.TabIndex = 33;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.BtnReset_Click);
             // 
             // btnCancel
             // 
+            this.btnCancel.Enabled = false;
             this.btnCancel.Location = new System.Drawing.Point(202, 251);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
@@ -114,18 +118,20 @@
             this.btnFilter.TabIndex = 29;
             this.btnFilter.Text = "Filter";
             this.btnFilter.UseVisualStyleBackColor = true;
+            this.btnFilter.Click += new System.EventHandler(this.BtnFilter_Click);
             // 
             // cboxClass
             // 
+            this.cboxClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxClass.FormattingEnabled = true;
             this.cboxClass.Location = new System.Drawing.Point(72, 224);
             this.cboxClass.Name = "cboxClass";
             this.cboxClass.Size = new System.Drawing.Size(195, 21);
             this.cboxClass.TabIndex = 28;
-            this.cboxClass.Text = "-Select a Staff First-";
             // 
             // cboxStaff
             // 
+            this.cboxStaff.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxStaff.FormattingEnabled = true;
             this.cboxStaff.Location = new System.Drawing.Point(72, 197);
             this.cboxStaff.Name = "cboxStaff";
@@ -134,6 +140,7 @@
             // 
             // cboxRoom
             // 
+            this.cboxRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxRoom.FormattingEnabled = true;
             this.cboxRoom.Location = new System.Drawing.Point(72, 170);
             this.cboxRoom.Name = "cboxRoom";
@@ -149,14 +156,14 @@
             this.lblClass.TabIndex = 25;
             this.lblClass.Text = "Class:";
             // 
-            // lblStaff
+            // lblTeacher
             // 
-            this.lblStaff.AutoSize = true;
-            this.lblStaff.Location = new System.Drawing.Point(34, 205);
-            this.lblStaff.Name = "lblStaff";
-            this.lblStaff.Size = new System.Drawing.Size(32, 13);
-            this.lblStaff.TabIndex = 24;
-            this.lblStaff.Text = "Staff:";
+            this.lblTeacher.AutoSize = true;
+            this.lblTeacher.Location = new System.Drawing.Point(16, 205);
+            this.lblTeacher.Name = "lblTeacher";
+            this.lblTeacher.Size = new System.Drawing.Size(50, 13);
+            this.lblTeacher.TabIndex = 24;
+            this.lblTeacher.Text = "Teacher:";
             // 
             // lblRoom
             // 
@@ -215,7 +222,8 @@
             this.RoomName,
             this.ClassId,
             this.ClassName,
-            this.UserId,
+            this.TeacherId,
+            this.Teacher,
             this.UserName,
             this.SDateTIme,
             this.EDateTime});
@@ -263,13 +271,20 @@
             this.ClassName.Name = "ClassName";
             this.ClassName.ReadOnly = true;
             // 
-            // UserId
+            // TeacherId
             // 
-            this.UserId.DataPropertyName = "UserId";
-            this.UserId.HeaderText = "User ID";
-            this.UserId.Name = "UserId";
-            this.UserId.ReadOnly = true;
-            this.UserId.Visible = false;
+            this.TeacherId.DataPropertyName = "Teacher";
+            this.TeacherId.HeaderText = "TeacherId";
+            this.TeacherId.Name = "TeacherId";
+            this.TeacherId.ReadOnly = true;
+            this.TeacherId.Visible = false;
+            // 
+            // Teacher
+            // 
+            this.Teacher.DataPropertyName = "TeacherName";
+            this.Teacher.HeaderText = "Teacher";
+            this.Teacher.Name = "Teacher";
+            this.Teacher.ReadOnly = true;
             // 
             // UserName
             // 
@@ -316,12 +331,25 @@
             this.rdoFilter.UseVisualStyleBackColor = true;
             this.rdoFilter.CheckedChanged += new System.EventHandler(this.rdoFilter_CheckedChanged);
             // 
+            // cballdates
+            // 
+            this.cballdates.AutoSize = true;
+            this.cballdates.Location = new System.Drawing.Point(72, 95);
+            this.cballdates.Name = "cballdates";
+            this.cballdates.Size = new System.Drawing.Size(68, 17);
+            this.cballdates.TabIndex = 37;
+            this.cballdates.Text = "All Dates";
+            this.cballdates.UseVisualStyleBackColor = true;
+            this.cballdates.Visible = false;
+            this.cballdates.CheckedChanged += new System.EventHandler(this.Cballdates_CheckedChanged);
+            // 
             // BookingManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(837, 465);
+            this.Controls.Add(this.cballdates);
             this.Controls.Add(this.rdoFilter);
             this.Controls.Add(this.rdoCUD);
             this.Controls.Add(this.btnPrint);
@@ -334,7 +362,7 @@
             this.Controls.Add(this.cboxStaff);
             this.Controls.Add(this.cboxRoom);
             this.Controls.Add(this.lblClass);
-            this.Controls.Add(this.lblStaff);
+            this.Controls.Add(this.lblTeacher);
             this.Controls.Add(this.lblRoom);
             this.Controls.Add(this.lblToDate);
             this.Controls.Add(this.lblFromDate);
@@ -359,7 +387,7 @@
         private System.Windows.Forms.Label lblFromDate;
         private System.Windows.Forms.Label lblToDate;
         private System.Windows.Forms.Label lblRoom;
-        private System.Windows.Forms.Label lblStaff;
+        private System.Windows.Forms.Label lblTeacher;
         private System.Windows.Forms.Label lblClass;
         private System.Windows.Forms.ComboBox cboxRoom;
         private System.Windows.Forms.ComboBox cboxStaff;
@@ -370,16 +398,18 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.RadioButton rdoCUD;
+        private System.Windows.Forms.RadioButton rdoFilter;
         private System.Windows.Forms.DataGridViewTextBoxColumn BookingId;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomId;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClassId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClassName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UserId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TeacherId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Teacher;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
         private System.Windows.Forms.DataGridViewTextBoxColumn SDateTIme;
         private System.Windows.Forms.DataGridViewTextBoxColumn EDateTime;
-        private System.Windows.Forms.RadioButton rdoCUD;
-        private System.Windows.Forms.RadioButton rdoFilter;
+        private System.Windows.Forms.CheckBox cballdates;
     }
 }

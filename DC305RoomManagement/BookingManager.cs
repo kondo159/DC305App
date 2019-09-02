@@ -16,7 +16,7 @@ namespace DC305RoomManagement
     {
         private Connection conn = new Connection();
         private int userId = 6;
-        private int userRole = 2;//1=admin 2= staff 3=student
+        private int userRole = 1;//1=admin 2= staff 3=student
         public BookingManager()
         {
             InitializeComponent();
@@ -24,27 +24,27 @@ namespace DC305RoomManagement
         private void BookingManager_Load(object sender, EventArgs e)
         {
             dgvBookingList.AutoGenerateColumns = false;
-            LoadBookingList();
-            if (userRole == 1)
-            {
-                LoadComboBox("Select * from Rooms where Enable=1", "RoomId", cboxRoom);
-                LoadComboBox("Select * from Users where Role=2", "UserId", cboxStaff);
+            LoadComboBox("Select * from Rooms where Enable=1", "RoomId", cboxRoom);
+            LoadComboBox("Select * from Users where Role=2", "UserId", cboxStaff);
+            LoadComboBox("Select ClassId,Name from Class", "ClassId", cboxClass);
+            ResetForm();
+            if (userRole == 1)                            
                 cboxStaff.SelectedValueChanged += new EventHandler(CboxStaff_SelectedIndexChanged);
-            }
-            if (userRole == 2)
-            {
-                LoadComboBox("Select * from Rooms where Enable=1", "RoomId", cboxRoom);
-                LoadComboBox("Select * from Users where Role=2", "UserId", cboxStaff);
+            
+            if (userRole == 2)                           
                 SetStaffCUDMenu();
-            }
-
+            
+            
         }
+        /// <summary>
+        /// Method to populate the datagridview 
+        /// </summary>
         private void LoadBookingList()
         {
             DataTable dt = new DataTable();
             try
             {
-                SqlCommand cmd = new SqlCommand("Select Bookings.*,Class.Name as ClassName,Rooms.Name as RoomName,Users.Name as UserName from Bookings Left join Class on Class.ClassId=Bookings.ClassId left join Rooms on Rooms.RoomId=Bookings.RoomId left join users on Users.UserId=Bookings.UserId", conn.OpenConn());
+                SqlCommand cmd = new SqlCommand("Select Bookings.*,Class.Name as ClassName,Class.Teacher,t.Name as teacherName,Rooms.Name as RoomName,Users.Name as UserName from Bookings Left join Class on Class.ClassId=Bookings.ClassId left join Rooms on Rooms.RoomId=Bookings.RoomId left join users on Users.UserId=Bookings.UserId left join users t on T.UserId=Class.Teacher", conn.OpenConn());                
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {
@@ -138,10 +138,12 @@ namespace DC305RoomManagement
 
         private void rdoFilter_CheckedChanged(object sender, EventArgs e)
         {
+            ResetForm();
             btnCreate.Enabled = false;
             btnUpdate.Enabled = false;
             btnCancel.Enabled = false;
             btnFilter.Enabled = true;
+            cballdates.Visible = true;
             if (userRole == 2)
             {
                 cboxStaff.SelectedValueChanged += new EventHandler(CboxStaff_SelectedIndexChanged);
@@ -153,23 +155,104 @@ namespace DC305RoomManagement
 
         private void RdoCUD_CheckedChanged(object sender, EventArgs e)
         {
-            btnCreate.Enabled = true;
-            btnUpdate.Enabled = true;
-            btnCancel.Enabled = true;
+            ResetForm();            
             btnFilter.Enabled = false;
+            cballdates.Visible = false;
             if (userRole == 2)
             {                
                 cboxStaff.SelectedValueChanged -= new EventHandler(CboxStaff_SelectedIndexChanged);
                 SetStaffCUDMenu();
             }
-                
+            
+            
         }
         private void SetStaffCUDMenu()
         {
+            ResetForm();
             cboxStaff.SelectedValue = userId;            
             cboxStaff.Enabled = false;
             string sqlCommand = "Select ClassId,Name from Class where Teacher=" + userId + " and Active=1";
             LoadComboBox(sqlCommand, "ClassId", cboxClass);
+            
+        }
+
+        private void BtnFilter_Click(object sender, EventArgs e)
+        {
+
+            DataTable dt = new DataTable();
+
+            string commandString = "Select Bookings.*,Class.Name as ClassName,Class.Teacher,t.Name as teacherName,Rooms.Name as RoomName,Users.Name as UserName " +
+            "from Bookings " +
+            "Left join Class on Class.ClassId = Bookings.ClassId " +
+            "left join Rooms on Rooms.RoomId = Bookings.RoomId " +
+            "left join users on Users.UserId = Bookings.UserId " +
+            "left join users t on T.UserId = Class.Teacher "+
+            "where ((@room = 0 AND Bookings.RoomId is NOT NULL) OR (@room != 0 AND Bookings.RoomId=@room))";
+            if (!cballdates.Checked)
+            {
+                commandString += "AND (Bookings.SDateTime BETWEEN @Stime AND @Etime)";
+                commandString += " OR Bookings.EDateTime BETWEEN @Stime AND @Etime";
+            }
+                
+
+            commandString += " AND ((@class = 0 AND Bookings.ClassId is NOT NULL) OR (@class != 0 AND Bookings.ClassId=@class))";
+            SqlCommand cmd = new SqlCommand(commandString, conn.OpenConn());
+            cmd.Parameters.AddWithValue("@room", cboxRoom.SelectedValue.ToString());
+            cmd.Parameters.AddWithValue("@Stime", dtpStart.Value.ToString());
+            cmd.Parameters.AddWithValue("@Etime", dtpEnd.Value.ToString());
+            cmd.Parameters.AddWithValue("@class", cboxClass.SelectedValue.ToString());
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows) 
+            {
+                dt.Load(reader);
+                dgvBookingList.DataSource = dt;
+            }
+            else
+            {
+                MessageBox.Show("No Bookings to list");
+            }
+            conn.CloseConn();
+        }
+
+        private void Cballdates_CheckedChanged(object sender, EventArgs e)
+        {
+            dtpStart.Enabled = !dtpStart.Enabled;
+            dtpEnd.Enabled = !dtpEnd.Enabled;
+        }
+
+        private void ResetForm()
+        {
+            LoadBookingList();
+            cboxRoom.SelectedIndex = 0;
+            if(userRole==2 && rdoFilter.Checked || userRole==1)
+                cboxStaff.SelectedIndex = 0;
+            cballdates.Checked = false;
+            dtpStart.Enabled = true;
+            dtpEnd.Enabled = true;
+            DataTable dt = cboxClass.DataSource as DataTable;
+            if (dt != null && ((!rdoCUD.Checked && userRole==2)||userRole==1))
+            {
+                dt.Clear();
+                DataRow select = dt.NewRow();
+                select["Name"] = "-Select a Staff First-";
+                select["ClassId"] = "0";
+                dt.Rows.InsertAt(select, 0);
+                cboxClass.DataSource = dt;
+                cboxClass.SelectedIndex = 0;
+            }
+            if (rdoCUD.Checked)
+            {
+                btnCancel.Enabled = false;
+                btnUpdate.Enabled = false;
+                btnCreate.Enabled = true;
+            }
+            
+
+        }
+
+        private void BtnReset_Click(object sender, EventArgs e)
+        {
+            ResetForm();
         }
     }
     
