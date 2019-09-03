@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Drawing.Printing;
 
 namespace DC305RoomManagement
 {
@@ -315,6 +316,64 @@ namespace DC305RoomManagement
                     LoadBookingList();
                 }
             }
+        }
+
+        private void BtnPrint_Click(object sender, EventArgs e)
+        {
+
+            PrintDialog printDlg = new PrintDialog();
+            //PrintDocument printDoc = new PrintDocument();
+            printDocument1.DocumentName = "Activities";
+            printDlg.Document = printDocument1;
+            printDlg.AllowSelection = true;
+            printDlg.AllowSomePages = true;
+            //Call ShowDialog  
+            if (printDlg.ShowDialog() == DialogResult.OK) printDocument1.Print();
+        }
+
+
+        private void PrintDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            int cHeight = dgvBookingList.Rows[0].Height;
+            
+            int x = 100;
+            
+            for (int c = 0; c < dgvBookingList.Columns.Count; c++)
+            {
+                int y = 100;
+                if (dgvBookingList.Columns[c].Visible)
+                {
+                   //Draws a rectangle with same width and height of first column of datagridview. 
+                    e.Graphics.DrawRectangle(Pens.Black, x, y,
+                    dgvBookingList.Columns[c].Width, cHeight);
+
+                    
+                    //Fills the above drawn rectangle with a light gray colour just to distinguish the header 
+                    e.Graphics.FillRectangle(Brushes.LightGray, new Rectangle(x, y,
+                        dgvBookingList.Columns[c].Width, cHeight));
+
+                    //Draws a text inside the above drawn rectangle whose value is same of the first column. 
+
+                   e.Graphics.DrawString(dgvBookingList.Columns[c].HeaderText,
+                        dgvBookingList.Font, Brushes.Black, new RectangleF(x, y,
+                        dgvBookingList.Columns[c].Width, cHeight));
+
+                    for (int r = 0; r < dgvBookingList.Rows.Count; r++)
+                    {
+                        int rowheight = dgvBookingList.Rows[r].Height;
+                        int colwidth = dgvBookingList.Columns[0].Width;
+                        y += rowheight; //increment the y co-ordinate 
+                        e.Graphics.DrawRectangle(Pens.Black, x, y, colwidth, rowheight);
+
+                        e.Graphics.DrawString(dgvBookingList.Rows[r].Cells[c].FormattedValue.ToString(),
+                         dgvBookingList.Font, Brushes.Black, new RectangleF(x, y, colwidth, rowheight));
+                    }
+                    x += dgvBookingList.Columns[c].Width;
+                }
+            }
+            
+            
+                      
         }
     }
     

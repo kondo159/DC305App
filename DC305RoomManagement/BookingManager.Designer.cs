@@ -58,6 +58,7 @@
             this.rdoCUD = new System.Windows.Forms.RadioButton();
             this.rdoFilter = new System.Windows.Forms.RadioButton();
             this.cballdates = new System.Windows.Forms.CheckBox();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookingList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,6 +70,7 @@
             this.btnPrint.TabIndex = 34;
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.BtnPrint_Click);
             // 
             // btnReset
             // 
@@ -346,6 +348,10 @@
             this.cballdates.Visible = false;
             this.cballdates.CheckedChanged += new System.EventHandler(this.Cballdates_CheckedChanged);
             // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintDocument1_PrintPage);
+            // 
             // BookingManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -414,5 +420,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SDateTIme;
         private System.Windows.Forms.DataGridViewTextBoxColumn EDateTime;
         private System.Windows.Forms.CheckBox cballdates;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }
