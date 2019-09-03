@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing.Printing;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace DC305RoomManagement
 {
@@ -208,16 +209,66 @@ namespace DC305RoomManagement
         /// <param name="e"></param>
         private void BtnPrint_Click(object sender, EventArgs e)
         {
-            PrintDialog printDlg = new PrintDialog();
-            PrintDocument printDoc = new PrintDocument();
-            printDoc.DocumentName = "Issues Report";
-            printDlg.Document = printDoc;
+            PrintDialog printDlg = new PrintDialog();            
+            PrintPreviewDialog printPrvDlg = new PrintPreviewDialog();
+
+            // preview the assigned document or you can create a different previewButton for it
+            printPrvDlg.Document = printDocument1;
+            printPrvDlg.ShowDialog();
+
+            printDocument1.DocumentName = "Issues Report";
+            printDlg.Document = printDocument1;
             printDlg.AllowSelection = true;
             printDlg.AllowSomePages = true;
             //Call ShowDialog  
-            if (printDlg.ShowDialog() == DialogResult.OK) printDoc.Print();
+            if (printDlg.ShowDialog() == DialogResult.OK) printDocument1.Print();
         }
+        /// <summary>
+        /// Method to construct the file that will be printed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PrintDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            int cHeight = dgvIssues.Rows[0].Height;//Height of the cells
 
+            int x = 100;//start position for the first collumn
+
+            for (int c = 0; c < dgvIssues.Columns.Count; c++)
+            {
+                int y = 100;//reset possition to the top
+                if (dgvIssues.Columns[c].Visible)
+                {
+                    //Draws a rectangle  
+                    e.Graphics.DrawRectangle(Pens.Black, x, y,
+                    dgvIssues.Columns[c].Width, cHeight);
+
+
+                    //Fills the above drawn rectangle with a light gray colour just to distinguish the header 
+                    e.Graphics.FillRectangle(Brushes.LightGray, new Rectangle(x, y,
+                        dgvIssues.Columns[c].Width, cHeight));
+
+                    //Draws a text inside the above drawn rectangle whose value is same of the first column. 
+
+                    e.Graphics.DrawString(dgvIssues.Columns[c].HeaderText,
+                         dgvIssues.Font, Brushes.Black, new RectangleF(x, y,
+                         dgvIssues.Columns[c].Width, cHeight));
+
+                    for (int r = 0; r < dgvIssues.Rows.Count; r++)
+                    {
+                        int rowheight = dgvIssues.Rows[r].Height;
+                        int colwidth = dgvIssues.Columns[0].Width;
+                        y += rowheight; //increment the y co-ordinate 
+                        //Draws a rectangle 
+                        e.Graphics.DrawRectangle(Pens.Black, x, y, colwidth, rowheight);
+                        //Insert data inside the rectangle 
+                        e.Graphics.DrawString(dgvIssues.Rows[r].Cells[c].FormattedValue.ToString(),
+                         dgvIssues.Font, Brushes.Black, new RectangleF(x, y, colwidth, rowheight));
+                    }
+                    x += dgvIssues.Columns[c].Width;//move to the next collumn
+                }
+            }
+        }
         /// <summary>
         /// Checks if the field was filled
         /// </summary>
