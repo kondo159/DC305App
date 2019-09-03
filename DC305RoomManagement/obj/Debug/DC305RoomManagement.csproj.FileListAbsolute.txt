@@ -41,4 +41,30 @@ C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug
 C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\bin\Debug\DC305RoomManagementClassLibrary.dll
 C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\bin\Debug\DC305RoomManagementClassLibrary.pdb
 C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.csproj.CopyComplete
+C:\Sources\DC305App\DC305RoomManagement\bin\Debug\DC305RoomManagement.exe.config
+C:\Sources\DC305App\DC305RoomManagement\bin\Debug\DC305RoomManagement.exe
+C:\Sources\DC305App\DC305RoomManagement\bin\Debug\DC305RoomManagement.pdb
+C:\Sources\DC305App\DC305RoomManagement\bin\Debug\DC305RoomManagementClassLibrary.dll
+C:\Sources\DC305App\DC305RoomManagement\bin\Debug\DC305RoomManagementClassLibrary.pdb
+C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.csprojAssemblyReference.cache
+C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.AddMembersToGroup.resources
+C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.BookingManager.resources
+C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.ClassManager.resources
+C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.CourseManager.resources
+C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.GroupManager.resources
+C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.InventoryManager.resources
+C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.IssueManager.resources
+C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.Home.resources
+C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.Login.resources
+C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.Main.resources
+C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.Properties.Resources.resources
+C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.RoomManager.resources
+C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.RoomManagerAddEquip.resources
+C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.UserManager.resources
+C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.csproj.GenerateResource.cache
+C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.csproj.CoreCompileInputs.cache
+C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.csproj.CopyComplete
+C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.exe
+C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.pdb
+C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.ChangePassword.resources
 C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.ChangePassword.resources

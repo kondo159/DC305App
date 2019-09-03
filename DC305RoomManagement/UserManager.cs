@@ -17,6 +17,7 @@ namespace DC305RoomManagement
     {
         
         SqlCommand cmd;
+
         Connection conn = new Connection();
         DataTable dt;
         SqlDataAdapter sqlda;

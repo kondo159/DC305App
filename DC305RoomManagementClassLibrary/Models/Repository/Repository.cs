@@ -158,11 +158,21 @@ namespace DC305RoomManagementClassLibrary.Models.Repository
                 );
         }
 
+        /// <summary>
+        /// Get Group Members by Group ID
+        /// </summary>
+        /// <param name="GroupID">int GroupID</param>
+        /// <returns>A DataTable containing of the Members</returns>
         public DataTable GetGroupMembers(int GroupID)
         {
             return GetData("spGroupMembers_GetAll", new SqlParameter("@GroupID", GroupID));
         }
 
+        /// <summary>
+        /// Saves the Group Member for group identified by GroupID
+        /// </summary>
+        /// <param name="GroupID">int GroupID</param>
+        /// <param name="UserID">int UserID</param>
         public void SaveGroupMember(int GroupID, int UserID)
         {
             ExecSqlQueryScalar(ConnectionName, "spGroupOfStudents_Save",
@@ -171,6 +181,11 @@ namespace DC305RoomManagementClassLibrary.Models.Repository
                 );
         }
 
+        /// <summary>
+        /// Removes the Group Member from group identified by GroupID
+        /// </summary>
+        /// <param name="GroupID">int GroupID</param>
+        /// <param name="UserID">int UserID</param>
         public void RemoveGroupMember(int GroupID, int UserID)
         {
             ExecSqlQueryScalar(ConnectionName, "spGroupOfStudents_Remove",
@@ -179,16 +194,31 @@ namespace DC305RoomManagementClassLibrary.Models.Repository
                 );
         }
 
+        /// <summary>
+        /// Gets Users from the database
+        /// </summary>
+        /// <param name="RoleID">int RoleID</param>
+        /// <returns>If RoleID <> 0 all user will be returned 
+        /// in the other case user having specified role will be returned</returns>
         public DataTable GetUsers(int RoleID = 0)
         {
             return GetData("spUsers_GetAll", new SqlParameter("@RoleID", RoleID));
         }
 
+        /// <summary>
+        /// Gets all Courses from the database
+        /// </summary>
+        /// <returns></returns>
         public DataTable GetCourses()
         {
             return GetData("spCourses_GetAll");
         }
 
+        /// <summary>
+        /// Saves the Course into the database
+        /// </summary>
+        /// <param name="course">Course object contained data</param>
+        /// <returns>int Saving record ID</returns>
         public int SaveCourse(Course course)
         {
             return ExecSqlQueryScalar(ConnectionName, "spCourses_Save",
@@ -200,11 +230,20 @@ namespace DC305RoomManagementClassLibrary.Models.Repository
                 );
         }
 
+        /// <summary>
+        /// Gets all Classes
+        /// </summary>
+        /// <returns>A DataTable containing the Classes</returns>
         public DataTable GetClasses()
         {
             return GetData("spClass_GetAll");
         }
 
+        /// <summary>
+        /// Saves the ClassEvent into the database
+        /// </summary>
+        /// <param name="classEvent">ClassEvent object contained data</param>
+        /// <returns>int Saving record ID</returns>
         public int SaveClass(ClassEvent classEvent)
         {
             return ExecSqlQueryScalar(ConnectionName, "spClass_Save",

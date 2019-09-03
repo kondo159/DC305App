@@ -24,10 +24,10 @@ namespace DC305RoomManagement
         private void LoadCB()//Method to Load Data into the ComboBox
         {
             //setting the default option
-            cboxEquip.DisplayMember = "Name";
-            cboxEquip.ValueMember = "id";
-            cboxEquip.Items.Add(new { Name = "-Select-", id = "0" });
-            cboxEquip.SelectedIndex = 0;
+            cboxEquip.DisplayMember = "Name";            
+            cboxEquip.ValueMember = "EquipId";
+
+            
             //SELECT to get only Available Equipments
             SqlCommand cmd = new SqlCommand("SELECT Equipment.EquipId,Equipment.Name,Equipment.Description,Equipment.Quantity, COALESCE(SUM(RoomEquipment.Quantity),0) as EQuantity "
             + "FROM  Equipment LEFT JOIN RoomEquipment "
@@ -39,25 +39,28 @@ namespace DC305RoomManagement
             if (reader.HasRows)
             {
                 dtEquipments.Load(reader);
-                for (int c = 0; c < dtEquipments.Rows.Count; c++)
-                {
-                    cboxEquip.Items.Add(new { Name = dtEquipments.Rows[c]["Name"].ToString(), id = dtEquipments.Rows[c]["EquipId"].ToString() });
-                }
+                DataRow select = dtEquipments.NewRow();
+                select["Name"] = "-Select-";
+                select["EquipId"] = "0";
+                dtEquipments.Rows.InsertAt(select, 0);
+                cboxEquip.DataSource = dtEquipments;
+                //cboxEquip.Items.Insert(0, new { Name = "-Select-", EquipId = "0" });
+                //cboxEquip.SelectedIndex = 0;
+
             }
         }        
 
         //Change max value to number of available equipments
         private void CboxEquip_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var item = cboxEquip.SelectedItem;//get the selected equip
+        {            
             for (int c = 0; c < dtEquipments.Rows.Count; c++)//search in the dataTable to get the number available
-            {
-                if (dtEquipments.Rows[c]["EquipID"].ToString() == item.GetType().GetProperty("id").GetValue(item, null).ToString())
-                {
+            {                
+                if (dtEquipments.Rows[c]["EquipID"].ToString() == cboxEquip.SelectedValue.ToString()&& cboxEquip.SelectedValue.ToString()!="0")
+                    {
                     numEquip.Maximum = Convert.ToInt32(dtEquipments.Rows[c]["Quantity"].ToString()) - Convert.ToInt32(dtEquipments.Rows[c]["EQuantity"].ToString());
                     this.Maxquantity = Convert.ToInt32(numEquip.Maximum);                    
-                    this.EquipId = Convert.ToInt32(item.GetType().GetProperty("id").GetValue(item, null).ToString());
-                    this.Name = item.GetType().GetProperty("Name").GetValue(item, null).ToString();
+                    this.EquipId = Convert.ToInt32(cboxEquip.SelectedValue.ToString());
+                    this.Name = cboxEquip.Text.ToString();
                     this.Desc = dtEquipments.Rows[c]["Description"].ToString();
                 }
                     

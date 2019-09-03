@@ -5,11 +5,12 @@ using System.Windows.Forms;
 using System.Configuration;
 using System.Collections.Generic;
 
+
 namespace DC305RoomManagement
 {
     public partial class RoomManager : Form
-    { //variable to store the active room in the form, -1 it means the form is empty
-        private int activeRoom=-1;
+    { 
+        private int activeRoom=-1;//variable to store the active room in the form, -1 it means the form is empty
         private Connection conn = new Connection();
         private List<RoomEquip> roomEquips = new List<RoomEquip>();
         private List<RoomEquip> oldRoomEquips = new List<RoomEquip>();
@@ -61,7 +62,7 @@ namespace DC305RoomManagement
             txtRoomNameValue.Text = row.Cells["RoomName"].Value.ToString();
             numCapacity.Value= decimal.Parse(row.Cells["RoomCapacity"].Value.ToString());
             txtDescriptionValue.Text = row.Cells["RoomDescription"].Value.ToString();
-            if(row.Cells["RoomEnable"].Value.ToString()=="true")
+            if(row.Cells["RoomEnable"].Value.ToString()==true.ToString())
              btnDisableRoom.Text = "Disable";
             else
              btnDisableRoom.Text = "Enable";
@@ -120,8 +121,8 @@ namespace DC305RoomManagement
         {
             ResetForm();
         }
-        //method to reset the form
-        public void ResetForm()
+        
+        public void ResetForm()//method to reset the form
         {
             activeRoom = -1;
             roomEquips.Clear();
@@ -182,7 +183,7 @@ namespace DC305RoomManagement
                 }
 
             }
-            catch (Exception)
+            catch (Exception err)
             {
                 throw;
             }
@@ -345,6 +346,14 @@ namespace DC305RoomManagement
             }
             errorProvider1.SetError(txtRoomNameValue, "");
             return true;
+        }
+
+        private void BtnDisableRoom_Click(object sender, EventArgs e)
+        {
+            if(btnDisableRoom.Text =="Enable")
+                btnDisableRoom.Text = "Disable";
+            else
+                btnDisableRoom.Text = "Enable";
         }
     }    
 }
