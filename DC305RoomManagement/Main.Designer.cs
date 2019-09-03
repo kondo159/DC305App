@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.pnlSideMenu = new System.Windows.Forms.Panel();
-            this.btnInventory = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnInventory = new System.Windows.Forms.Button();
             this.btnRoom = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnClass = new System.Windows.Forms.Button();
@@ -48,12 +48,12 @@
             this.pnlSideMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlHeader.SuspendLayout();
+            this.pnlMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlSideMenu
             // 
-            this.pnlSideMenu.BackColor = System.Drawing.Color.DimGray;
-            this.pnlSideMenu.Controls.Add(this.pictureBox1);
+            this.pnlSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pnlSideMenu.Controls.Add(this.btnInventory);
             this.pnlSideMenu.Controls.Add(this.btnRoom);
             this.pnlSideMenu.Controls.Add(this.btnExit);
@@ -69,6 +69,16 @@
             this.pnlSideMenu.Size = new System.Drawing.Size(155, 601);
             this.pnlSideMenu.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::DC305RoomManagement.Properties.Resources.download;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(155, 94);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // btnInventory
             // 
             this.btnInventory.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -83,16 +93,6 @@
             this.btnInventory.Text = "Inventory";
             this.btnInventory.UseVisualStyleBackColor = true;
             this.btnInventory.Click += new System.EventHandler(this.BtnMenu_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::DC305RoomManagement.Properties.Resources.download;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(155, 94);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // btnRoom
             // 
@@ -143,6 +143,7 @@
             // 
             this.btnBooking.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBooking.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnBooking.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
             this.btnBooking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBooking.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBooking.ForeColor = System.Drawing.Color.White;
@@ -153,6 +154,8 @@
             this.btnBooking.Text = "Booking Manager";
             this.btnBooking.UseVisualStyleBackColor = true;
             this.btnBooking.Click += new System.EventHandler(this.BtnMenu_Click);
+            this.btnBooking.MouseEnter += new System.EventHandler(this.BtnBooking_MouseEnter);
+            this.btnBooking.MouseLeave += new System.EventHandler(this.BtnBooking_MouseLeave);
             // 
             // btnCourse
             // 
@@ -216,7 +219,7 @@
             // 
             // pnlHeader
             // 
-            this.pnlHeader.BackColor = System.Drawing.Color.DimGray;
+            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pnlHeader.Controls.Add(this.pwd_Change);
             this.pnlHeader.Controls.Add(this.label2);
             this.pnlHeader.Controls.Add(this.lblHeader);
@@ -271,6 +274,7 @@
             // 
             this.pnlMain.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pnlMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlMain.Controls.Add(this.pictureBox1);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(155, 97);
             this.pnlMain.Name = "pnlMain";
@@ -300,6 +304,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
+            this.pnlMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

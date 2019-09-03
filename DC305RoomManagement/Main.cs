@@ -151,6 +151,16 @@ namespace DC305RoomManagement
             ChangePassword changePassword = new ChangePassword();
             changePassword.ShowDialog();
         }
+
+        private void BtnBooking_MouseEnter(object sender, EventArgs e)
+        {
+            btnBooking.ForeColor = Color.Black;
+        }
+
+        private void BtnBooking_MouseLeave(object sender, EventArgs e)
+        {
+            btnBooking.ForeColor = Color.White;
+        }
     }
 }
             

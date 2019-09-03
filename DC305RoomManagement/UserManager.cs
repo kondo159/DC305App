@@ -111,7 +111,7 @@ namespace DC305RoomManagement
 
         private void UserManager_Load(object sender, EventArgs e)
         {
-           
+            dtgGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 11.75F);
             LoadData();
             txtID.Hide();
         }
@@ -374,6 +374,5 @@ private void BtnDisable_MouseLeave(object sender, EventArgs e)
         {
             btnDisable.ForeColor = SystemColors.ControlText;
         }
-        
     }
 }
