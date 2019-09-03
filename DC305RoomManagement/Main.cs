@@ -83,7 +83,9 @@ namespace DC305RoomManagement
                     break;
 
                 case "btnExit":
+
                     Application.Exit();
+                    
                     break;
             }
         }
@@ -123,7 +125,35 @@ namespace DC305RoomManagement
         {
 
         }
+
+        private void Main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+        }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            const string message = "Are you sure that you would like to close the form?";
+            const string caption = "Form Closing";
+            var result = MessageBox.Show(message, caption,
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Question);
+            // If the no button was pressed ...
+            if (result == DialogResult.No)
+            {
+                // cancel the closure of the form.
+                e.Cancel = true;
+            }
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            ChangePassword changePassword = new ChangePassword();
+            changePassword.Show();
+        }
     }
 }
+            
+
 
 

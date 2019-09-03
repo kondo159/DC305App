@@ -41,3 +41,4 @@ C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug
 C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\bin\Debug\DC305RoomManagementClassLibrary.dll
 C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\bin\Debug\DC305RoomManagementClassLibrary.pdb
 C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.csproj.CopyComplete
+C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.ChangePassword.resources

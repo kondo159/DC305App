@@ -225,7 +225,7 @@ namespace DC305RoomManagement
         {
           
           
-            string query = "select Users.*, Roles.Name as RoleName from Users LEFT JOIN Roles ON Users.Role = Roles.RoleId where [Email]+' '+Users.Name like '%" + search + "%'";
+            string query = "SELECT Users.*, Roles.Name as RoleName FROM Users LEFT JOIN Roles ON Users.Role = Roles.RoleId where [Email]+' '+Users.Name like '%" + search + "%'";
             sqlda = new SqlDataAdapter(query, conn.OpenConn());
             dt = new DataTable();
             sqlda.Fill(dt);

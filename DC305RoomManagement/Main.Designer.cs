@@ -29,21 +29,22 @@
         private void InitializeComponent()
         {
             this.pnlSideMenu = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnInventory = new System.Windows.Forms.Button();
-            this.btnIssue = new System.Windows.Forms.Button();
-            this.btnUser = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnRoom = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnClass = new System.Windows.Forms.Button();
-            this.btnGroup = new System.Windows.Forms.Button();
-            this.btnCourse = new System.Windows.Forms.Button();
-            this.btnRoom = new System.Windows.Forms.Button();
             this.btnBooking = new System.Windows.Forms.Button();
+            this.btnCourse = new System.Windows.Forms.Button();
+            this.btnIssue = new System.Windows.Forms.Button();
+            this.btnGroup = new System.Windows.Forms.Button();
+            this.btnUser = new System.Windows.Forms.Button();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.lblHeader = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.pwd_Change = new System.Windows.Forms.Button();
             this.pnlSideMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlHeader.SuspendLayout();
@@ -68,16 +69,6 @@
             this.pnlSideMenu.Size = new System.Drawing.Size(155, 601);
             this.pnlSideMenu.TabIndex = 0;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::DC305RoomManagement.Properties.Resources.download;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(155, 94);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnInventory
             // 
             this.btnInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -90,29 +81,27 @@
             this.btnInventory.UseVisualStyleBackColor = true;
             this.btnInventory.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
-            // btnIssue
+            // pictureBox1
             // 
-            this.btnIssue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIssue.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIssue.Location = new System.Drawing.Point(0, 153);
-            this.btnIssue.Name = "btnIssue";
-            this.btnIssue.Size = new System.Drawing.Size(155, 50);
-            this.btnIssue.TabIndex = 8;
-            this.btnIssue.Text = "Issue Manager";
-            this.btnIssue.UseVisualStyleBackColor = true;
-            this.btnIssue.Click += new System.EventHandler(this.BtnMenu_Click);
+            this.pictureBox1.Image = global::DC305RoomManagement.Properties.Resources.download;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(155, 94);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
-            // btnUser
+            // btnRoom
             // 
-            this.btnUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUser.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUser.Location = new System.Drawing.Point(0, 209);
-            this.btnUser.Name = "btnUser";
-            this.btnUser.Size = new System.Drawing.Size(155, 50);
-            this.btnUser.TabIndex = 7;
-            this.btnUser.Text = "User Manager";
-            this.btnUser.UseVisualStyleBackColor = true;
-            this.btnUser.Click += new System.EventHandler(this.BtnMenu_Click);
+            this.btnRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRoom.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRoom.Location = new System.Drawing.Point(0, 433);
+            this.btnRoom.Name = "btnRoom";
+            this.btnRoom.Size = new System.Drawing.Size(155, 50);
+            this.btnRoom.TabIndex = 3;
+            this.btnRoom.Text = "Room Manager";
+            this.btnRoom.UseVisualStyleBackColor = true;
+            this.btnRoom.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
             // btnExit
             // 
@@ -138,17 +127,17 @@
             this.btnClass.UseVisualStyleBackColor = true;
             this.btnClass.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
-            // btnGroup
+            // btnBooking
             // 
-            this.btnGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGroup.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGroup.Location = new System.Drawing.Point(0, 265);
-            this.btnGroup.Name = "btnGroup";
-            this.btnGroup.Size = new System.Drawing.Size(155, 50);
-            this.btnGroup.TabIndex = 6;
-            this.btnGroup.Text = "Group Manager";
-            this.btnGroup.UseVisualStyleBackColor = true;
-            this.btnGroup.Click += new System.EventHandler(this.BtnMenu_Click);
+            this.btnBooking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBooking.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBooking.Location = new System.Drawing.Point(0, 97);
+            this.btnBooking.Name = "btnBooking";
+            this.btnBooking.Size = new System.Drawing.Size(155, 50);
+            this.btnBooking.TabIndex = 2;
+            this.btnBooking.Text = "Booking Manager";
+            this.btnBooking.UseVisualStyleBackColor = true;
+            this.btnBooking.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
             // btnCourse
             // 
@@ -162,33 +151,46 @@
             this.btnCourse.UseVisualStyleBackColor = true;
             this.btnCourse.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
-            // btnRoom
+            // btnIssue
             // 
-            this.btnRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRoom.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRoom.Location = new System.Drawing.Point(0, 433);
-            this.btnRoom.Name = "btnRoom";
-            this.btnRoom.Size = new System.Drawing.Size(155, 50);
-            this.btnRoom.TabIndex = 3;
-            this.btnRoom.Text = "Room Manager";
-            this.btnRoom.UseVisualStyleBackColor = true;
-            this.btnRoom.Click += new System.EventHandler(this.BtnMenu_Click);
+            this.btnIssue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIssue.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIssue.Location = new System.Drawing.Point(0, 153);
+            this.btnIssue.Name = "btnIssue";
+            this.btnIssue.Size = new System.Drawing.Size(155, 50);
+            this.btnIssue.TabIndex = 8;
+            this.btnIssue.Text = "Issue Manager";
+            this.btnIssue.UseVisualStyleBackColor = true;
+            this.btnIssue.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
-            // btnBooking
+            // btnGroup
             // 
-            this.btnBooking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBooking.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBooking.Location = new System.Drawing.Point(0, 97);
-            this.btnBooking.Name = "btnBooking";
-            this.btnBooking.Size = new System.Drawing.Size(155, 50);
-            this.btnBooking.TabIndex = 2;
-            this.btnBooking.Text = "Booking Manager";
-            this.btnBooking.UseVisualStyleBackColor = true;
-            this.btnBooking.Click += new System.EventHandler(this.BtnMenu_Click);
+            this.btnGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGroup.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGroup.Location = new System.Drawing.Point(0, 265);
+            this.btnGroup.Name = "btnGroup";
+            this.btnGroup.Size = new System.Drawing.Size(155, 50);
+            this.btnGroup.TabIndex = 6;
+            this.btnGroup.Text = "Group Manager";
+            this.btnGroup.UseVisualStyleBackColor = true;
+            this.btnGroup.Click += new System.EventHandler(this.BtnMenu_Click);
+            // 
+            // btnUser
+            // 
+            this.btnUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUser.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUser.Location = new System.Drawing.Point(0, 209);
+            this.btnUser.Name = "btnUser";
+            this.btnUser.Size = new System.Drawing.Size(155, 50);
+            this.btnUser.TabIndex = 7;
+            this.btnUser.Text = "User Manager";
+            this.btnUser.UseVisualStyleBackColor = true;
+            this.btnUser.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
             // pnlHeader
             // 
             this.pnlHeader.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.pnlHeader.Controls.Add(this.pwd_Change);
             this.pnlHeader.Controls.Add(this.label2);
             this.pnlHeader.Controls.Add(this.lblHeader);
             this.pnlHeader.Controls.Add(this.label1);
@@ -208,15 +210,6 @@
             this.label2.TabIndex = 15;
             this.label2.Click += new System.EventHandler(this.Label2_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(770, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 17);
-            this.label1.TabIndex = 14;
-            // 
             // lblHeader
             // 
             this.lblHeader.AutoSize = true;
@@ -228,6 +221,15 @@
             this.lblHeader.TabIndex = 13;
             this.lblHeader.Text = "Main Menu";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(770, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 17);
+            this.label1.TabIndex = 14;
+            // 
             // pnlMain
             // 
             this.pnlMain.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -237,6 +239,16 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(853, 504);
             this.pnlMain.TabIndex = 2;
+            // 
+            // pwd_Change
+            // 
+            this.pwd_Change.Location = new System.Drawing.Point(727, 68);
+            this.pwd_Change.Name = "pwd_Change";
+            this.pwd_Change.Size = new System.Drawing.Size(114, 23);
+            this.pwd_Change.TabIndex = 16;
+            this.pwd_Change.Text = "Change Password";
+            this.pwd_Change.UseVisualStyleBackColor = true;
+            this.pwd_Change.Click += new System.EventHandler(this.Button1_Click);
             // 
             // Main
             // 
@@ -254,6 +266,8 @@
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
             this.Load += new System.EventHandler(this.Main_Load);
             this.pnlSideMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -281,5 +295,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button pwd_Change;
     }
 }
