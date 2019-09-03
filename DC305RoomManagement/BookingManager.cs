@@ -16,7 +16,7 @@ namespace DC305RoomManagement
     {
         private Connection conn = new Connection();
         private int userId = 6;
-        private int userRole = 1;//1=admin 2= staff 3=student
+        private int userRole = 2;//1=admin 2= staff 3=student
         private int activedBooking = 0;
         public BookingManager()
         {
@@ -100,7 +100,7 @@ namespace DC305RoomManagement
                     cb.DataSource = dt;
                 }
             }
-            catch (Exception)
+            catch(Exception)
             {
                 throw;
             }
@@ -122,20 +122,7 @@ namespace DC305RoomManagement
                 string sqlCommand = "Select ClassId,Name from Class where Teacher=" + staffId + " and Active=1";
                 LoadComboBox(sqlCommand, "ClassId", cboxClass);
             }
-        }
-        
-        private void BtnCreate_Click(object sender, EventArgs e)
-        {
-            SqlCommand cmd = new SqlCommand("Insert INTO Bookings (ClassId,RoomId,UserId,SDateTime,EDateTime) values(@class,@room,@user,@Sdate,@Edate)", conn.OpenConn());
-            cmd.Parameters.AddWithValue("@class", Convert.ToInt32(cboxClass.SelectedValue.ToString()));
-            cmd.Parameters.AddWithValue("@room", Convert.ToInt32(cboxRoom.SelectedValue.ToString()));
-            cmd.Parameters.AddWithValue("@user",7);
-            cmd.Parameters.AddWithValue("@Sdate", dtpStart.Value.ToString());
-            cmd.Parameters.AddWithValue("@Edate", dtpEnd.Value.ToString());
-            cmd.ExecuteNonQuery();
-            conn.CloseConn();
-            LoadBookingList();
-        }
+        }               
 
         private void rdoFilter_CheckedChanged(object sender, EventArgs e)
         {
@@ -222,6 +209,8 @@ namespace DC305RoomManagement
                 cboxClass.DataSource = dt;
                 cboxClass.SelectedIndex = 0;
             }
+            else
+                cboxClass.SelectedIndex = 0;
             if (rdoCUD.Checked)
             {
                 btnCancel.Enabled = false;
@@ -239,18 +228,93 @@ namespace DC305RoomManagement
 
         private void DgvBookingList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (rdoCUD.Checked)
+            DataGridViewRow row = dgvBookingList.Rows[e.RowIndex];
+            if (rdoCUD.Checked && (userRole==1 || (int)row.Cells["TeacherId"].Value==userId))
             {
-                DataGridViewRow row = dgvBookingList.Rows[e.RowIndex];
+                btnCancel.Enabled = true;
+                btnUpdate.Enabled = true;
+                btnCreate.Enabled = false;                
                 activedBooking = (int)row.Cells["BookingId"].Value;
                 dtpStart.Value = (DateTime)row.Cells["SDateTime"].Value;
                 dtpEnd.Value = (DateTime)row.Cells["EDateTime"].Value;
-                cboxRoom.SelectedValue = (int)row.Cells["RoomId"].Value;
-                if (userRole != 2)
-                    cboxStaff.SelectedValue = (int)row.Cells["Teacher"].Value;
+                cboxRoom.SelectedValue = (int)row.Cells["RoomId"].Value;                
+                cboxStaff.SelectedValue = (int)row.Cells["TeacherId"].Value;
                 cboxClass.SelectedValue = (int)row.Cells["ClassId"].Value;
             }            
             
+        }
+        private void BtnCreate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("Insert INTO Bookings (ClassId,RoomId,UserId,SDateTime,EDateTime) values(@class,@room,@user,@Sdate,@Edate)", conn.OpenConn());
+                cmd.Parameters.AddWithValue("@class", Convert.ToInt32(cboxClass.SelectedValue.ToString()));
+                cmd.Parameters.AddWithValue("@room", Convert.ToInt32(cboxRoom.SelectedValue.ToString()));
+                cmd.Parameters.AddWithValue("@user", userId);
+                cmd.Parameters.AddWithValue("@Sdate", dtpStart.Value.ToString());
+                cmd.Parameters.AddWithValue("@Edate", dtpEnd.Value.ToString());
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conn.CloseConn();
+                ResetForm();
+                LoadBookingList();
+            }
+
+
+        }
+        private void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                SqlCommand cmd = new SqlCommand("Update Bookings Set ClassId=@class, RoomId=@room, UserId=@user, SDateTime=@Sdate , EDateTime=@Edate where bookingId=@id", conn.OpenConn());
+                cmd.Parameters.AddWithValue("@class", Convert.ToInt32(cboxClass.SelectedValue.ToString()));
+                cmd.Parameters.AddWithValue("@room", Convert.ToInt32(cboxRoom.SelectedValue.ToString()));
+                cmd.Parameters.AddWithValue("@user", userId);
+                cmd.Parameters.AddWithValue("@Sdate", dtpStart.Value.ToString());
+                cmd.Parameters.AddWithValue("@Edate", dtpEnd.Value.ToString());
+                cmd.Parameters.AddWithValue("@id", activedBooking);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conn.CloseConn();
+                ResetForm();
+                LoadBookingList();
+            }
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure to cancel this Booking?", "Cancel Booking", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("DELETE FROM Bookings where BookingId=@booking", conn.OpenConn());
+                    cmd.Parameters.AddWithValue("@booking",activedBooking);                    
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                finally
+                {
+                    conn.CloseConn();
+                    ResetForm();
+                    LoadBookingList();
+                }
+            }
         }
     }
     
