@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-	<Reference Include="PresentationFramework" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -48,7 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-	<Compile Include="AddMembersToGroup.cs">
+    <Compile Include="AddMembersToGroup.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddMembersToGroup.Designer.cs">
@@ -59,6 +59,12 @@
     </Compile>
     <Compile Include="BookingManager.Designer.cs">
       <DependentUpon>BookingManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
     <Compile Include="Connection.cs" />
     <Compile Include="ClassManager.cs">
@@ -79,7 +85,7 @@
     <Compile Include="GroupManager.Designer.cs">
       <DependentUpon>GroupManager.cs</DependentUpon>
     </Compile>
-	<Compile Include="FormHelper.cs" />
+    <Compile Include="FormHelper.cs" />
     <Compile Include="InventoryManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,11 +137,14 @@
     <Compile Include="RoomManager.Designer.cs">
       <DependentUpon>RoomManager.cs</DependentUpon>
     </Compile>
-	<EmbeddedResource Include="AddMembersToGroup.resx">
+    <EmbeddedResource Include="AddMembersToGroup.resx">
       <DependentUpon>AddMembersToGroup.cs</DependentUpon>
-	</EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="BookingManager.resx">
       <DependentUpon>BookingManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClassManager.resx">
       <DependentUpon>ClassManager.cs</DependentUpon>
@@ -214,6 +223,9 @@
       <Project>{D51E9AFF-758F-4A8D-A119-BD5E2BD13081}</Project>
       <Name>DC305RoomManagementClassLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

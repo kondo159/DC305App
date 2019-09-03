@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Text.RegularExpressions;
 
 namespace DC305RoomManagement
 {
@@ -16,8 +17,8 @@ namespace DC305RoomManagement
     {
         
         SqlCommand cmd;
-         
-        string connStr = ConfigurationManager.ConnectionStrings["DC305RoomManagementDB"].ConnectionString;
+
+        Connection conn = new Connection();
         DataTable dt;
         SqlDataAdapter sqlda;
         
@@ -27,6 +28,7 @@ namespace DC305RoomManagement
         public UserManager()
         {
             InitializeComponent();
+            Load_cbRole();
         }
         string Gender;
         public void ClearForm()
@@ -43,43 +45,49 @@ namespace DC305RoomManagement
         }
         private void BtnCreate_Click(object sender, EventArgs e)
         {
-           
-            try
+            if (ValidateAll())
             {
-                string value = "Male";
-                bool isChecked = rbtnMale.Checked;
-                if (isChecked)
-                    value = rbtnMale.Text;
-                else
-                    value = rbtnFemale.Text;
+                try
+                {
+                    string value = "Male";
+                    bool isChecked = rbtnMale.Checked;
+                    if (isChecked)
+                        value = rbtnMale.Text;
+                    else
+                        value = rbtnFemale.Text;
 
-                SqlConnection conn = new SqlConnection(connStr);
-                SqlCommand cmd = new SqlCommand("INSERT INTO [Users] (Name, DOB, Gender, Email, Password, Role) VALUES (@Name, @DOB, @Gender, @Email, @Password, @Role)", conn);
 
-                cmd.Parameters.AddWithValue("@Name", this.txtName.Text);
-                cmd.Parameters.AddWithValue("@DOB", this.dtDOB.Text);
-                cmd.Parameters.AddWithValue("@Gender", Gender);
-                cmd.Parameters.AddWithValue("@Email", this.txtEmail.Text);
-                cmd.Parameters.AddWithValue("@Password", this.txtPassword.Text);
-                cmd.Parameters.AddWithValue("@Role", this.cboRole.Text);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO [Users] (Name, DOB, Gender, Email, Password, Role) VALUES (@Name, @DOB, @Gender, @Email, @Password, @Role)", conn.OpenConn());
 
-                conn.Open();
-                cmd.ExecuteNonQuery();
-               
-                MessageBox.Show("Success");
-                LoadData();
-                ClearForm();
-               
-                
+                    cmd.Parameters.AddWithValue("@Name", this.txtName.Text);
+                    cmd.Parameters.AddWithValue("@DOB", this.dtDOB.Text);
+                    cmd.Parameters.AddWithValue("@Gender", Gender);
+                    cmd.Parameters.AddWithValue("@Email", this.txtEmail.Text);
+                    cmd.Parameters.AddWithValue("@Password", this.txtPassword.Text);
+                    cmd.Parameters.AddWithValue("@Role", Convert.ToInt32(this.cboRole.SelectedValue));
+
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Success");
+
+
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                finally
+                {
+                    conn.CloseConn();
+                    LoadData();
+                    ClearForm();
+                }
+
             }
-            catch(Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                
-            }
+
+          
         }
 
         private void RbtnMale_CheckedChanged(object sender, EventArgs e)
@@ -104,18 +112,29 @@ namespace DC305RoomManagement
 
         private void UserManager_Load(object sender, EventArgs e)
         {
-            this.dtgGrid.DefaultCellStyle.Font = new Font("Segoe UI", 11);
+            this.dtgGrid.DefaultCellStyle.Font = new Font("Proxima Nova", 8.5F);
+            dtgGrid.BorderStyle = BorderStyle.None;
+            dtgGrid.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            dtgGrid.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dtgGrid.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
+            dtgGrid.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            dtgGrid.BackgroundColor = Color.White;
+
+            dtgGrid.EnableHeadersVisualStyles = false;
+            dtgGrid.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dtgGrid.ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue;
+            dtgGrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dtgGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Proxima Nova", 9.5F, FontStyle.Bold);
             LoadData();
         }
         private void LoadData()
         {
-            SqlConnection conn = new SqlConnection(connStr);
+          
             try
             {
 
                 DataTable dt = new DataTable();
-                cmd = new SqlCommand("select * from Users", conn);
-                conn.Open();
+                cmd = new SqlCommand("select Users.*, Roles.Name as RoleName from Users LEFT JOIN Roles ON Users.Role = Roles.RoleId",  conn.OpenConn());
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {
@@ -126,6 +145,7 @@ namespace DC305RoomManagement
                 {
                     MessageBox.Show("No Data to Show");
                 }
+                
             }
             catch (Exception)
             {
@@ -133,7 +153,7 @@ namespace DC305RoomManagement
             }
             finally
             {
-                conn.Close();
+                conn.CloseConn();
             }
             
         }
@@ -141,63 +161,52 @@ namespace DC305RoomManagement
         private void BtnReset_Click(object sender, EventArgs e)
         {
             ClearForm();
+            btnCreate.Enabled = true;
+            btnUpdate.Enabled = false;
         }
 
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
-            try
+
+            if(ValidateAll())
             {
-                SqlConnection conn = new SqlConnection(connStr);
-                SqlCommand cmd = new SqlCommand("UPDATE [Users] SET Name = @Name, DOB = @DOB, Gender = @Gender, " +
-                    "Email = @Email, Password = @Password, Role = @Role WHERE UserId = '" + txtID.Text + "'", conn);
+                try
+                {
 
-                cmd.Parameters.AddWithValue("@Name", txtName.Text);
-                cmd.Parameters.AddWithValue("@DOB", dtDOB.Text);
-                cmd.Parameters.AddWithValue("@Gender", Gender);
-                cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
-                cmd.Parameters.AddWithValue("@Password", txtPassword.Text);
-                cmd.Parameters.AddWithValue("@Role", cboRole.Text);
-                conn.Open();
+                    SqlCommand cmd = new SqlCommand("UPDATE [Users] SET Name = @Name, DOB = @DOB, Gender = @Gender, " +
+                        "Email = @Email, Password = @Password, Role = @Role, Active=@Active WHERE UserId = '" + txtID.Text + "'", conn.OpenConn());
 
-               if (cmd.ExecuteNonQuery() == 1)
+
+                    cmd.Parameters.AddWithValue("@Name", txtName.Text);
+                    cmd.Parameters.AddWithValue("@DOB", dtDOB.Text);
+                    cmd.Parameters.AddWithValue("@Gender", Gender);
+                    cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
+                    cmd.Parameters.AddWithValue("@Password", txtPassword.Text);
+                    cmd.Parameters.AddWithValue("@Role", Convert.ToInt32(cboRole.SelectedValue));
+                    cmd.Parameters.AddWithValue("@Active", btnDisable.Text == "Disable" ? true : false);
+
+
+
+                    if (cmd.ExecuteNonQuery() == 1)
                     {
                         MessageBox.Show("Update Successfully.", "Status", MessageBoxButtons.OK);
-                        LoadData();
+
                     }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                
-                ClearForm();
-            }
-
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                finally
+                {
+                    conn.CloseConn();
+                    LoadData();
+                    ClearForm();
+                }
+            }            
         }
 
-        private void DtgGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            ClearForm();
-            DataGridViewRow row = dtgGrid.Rows[e.RowIndex];
-            txtEmail.Text = row.Cells["Email"].Value.ToString();
-            txtName.Text = row.Cells["Name"].Value.ToString();
-            dtDOB.Text = row.Cells["DOB"].Value.ToString();
-            txtPassword.Text = row.Cells["Password"].Value.ToString();
-            cboRole.Text = row.Cells["Role"].Value.ToString();
-            txtID.Text = row.Cells["UserId"].Value.ToString();
-            if (row.Cells["Gender"].Value.ToString().Trim().Equals("Female"))
-            {
-                rbtnFemale.Checked = true;
-            }
-            else
-            {
-                rbtnMale.Checked = true;
-            }
-        }
-
-        private void BtnSearch_Click(object sender, EventArgs e)
+               private void BtnSearch_Click(object sender, EventArgs e)
         {
            
 
@@ -215,14 +224,14 @@ namespace DC305RoomManagement
         }
         public void SearchUserEmail(string search)
         {
-            SqlConnection conn = new SqlConnection(connStr);
-            conn.Open();
-            string query = "select * from [Users] where [Email]+' '+[Name] like '%" + search + "%'";
-            sqlda = new SqlDataAdapter(query, conn);
+          
+          
+            string query = "SELECT Users.*, Roles.Name as RoleName FROM Users LEFT JOIN Roles ON Users.Role = Roles.RoleId where [Email]+' '+Users.Name like '%" + search + "%'";
+            sqlda = new SqlDataAdapter(query, conn.OpenConn());
             dt = new DataTable();
             sqlda.Fill(dt);
             dtgGrid.DataSource = dt;
-            conn.Close();
+            conn.CloseConn();
         }
         private void LblDOB_Click(object sender, EventArgs e)
         {
@@ -233,5 +242,107 @@ namespace DC305RoomManagement
         {
            
         }
+
+        private void DtgGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >=0)
+            {
+                ClearForm();
+                DataGridViewRow row = dtgGrid.Rows[e.RowIndex];
+                btnCreate.Enabled = false;
+                btnUpdate.Enabled = true;
+                txtEmail.Text = row.Cells["Email"].Value.ToString();
+                txtName.Text = row.Cells["NameC"].Value.ToString();
+                dtDOB.Text = row.Cells["DOB"].Value.ToString();
+                txtPassword.Text = row.Cells["Password"].Value.ToString();
+                cboRole.Text = row.Cells["Role"].Value.ToString();
+                txtID.Text = row.Cells["UserId"].Value.ToString();
+                if (row.Cells["Genders"].Value.ToString().Trim().Equals("Female"))
+                {
+                    rbtnFemale.Checked = true;
+                }
+                else
+                {
+                    rbtnMale.Checked = true;
+                }
+                if (row.Cells["Active"].Value.ToString() == true.ToString())
+                    btnDisable.Text = "Disable";
+                else
+                    btnDisable.Text = "Enable";
+            }
+            
+        }
+
+        private void CboRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+        private void Load_cbRole()
+        {
+            SqlCommand cmd = new SqlCommand("Select * from Roles", conn.OpenConn());
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            cboRole.DisplayMember = "Name";
+            cboRole.ValueMember = "RoleId";
+            cboRole.DataSource = dt;
+            conn.CloseConn();
+        }
+
+        private void BtnDisable_Click(object sender, EventArgs e)
+        {
+            if (btnDisable.Text == "Enable")
+            btnDisable.Text = "Disable";
+            else
+            btnDisable.Text = "Enable";
+
+        }
+        private bool ValidateAll()
+        {
+            bool validated = true;
+            if (!string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                Regex reg = new Regex(@"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*");
+                if (!reg.IsMatch(txtEmail.Text))
+                {
+                    errorProvider.SetError(txtEmail, "Please provide valid Email");
+                    validated = false;
+                }
+                errorProvider.SetError(txtEmail, "");
+              
+            }
+            else
+            {
+                errorProvider.SetError(txtEmail, "Please insert Email");
+                validated = false;
+            }
+
+            if (!(rbtnFemale.Checked || rbtnMale.Checked))
+            {
+                errorProvider.SetError(grpGender, "Select Gender");
+                validated = false;
+            }
+            else
+            {
+                errorProvider.SetError(grpGender, "");
+             
+            }
+
+            if (string.IsNullOrWhiteSpace(txtName.Text))
+                {
+                errorProvider.SetError(txtName, "Please enter name");
+                validated = false;
+            }
+            else
+                errorProvider.SetError(txtName, "");
+            if (string.IsNullOrWhiteSpace(txtPassword.Text))
+            {
+                errorProvider.SetError(txtPassword, "Please enter password");
+                validated = false;
+            }
+            else
+                errorProvider.SetError(txtPassword, "");
+
+            return validated;
+        }
     }
-    }
+}

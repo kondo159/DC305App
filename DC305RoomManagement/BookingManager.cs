@@ -542,6 +542,8 @@ namespace DC305RoomManagement
                 errorProvider1.SetError(cbox, "");
             return valid;
         }
+
     }   
+
 }
 

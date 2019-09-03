@@ -388,8 +388,10 @@
             this.Name = "BookingManager";
             this.Text = "BookingManager";
             this.Load += new System.EventHandler(this.BookingManager_Load);
+
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookingList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+
             this.ResumeLayout(false);
             this.PerformLayout();
 

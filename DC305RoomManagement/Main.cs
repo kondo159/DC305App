@@ -12,9 +12,16 @@ namespace DC305RoomManagement
 {
     public partial class Main : Form
     {
-        public Main()
+        string user;
+        int role;
+        public Main(string user, int role)
         {
             InitializeComponent();
+            
+            this.user = user;
+            this.role = role;
+            label1.Text = "Current User:";
+            label2.Text = user;
             
         }
         private void DisplayInPlanel(Form page, String Header)
@@ -76,14 +83,77 @@ namespace DC305RoomManagement
                     break;
 
                 case "btnExit":
+
                     Application.Exit();
+                    
                     break;
             }
         }
         private void Main_Load(object sender, EventArgs e)
         {
-      
+            UserValidation(role);
+        }
+        private void UserValidation(int role)
+        {
+            //btnExit.Location=new Point( 0, 153);
+            if(role==2)
+            {
+                btnUser.Visible = false;
+                btnGroup.Visible = false;
+                btnCourse.Visible = false;
+                btnClass.Visible = false;
+                btnRoom.Visible = false;
+                btnInventory.Visible = false;
+                btnExit.Location=new Point(0, 209);
+
+            }
+            if (role==3)
+            {
+                btnIssue.Visible = false;
+                btnUser.Visible = false;
+                btnGroup.Visible = false;
+                btnCourse.Visible = false;
+                btnClass.Visible = false;
+                btnRoom.Visible = false;
+                btnInventory.Visible = false;
+                btnExit.Location = new Point(0, 153);
+            }
+            
+        }
+
+        private void Label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+        }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            const string message = "Are you sure that you would like to close the form?";
+            const string caption = "Form Closing";
+            var result = MessageBox.Show(message, caption,
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Question);
+            // If the no button was pressed ...
+            if (result == DialogResult.No)
+            {
+                // cancel the closure of the form.
+                e.Cancel = true;
+            }
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            ChangePassword changePassword = new ChangePassword();
+            changePassword.Show();
         }
     }
 }
+            
+
+
 

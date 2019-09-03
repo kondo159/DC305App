@@ -66,3 +66,5 @@ C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.csproj.Cor
 C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.csproj.CopyComplete
 C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.exe
 C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.pdb
+C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.ChangePassword.resources
+
