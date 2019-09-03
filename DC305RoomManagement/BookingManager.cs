@@ -16,27 +16,55 @@ namespace DC305RoomManagement
     public partial class BookingManager : Form
     {
         private Connection conn = new Connection();
-        private int userId = 6;
-        private int userRole = 2;//1=admin 2= staff 3=student
+        private int userId = 5;
+        private int userRole = 3;//1=admin 2= staff 3=student
         private int activedBooking = 0;
         public BookingManager()
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Method to setup the form and datagridview
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BookingManager_Load(object sender, EventArgs e)
         {
             dgvBookingList.AutoGenerateColumns = false;
             LoadComboBox("Select * from Rooms where Enable=1", "RoomId", cboxRoom);
-            LoadComboBox("Select * from Users where Role=2", "UserId", cboxStaff);
-            LoadComboBox("Select ClassId,Name from Class", "ClassId", cboxClass);
+            if (userRole == 3)
+            {
+                btnCancel.Visible = false;
+                btnCreate.Visible = false;
+                btnUpdate.Visible = false;
+                cballdates.Visible = true;
+                rdoCUD.Visible = false;
+                rdoFilter.Visible = false;
+                btnFilter.Enabled = true;
+                LoadComboBox("Select * from Users where Role=2", "UserId", cboxStaff);
+                LoadComboBox("Select Class.ClassId,Class.Name from Class" +
+                        " left join[Group]  on Class.GroupOfStudents =[Group].GroupId" +
+                        " left join GroupOfStudents gs on [Group].GroupId = gs.GroupId" +
+                        " where Class.Active=1 and gs.Student=" + userId, "ClassId", cboxClass); ;
+            }
+            else
+            {
+                LoadComboBox("Select * from Users where Role=2", "UserId", cboxStaff);
+                LoadComboBox("Select ClassId,Name from Class", "ClassId", cboxClass);
+            }
+            
             ResetForm();
-            if (userRole == 1)                            
-                cboxStaff.SelectedValueChanged += new EventHandler(CboxStaff_SelectedIndexChanged);
+                                        
+                
             
             if (userRole == 2)                           
                 SetStaffCUDMenu();
-            
-            
+            else
+                cboxStaff.SelectedValueChanged += new EventHandler(CboxStaff_SelectedIndexChanged);
+
+
+
+
         }
         /// <summary>
         /// Method to populate the datagridview 
@@ -44,9 +72,23 @@ namespace DC305RoomManagement
         private void LoadBookingList()
         {
             DataTable dt = new DataTable();
+            SqlCommand cmd;
             try
             {
-                SqlCommand cmd = new SqlCommand("Select Bookings.*,Class.Name as ClassName,Class.Teacher,t.Name as teacherName,Rooms.Name as RoomName,Users.Name as UserName from Bookings Left join Class on Class.ClassId=Bookings.ClassId left join Rooms on Rooms.RoomId=Bookings.RoomId left join users on Users.UserId=Bookings.UserId left join users t on T.UserId=Class.Teacher", conn.OpenConn());                
+                if(userRole!=3)
+                    cmd = new SqlCommand("Select Bookings.*,Class.Name as ClassName,Class.Teacher,t.Name as teacherName,Rooms.Name as RoomName,Users.Name as UserName from Bookings Left join Class on Class.ClassId=Bookings.ClassId left join Rooms on Rooms.RoomId=Bookings.RoomId left join users on Users.UserId=Bookings.UserId left join users t on T.UserId=Class.Teacher", conn.OpenConn());
+                else
+                {
+                    cmd = new SqlCommand("Select Bookings.*,Class.Name as ClassName,Class.Teacher,t.Name as teacherName,Rooms.Name as RoomName,Users.Name as UserName from Bookings" +
+                        " Left join Class on Class.ClassId = Bookings.ClassId" +
+                        " Left join Rooms on Rooms.RoomId = Bookings.RoomId" +
+                        " left join users on Users.UserId = Bookings.UserId" +
+                        " left join users t on T.UserId = Class.Teacher" +
+                        " left join [Group]  on Class.GroupOfStudents = [Group].GroupId" +
+                        " left join GroupOfStudents gs on [Group].GroupId = gs.GroupId where gs.Student = @id", conn.OpenConn());
+                    cmd.Parameters.AddWithValue("@id", userId);
+                }
+
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {
@@ -117,14 +159,32 @@ namespace DC305RoomManagement
         /// <param name="e"></param>
         private void CboxStaff_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboxStaff.SelectedValue.ToString() != "0")
-            {
-                string staffId = cboxStaff.SelectedValue.ToString();
-                string sqlCommand = "Select ClassId,Name from Class where Teacher=" + staffId + " and Active=1";
-                LoadComboBox(sqlCommand, "ClassId", cboxClass);
-            }
+            string staffId = cboxStaff.SelectedValue.ToString();
+            string sqlCommand = "";
+            if (cboxStaff.SelectedValue.ToString() != "0") { 
+                if(userRole != 3)                          
+                    sqlCommand = "Select ClassId,Name from Class where Teacher=" + staffId + " and Active=1";                
+                else
+                {
+                    sqlCommand = "Select Class.ClassId,Class.Name from Class" +
+                        " left join[Group]  on Class.GroupOfStudents =[Group].GroupId" +
+                        " left join GroupOfStudents gs on [Group].GroupId = gs.GroupId" +
+                        " where Class.Teacher=" + staffId + " and Class.Active=1 and gs.Student=" + userId;
+                }                                         
+                
+            }else
+                if(userRole == 3)
+                    sqlCommand = "Select Class.ClassId,Class.Name from Class" +
+                        " left join[Group]  on Class.GroupOfStudents =[Group].GroupId" +
+                        " left join GroupOfStudents gs on [Group].GroupId = gs.GroupId" +
+                        " where Class.Active=1 and gs.Student=" + userId;
+            LoadComboBox(sqlCommand, "ClassId", cboxClass);
         }               
-
+        /// <summary>
+        /// method to change the active buttons when filter option is selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rdoFilter_CheckedChanged(object sender, EventArgs e)
         {
             ResetForm();
@@ -141,7 +201,11 @@ namespace DC305RoomManagement
                 
 
         }
-
+        /// <summary>
+        /// method to change the active buttons when CUD option is selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RdoCUD_CheckedChanged(object sender, EventArgs e)
         {
             ResetForm();            
@@ -155,6 +219,9 @@ namespace DC305RoomManagement
             
             
         }
+        /// <summary>
+        /// method for the CUD menu when Staff is logged in
+        /// </summary>
         private void SetStaffCUDMenu()
         {
             ResetForm();
@@ -164,7 +231,11 @@ namespace DC305RoomManagement
             LoadComboBox(sqlCommand, "ClassId", cboxClass);
             
         }
-
+        /// <summary>
+        /// method to filter the DataGridView
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnFilter_Click(object sender, EventArgs e)
         {            
             string filter = "1=1";
@@ -182,13 +253,19 @@ namespace DC305RoomManagement
                 filter += " AND Teacher= " + cboxStaff.SelectedValue.ToString();
             (dgvBookingList.DataSource as DataTable).DefaultView.RowFilter = filter;            
         }
-
+        /// <summary>
+        /// when checkbox is checked disable both datapicker 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Cballdates_CheckedChanged(object sender, EventArgs e)
         {
             dtpStart.Enabled = !dtpStart.Enabled;
             dtpEnd.Enabled = !dtpEnd.Enabled;
         }
-
+        /// <summary>
+        /// method to reset the form and dataGridView
+        /// </summary>
         private void ResetForm()
         {
             LoadBookingList();
@@ -221,12 +298,20 @@ namespace DC305RoomManagement
             
 
         }
-
+        /// <summary>
+        /// function of the reset button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnReset_Click(object sender, EventArgs e)
         {
             ResetForm();
         }
-
+        /// <summary>
+        /// Event to bring the selected information to the form for edit
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DgvBookingList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = dgvBookingList.Rows[e.RowIndex];
@@ -244,6 +329,11 @@ namespace DC305RoomManagement
             }            
             
         }
+        /// <summary>
+        /// event for Create button saves the info into DB
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnCreate_Click(object sender, EventArgs e)
         {
             try
@@ -269,6 +359,11 @@ namespace DC305RoomManagement
 
 
         }
+        /// <summary>
+        /// Event in Update Button to update data in DB
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
             
@@ -294,7 +389,11 @@ namespace DC305RoomManagement
                 LoadBookingList();
             }
         }
-
+        /// <summary>
+        /// Event for Cancel Button to Delete Record from DB
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure to cancel this Booking?", "Cancel Booking", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -317,7 +416,11 @@ namespace DC305RoomManagement
                 }
             }
         }
-
+        /// <summary>
+        /// Event for print button 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnPrint_Click(object sender, EventArgs e)
         {
 
@@ -331,19 +434,23 @@ namespace DC305RoomManagement
             if (printDlg.ShowDialog() == DialogResult.OK) printDocument1.Print();
         }
 
-
+        /// <summary>
+        /// Method to construct the file that will be printed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PrintDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
-            int cHeight = dgvBookingList.Rows[0].Height;
+            int cHeight = dgvBookingList.Rows[0].Height;//Height of the cells
             
-            int x = 100;
+            int x = 100;//start position for the first collumn
             
             for (int c = 0; c < dgvBookingList.Columns.Count; c++)
             {
-                int y = 100;
+                int y = 100;//reset possition to the top
                 if (dgvBookingList.Columns[c].Visible)
                 {
-                   //Draws a rectangle with same width and height of first column of datagridview. 
+                   //Draws a rectangle  
                     e.Graphics.DrawRectangle(Pens.Black, x, y,
                     dgvBookingList.Columns[c].Width, cHeight);
 
@@ -363,17 +470,15 @@ namespace DC305RoomManagement
                         int rowheight = dgvBookingList.Rows[r].Height;
                         int colwidth = dgvBookingList.Columns[0].Width;
                         y += rowheight; //increment the y co-ordinate 
+                        //Draws a rectangle 
                         e.Graphics.DrawRectangle(Pens.Black, x, y, colwidth, rowheight);
-
+                        //Insert data inside the rectangle 
                         e.Graphics.DrawString(dgvBookingList.Rows[r].Cells[c].FormattedValue.ToString(),
                          dgvBookingList.Font, Brushes.Black, new RectangleF(x, y, colwidth, rowheight));
                     }
-                    x += dgvBookingList.Columns[c].Width;
+                    x += dgvBookingList.Columns[c].Width;//move to the next collumn
                 }
-            }
-            
-            
-                      
+            }                                              
         }
     }
     

@@ -64,7 +64,7 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(202, 280);
+            this.btnPrint.Location = new System.Drawing.Point(202, 251);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(75, 23);
             this.btnPrint.TabIndex = 34;
@@ -74,7 +74,7 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(40, 280);
+            this.btnReset.Location = new System.Drawing.Point(40, 251);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 33;
@@ -85,7 +85,7 @@
             // btnCancel
             // 
             this.btnCancel.Enabled = false;
-            this.btnCancel.Location = new System.Drawing.Point(202, 251);
+            this.btnCancel.Location = new System.Drawing.Point(202, 280);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 32;
@@ -95,7 +95,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(121, 251);
+            this.btnUpdate.Location = new System.Drawing.Point(121, 280);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 31;
@@ -105,7 +105,7 @@
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(40, 251);
+            this.btnCreate.Location = new System.Drawing.Point(37, 280);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(75, 23);
             this.btnCreate.TabIndex = 30;
@@ -116,7 +116,7 @@
             // btnFilter
             // 
             this.btnFilter.Enabled = false;
-            this.btnFilter.Location = new System.Drawing.Point(121, 280);
+            this.btnFilter.Location = new System.Drawing.Point(121, 251);
             this.btnFilter.Name = "btnFilter";
             this.btnFilter.Size = new System.Drawing.Size(75, 23);
             this.btnFilter.TabIndex = 29;
