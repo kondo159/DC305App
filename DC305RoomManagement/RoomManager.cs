@@ -183,7 +183,7 @@ namespace DC305RoomManagement
                 }
 
             }
-            catch (Exception)
+            catch (Exception err)
             {
                 throw;
             }
