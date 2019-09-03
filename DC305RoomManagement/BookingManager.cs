@@ -16,8 +16,8 @@ namespace DC305RoomManagement
     public partial class BookingManager : Form
     {
         private Connection conn = new Connection();
-        private int userId = 5;
-        private int userRole = 3;//1=admin 2= staff 3=student
+        private int userId = 7;
+        private int userRole = 1;//1=admin 2= staff 3=student
         private int activedBooking = 0;
         public BookingManager()
         {
@@ -170,15 +170,20 @@ namespace DC305RoomManagement
                         " left join[Group]  on Class.GroupOfStudents =[Group].GroupId" +
                         " left join GroupOfStudents gs on [Group].GroupId = gs.GroupId" +
                         " where Class.Teacher=" + staffId + " and Class.Active=1 and gs.Student=" + userId;
-                }                                         
-                
-            }else
+                }
+                LoadComboBox(sqlCommand, "ClassId", cboxClass);
+            }
+            else
                 if(userRole == 3)
+                {
                     sqlCommand = "Select Class.ClassId,Class.Name from Class" +
-                        " left join[Group]  on Class.GroupOfStudents =[Group].GroupId" +
-                        " left join GroupOfStudents gs on [Group].GroupId = gs.GroupId" +
-                        " where Class.Active=1 and gs.Student=" + userId;
-            LoadComboBox(sqlCommand, "ClassId", cboxClass);
+                           " left join[Group]  on Class.GroupOfStudents =[Group].GroupId" +
+                           " left join GroupOfStudents gs on [Group].GroupId = gs.GroupId" +
+                           " where Class.Active=1 and gs.Student=" + userId;
+                    LoadComboBox(sqlCommand, "ClassId", cboxClass);
+                }
+                    
+            
         }               
         /// <summary>
         /// method to change the active buttons when filter option is selected
@@ -251,7 +256,8 @@ namespace DC305RoomManagement
                 filter += " AND ClassId= " + cboxClass.SelectedValue.ToString();
             if(cboxStaff.SelectedValue.ToString()!="0")
                 filter += " AND Teacher= " + cboxStaff.SelectedValue.ToString();
-            (dgvBookingList.DataSource as DataTable).DefaultView.RowFilter = filter;            
+            (dgvBookingList.DataSource as DataTable).DefaultView.RowFilter = filter;
+            
         }
         /// <summary>
         /// when checkbox is checked disable both datapicker 
@@ -336,28 +342,27 @@ namespace DC305RoomManagement
         /// <param name="e"></param>
         private void BtnCreate_Click(object sender, EventArgs e)
         {
-            try
-            {
-                SqlCommand cmd = new SqlCommand("Insert INTO Bookings (ClassId,RoomId,UserId,SDateTime,EDateTime) values(@class,@room,@user,@Sdate,@Edate)", conn.OpenConn());
-                cmd.Parameters.AddWithValue("@class", Convert.ToInt32(cboxClass.SelectedValue.ToString()));
-                cmd.Parameters.AddWithValue("@room", Convert.ToInt32(cboxRoom.SelectedValue.ToString()));
-                cmd.Parameters.AddWithValue("@user", userId);
-                cmd.Parameters.AddWithValue("@Sdate", dtpStart.Value.ToString());
-                cmd.Parameters.AddWithValue("@Edate", dtpEnd.Value.ToString());
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                conn.CloseConn();
-                ResetForm();
-                LoadBookingList();
-            }
-
-
+            if (FieldsValidation())
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("Insert INTO Bookings (ClassId,RoomId,UserId,SDateTime,EDateTime) values(@class,@room,@user,@Sdate,@Edate)", conn.OpenConn());
+                    cmd.Parameters.AddWithValue("@class", Convert.ToInt32(cboxClass.SelectedValue.ToString()));
+                    cmd.Parameters.AddWithValue("@room", Convert.ToInt32(cboxRoom.SelectedValue.ToString()));
+                    cmd.Parameters.AddWithValue("@user", userId);
+                    cmd.Parameters.AddWithValue("@Sdate", dtpStart.Value.ToString());
+                    cmd.Parameters.AddWithValue("@Edate", dtpEnd.Value.ToString());
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                finally
+                {
+                    conn.CloseConn();
+                    ResetForm();
+                    LoadBookingList();
+                }
         }
         /// <summary>
         /// Event in Update Button to update data in DB
@@ -366,28 +371,28 @@ namespace DC305RoomManagement
         /// <param name="e"></param>
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
-            
-            try
-            {
-                SqlCommand cmd = new SqlCommand("Update Bookings Set ClassId=@class, RoomId=@room, UserId=@user, SDateTime=@Sdate , EDateTime=@Edate where bookingId=@id", conn.OpenConn());
-                cmd.Parameters.AddWithValue("@class", Convert.ToInt32(cboxClass.SelectedValue.ToString()));
-                cmd.Parameters.AddWithValue("@room", Convert.ToInt32(cboxRoom.SelectedValue.ToString()));
-                cmd.Parameters.AddWithValue("@user", userId);
-                cmd.Parameters.AddWithValue("@Sdate", dtpStart.Value.ToString());
-                cmd.Parameters.AddWithValue("@Edate", dtpEnd.Value.ToString());
-                cmd.Parameters.AddWithValue("@id", activedBooking);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                conn.CloseConn();
-                ResetForm();
-                LoadBookingList();
-            }
+            if (FieldsValidation())
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("Update Bookings Set ClassId=@class, RoomId=@room, UserId=@user, SDateTime=@Sdate , EDateTime=@Edate where bookingId=@id", conn.OpenConn());
+                    cmd.Parameters.AddWithValue("@class", Convert.ToInt32(cboxClass.SelectedValue.ToString()));
+                    cmd.Parameters.AddWithValue("@room", Convert.ToInt32(cboxRoom.SelectedValue.ToString()));
+                    cmd.Parameters.AddWithValue("@user", userId);
+                    cmd.Parameters.AddWithValue("@Sdate", dtpStart.Value.ToString());
+                    cmd.Parameters.AddWithValue("@Edate", dtpEnd.Value.ToString());
+                    cmd.Parameters.AddWithValue("@id", activedBooking);
+                    cmd.ExecuteNonQuery();
+                }
+                catch(Exception)
+                {
+                    throw;
+                }
+                finally
+                {
+                    conn.CloseConn();
+                    ResetForm();
+                    LoadBookingList();
+                }
         }
         /// <summary>
         /// Event for Cancel Button to Delete Record from DB
@@ -480,7 +485,63 @@ namespace DC305RoomManagement
                 }
             }                                              
         }
-    }
-    
+
+        private bool FieldsValidation()
+        {
+            bool valid = true;
+            bool free = true;
+            string filter = string.Format(" (SDateTime >= #{0}# AND SDateTime <= #{1}#)"+
+                " OR(#{0}#>=SDateTime AND #{0}#<=EDateTime)"+
+                " AND(EDateTime >= #{0}# AND EDateTime <= #{1}#) "+
+                " OR(#{1}#>=SDateTime AND #{1}#<=EDateTime)"+
+                " AND RoomId ={2}",
+                dtpStart.Value, dtpEnd.Value, cboxRoom.SelectedValue.ToString());
+            int numr = (dgvBookingList.DataSource as DataTable).Select(filter).Length;
+            if (numr> 0)
+            {
+                errorProvider1.SetError(dtpStart, "Already Exist an Activity booked for this time on this room");
+                errorProvider1.SetError(dtpEnd, "Already Exist an Activity booked for this time on this room");
+                valid = false;
+                free = false;
+            }
+
+            if (dtpStart.Value > dtpEnd.Value)
+            {
+                errorProvider1.SetError(dtpStart, "Start Time must be earlier than End Time");
+                errorProvider1.SetError(dtpEnd, "END Time must be Later than Start Time");
+                valid = false;
+            }
+            else
+            {
+                if(free)
+                {
+                    errorProvider1.SetError(dtpStart, "");
+                    errorProvider1.SetError(dtpEnd, "");
+                }
+                 
+            }
+
+            if(!ValidateCBox(cboxRoom, "A Room must be selected"))          
+                valid = false;
+            if(!ValidateCBox(cboxStaff, "A Staff must be selected"))
+                valid = false;
+            if (!ValidateCBox(cboxClass, "A Class must be selected"))
+                valid = false;
+
+            return valid;
+        }
+        private bool ValidateCBox(ComboBox cbox,string msg)
+        {
+            bool valid = true;
+            if ((int)cbox.SelectedValue == 0)
+            {
+                errorProvider1.SetError(cbox, msg);
+                valid = false;
+            }
+            else
+                errorProvider1.SetError(cbox, "");
+            return valid;
+        }
+    }   
 }
 
