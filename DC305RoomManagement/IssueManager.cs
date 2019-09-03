@@ -28,13 +28,10 @@ namespace DC305RoomManagement
         {
             if (IsValid())
             {
-                int roomID = (int)cbRoomName.SelectedValue;
-
                 // If it is a new Issue
                 if (Issue.IssueID == 0)
                 {
                     Issue.CreatedAt = DateTime.Now;
-                    Issue.RoomID = roomID;
                 }
 
                 fillIssue(); // Fills the Issue property by data from the form fields
@@ -56,6 +53,11 @@ namespace DC305RoomManagement
                     MessageBox.Show("An error occured.\nData was not saved!", "Operation result",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+            else
+            {
+                MessageBox.Show("All required field must be specified!", "Operation result",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -80,7 +82,7 @@ namespace DC305RoomManagement
             Issue.Title = txtIssueNameValue.Text;
             Issue.Status = cbIssueStatusValue.Text;
             Issue.Description = txtDescriptionValue.Text;
-            Issue.RoomID = (int)cbRoomName.SelectedValue;
+            Issue.RoomID = (int)(cbRoomName.SelectedValue ?? 0);
         }
 
         /// <summary>
@@ -90,6 +92,11 @@ namespace DC305RoomManagement
         private bool IsValid()
         {
             bool valid = true;
+
+            if (string.IsNullOrWhiteSpace(cbRoomName.Text))
+            {
+                valid = false;
+            }
 
             if (string.IsNullOrWhiteSpace(txtDescriptionValue.Text))
             {
@@ -106,13 +113,7 @@ namespace DC305RoomManagement
                 valid = false;
             }
 
-            if (string.IsNullOrWhiteSpace(txtIssueNameValue.Text))
-            {
-                valid = false;
-            }
-
             return valid;
-
         }
 
         /// <summary>
