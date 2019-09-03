@@ -16,12 +16,14 @@ namespace DC305RoomManagement
     public partial class BookingManager : Form
     {
         private Connection conn = new Connection();
-        private int userId = 7;
-        private int userRole = 1;//1=admin 2= staff 3=student
+        private int userId = 0;
+        private int userRole = 0;//1=admin 2= staff 3=student
         private int activedBooking = 0;
-        public BookingManager()
+        public BookingManager(int user,int role)
         {
             InitializeComponent();
+            userId = user;
+            userRole = role;
         }
         /// <summary>
         /// Method to setup the form and datagridview

@@ -37,15 +37,17 @@ namespace DC305RoomManagement
 
                     string uemail = "";
                     int urole = 0;
+                    int uid = 0;
                     while (reader.Read())
                     {
                         uemail = reader.GetString(4);
                         urole = reader.GetInt32(6);
+                        uid= reader.GetInt32(0);
 
 
                     }
                     this.Hide();
-                    Main ss = new Main(uemail, urole);
+                    Main ss = new Main(uemail, urole,uid);
                     ss.Show();
 
 

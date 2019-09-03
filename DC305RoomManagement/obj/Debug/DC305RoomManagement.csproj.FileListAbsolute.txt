@@ -67,4 +67,4 @@ C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.csproj.Cop
 C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.exe
 C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.pdb
 C:\Sources\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.ChangePassword.resources
-
+C:\Users\Aspire2 Student\Documents\GitHub\DC305App\DC305RoomManagement\obj\Debug\DC305RoomManagement.ChangePassword.resources

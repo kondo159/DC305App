@@ -14,12 +14,14 @@ namespace DC305RoomManagement
     {
         string user;
         int role;
-        public Main(string user, int role)
+        int id;
+        public Main(string user, int role,int id)
         {
             InitializeComponent();
             
             this.user = user;
             this.role = role;
+            this.id = id;
             label1.Text = "Current User:";
             label2.Text = user;
             
@@ -40,7 +42,7 @@ namespace DC305RoomManagement
             switch ((sender as Button).Name)
             {
                 case "btnBooking":
-                    BookingManager bookingManager = new BookingManager();
+                    BookingManager bookingManager = new BookingManager(id,role);
                     DisplayInPlanel(bookingManager, "Booking Manager");
                     break;
 
