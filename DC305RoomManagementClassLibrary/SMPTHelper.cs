@@ -7,6 +7,7 @@ namespace DC305RoomManagementClassLibrary
 {
     public static class SMTPHelper
     {
+        // Getting Email Credential from App.config file
         public static NetworkCredential EmailCredential
         {
             get
@@ -19,6 +20,7 @@ namespace DC305RoomManagementClassLibrary
             }
         }
 
+        // Getting SMTPServer name from App.config file
         public static string SMTPServerName
         {
             get
@@ -27,6 +29,7 @@ namespace DC305RoomManagementClassLibrary
             }
         }
 
+        // Setting SMTPServer Port
         public static int SMTPServerPort
         {
             get
@@ -54,7 +57,6 @@ namespace DC305RoomManagementClassLibrary
             }
             catch (Exception err)
             {
-
                 throw;
             }
             
