@@ -54,6 +54,7 @@
             this.lblDescription = new System.Windows.Forms.Label();
             this.txtDescriptionValue = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.pnlMainContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIssues)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -341,5 +342,6 @@
         private System.Windows.Forms.DateTimePicker dtpTo;
         private System.Windows.Forms.Label lblDateTo;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

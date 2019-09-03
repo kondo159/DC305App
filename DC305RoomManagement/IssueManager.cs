@@ -34,7 +34,7 @@ namespace DC305RoomManagement
                     Issue.CreatedAt = DateTime.Now;
                 }
 
-                fillIssue(); // Fills the Issue property by data from the form fields
+                FillIssue(); // Fills the Issue property by data from the form fields
 
                 int id = repository.SaveIssue(Issue);
                 
@@ -65,7 +65,7 @@ namespace DC305RoomManagement
         /// Fills form fields with data from the Issue object
         /// </summary>
         /// <param name="issue">Issue</param>
-        private void fillFields(Issue issue)
+        private void FillFields(Issue issue)
         {
             txtIssueNameValue.Text = issue.Title;
             txtDescriptionValue.Text = issue.Description;
@@ -77,7 +77,7 @@ namespace DC305RoomManagement
         /// Creates Issue with data from form fields
         /// </summary>
         /// <returns>Issue</returns>
-        private void fillIssue()
+        private void FillIssue()
         {
             Issue.Title = txtIssueNameValue.Text;
             Issue.Status = cbIssueStatusValue.Text;
@@ -160,7 +160,7 @@ namespace DC305RoomManagement
         {
             DataGridViewRow row = dgvIssues.Rows[e.RowIndex];
             fillIssueData(row);
-            fillFields(Issue);
+            FillFields(Issue);
         }
 
         /// <summary>

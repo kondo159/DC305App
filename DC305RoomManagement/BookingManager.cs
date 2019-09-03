@@ -436,6 +436,12 @@ namespace DC305RoomManagement
             PrintDialog printDlg = new PrintDialog();
             //PrintDocument printDoc = new PrintDocument();
             printDocument1.DocumentName = "Activities";
+            PrintPreviewDialog printPrvDlg = new PrintPreviewDialog();
+
+            // preview the assigned document or you can create a different previewButton for it
+            printPrvDlg.Document = printDocument1;
+            printPrvDlg.ShowDialog();
+
             printDlg.Document = printDocument1;
             printDlg.AllowSelection = true;
             printDlg.AllowSomePages = true;
