@@ -149,7 +149,7 @@ namespace DC305RoomManagement
         private void Button1_Click(object sender, EventArgs e)
         {
             ChangePassword changePassword = new ChangePassword();
-            changePassword.Show();
+            changePassword.ShowDialog();
         }
     }
 }

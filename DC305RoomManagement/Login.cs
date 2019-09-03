@@ -54,7 +54,6 @@ namespace DC305RoomManagement
                 else
                 {
                     MessageBox.Show("Incorrect Username or Password", "Login", MessageBoxButtons.OK);
-                    txtUser.Text = "";
                     txtPass.Text = "";
                 }
             }

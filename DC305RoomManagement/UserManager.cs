@@ -111,20 +111,9 @@ namespace DC305RoomManagement
 
         private void UserManager_Load(object sender, EventArgs e)
         {
-            this.dtgGrid.DefaultCellStyle.Font = new Font("Proxima Nova", 8.5F);
-            dtgGrid.BorderStyle = BorderStyle.None;
-            dtgGrid.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
-            dtgGrid.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dtgGrid.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
-            dtgGrid.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
-            dtgGrid.BackgroundColor = Color.White;
-
-            dtgGrid.EnableHeadersVisualStyles = false;
-            dtgGrid.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dtgGrid.ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue;
-            dtgGrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dtgGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Proxima Nova", 9.5F, FontStyle.Bold);
+           
             LoadData();
+            txtID.Hide();
         }
         private void LoadData()
         {
@@ -343,5 +332,48 @@ namespace DC305RoomManagement
 
             return validated;
         }
+
+        private void BtnDisable_MouseHover(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void BtnCreate_MouseEnter(object sender, EventArgs e)
+        {
+            btnCreate.ForeColor = Color.White;           
+        }
+
+        private void BtnCreate_MouseLeave(object sender, EventArgs e)
+        {
+            btnCreate.ForeColor = Color.Black;
+        }
+
+        private void BtnUpdate_MouseEnter(object sender, EventArgs e)
+        {
+            btnUpdate.ForeColor = Color.White;
+        }
+        private void BtnUpdate_MouseLeave_1(object sender, EventArgs e)
+        {
+            btnUpdate.ForeColor = SystemColors.ControlText;
+        }
+        private void BtnReset_MouseEnter_1(object sender, EventArgs e)
+        {
+            btnReset.ForeColor = Color.White;
+        }
+
+        private void BtnReset_MouseLeave_1(object sender, EventArgs e)
+        {
+            btnReset.ForeColor = SystemColors.ControlText;
+        }
+
+        private void BtnDisable_MouseEnter(object sender, EventArgs e)
+        {
+            btnDisable.ForeColor = Color.White;
+        }
+private void BtnDisable_MouseLeave(object sender, EventArgs e)
+        {
+            btnDisable.ForeColor = SystemColors.ControlText;
+        }
+        
     }
 }

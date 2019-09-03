@@ -40,11 +40,11 @@
             this.btnGroup = new System.Windows.Forms.Button();
             this.btnUser = new System.Windows.Forms.Button();
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.pwd_Change = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.lblHeader = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.pwd_Change = new System.Windows.Forms.Button();
             this.pnlSideMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlHeader.SuspendLayout();
@@ -52,9 +52,9 @@
             // 
             // pnlSideMenu
             // 
-            this.pnlSideMenu.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.pnlSideMenu.Controls.Add(this.btnInventory);
+            this.pnlSideMenu.BackColor = System.Drawing.Color.DimGray;
             this.pnlSideMenu.Controls.Add(this.pictureBox1);
+            this.pnlSideMenu.Controls.Add(this.btnInventory);
             this.pnlSideMenu.Controls.Add(this.btnRoom);
             this.pnlSideMenu.Controls.Add(this.btnExit);
             this.pnlSideMenu.Controls.Add(this.btnClass);
@@ -71,8 +71,11 @@
             // 
             // btnInventory
             // 
+            this.btnInventory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInventory.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInventory.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInventory.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInventory.ForeColor = System.Drawing.Color.White;
             this.btnInventory.Location = new System.Drawing.Point(0, 489);
             this.btnInventory.Name = "btnInventory";
             this.btnInventory.Size = new System.Drawing.Size(155, 50);
@@ -93,8 +96,11 @@
             // 
             // btnRoom
             // 
+            this.btnRoom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRoom.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRoom.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRoom.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRoom.ForeColor = System.Drawing.Color.White;
             this.btnRoom.Location = new System.Drawing.Point(0, 433);
             this.btnRoom.Name = "btnRoom";
             this.btnRoom.Size = new System.Drawing.Size(155, 50);
@@ -105,8 +111,11 @@
             // 
             // btnExit
             // 
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.Location = new System.Drawing.Point(0, 548);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(155, 50);
@@ -117,8 +126,11 @@
             // 
             // btnClass
             // 
+            this.btnClass.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClass.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClass.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClass.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClass.ForeColor = System.Drawing.Color.White;
             this.btnClass.Location = new System.Drawing.Point(0, 377);
             this.btnClass.Name = "btnClass";
             this.btnClass.Size = new System.Drawing.Size(155, 50);
@@ -129,8 +141,11 @@
             // 
             // btnBooking
             // 
+            this.btnBooking.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBooking.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnBooking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBooking.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBooking.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBooking.ForeColor = System.Drawing.Color.White;
             this.btnBooking.Location = new System.Drawing.Point(0, 97);
             this.btnBooking.Name = "btnBooking";
             this.btnBooking.Size = new System.Drawing.Size(155, 50);
@@ -141,8 +156,11 @@
             // 
             // btnCourse
             // 
+            this.btnCourse.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCourse.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCourse.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCourse.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCourse.ForeColor = System.Drawing.Color.White;
             this.btnCourse.Location = new System.Drawing.Point(0, 321);
             this.btnCourse.Name = "btnCourse";
             this.btnCourse.Size = new System.Drawing.Size(155, 50);
@@ -153,8 +171,11 @@
             // 
             // btnIssue
             // 
+            this.btnIssue.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnIssue.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnIssue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIssue.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIssue.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIssue.ForeColor = System.Drawing.Color.White;
             this.btnIssue.Location = new System.Drawing.Point(0, 153);
             this.btnIssue.Name = "btnIssue";
             this.btnIssue.Size = new System.Drawing.Size(155, 50);
@@ -165,8 +186,11 @@
             // 
             // btnGroup
             // 
+            this.btnGroup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGroup.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGroup.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGroup.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGroup.ForeColor = System.Drawing.Color.White;
             this.btnGroup.Location = new System.Drawing.Point(0, 265);
             this.btnGroup.Name = "btnGroup";
             this.btnGroup.Size = new System.Drawing.Size(155, 50);
@@ -177,8 +201,11 @@
             // 
             // btnUser
             // 
+            this.btnUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUser.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUser.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUser.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUser.ForeColor = System.Drawing.Color.White;
             this.btnUser.Location = new System.Drawing.Point(0, 209);
             this.btnUser.Name = "btnUser";
             this.btnUser.Size = new System.Drawing.Size(155, 50);
@@ -189,7 +216,7 @@
             // 
             // pnlHeader
             // 
-            this.pnlHeader.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.pnlHeader.BackColor = System.Drawing.Color.DimGray;
             this.pnlHeader.Controls.Add(this.pwd_Change);
             this.pnlHeader.Controls.Add(this.label2);
             this.pnlHeader.Controls.Add(this.lblHeader);
@@ -199,6 +226,16 @@
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(853, 97);
             this.pnlHeader.TabIndex = 1;
+            // 
+            // pwd_Change
+            // 
+            this.pwd_Change.Location = new System.Drawing.Point(727, 68);
+            this.pwd_Change.Name = "pwd_Change";
+            this.pwd_Change.Size = new System.Drawing.Size(114, 23);
+            this.pwd_Change.TabIndex = 16;
+            this.pwd_Change.Text = "Change Password";
+            this.pwd_Change.UseVisualStyleBackColor = true;
+            this.pwd_Change.Click += new System.EventHandler(this.Button1_Click);
             // 
             // label2
             // 
@@ -213,11 +250,11 @@
             // lblHeader
             // 
             this.lblHeader.AutoSize = true;
-            this.lblHeader.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeader.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHeader.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lblHeader.Location = new System.Drawing.Point(25, 34);
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(162, 40);
+            this.lblHeader.Size = new System.Drawing.Size(153, 35);
             this.lblHeader.TabIndex = 13;
             this.lblHeader.Text = "Main Menu";
             // 
@@ -239,16 +276,6 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(853, 504);
             this.pnlMain.TabIndex = 2;
-            // 
-            // pwd_Change
-            // 
-            this.pwd_Change.Location = new System.Drawing.Point(727, 68);
-            this.pwd_Change.Name = "pwd_Change";
-            this.pwd_Change.Size = new System.Drawing.Size(114, 23);
-            this.pwd_Change.TabIndex = 16;
-            this.pwd_Change.Text = "Change Password";
-            this.pwd_Change.UseVisualStyleBackColor = true;
-            this.pwd_Change.Click += new System.EventHandler(this.Button1_Click);
             // 
             // Main
             // 
