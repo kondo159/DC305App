@@ -95,7 +95,9 @@ namespace DC305RoomManagement
                 if (reader.HasRows)
                 {
                     dt.Load(reader);
+                    dt.DefaultView.RowFilter = "EDateTime>=#"+ DateTime.Now.ToString("MM/dd/yyyy hh:mm tt") + "#";
                     dgvBookingList.DataSource = dt;
+                    
                 }
                 else
                 {
