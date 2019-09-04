@@ -15,6 +15,10 @@ namespace DC305RoomManagement
 {
     public partial class Login : Form
     {
+        public string UserEmail { get; set; } = string.Empty;
+        public int RoleID { get; set; } = 0;
+        public int UserID { get; set; } = 0;
+
         public Login()
         {
             InitializeComponent();
@@ -23,7 +27,7 @@ namespace DC305RoomManagement
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            if (EmailValidation()&& PasswordValidation())
+            if (EmailValidation() && PasswordValidation())
             {
                 Connection con = new Connection();
                 SqlCommand cmd = new SqlCommand("Select * from [Users] where Email = '" + txtUser.Text + "' and Password = '" + txtPass.Text + "'", con.OpenConn());
@@ -35,22 +39,21 @@ namespace DC305RoomManagement
                 if (reader.HasRows)
                 {
 
-                    string uemail = "";
-                    int urole = 0;
-                    int uid = 0;
+                    //string uemail = "";
+                    //int urole = 0;
+                    //int uid = 0;
                     while (reader.Read())
                     {
-                        uemail = reader.GetString(4);
-                        urole = reader.GetInt32(6);
-                        uid= reader.GetInt32(0);
-
-
+                        UserEmail = reader.GetString(4);
+                        RoleID = reader.GetInt32(6);
+                        UserID= reader.GetInt32(0);
                     }
-                    this.Hide();
-                    Main ss = new Main(uemail, urole,uid);
-                    ss.Show();
 
-
+                    //this.Hide();
+                    //Main ss = new Main(uemail, urole,uid);
+                    //ss.Show();
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
 
                 else
@@ -59,6 +62,8 @@ namespace DC305RoomManagement
                     txtUser.Text = "";
                     txtPass.Text = "";
                 }
+
+
             }
         }
 

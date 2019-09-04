@@ -1,31 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DC305RoomManagement
 {
     public partial class Main : Form
     {
-        string user;
-        int role;
-        int id;
-        public Main(string user, int role,int id)
+        private string UserName { get; set; } = "None";
+        private int RoleID { get; set; } = 0;
+        private int UserID { get; set; } = 0;
+
+        public Main()
         {
             InitializeComponent();
-            
-            this.user = user;
-            this.role = role;
-            this.id = id;
-            label1.Text = "Current User:";
-            label2.Text = user;
-            
+
+            if (UserID == 0)
+            {
+                Login login = new Login();
+                DialogResult dialogResult = login.ShowDialog(this);
+                
+                if (dialogResult == DialogResult.OK)
+                {
+                    UserName = login.UserEmail;
+                    RoleID = login.RoleID;
+                    UserID = login.UserID;
+                    label1.Text = "Current User:";
+                    label2.Text = UserName;
+                }
+
+                login.Dispose();
+            }
         }
+
         private void DisplayInPlanel(Form page, String Header)
         {
             pnlMain.Controls.Clear();
@@ -42,7 +48,7 @@ namespace DC305RoomManagement
             switch ((sender as Button).Name)
             {
                 case "btnBooking":
-                    BookingManager bookingManager = new BookingManager(id,role);
+                    BookingManager bookingManager = new BookingManager(UserID, RoleID);
                     DisplayInPlanel(bookingManager, "Booking Manager");
                     break;
 
@@ -93,7 +99,15 @@ namespace DC305RoomManagement
         }
         private void Main_Load(object sender, EventArgs e)
         {
-            UserValidation(role);
+            if(UserID != 0)
+            {
+                UserValidation(RoleID);
+            }
+            else
+            {
+                this.Dispose();
+            }
+                
         }
         private void UserValidation(int role)
         {
@@ -121,16 +135,6 @@ namespace DC305RoomManagement
                 btnExit.Location = new Point(0, 153);
             }
             
-        }
-
-        private void Label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Main_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
