@@ -10,15 +10,21 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Drawing.Printing;
+using DC305RoomManagementClassLibrary;
 
 namespace DC305RoomManagement
 {
     public partial class BookingManager : Form
     {
         private Connection conn = new Connection();
-        private int userId = 0;
+        private int userId = 0;//Id of the log in User
         private int userRole = 0;//1=admin 2= staff 3=student
-        private int activedBooking = 0;
+        private int activedBooking = 0; //id of the booking that is beening edited
+        private string bRoom;
+        private string bClass;
+        private string sTime;
+        private string eTime;
+
         public BookingManager(int user,int role)
         {
             InitializeComponent();
@@ -95,7 +101,9 @@ namespace DC305RoomManagement
                 if (reader.HasRows)
                 {
                     dt.Load(reader);
+                    dt.DefaultView.RowFilter = "EDateTime>=#"+ DateTime.Now.ToString("MM/dd/yyyy hh:mm tt") + "#";
                     dgvBookingList.DataSource = dt;
+                    
                 }
                 else
                 {
@@ -330,10 +338,15 @@ namespace DC305RoomManagement
                 btnCreate.Enabled = false;                
                 activedBooking = (int)row.Cells["BookingId"].Value;
                 dtpStart.Value = (DateTime)row.Cells["SDateTime"].Value;
+                sTime = row.Cells["SDateTime"].Value.ToString();
                 dtpEnd.Value = (DateTime)row.Cells["EDateTime"].Value;
-                cboxRoom.SelectedValue = (int)row.Cells["RoomId"].Value;                
+                eTime = row.Cells["EDateTime"].Value.ToString();
+                cboxRoom.SelectedValue = (int)row.Cells["RoomId"].Value;
+                bRoom = row.Cells["RoomName"].Value.ToString();
                 cboxStaff.SelectedValue = (int)row.Cells["TeacherId"].Value;
                 cboxClass.SelectedValue = (int)row.Cells["ClassId"].Value;
+                
+                bClass = row.Cells["ClassName"].Value.ToString();
             }            
             
         }
@@ -354,6 +367,9 @@ namespace DC305RoomManagement
                     cmd.Parameters.AddWithValue("@Sdate", dtpStart.Value.ToString());
                     cmd.Parameters.AddWithValue("@Edate", dtpEnd.Value.ToString());
                     cmd.ExecuteNonQuery();
+                    MessageBox.Show("Booking Completed", "Create Booking", MessageBoxButtons.OK);
+
+
                 }
                 catch (Exception)
                 {
@@ -362,9 +378,43 @@ namespace DC305RoomManagement
                 finally
                 {
                     conn.CloseConn();
+                    string mailbody = "Room: " + cboxRoom.Text + "</br>"
+                            + "Class: " + cboxClass.Text + "</br>"
+                            + "Start Time:" + dtpStart.Value.ToString() + "</br>"
+                            + "End Time:" + dtpEnd.Value.ToString();
+                    SendEmail(mailbody, "New Booking Entry Created");
                     ResetForm();
                     LoadBookingList();
                 }
+        }
+        private void SendEmail(string mailbody,string subject)
+        {
+            
+            SqlCommand cmd = new SqlCommand("Select Users.Email from  Users" +
+                                    " left join GroupOfStudents on Users.UserId=GroupOfStudents.Student" +
+                                    " left join Class on Class.GroupOfStudents=GroupOfStudents.GroupId" +
+                                    " where Class.ClassId=" + Convert.ToInt32(cboxClass.SelectedValue.ToString()), conn.OpenConn());
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    SMTPHelper.SendEmail(reader.GetString(0), mailbody, subject);
+                }
+                //SMTPHelper.SendEmail("captainxbehemoth@gmail.com", mailbody, "new booking created");
+            }
+            conn.CloseConn();
+            cmd = new SqlCommand("Select Email from  Users where UserId=" + Convert.ToInt32(cboxStaff.SelectedValue.ToString()), conn.OpenConn());
+            reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    SMTPHelper.SendEmail(reader.GetString(0), mailbody, "new booking created");
+                }
+                //SMTPHelper.SendEmail("captainxbehemoth@gmail.com", mailbody, "new booking created");
+            }
+            conn.CloseConn();
         }
         /// <summary>
         /// Event in Update Button to update data in DB
@@ -384,6 +434,7 @@ namespace DC305RoomManagement
                     cmd.Parameters.AddWithValue("@Edate", dtpEnd.Value.ToString());
                     cmd.Parameters.AddWithValue("@id", activedBooking);
                     cmd.ExecuteNonQuery();
+                    MessageBox.Show("Update Completed", "Update Booking", MessageBoxButtons.OK);
                 }
                 catch(Exception)
                 {
@@ -392,6 +443,19 @@ namespace DC305RoomManagement
                 finally
                 {
                     conn.CloseConn();
+                    string mailbody = "Updated Booking </br>"
+                            + "Room: " + cboxRoom.Text + "</br>"
+                            + "Class: " + cboxClass.Text + "</br>"
+                            + "Start Time:" + dtpStart.Value.ToString() + "</br>"
+                            + "End Time:" + dtpEnd.Value.ToString() + "</br></br>"
+                            + "Previous Booking</br>"
+                            + "Room: " + bRoom + "</br>"
+                            + "Class: " + bClass + "</br>"
+                            + "Start Time:" + sTime + "</br>"
+                            + "End Time:" + eTime + "</br></br>";
+         
+                  
+                    SendEmail(mailbody, "Booking Entry Updated");
                     ResetForm();
                     LoadBookingList();
                 }
@@ -418,6 +482,12 @@ namespace DC305RoomManagement
                 finally
                 {
                     conn.CloseConn();
+                    string mailbody = "Cancelled Booking </br>"
+                            + "Room: " + cboxRoom.Text + "</br>"
+                            + "Class: " + cboxClass.Text + "</br>"
+                            + "Start Time:" + dtpStart.Value.ToString() + "</br>"
+                            + "End Time:" + dtpEnd.Value.ToString();
+                    SendEmail(mailbody, "Booking Entry Cancelled");
                     ResetForm();
                     LoadBookingList();
                 }
@@ -434,6 +504,12 @@ namespace DC305RoomManagement
             PrintDialog printDlg = new PrintDialog();
             //PrintDocument printDoc = new PrintDocument();
             printDocument1.DocumentName = "Activities";
+            PrintPreviewDialog printPrvDlg = new PrintPreviewDialog();
+
+            // preview the assigned document or you can create a different previewButton for it
+            printPrvDlg.Document = printDocument1;
+            printPrvDlg.ShowDialog();
+
             printDlg.Document = printDocument1;
             printDlg.AllowSelection = true;
             printDlg.AllowSomePages = true;
@@ -487,18 +563,22 @@ namespace DC305RoomManagement
                 }
             }                                              
         }
-
+        /// <summary>
+        /// Method to validate the fields for create and Update data
+        /// </summary>
+        /// <returns></returns>
         private bool FieldsValidation()
         {
             bool valid = true;
             bool free = true;
-            string filter = string.Format(" (SDateTime >= #{0}# AND SDateTime <= #{1}#)"+
-                " OR(#{0}#>=SDateTime AND #{0}#<=EDateTime)"+
-                " AND(EDateTime >= #{0}# AND EDateTime <= #{1}#) "+
-                " OR(#{1}#>=SDateTime AND #{1}#<=EDateTime)"+
-                " AND RoomId ={2}",
-                dtpStart.Value, dtpEnd.Value, cboxRoom.SelectedValue.ToString());
+            string filter = string.Format(" ((SDateTime >= #{0}# AND SDateTime <= #{1}#)"+
+                " OR(#{0}#>=SDateTime AND #{0}#<=EDateTime))"+
+                " AND((EDateTime >= #{0}# AND EDateTime <= #{1}#) "+
+                " OR(#{1}#>=SDateTime AND #{1}#<=EDateTime))"+
+                " AND RoomId ={2} AND BookingId<>{3}",
+                dtpStart.Value, dtpEnd.Value, cboxRoom.SelectedValue.ToString(),activedBooking);
             int numr = (dgvBookingList.DataSource as DataTable).Select(filter).Length;
+            if(dtpStart.Value.ToString()!=sTime || dtpEnd.Value.ToString() != eTime)
             if (numr> 0)
             {
                 errorProvider1.SetError(dtpStart, "Already Exist an Activity booked for this time on this room");
@@ -506,23 +586,24 @@ namespace DC305RoomManagement
                 valid = false;
                 free = false;
             }
-
             if (dtpStart.Value > dtpEnd.Value)
             {
                 errorProvider1.SetError(dtpStart, "Start Time must be earlier than End Time");
                 errorProvider1.SetError(dtpEnd, "END Time must be Later than Start Time");
                 valid = false;
+                free = false;
             }
-            else
+            if (dtpStart.Value <= DateTime.Now)
             {
-                if(free)
-                {
-                    errorProvider1.SetError(dtpStart, "");
-                    errorProvider1.SetError(dtpEnd, "");
-                }
-                 
+                errorProvider1.SetError(dtpStart, "Start Time need to be later than actual time");                
+                valid = false;
+                free = false;
             }
-
+            if (free)
+            {
+                errorProvider1.SetError(dtpStart, "");
+                errorProvider1.SetError(dtpEnd, "");
+            }                             
             if(!ValidateCBox(cboxRoom, "A Room must be selected"))          
                 valid = false;
             if(!ValidateCBox(cboxStaff, "A Staff must be selected"))
@@ -532,6 +613,12 @@ namespace DC305RoomManagement
 
             return valid;
         }
+        /// <summary>
+        /// general method to validate if a valid value was selected
+        /// </summary>
+        /// <param name="cbox"></param>
+        /// <param name="msg"></param>
+        /// <returns></returns>
         private bool ValidateCBox(ComboBox cbox,string msg)
         {
             bool valid = true;
