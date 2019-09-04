@@ -88,6 +88,16 @@ namespace DC305RoomManagement
             errorProvider1.SetError(txtPass, "Please insert your password");
             return false;
         }
+
+        private void Lbl_header_Click(object sender, EventArgs e)
+        {
+     
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+           lbl_header.Font = new Font(lbl_header.Font.Name, 28, FontStyle.Bold);
+        }
     }
 }
 

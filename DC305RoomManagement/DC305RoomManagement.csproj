@@ -227,5 +227,14 @@
   <ItemGroup>
     <None Include="Resources\download.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ITEdu Information Systems Logo3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-lock-50.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

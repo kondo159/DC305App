@@ -286,6 +286,7 @@
             this.dtgGrid.Size = new System.Drawing.Size(813, 263);
             this.dtgGrid.TabIndex = 16;
             this.dtgGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgGrid_CellClick);
+            this.dtgGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgGrid_CellContentClick);
             // 
             // UserId
             // 

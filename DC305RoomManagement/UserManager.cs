@@ -31,6 +31,9 @@ namespace DC305RoomManagement
             Load_cbRole();
         }
         string Gender;
+        string oldEmail; 
+
+
         public void ClearForm()
         {
             txtEmail.Text = "";
@@ -45,6 +48,7 @@ namespace DC305RoomManagement
         }
         private void BtnCreate_Click(object sender, EventArgs e)
         {
+            
             if (ValidateAll())
             {
                 try
@@ -149,6 +153,7 @@ namespace DC305RoomManagement
 
         private void BtnReset_Click(object sender, EventArgs e)
         {
+            errorProvider.Clear();
             ClearForm();
             btnCreate.Enabled = true;
             btnUpdate.Enabled = false;
@@ -238,8 +243,10 @@ namespace DC305RoomManagement
             {
                 ClearForm();
                 DataGridViewRow row = dtgGrid.Rows[e.RowIndex];
+                
                 btnCreate.Enabled = false;
                 btnUpdate.Enabled = true;
+                oldEmail = row.Cells["Email"].Value.ToString();
                 txtEmail.Text = row.Cells["Email"].Value.ToString();
                 txtName.Text = row.Cells["NameC"].Value.ToString();
                 dtDOB.Text = row.Cells["DOB"].Value.ToString();
@@ -330,9 +337,25 @@ namespace DC305RoomManagement
             }
             else
                 errorProvider.SetError(txtPassword, "");
+               
+            string filter = "Email= '" + txtEmail.Text + "'";
+            int userEmail = (dtgGrid.DataSource as DataTable).Select(filter).Length;
+            if (!(txtEmail.Text == oldEmail))  
+                if (userEmail > 0)
+                {
+                
+                MessageBox.Show("Email already exist, please choost another", "Notification", MessageBoxButtons.OK);
+                errorProvider.SetError(txtEmail, "Email already exist");
+                validated = false;
+                }
+              
+            
 
+            
             return validated;
         }
+
+        
 
         private void BtnDisable_MouseHover(object sender, EventArgs e)
         {
@@ -374,6 +397,11 @@ namespace DC305RoomManagement
 private void BtnDisable_MouseLeave(object sender, EventArgs e)
         {
             btnDisable.ForeColor = SystemColors.ControlText;
+        }
+
+        private void DtgGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

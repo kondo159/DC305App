@@ -42,8 +42,11 @@ namespace DC305RoomManagement
             switch ((sender as Button).Name)
             {
                 case "btnBooking":
-                    BookingManager bookingManager = new BookingManager(id,role);
-                    DisplayInPlanel(bookingManager, "Booking Manager");
+                    BookingManager bookingManager = new BookingManager(id, role);
+                        if(role!=3)
+                        DisplayInPlanel(bookingManager, "Booking Manager");
+                        else
+                        DisplayInPlanel(bookingManager, "List Activities");
                     break;
 
                 case "btnRoom":
@@ -111,6 +114,7 @@ namespace DC305RoomManagement
             }
             if (role==3)
             {
+                btnBooking.Text = "View Activities";
                 btnIssue.Visible = false;
                 btnUser.Visible = false;
                 btnGroup.Visible = false;
@@ -128,11 +132,6 @@ namespace DC305RoomManagement
 
         }
 
-        private void Main_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-        }
-
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
             const string message = "Are you sure that you would like to close the form?";
@@ -146,12 +145,10 @@ namespace DC305RoomManagement
                 // cancel the closure of the form.
                 e.Cancel = true;
             }
-        }
-
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            ChangePassword changePassword = new ChangePassword();
-            changePassword.ShowDialog();
+            else
+            {
+                Application.ExitThread();
+            }
         }
 
         private void BtnBooking_MouseEnter(object sender, EventArgs e)
@@ -162,6 +159,17 @@ namespace DC305RoomManagement
         private void BtnBooking_MouseLeave(object sender, EventArgs e)
         {
             btnBooking.ForeColor = Color.White;
+        }
+
+        private void BtnChangePass_Click(object sender, EventArgs e)
+        {
+            ChangePassword changePassword = new ChangePassword(user);
+            changePassword.ShowDialog();
+        }
+
+        private void PnlHeader_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -15,20 +15,18 @@ namespace DC305RoomManagement
 {
     public partial class ChangePassword : Form
     {
-        public ChangePassword()
+        string email;
+        public ChangePassword(string email)
         {
             InitializeComponent();
+            this.email = email;
         }
 
-        private void Label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void Button1_Click(object sender, EventArgs e)
         {
                 if (PasswordValidate())
-            {
+                {
                 string newPassword = txt_NewPass.Text;
                 string confirmPassword = txtConfirm.Text;
                 if (!string.IsNullOrEmpty(newPassword) && !string.IsNullOrEmpty(newPassword) && newPassword.Equals(confirmPassword))
@@ -38,7 +36,7 @@ namespace DC305RoomManagement
                     string sqlquery = "UPDATE [Users] SET Password=@newpass where Email=@Email AND Password=@password";
 
                     SqlCommand cmd = new SqlCommand(sqlquery, conn.OpenConn());
-                    cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
+                    cmd.Parameters.AddWithValue("@Email", email);
                     cmd.Parameters.AddWithValue("@password", txtCurrent.Text);
                     cmd.Parameters.AddWithValue("@newpass", txt_NewPass.Text);
 
@@ -47,14 +45,15 @@ namespace DC305RoomManagement
                     if (x > 0)
                     {
                         MessageBox.Show("Password Successfully Changed", "Password Changed", MessageBoxButtons.OK);
-                        txtEmail.Text = "";
+                       
                         txtCurrent.Text = "";
                         txt_NewPass.Text = "";
                         txtConfirm.Text = "";
                     }
                     else
                     {
-                        MessageBox.Show("Incorrect Email/Password", "Please try again", MessageBoxButtons.OK);
+                        MessageBox.Show("Incorrect Password", "Please try again", MessageBoxButtons.OK);
+                        errorProvider1.SetError(txtCurrent, "Current Password is Incorrect");
                         conn.CloseConn();
                     }
 
@@ -62,7 +61,8 @@ namespace DC305RoomManagement
                 else
                 {
                     //show the error.
-                    MessageBox.Show("Password Doesn't Match", "Please try again", MessageBoxButtons.OK);
+                    MessageBox.Show("New Password Doesn't Match", "Please try again", MessageBoxButtons.OK);
+                    errorProvider1.SetError(txtConfirm, "New Password Doesn't Match");
                 }
             }
                 
@@ -77,14 +77,7 @@ namespace DC305RoomManagement
         }
         private bool PasswordValidate()
         {
-            bool validated = true;
-            if (string.IsNullOrWhiteSpace(txtEmail.Text))
-            {
-                errorProvider1.SetError(txtEmail, "Please enter your current password");
-                validated = false;
-            }
-            else
-                errorProvider1.SetError(txtEmail, "");
+            bool validated = true;           
 
             if (string.IsNullOrWhiteSpace(txtCurrent.Text))
             {

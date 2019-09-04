@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.pnlSideMenu = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnInventory = new System.Windows.Forms.Button();
             this.btnRoom = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
@@ -39,6 +38,7 @@
             this.btnIssue = new System.Windows.Forms.Button();
             this.btnGroup = new System.Windows.Forms.Button();
             this.btnUser = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.pwd_Change = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,12 +48,12 @@
             this.pnlSideMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlHeader.SuspendLayout();
-            this.pnlMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlSideMenu
             // 
             this.pnlSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pnlSideMenu.Controls.Add(this.pictureBox1);
             this.pnlSideMenu.Controls.Add(this.btnInventory);
             this.pnlSideMenu.Controls.Add(this.btnRoom);
             this.pnlSideMenu.Controls.Add(this.btnExit);
@@ -68,16 +68,6 @@
             this.pnlSideMenu.Name = "pnlSideMenu";
             this.pnlSideMenu.Size = new System.Drawing.Size(155, 601);
             this.pnlSideMenu.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::DC305RoomManagement.Properties.Resources.download;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(155, 94);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // btnInventory
             // 
@@ -217,6 +207,16 @@
             this.btnUser.UseVisualStyleBackColor = true;
             this.btnUser.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::DC305RoomManagement.Properties.Resources.download;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(155, 94);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // pnlHeader
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -229,25 +229,29 @@
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(853, 97);
             this.pnlHeader.TabIndex = 1;
+            this.pnlHeader.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlHeader_Paint);
             // 
             // pwd_Change
             // 
-            this.pwd_Change.Location = new System.Drawing.Point(727, 68);
+            this.pwd_Change.Location = new System.Drawing.Point(727, 64);
             this.pwd_Change.Name = "pwd_Change";
-            this.pwd_Change.Size = new System.Drawing.Size(114, 23);
+            this.pwd_Change.Size = new System.Drawing.Size(114, 27);
             this.pwd_Change.TabIndex = 16;
             this.pwd_Change.Text = "Change Password";
             this.pwd_Change.UseVisualStyleBackColor = true;
-            this.pwd_Change.Click += new System.EventHandler(this.Button1_Click);
+            this.pwd_Change.Click += new System.EventHandler(this.BtnChangePass_Click);
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(770, 34);
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(592, 44);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 17);
+            this.label2.Size = new System.Drawing.Size(250, 17);
             this.label2.TabIndex = 15;
+            this.label2.Text = "Current User";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.label2.Click += new System.EventHandler(this.Label2_Click);
             // 
             // lblHeader
@@ -263,18 +267,20 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(770, 17);
+            this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(760, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 17);
+            this.label1.Size = new System.Drawing.Size(81, 16);
             this.label1.TabIndex = 14;
+            this.label1.Text = "Current User";
             // 
             // pnlMain
             // 
             this.pnlMain.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pnlMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlMain.Controls.Add(this.pictureBox1);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(155, 97);
             this.pnlMain.Name = "pnlMain";
@@ -298,13 +304,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
             this.Load += new System.EventHandler(this.Main_Load);
             this.pnlSideMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
-            this.pnlMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
