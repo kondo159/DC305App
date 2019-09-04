@@ -47,6 +47,7 @@ namespace DC305RoomManagementClassLibrary
                 MailMessage mailMsg = new MailMessage(EmailCredential.UserName, Recipient);
 
                 mailMsg.Subject = EmailSubject;
+                mailMsg.IsBodyHtml = true;
                 mailMsg.Body = EmailBody;
 
                 SmtpClient smtpClient = new SmtpClient(SMTPServerName, SMTPServerPort);
@@ -55,7 +56,7 @@ namespace DC305RoomManagementClassLibrary
                 smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtpClient.Send(mailMsg);
             }
-            catch (Exception err)
+            catch (Exception)
             {
                 throw;
             }
