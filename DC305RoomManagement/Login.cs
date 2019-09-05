@@ -19,8 +19,6 @@ namespace DC305RoomManagement
         {
             InitializeComponent();
         }
-
-
         private void BtnLogin_Click(object sender, EventArgs e)
         {
             if (EmailValidation()&& PasswordValidation())
@@ -30,9 +28,7 @@ namespace DC305RoomManagement
                 SqlDataReader reader = cmd.ExecuteReader();
                 DataTable dtbl = new DataTable();
 
-
-
-                if (reader.HasRows)
+            if (reader.HasRows)
                 {
 
                     string uemail = "";
@@ -49,8 +45,6 @@ namespace DC305RoomManagement
                     this.Hide();
                     Main ss = new Main(uemail, urole,uid);
                     ss.Show();
-
-
                 }
 
                 else
@@ -60,8 +54,6 @@ namespace DC305RoomManagement
                 }
             }
         }
-
-      
         private bool EmailValidation()
         {
             if (!string.IsNullOrWhiteSpace(txtUser.Text))
@@ -88,15 +80,17 @@ namespace DC305RoomManagement
             errorProvider1.SetError(txtPass, "Please insert your password");
             return false;
         }
-
-        private void Lbl_header_Click(object sender, EventArgs e)
-        {
-     
-        }
-
         private void Login_Load(object sender, EventArgs e)
         {
-           lbl_header.Font = new Font(lbl_header.Font.Name, 28, FontStyle.Bold);
+          // lbl_header.Font = new Font(lbl_header.Font.Name, 28, FontStyle.Bold);
+        }
+        private void pic_Exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        private void PictureBox6_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

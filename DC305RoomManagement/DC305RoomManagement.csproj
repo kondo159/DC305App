@@ -236,5 +236,26 @@
   <ItemGroup>
     <None Include="Resources\icons8-lock-50.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-close-window-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-enter-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-enter-241.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-minimize-window-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-horizontal-line-24 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ITEdu Information Systems Logo no text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\it edu logo main.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

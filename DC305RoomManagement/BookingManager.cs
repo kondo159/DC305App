@@ -285,6 +285,7 @@ namespace DC305RoomManagement
         private void ResetForm()
         {
             LoadBookingList();
+            errorProvider1.Clear();
             activedBooking = 0;
             cboxRoom.SelectedIndex = 0;
             if(userRole==2 && rdoFilter.Checked || userRole==1)

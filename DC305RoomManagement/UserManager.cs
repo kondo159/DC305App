@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Text.RegularExpressions;
-
+using DC305RoomManagementClassLibrary;
 namespace DC305RoomManagement
 {
     public partial class UserManager : Form
@@ -21,10 +21,7 @@ namespace DC305RoomManagement
         Connection conn = new Connection();
         DataTable dt;
         SqlDataAdapter sqlda;
-        
-        
-       
-        
+                
         public UserManager()
         {
             InitializeComponent();
@@ -32,7 +29,6 @@ namespace DC305RoomManagement
         }
         string Gender;
         string oldEmail; 
-
 
         public void ClearForm()
         {
@@ -74,6 +70,20 @@ namespace DC305RoomManagement
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Success");
+                    string emailbody = "Email: " + txtEmail.Text + "</br>" +
+                        "Password: " + txtPassword.Text + "</br>" +
+                        "Name: " + txtName.Text + "</br>" +
+                        "Date of Birth: " + dtDOB.Text + "</br>";
+                    if (rbtnMale.Checked)
+                    {
+                        emailbody += "Gender: " + rbtnMale.Text + "</br>";
+                    }
+                    else
+                    {
+                        emailbody += "Gender: " + rbtnFemale.Text + "</br>";
+                    }
+                    emailbody += "Role: " + cboRole.Text + "</br>";
+                    SMTPHelper.SendEmail(txtEmail.Text, emailbody, "Account Created");
 
 
 
@@ -102,21 +112,11 @@ namespace DC305RoomManagement
         private void RbtnFemale_CheckedChanged(object sender, EventArgs e)
         {
             Gender = "Female";
-        }
-
-        private void TxtEmail_Validating(object sender, CancelEventArgs e)
-        {
-           
-        }
-
-        private void RbtnMale_Validating(object sender, CancelEventArgs e)
-        {
-
-        }
+        }   
 
         private void UserManager_Load(object sender, EventArgs e)
         {
-            dtgGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 11.75F);
+            dtgGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 11);
             LoadData();
             txtID.Hide();
         }
@@ -157,6 +157,7 @@ namespace DC305RoomManagement
             ClearForm();
             btnCreate.Enabled = true;
             btnUpdate.Enabled = false;
+            btnDisable.Text = "Disable";
         }
 
         private void BtnUpdate_Click(object sender, EventArgs e)
@@ -184,8 +185,21 @@ namespace DC305RoomManagement
                     if (cmd.ExecuteNonQuery() == 1)
                     {
                         MessageBox.Show("Update Successfully.", "Status", MessageBoxButtons.OK);
-
-                    }
+                        string emailbody = "Email: " + txtEmail.Text + "</br>" +
+                        "Password: " + txtPassword.Text + "</br>" +
+                        "Name: " + txtName.Text + "</br>" +
+                        "Date of Birth: " + dtDOB.Text + "</br>";
+                        if (rbtnMale.Checked)
+                        {
+                            emailbody += "Gender: " + rbtnMale.Text + "</br>";
+                        }
+                        else
+                        {
+                            emailbody += "Gender: " + rbtnFemale.Text + "</br>";
+                        }
+                        emailbody+="Role: " + cboRole.Text + "</br>";
+                        SMTPHelper.SendEmail(txtEmail.Text,emailbody, "Account Updated");
+                     }
                 }
                 catch (Exception)
                 {
@@ -200,22 +214,12 @@ namespace DC305RoomManagement
             }            
         }
 
-               private void BtnSearch_Click(object sender, EventArgs e)
-        {
-           
-
-        }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
-            SearchUserEmail(txtSearch.Text);
-           
+            SearchUserEmail(txtSearch.Text);           
         }
-
-        private void TextBox1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-       
-        }
+      
         public void SearchUserEmail(string search)
         {
           
@@ -226,16 +230,7 @@ namespace DC305RoomManagement
             sqlda.Fill(dt);
             dtgGrid.DataSource = dt;
             conn.CloseConn();
-        }
-        private void LblDOB_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TxtSearchName_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
+        }                
 
         private void DtgGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -268,11 +263,7 @@ namespace DC305RoomManagement
             }
             
         }
-
-        private void CboRole_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
+      
         private void Load_cbRole()
         {
             SqlCommand cmd = new SqlCommand("Select * from Roles", conn.OpenConn());
@@ -355,13 +346,6 @@ namespace DC305RoomManagement
             return validated;
         }
 
-        
-
-        private void BtnDisable_MouseHover(object sender, EventArgs e)
-        {
-            
-        }
-
         private void BtnCreate_MouseEnter(object sender, EventArgs e)
         {
             btnCreate.ForeColor = Color.White;           
@@ -394,14 +378,11 @@ namespace DC305RoomManagement
         {
             btnDisable.ForeColor = Color.White;
         }
-private void BtnDisable_MouseLeave(object sender, EventArgs e)
+        private void BtnDisable_MouseLeave(object sender, EventArgs e)
         {
             btnDisable.ForeColor = SystemColors.ControlText;
         }
+        
 
-        private void DtgGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

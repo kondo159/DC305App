@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserManager));
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -71,16 +72,15 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.txtEmail.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(12, 34);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(193, 23);
             this.txtEmail.TabIndex = 0;
-            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.TxtEmail_Validating);
             // 
             // txtPassword
             // 
-            this.txtPassword.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.txtPassword.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(12, 84);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(193, 23);
@@ -88,7 +88,7 @@
             // 
             // txtName
             // 
-            this.txtName.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.txtName.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Location = new System.Drawing.Point(229, 35);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(193, 23);
@@ -97,66 +97,65 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(12, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 18);
+            this.label1.Size = new System.Drawing.Size(43, 17);
             this.label1.TabIndex = 5;
             this.label1.Text = "Email";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(12, 65);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 18);
+            this.label3.Size = new System.Drawing.Size(69, 17);
             this.label3.TabIndex = 7;
             this.label3.Text = "Password";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(229, 14);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 18);
+            this.label4.Size = new System.Drawing.Size(48, 17);
             this.label4.TabIndex = 8;
             this.label4.Text = "Name";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(440, 14);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 18);
+            this.label5.Size = new System.Drawing.Size(36, 17);
             this.label5.TabIndex = 9;
             this.label5.Text = "Role";
             // 
             // cboRole
             // 
             this.cboRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboRole.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboRole.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboRole.FormattingEnabled = true;
             this.cboRole.Location = new System.Drawing.Point(443, 34);
             this.cboRole.Name = "cboRole";
             this.cboRole.Size = new System.Drawing.Size(193, 25);
             this.cboRole.TabIndex = 10;
-            this.cboRole.SelectedIndexChanged += new System.EventHandler(this.CboRole_SelectedIndexChanged);
             // 
             // btnCreate
             // 
-            this.btnCreate.BackColor = System.Drawing.Color.Khaki;
+            this.btnCreate.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnCreate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCreate.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnCreate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnCreate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreate.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreate.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreate.ForeColor = System.Drawing.Color.Black;
             this.btnCreate.Location = new System.Drawing.Point(12, 125);
             this.btnCreate.Name = "btnCreate";
@@ -167,17 +166,16 @@
             this.btnCreate.Click += new System.EventHandler(this.BtnCreate_Click);
             this.btnCreate.MouseEnter += new System.EventHandler(this.BtnCreate_MouseEnter);
             this.btnCreate.MouseLeave += new System.EventHandler(this.BtnCreate_MouseLeave);
-            this.btnCreate.MouseHover += new System.EventHandler(this.BtnDisable_MouseHover);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.Khaki;
+            this.btnUpdate.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdate.Enabled = false;
             this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.Black;
             this.btnUpdate.Location = new System.Drawing.Point(139, 125);
             this.btnUpdate.Name = "btnUpdate";
@@ -188,16 +186,15 @@
             this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             this.btnUpdate.MouseEnter += new System.EventHandler(this.BtnUpdate_MouseEnter);
             this.btnUpdate.MouseLeave += new System.EventHandler(this.BtnUpdate_MouseLeave_1);
-            this.btnUpdate.MouseHover += new System.EventHandler(this.BtnDisable_MouseHover);
             // 
             // btnReset
             // 
-            this.btnReset.BackColor = System.Drawing.Color.Khaki;
+            this.btnReset.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnReset.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReset.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReset.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReset.ForeColor = System.Drawing.Color.Black;
             this.btnReset.Location = new System.Drawing.Point(270, 125);
             this.btnReset.Name = "btnReset";
@@ -208,16 +205,15 @@
             this.btnReset.Click += new System.EventHandler(this.BtnReset_Click);
             this.btnReset.MouseEnter += new System.EventHandler(this.BtnReset_MouseEnter_1);
             this.btnReset.MouseLeave += new System.EventHandler(this.BtnReset_MouseLeave_1);
-            this.btnReset.MouseHover += new System.EventHandler(this.BtnDisable_MouseHover);
             // 
             // btnDisable
             // 
-            this.btnDisable.BackColor = System.Drawing.Color.Khaki;
+            this.btnDisable.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnDisable.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDisable.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnDisable.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnDisable.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnDisable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDisable.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDisable.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDisable.ForeColor = System.Drawing.Color.Black;
             this.btnDisable.Location = new System.Drawing.Point(401, 125);
             this.btnDisable.Name = "btnDisable";
@@ -228,14 +224,13 @@
             this.btnDisable.Click += new System.EventHandler(this.BtnDisable_Click);
             this.btnDisable.MouseEnter += new System.EventHandler(this.BtnDisable_MouseEnter);
             this.btnDisable.MouseLeave += new System.EventHandler(this.BtnDisable_MouseLeave);
-            this.btnDisable.MouseHover += new System.EventHandler(this.BtnDisable_MouseHover);
             // 
             // dtgGrid
             // 
             this.dtgGrid.AllowUserToAddRows = false;
             this.dtgGrid.AllowUserToDeleteRows = false;
             this.dtgGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            this.dtgGrid.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -264,11 +259,11 @@
             this.dtgGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtgGrid.EnableHeadersVisualStyles = false;
             this.dtgGrid.GridColor = System.Drawing.Color.SteelBlue;
-            this.dtgGrid.Location = new System.Drawing.Point(12, 176);
+            this.dtgGrid.Location = new System.Drawing.Point(12, 166);
             this.dtgGrid.Name = "dtgGrid";
             this.dtgGrid.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Salmon;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Red;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -277,16 +272,15 @@
             this.dtgGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtgGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
             this.dtgGrid.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dtgGrid.Size = new System.Drawing.Size(813, 263);
+            this.dtgGrid.Size = new System.Drawing.Size(813, 287);
             this.dtgGrid.TabIndex = 16;
             this.dtgGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgGrid_CellClick);
-            this.dtgGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgGrid_CellContentClick);
             // 
             // UserId
             // 
@@ -355,18 +349,17 @@
             // txtSearch
             // 
             this.txtSearch.AcceptsTab = true;
-            this.txtSearch.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.txtSearch.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.Location = new System.Drawing.Point(655, 137);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(170, 23);
             this.txtSearch.TabIndex = 17;
             this.txtSearch.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
-            this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox1_KeyPress);
             // 
             // dtDOB
             // 
             this.dtDOB.CustomFormat = "yyyy-MM-dd";
-            this.dtDOB.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.dtDOB.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtDOB.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtDOB.Location = new System.Drawing.Point(229, 86);
             this.dtDOB.Name = "dtDOB";
@@ -376,34 +369,34 @@
             // lblDOB
             // 
             this.lblDOB.AutoSize = true;
-            this.lblDOB.Font = new System.Drawing.Font("Tahoma", 11.25F);
-            this.lblDOB.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblDOB.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDOB.ForeColor = System.Drawing.Color.Black;
             this.lblDOB.Location = new System.Drawing.Point(226, 65);
             this.lblDOB.Name = "lblDOB";
-            this.lblDOB.Size = new System.Drawing.Size(91, 18);
+            this.lblDOB.Size = new System.Drawing.Size(88, 17);
             this.lblDOB.TabIndex = 22;
             this.lblDOB.Text = "Date of Birth";
-            this.lblDOB.Click += new System.EventHandler(this.LblDOB_Click);
             // 
             // rbtnMale
             // 
             this.rbtnMale.AutoSize = true;
+            this.rbtnMale.ForeColor = System.Drawing.Color.Black;
             this.rbtnMale.Location = new System.Drawing.Point(11, 25);
             this.rbtnMale.Name = "rbtnMale";
-            this.rbtnMale.Size = new System.Drawing.Size(56, 22);
+            this.rbtnMale.Size = new System.Drawing.Size(57, 21);
             this.rbtnMale.TabIndex = 19;
             this.rbtnMale.TabStop = true;
             this.rbtnMale.Text = "Male";
             this.rbtnMale.UseVisualStyleBackColor = true;
             this.rbtnMale.CheckedChanged += new System.EventHandler(this.RbtnMale_CheckedChanged);
-            this.rbtnMale.Validating += new System.ComponentModel.CancelEventHandler(this.RbtnMale_Validating);
             // 
             // rbtnFemale
             // 
             this.rbtnFemale.AutoSize = true;
+            this.rbtnFemale.ForeColor = System.Drawing.Color.Black;
             this.rbtnFemale.Location = new System.Drawing.Point(80, 25);
             this.rbtnFemale.Name = "rbtnFemale";
-            this.rbtnFemale.Size = new System.Drawing.Size(73, 22);
+            this.rbtnFemale.Size = new System.Drawing.Size(73, 21);
             this.rbtnFemale.TabIndex = 20;
             this.rbtnFemale.TabStop = true;
             this.rbtnFemale.Text = "Female";
@@ -418,8 +411,8 @@
             // 
             this.grpGender.Controls.Add(this.rbtnMale);
             this.grpGender.Controls.Add(this.rbtnFemale);
-            this.grpGender.Font = new System.Drawing.Font("Tahoma", 11.25F);
-            this.grpGender.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.grpGender.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpGender.ForeColor = System.Drawing.Color.Black;
             this.grpGender.Location = new System.Drawing.Point(443, 65);
             this.grpGender.Name = "grpGender";
             this.grpGender.Size = new System.Drawing.Size(190, 51);
@@ -430,17 +423,17 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(652, 120);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(142, 14);
+            this.label6.Size = new System.Drawing.Size(170, 17);
             this.label6.TabIndex = 26;
             this.label6.Text = "Search by Name or Email";
             // 
             // txtID
             // 
-            this.txtID.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.txtID.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtID.Location = new System.Drawing.Point(766, 86);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(59, 23);
@@ -461,7 +454,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(837, 465);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtID);
@@ -485,6 +478,7 @@
             this.Controls.Add(this.txtEmail);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "UserManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

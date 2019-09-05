@@ -67,7 +67,7 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(202, 251);
+            this.btnPrint.Location = new System.Drawing.Point(347, 138);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(75, 23);
             this.btnPrint.TabIndex = 34;
@@ -77,7 +77,7 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(40, 251);
+            this.btnReset.Location = new System.Drawing.Point(185, 138);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 33;
@@ -88,7 +88,7 @@
             // btnCancel
             // 
             this.btnCancel.Enabled = false;
-            this.btnCancel.Location = new System.Drawing.Point(202, 280);
+            this.btnCancel.Location = new System.Drawing.Point(347, 167);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 32;
@@ -98,7 +98,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(121, 280);
+            this.btnUpdate.Location = new System.Drawing.Point(266, 167);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 31;
@@ -108,7 +108,7 @@
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(40, 280);
+            this.btnCreate.Location = new System.Drawing.Point(185, 167);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(75, 23);
             this.btnCreate.TabIndex = 30;
@@ -119,7 +119,7 @@
             // btnFilter
             // 
             this.btnFilter.Enabled = false;
-            this.btnFilter.Location = new System.Drawing.Point(121, 251);
+            this.btnFilter.Location = new System.Drawing.Point(266, 138);
             this.btnFilter.Name = "btnFilter";
             this.btnFilter.Size = new System.Drawing.Size(75, 23);
             this.btnFilter.TabIndex = 29;
@@ -131,7 +131,7 @@
             // 
             this.cboxClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxClass.FormattingEnabled = true;
-            this.cboxClass.Location = new System.Drawing.Point(72, 224);
+            this.cboxClass.Location = new System.Drawing.Point(618, 67);
             this.cboxClass.Name = "cboxClass";
             this.cboxClass.Size = new System.Drawing.Size(195, 21);
             this.cboxClass.TabIndex = 28;
@@ -140,7 +140,7 @@
             // 
             this.cboxStaff.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxStaff.FormattingEnabled = true;
-            this.cboxStaff.Location = new System.Drawing.Point(72, 197);
+            this.cboxStaff.Location = new System.Drawing.Point(356, 94);
             this.cboxStaff.Name = "cboxStaff";
             this.cboxStaff.Size = new System.Drawing.Size(195, 21);
             this.cboxStaff.TabIndex = 27;
@@ -149,7 +149,7 @@
             // 
             this.cboxRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxRoom.FormattingEnabled = true;
-            this.cboxRoom.Location = new System.Drawing.Point(72, 170);
+            this.cboxRoom.Location = new System.Drawing.Point(356, 67);
             this.cboxRoom.Name = "cboxRoom";
             this.cboxRoom.Size = new System.Drawing.Size(195, 21);
             this.cboxRoom.TabIndex = 26;
@@ -157,7 +157,7 @@
             // lblClass
             // 
             this.lblClass.AutoSize = true;
-            this.lblClass.Location = new System.Drawing.Point(31, 232);
+            this.lblClass.Location = new System.Drawing.Point(577, 75);
             this.lblClass.Name = "lblClass";
             this.lblClass.Size = new System.Drawing.Size(35, 13);
             this.lblClass.TabIndex = 25;
@@ -166,7 +166,7 @@
             // lblTeacher
             // 
             this.lblTeacher.AutoSize = true;
-            this.lblTeacher.Location = new System.Drawing.Point(16, 205);
+            this.lblTeacher.Location = new System.Drawing.Point(300, 102);
             this.lblTeacher.Name = "lblTeacher";
             this.lblTeacher.Size = new System.Drawing.Size(50, 13);
             this.lblTeacher.TabIndex = 24;
@@ -175,7 +175,7 @@
             // lblRoom
             // 
             this.lblRoom.AutoSize = true;
-            this.lblRoom.Location = new System.Drawing.Point(28, 178);
+            this.lblRoom.Location = new System.Drawing.Point(312, 75);
             this.lblRoom.Name = "lblRoom";
             this.lblRoom.Size = new System.Drawing.Size(38, 13);
             this.lblRoom.TabIndex = 23;
@@ -184,7 +184,7 @@
             // lblToDate
             // 
             this.lblToDate.AutoSize = true;
-            this.lblToDate.Location = new System.Drawing.Point(17, 150);
+            this.lblToDate.Location = new System.Drawing.Point(40, 100);
             this.lblToDate.Name = "lblToDate";
             this.lblToDate.Size = new System.Drawing.Size(49, 13);
             this.lblToDate.TabIndex = 22;
@@ -193,7 +193,7 @@
             // lblFromDate
             // 
             this.lblFromDate.AutoSize = true;
-            this.lblFromDate.Location = new System.Drawing.Point(7, 125);
+            this.lblFromDate.Location = new System.Drawing.Point(30, 75);
             this.lblFromDate.Name = "lblFromDate";
             this.lblFromDate.Size = new System.Drawing.Size(59, 13);
             this.lblFromDate.TabIndex = 21;
@@ -203,7 +203,7 @@
             // 
             this.dtpEnd.CustomFormat = "dd MMMM yyyy hh:mm tt";
             this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEnd.Location = new System.Drawing.Point(72, 144);
+            this.dtpEnd.Location = new System.Drawing.Point(95, 94);
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.Size = new System.Drawing.Size(195, 20);
             this.dtpEnd.TabIndex = 20;
@@ -212,7 +212,7 @@
             // 
             this.dtpStart.CustomFormat = "dd MMMM yyyy hh:mm tt";
             this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpStart.Location = new System.Drawing.Point(72, 118);
+            this.dtpStart.Location = new System.Drawing.Point(95, 68);
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.Size = new System.Drawing.Size(195, 20);
             this.dtpStart.TabIndex = 19;
@@ -234,10 +234,10 @@
             this.UserName,
             this.SDateTIme,
             this.EDateTime});
-            this.dgvBookingList.Location = new System.Drawing.Point(291, 12);
+            this.dgvBookingList.Location = new System.Drawing.Point(20, 335);
             this.dgvBookingList.Name = "dgvBookingList";
             this.dgvBookingList.ReadOnly = true;
-            this.dgvBookingList.Size = new System.Drawing.Size(534, 441);
+            this.dgvBookingList.Size = new System.Drawing.Size(805, 118);
             this.dgvBookingList.TabIndex = 18;
             this.dgvBookingList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvBookingList_CellDoubleClick);
             // 
@@ -319,7 +319,7 @@
             // 
             this.rdoCUD.AutoSize = true;
             this.rdoCUD.Checked = true;
-            this.rdoCUD.Location = new System.Drawing.Point(37, 26);
+            this.rdoCUD.Location = new System.Drawing.Point(27, 12);
             this.rdoCUD.Name = "rdoCUD";
             this.rdoCUD.Size = new System.Drawing.Size(134, 17);
             this.rdoCUD.TabIndex = 35;
@@ -331,7 +331,7 @@
             // rdoFilter
             // 
             this.rdoFilter.AutoSize = true;
-            this.rdoFilter.Location = new System.Drawing.Point(177, 26);
+            this.rdoFilter.Location = new System.Drawing.Point(167, 12);
             this.rdoFilter.Name = "rdoFilter";
             this.rdoFilter.Size = new System.Drawing.Size(47, 17);
             this.rdoFilter.TabIndex = 36;
@@ -342,7 +342,7 @@
             // cballdates
             // 
             this.cballdates.AutoSize = true;
-            this.cballdates.Location = new System.Drawing.Point(72, 95);
+            this.cballdates.Location = new System.Drawing.Point(167, 45);
             this.cballdates.Name = "cballdates";
             this.cballdates.Size = new System.Drawing.Size(68, 17);
             this.cballdates.TabIndex = 37;
@@ -388,10 +388,8 @@
             this.Name = "BookingManager";
             this.Text = "BookingManager";
             this.Load += new System.EventHandler(this.BookingManager_Load);
-
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookingList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-
             this.ResumeLayout(false);
             this.PerformLayout();
 

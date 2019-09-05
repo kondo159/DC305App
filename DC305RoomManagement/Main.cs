@@ -171,6 +171,86 @@ namespace DC305RoomManagement
         {
 
         }
+
+        private void BtnIssue_MouseEnter(object sender, EventArgs e)
+        {
+            btnIssue.ForeColor = Color.Black;
+        }
+
+        private void BtnIssue_MouseLeave(object sender, EventArgs e)
+        {
+            btnIssue.ForeColor = Color.White;
+        }
+
+        private void BtnUser_MouseEnter(object sender, EventArgs e)
+        {
+            btnUser.ForeColor = Color.Black;
+        }
+
+        private void BtnUser_MouseLeave(object sender, EventArgs e)
+        {
+            btnUser.ForeColor = Color.White;
+        }
+
+        private void BtnGroup_MouseEnter(object sender, EventArgs e)
+        {
+            btnGroup.ForeColor = Color.Black;
+        }
+
+        private void BtnGroup_MouseLeave(object sender, EventArgs e)
+        {
+            btnGroup.ForeColor = Color.White;
+        }
+
+        private void BtnCourse_MouseEnter(object sender, EventArgs e)
+        {
+            btnCourse.ForeColor = Color.Black;
+        }
+
+        private void BtnCourse_MouseLeave(object sender, EventArgs e)
+        {
+            btnCourse.ForeColor = Color.White;
+        }
+
+        private void BtnClass_MouseEnter(object sender, EventArgs e)
+        {
+            btnClass.ForeColor = Color.Black;
+        }
+
+        private void BtnClass_MouseLeave(object sender, EventArgs e)
+        {
+            btnClass.ForeColor = Color.White;
+        }
+
+        private void BtnRoom_MouseEnter(object sender, EventArgs e)
+        {
+            btnRoom.ForeColor = Color.Black;
+        }
+
+        private void BtnRoom_MouseLeave(object sender, EventArgs e)
+        {
+            btnRoom.ForeColor = Color.White;
+        }
+
+        private void BtnInventory_MouseEnter(object sender, EventArgs e)
+        {
+            btnInventory.ForeColor = Color.Black;
+        }
+
+        private void BtnInventory_MouseLeave(object sender, EventArgs e)
+        {
+            btnInventory.ForeColor = Color.White;
+        }
+
+        private void BtnExit_MouseEnter(object sender, EventArgs e)
+        {
+            btnExit.ForeColor = Color.Black;
+        }
+
+        private void BtnExit_MouseLeave(object sender, EventArgs e)
+        {
+            btnExit.ForeColor = Color.White;
+        }
     }
 }
             
