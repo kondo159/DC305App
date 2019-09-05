@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookingManager));
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -67,154 +72,206 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(347, 138);
+            this.btnPrint.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnPrint.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnPrint.Location = new System.Drawing.Point(191, 167);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(75, 23);
+            this.btnPrint.Size = new System.Drawing.Size(121, 35);
             this.btnPrint.TabIndex = 34;
             this.btnPrint.Text = "Print";
-            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.UseVisualStyleBackColor = false;
             this.btnPrint.Click += new System.EventHandler(this.BtnPrint_Click);
+            this.btnPrint.MouseEnter += new System.EventHandler(this.BtnPrint_MouseEnter);
+            this.btnPrint.MouseLeave += new System.EventHandler(this.BtnPrint_MouseLeave);
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(185, 138);
+            this.btnReset.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnReset.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnReset.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnReset.Location = new System.Drawing.Point(318, 123);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.Size = new System.Drawing.Size(121, 35);
             this.btnReset.TabIndex = 33;
             this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.BtnReset_Click);
+            this.btnReset.MouseEnter += new System.EventHandler(this.BtnReset_MouseEnter);
+            this.btnReset.MouseLeave += new System.EventHandler(this.BtnReset_MouseLeave);
             // 
             // btnCancel
             // 
+            this.btnCancel.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.Enabled = false;
-            this.btnCancel.Location = new System.Drawing.Point(347, 167);
+            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnCancel.Location = new System.Drawing.Point(318, 167);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(121, 35);
             this.btnCancel.TabIndex = 32;
             this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            this.btnCancel.MouseEnter += new System.EventHandler(this.BtnCancel_MouseEnter);
+            this.btnCancel.MouseLeave += new System.EventHandler(this.BtnCancel_MouseLeave);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(266, 167);
+            this.btnUpdate.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnUpdate.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnUpdate.Location = new System.Drawing.Point(191, 124);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(121, 35);
             this.btnUpdate.TabIndex = 31;
             this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
+            this.btnUpdate.MouseEnter += new System.EventHandler(this.BtnUpdate_MouseEnter);
+            this.btnUpdate.MouseLeave += new System.EventHandler(this.BtnUpdate_MouseLeave);
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(185, 167);
+            this.btnCreate.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnCreate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCreate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnCreate.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnCreate.Location = new System.Drawing.Point(59, 124);
+            this.btnCreate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(75, 23);
+            this.btnCreate.Size = new System.Drawing.Size(121, 35);
             this.btnCreate.TabIndex = 30;
             this.btnCreate.Text = "Create";
-            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.UseVisualStyleBackColor = false;
             this.btnCreate.Click += new System.EventHandler(this.BtnCreate_Click);
+            this.btnCreate.MouseEnter += new System.EventHandler(this.BtnCreate_MouseEnter);
+            this.btnCreate.MouseLeave += new System.EventHandler(this.BtnCreate_MouseLeave);
             // 
             // btnFilter
             // 
+            this.btnFilter.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnFilter.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFilter.Enabled = false;
-            this.btnFilter.Location = new System.Drawing.Point(266, 138);
+            this.btnFilter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnFilter.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnFilter.Location = new System.Drawing.Point(59, 167);
+            this.btnFilter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(75, 23);
+            this.btnFilter.Size = new System.Drawing.Size(121, 35);
             this.btnFilter.TabIndex = 29;
             this.btnFilter.Text = "Filter";
-            this.btnFilter.UseVisualStyleBackColor = true;
+            this.btnFilter.UseVisualStyleBackColor = false;
             this.btnFilter.Click += new System.EventHandler(this.BtnFilter_Click);
+            this.btnFilter.MouseEnter += new System.EventHandler(this.BtnFilter_MouseEnter);
+            this.btnFilter.MouseLeave += new System.EventHandler(this.BtnFilter_MouseLeave);
             // 
             // cboxClass
             // 
             this.cboxClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxClass.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.cboxClass.FormattingEnabled = true;
-            this.cboxClass.Location = new System.Drawing.Point(618, 67);
+            this.cboxClass.Location = new System.Drawing.Point(496, 124);
+            this.cboxClass.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboxClass.Name = "cboxClass";
-            this.cboxClass.Size = new System.Drawing.Size(195, 21);
+            this.cboxClass.Size = new System.Drawing.Size(259, 25);
             this.cboxClass.TabIndex = 28;
             // 
             // cboxStaff
             // 
             this.cboxStaff.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxStaff.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.cboxStaff.FormattingEnabled = true;
-            this.cboxStaff.Location = new System.Drawing.Point(356, 94);
+            this.cboxStaff.Location = new System.Drawing.Point(496, 86);
+            this.cboxStaff.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboxStaff.Name = "cboxStaff";
-            this.cboxStaff.Size = new System.Drawing.Size(195, 21);
+            this.cboxStaff.Size = new System.Drawing.Size(259, 25);
             this.cboxStaff.TabIndex = 27;
             // 
             // cboxRoom
             // 
             this.cboxRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxRoom.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.cboxRoom.FormattingEnabled = true;
-            this.cboxRoom.Location = new System.Drawing.Point(356, 67);
+            this.cboxRoom.Location = new System.Drawing.Point(496, 51);
+            this.cboxRoom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboxRoom.Name = "cboxRoom";
-            this.cboxRoom.Size = new System.Drawing.Size(195, 21);
+            this.cboxRoom.Size = new System.Drawing.Size(259, 25);
             this.cboxRoom.TabIndex = 26;
             // 
             // lblClass
             // 
             this.lblClass.AutoSize = true;
-            this.lblClass.Location = new System.Drawing.Point(577, 75);
+            this.lblClass.Location = new System.Drawing.Point(445, 124);
             this.lblClass.Name = "lblClass";
-            this.lblClass.Size = new System.Drawing.Size(35, 13);
+            this.lblClass.Size = new System.Drawing.Size(45, 17);
             this.lblClass.TabIndex = 25;
             this.lblClass.Text = "Class:";
             // 
             // lblTeacher
             // 
             this.lblTeacher.AutoSize = true;
-            this.lblTeacher.Location = new System.Drawing.Point(300, 102);
+            this.lblTeacher.Location = new System.Drawing.Point(428, 86);
             this.lblTeacher.Name = "lblTeacher";
-            this.lblTeacher.Size = new System.Drawing.Size(50, 13);
+            this.lblTeacher.Size = new System.Drawing.Size(62, 17);
             this.lblTeacher.TabIndex = 24;
             this.lblTeacher.Text = "Teacher:";
             // 
             // lblRoom
             // 
             this.lblRoom.AutoSize = true;
-            this.lblRoom.Location = new System.Drawing.Point(312, 75);
+            this.lblRoom.Location = new System.Drawing.Point(435, 51);
             this.lblRoom.Name = "lblRoom";
-            this.lblRoom.Size = new System.Drawing.Size(38, 13);
+            this.lblRoom.Size = new System.Drawing.Size(51, 17);
             this.lblRoom.TabIndex = 23;
             this.lblRoom.Text = "Room:";
             // 
             // lblToDate
             // 
             this.lblToDate.AutoSize = true;
-            this.lblToDate.Location = new System.Drawing.Point(40, 100);
+            this.lblToDate.Location = new System.Drawing.Point(74, 89);
             this.lblToDate.Name = "lblToDate";
-            this.lblToDate.Size = new System.Drawing.Size(49, 13);
+            this.lblToDate.Size = new System.Drawing.Size(62, 17);
             this.lblToDate.TabIndex = 22;
             this.lblToDate.Text = "To Date:";
             // 
             // lblFromDate
             // 
             this.lblFromDate.AutoSize = true;
-            this.lblFromDate.Location = new System.Drawing.Point(30, 75);
+            this.lblFromDate.Location = new System.Drawing.Point(56, 53);
             this.lblFromDate.Name = "lblFromDate";
-            this.lblFromDate.Size = new System.Drawing.Size(59, 13);
+            this.lblFromDate.Size = new System.Drawing.Size(80, 17);
             this.lblFromDate.TabIndex = 21;
             this.lblFromDate.Text = "From Date:";
             // 
             // dtpEnd
             // 
             this.dtpEnd.CustomFormat = "dd MMMM yyyy hh:mm tt";
+            this.dtpEnd.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEnd.Location = new System.Drawing.Point(95, 94);
+            this.dtpEnd.Location = new System.Drawing.Point(142, 89);
+            this.dtpEnd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.Size = new System.Drawing.Size(195, 20);
+            this.dtpEnd.Size = new System.Drawing.Size(259, 23);
             this.dtpEnd.TabIndex = 20;
             // 
             // dtpStart
             // 
             this.dtpStart.CustomFormat = "dd MMMM yyyy hh:mm tt";
+            this.dtpStart.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpStart.Location = new System.Drawing.Point(95, 68);
+            this.dtpStart.Location = new System.Drawing.Point(142, 53);
+            this.dtpStart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpStart.Name = "dtpStart";
-            this.dtpStart.Size = new System.Drawing.Size(195, 20);
+            this.dtpStart.Size = new System.Drawing.Size(259, 23);
             this.dtpStart.TabIndex = 19;
             // 
             // dgvBookingList
@@ -222,7 +279,18 @@
             this.dgvBookingList.AllowUserToAddRows = false;
             this.dgvBookingList.AllowUserToDeleteRows = false;
             this.dgvBookingList.AllowUserToOrderColumns = true;
-            this.dgvBookingList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBookingList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvBookingList.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBookingList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvBookingList.ColumnHeadersHeight = 30;
+            this.dgvBookingList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvBookingList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BookingId,
             this.RoomId,
@@ -234,10 +302,32 @@
             this.UserName,
             this.SDateTIme,
             this.EDateTime});
-            this.dgvBookingList.Location = new System.Drawing.Point(20, 335);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBookingList.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvBookingList.EnableHeadersVisualStyles = false;
+            this.dgvBookingList.GridColor = System.Drawing.Color.Black;
+            this.dgvBookingList.Location = new System.Drawing.Point(12, 211);
+            this.dgvBookingList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvBookingList.Name = "dgvBookingList";
             this.dgvBookingList.ReadOnly = true;
-            this.dgvBookingList.Size = new System.Drawing.Size(805, 118);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.OliveDrab;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBookingList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvBookingList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvBookingList.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvBookingList.Size = new System.Drawing.Size(813, 203);
             this.dgvBookingList.TabIndex = 18;
             this.dgvBookingList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvBookingList_CellDoubleClick);
             // 
@@ -319,9 +409,10 @@
             // 
             this.rdoCUD.AutoSize = true;
             this.rdoCUD.Checked = true;
-            this.rdoCUD.Location = new System.Drawing.Point(27, 12);
+            this.rdoCUD.Location = new System.Drawing.Point(59, 13);
+            this.rdoCUD.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rdoCUD.Name = "rdoCUD";
-            this.rdoCUD.Size = new System.Drawing.Size(134, 17);
+            this.rdoCUD.Size = new System.Drawing.Size(178, 21);
             this.rdoCUD.TabIndex = 35;
             this.rdoCUD.TabStop = true;
             this.rdoCUD.Text = "Create/Update/Cancel";
@@ -331,9 +422,11 @@
             // rdoFilter
             // 
             this.rdoFilter.AutoSize = true;
-            this.rdoFilter.Location = new System.Drawing.Point(167, 12);
+            this.rdoFilter.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.rdoFilter.Location = new System.Drawing.Point(245, 13);
+            this.rdoFilter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rdoFilter.Name = "rdoFilter";
-            this.rdoFilter.Size = new System.Drawing.Size(47, 17);
+            this.rdoFilter.Size = new System.Drawing.Size(55, 21);
             this.rdoFilter.TabIndex = 36;
             this.rdoFilter.Text = "Filter";
             this.rdoFilter.UseVisualStyleBackColor = true;
@@ -342,9 +435,11 @@
             // cballdates
             // 
             this.cballdates.AutoSize = true;
-            this.cballdates.Location = new System.Drawing.Point(167, 45);
+            this.cballdates.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.cballdates.Location = new System.Drawing.Point(318, 13);
+            this.cballdates.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cballdates.Name = "cballdates";
-            this.cballdates.Size = new System.Drawing.Size(68, 17);
+            this.cballdates.Size = new System.Drawing.Size(83, 21);
             this.cballdates.TabIndex = 37;
             this.cballdates.Text = "All Dates";
             this.cballdates.UseVisualStyleBackColor = true;
@@ -361,9 +456,9 @@
             // 
             // BookingManager
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(837, 465);
             this.Controls.Add(this.cballdates);
             this.Controls.Add(this.rdoFilter);
@@ -385,7 +480,13 @@
             this.Controls.Add(this.dtpEnd);
             this.Controls.Add(this.dtpStart);
             this.Controls.Add(this.dgvBookingList);
+            this.DoubleBuffered = true;
+            this.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "BookingManager";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BookingManager";
             this.Load += new System.EventHandler(this.BookingManager_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookingList)).EndInit();

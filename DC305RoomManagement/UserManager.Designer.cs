@@ -47,14 +47,6 @@
             this.btnReset = new System.Windows.Forms.Button();
             this.btnDisable = new System.Windows.Forms.Button();
             this.dtgGrid = new System.Windows.Forms.DataGridView();
-            this.UserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DOB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Genders = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dtDOB = new System.Windows.Forms.DateTimePicker();
             this.lblDOB = new System.Windows.Forms.Label();
@@ -65,6 +57,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.UserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DOB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Genders = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.grpGender.SuspendLayout();
@@ -150,11 +150,9 @@
             // 
             // btnCreate
             // 
-            this.btnCreate.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCreate.BackColor = System.Drawing.Color.DarkKhaki;
             this.btnCreate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCreate.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnCreate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnCreate.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreate.ForeColor = System.Drawing.Color.Black;
             this.btnCreate.Location = new System.Drawing.Point(12, 125);
@@ -169,12 +167,10 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnUpdate.BackColor = System.Drawing.Color.DarkKhaki;
             this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdate.Enabled = false;
-            this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnUpdate.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.Black;
             this.btnUpdate.Location = new System.Drawing.Point(139, 125);
@@ -189,11 +185,9 @@
             // 
             // btnReset
             // 
-            this.btnReset.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnReset.BackColor = System.Drawing.Color.DarkKhaki;
             this.btnReset.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReset.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnReset.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReset.ForeColor = System.Drawing.Color.Black;
             this.btnReset.Location = new System.Drawing.Point(270, 125);
@@ -208,11 +202,9 @@
             // 
             // btnDisable
             // 
-            this.btnDisable.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnDisable.BackColor = System.Drawing.Color.DarkKhaki;
             this.btnDisable.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDisable.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnDisable.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.btnDisable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDisable.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnDisable.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDisable.ForeColor = System.Drawing.Color.Black;
             this.btnDisable.Location = new System.Drawing.Point(401, 125);
@@ -230,7 +222,7 @@
             this.dtgGrid.AllowUserToAddRows = false;
             this.dtgGrid.AllowUserToDeleteRows = false;
             this.dtgGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgGrid.BackgroundColor = System.Drawing.Color.White;
+            this.dtgGrid.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -239,6 +231,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtgGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtgGrid.ColumnHeadersHeight = 30;
             this.dtgGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dtgGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UserId,
@@ -258,12 +251,12 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtgGrid.EnableHeadersVisualStyles = false;
-            this.dtgGrid.GridColor = System.Drawing.Color.SteelBlue;
+            this.dtgGrid.GridColor = System.Drawing.Color.Black;
             this.dtgGrid.Location = new System.Drawing.Point(12, 166);
             this.dtgGrid.Name = "dtgGrid";
             this.dtgGrid.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.OliveDrab;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -278,73 +271,9 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SteelBlue;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
             this.dtgGrid.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dtgGrid.Size = new System.Drawing.Size(813, 287);
+            this.dtgGrid.Size = new System.Drawing.Size(813, 294);
             this.dtgGrid.TabIndex = 16;
             this.dtgGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgGrid_CellClick);
-            // 
-            // UserId
-            // 
-            this.UserId.DataPropertyName = "UserId";
-            this.UserId.HeaderText = "UserId";
-            this.UserId.Name = "UserId";
-            this.UserId.ReadOnly = true;
-            this.UserId.Visible = false;
-            // 
-            // NameC
-            // 
-            this.NameC.DataPropertyName = "Name";
-            this.NameC.FillWeight = 116.6819F;
-            this.NameC.HeaderText = "Name";
-            this.NameC.Name = "NameC";
-            this.NameC.ReadOnly = true;
-            // 
-            // DOB
-            // 
-            this.DOB.DataPropertyName = "DOB";
-            this.DOB.FillWeight = 75.62128F;
-            this.DOB.HeaderText = "DOB";
-            this.DOB.Name = "DOB";
-            this.DOB.ReadOnly = true;
-            // 
-            // Genders
-            // 
-            this.Genders.DataPropertyName = "Gender";
-            this.Genders.FillWeight = 116.9933F;
-            this.Genders.HeaderText = "Gender";
-            this.Genders.Name = "Genders";
-            this.Genders.ReadOnly = true;
-            // 
-            // Email
-            // 
-            this.Email.DataPropertyName = "Email";
-            this.Email.FillWeight = 156.8347F;
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            // 
-            // Password
-            // 
-            this.Password.DataPropertyName = "Password";
-            this.Password.FillWeight = 97.86527F;
-            this.Password.HeaderText = "Password";
-            this.Password.Name = "Password";
-            this.Password.ReadOnly = true;
-            // 
-            // RoleId
-            // 
-            this.RoleId.DataPropertyName = "Role";
-            this.RoleId.HeaderText = "RoleId";
-            this.RoleId.Name = "RoleId";
-            this.RoleId.ReadOnly = true;
-            this.RoleId.Visible = false;
-            // 
-            // Role
-            // 
-            this.Role.DataPropertyName = "RoleName";
-            this.Role.FillWeight = 53.93227F;
-            this.Role.HeaderText = "Role";
-            this.Role.Name = "Role";
-            this.Role.ReadOnly = true;
             // 
             // txtSearch
             // 
@@ -449,6 +378,70 @@
             this.label2.Size = new System.Drawing.Size(83, 14);
             this.label2.TabIndex = 28;
             this.label2.Text = "(yyyy-mm-dd)";
+            // 
+            // UserId
+            // 
+            this.UserId.DataPropertyName = "UserId";
+            this.UserId.HeaderText = "UserId";
+            this.UserId.Name = "UserId";
+            this.UserId.ReadOnly = true;
+            this.UserId.Visible = false;
+            // 
+            // NameC
+            // 
+            this.NameC.DataPropertyName = "Name";
+            this.NameC.FillWeight = 114.861F;
+            this.NameC.HeaderText = "Name";
+            this.NameC.Name = "NameC";
+            this.NameC.ReadOnly = true;
+            // 
+            // DOB
+            // 
+            this.DOB.DataPropertyName = "DOB";
+            this.DOB.FillWeight = 74.44115F;
+            this.DOB.HeaderText = "DOB";
+            this.DOB.Name = "DOB";
+            this.DOB.ReadOnly = true;
+            // 
+            // Genders
+            // 
+            this.Genders.DataPropertyName = "Gender";
+            this.Genders.FillWeight = 115.1675F;
+            this.Genders.HeaderText = "Gender";
+            this.Genders.Name = "Genders";
+            this.Genders.ReadOnly = true;
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "Email";
+            this.Email.FillWeight = 154.3872F;
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            // 
+            // Password
+            // 
+            this.Password.DataPropertyName = "Password";
+            this.Password.FillWeight = 96.338F;
+            this.Password.HeaderText = "Password";
+            this.Password.Name = "Password";
+            this.Password.ReadOnly = true;
+            // 
+            // RoleId
+            // 
+            this.RoleId.DataPropertyName = "Role";
+            this.RoleId.HeaderText = "RoleId";
+            this.RoleId.Name = "RoleId";
+            this.RoleId.ReadOnly = true;
+            this.RoleId.Visible = false;
+            // 
+            // Role
+            // 
+            this.Role.DataPropertyName = "RoleName";
+            this.Role.FillWeight = 62.73388F;
+            this.Role.HeaderText = "Role";
+            this.Role.Name = "Role";
+            this.Role.ReadOnly = true;
             // 
             // UserManager
             // 

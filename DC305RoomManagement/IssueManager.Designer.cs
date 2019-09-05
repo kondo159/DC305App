@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlMainContent = new System.Windows.Forms.Panel();
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
             this.dtpFrom = new System.Windows.Forms.DateTimePicker();
@@ -55,6 +58,7 @@
             this.txtDescriptionValue = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlMainContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIssues)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -62,6 +66,7 @@
             // 
             // pnlMainContent
             // 
+            this.pnlMainContent.Controls.Add(this.label1);
             this.pnlMainContent.Controls.Add(this.dtpTo);
             this.pnlMainContent.Controls.Add(this.dtpFrom);
             this.pnlMainContent.Controls.Add(this.lblDateTo);
@@ -87,94 +92,126 @@
             // 
             // dtpTo
             // 
+            this.dtpTo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpTo.Location = new System.Drawing.Point(521, 18);
+            this.dtpTo.Location = new System.Drawing.Point(526, 31);
             this.dtpTo.MinDate = new System.DateTime(2019, 8, 1, 0, 0, 0, 0);
             this.dtpTo.Name = "dtpTo";
-            this.dtpTo.Size = new System.Drawing.Size(102, 22);
+            this.dtpTo.Size = new System.Drawing.Size(102, 23);
             this.dtpTo.TabIndex = 13;
             // 
             // dtpFrom
             // 
+            this.dtpFrom.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFrom.Location = new System.Drawing.Point(369, 18);
+            this.dtpFrom.Location = new System.Drawing.Point(375, 32);
             this.dtpFrom.MinDate = new System.DateTime(2019, 8, 1, 0, 0, 0, 0);
             this.dtpFrom.Name = "dtpFrom";
-            this.dtpFrom.Size = new System.Drawing.Size(102, 22);
+            this.dtpFrom.Size = new System.Drawing.Size(102, 23);
             this.dtpFrom.TabIndex = 13;
             // 
             // lblDateTo
             // 
             this.lblDateTo.AutoSize = true;
-            this.lblDateTo.Location = new System.Drawing.Point(487, 20);
+            this.lblDateTo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateTo.Location = new System.Drawing.Point(494, 31);
             this.lblDateTo.Name = "lblDateTo";
-            this.lblDateTo.Size = new System.Drawing.Size(28, 16);
+            this.lblDateTo.Size = new System.Drawing.Size(26, 17);
             this.lblDateTo.TabIndex = 12;
             this.lblDateTo.Text = "To:";
             // 
             // lblDateFrom
             // 
             this.lblDateFrom.AutoSize = true;
-            this.lblDateFrom.Location = new System.Drawing.Point(321, 20);
+            this.lblDateFrom.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateFrom.Location = new System.Drawing.Point(325, 32);
             this.lblDateFrom.Name = "lblDateFrom";
-            this.lblDateFrom.Size = new System.Drawing.Size(42, 16);
+            this.lblDateFrom.Size = new System.Drawing.Size(44, 17);
             this.lblDateFrom.TabIndex = 12;
             this.lblDateFrom.Text = "From:";
             // 
             // cbRoomName
             // 
             this.cbRoomName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRoomName.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbRoomName.FormattingEnabled = true;
-            this.cbRoomName.Location = new System.Drawing.Point(15, 40);
+            this.cbRoomName.Location = new System.Drawing.Point(17, 29);
             this.cbRoomName.Name = "cbRoomName";
-            this.cbRoomName.Size = new System.Drawing.Size(259, 24);
+            this.cbRoomName.Size = new System.Drawing.Size(259, 25);
             this.cbRoomName.TabIndex = 11;
             this.cbRoomName.Validating += new System.ComponentModel.CancelEventHandler(this.IssueManager_Validating);
             // 
             // lblRoomName
             // 
             this.lblRoomName.AutoSize = true;
-            this.lblRoomName.Location = new System.Drawing.Point(12, 20);
+            this.lblRoomName.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRoomName.Location = new System.Drawing.Point(14, 9);
             this.lblRoomName.Name = "lblRoomName";
-            this.lblRoomName.Size = new System.Drawing.Size(45, 16);
+            this.lblRoomName.Size = new System.Drawing.Size(47, 17);
             this.lblRoomName.TabIndex = 10;
             this.lblRoomName.Text = "Room";
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(742, 17);
+            this.btnPrint.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnPrint.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Location = new System.Drawing.Point(725, 29);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(75, 23);
+            this.btnPrint.Size = new System.Drawing.Size(89, 27);
             this.btnPrint.TabIndex = 9;
             this.btnPrint.Text = "Print";
-            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.UseVisualStyleBackColor = false;
             this.btnPrint.Click += new System.EventHandler(this.BtnPrint_Click);
+            this.btnPrint.MouseEnter += new System.EventHandler(this.BtnPrint_MouseEnter);
+            this.btnPrint.MouseLeave += new System.EventHandler(this.BtnPrint_MouseLeave);
             // 
             // btnFilterDate
             // 
-            this.btnFilterDate.Location = new System.Drawing.Point(639, 18);
+            this.btnFilterDate.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnFilterDate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnFilterDate.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFilterDate.Location = new System.Drawing.Point(634, 29);
             this.btnFilterDate.Name = "btnFilterDate";
-            this.btnFilterDate.Size = new System.Drawing.Size(80, 23);
+            this.btnFilterDate.Size = new System.Drawing.Size(85, 27);
             this.btnFilterDate.TabIndex = 9;
             this.btnFilterDate.Text = "Filter";
-            this.btnFilterDate.UseVisualStyleBackColor = true;
+            this.btnFilterDate.UseVisualStyleBackColor = false;
             this.btnFilterDate.Click += new System.EventHandler(this.BtnFilterDate_Click);
+            this.btnFilterDate.MouseEnter += new System.EventHandler(this.BtnFilterDate_MouseEnter);
+            this.btnFilterDate.MouseLeave += new System.EventHandler(this.BtnFilterDate_MouseLeave);
             // 
             // btnCreateIssue
             // 
-            this.btnCreateIssue.Location = new System.Drawing.Point(183, 432);
+            this.btnCreateIssue.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnCreateIssue.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnCreateIssue.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateIssue.Location = new System.Drawing.Point(17, 226);
             this.btnCreateIssue.Name = "btnCreateIssue";
-            this.btnCreateIssue.Size = new System.Drawing.Size(91, 23);
+            this.btnCreateIssue.Size = new System.Drawing.Size(260, 32);
             this.btnCreateIssue.TabIndex = 9;
             this.btnCreateIssue.Text = "Save";
-            this.btnCreateIssue.UseVisualStyleBackColor = true;
+            this.btnCreateIssue.UseVisualStyleBackColor = false;
             this.btnCreateIssue.Click += new System.EventHandler(this.BtnSaveIssue_Click);
+            this.btnCreateIssue.MouseEnter += new System.EventHandler(this.BtnCreateIssue_MouseEnter);
+            this.btnCreateIssue.MouseLeave += new System.EventHandler(this.BtnCreateIssue_MouseLeave);
             // 
             // dgvIssues
             // 
             this.dgvIssues.AllowUserToAddRows = false;
             this.dgvIssues.AllowUserToDeleteRows = false;
-            this.dgvIssues.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvIssues.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvIssues.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvIssues.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvIssues.ColumnHeadersHeight = 30;
+            this.dgvIssues.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvIssues.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IssueId,
             this.IssueName,
@@ -184,10 +221,23 @@
             this.CreatedAt,
             this.ClosedAt});
             this.dgvIssues.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvIssues.Location = new System.Drawing.Point(324, 49);
+            this.dgvIssues.EnableHeadersVisualStyles = false;
+            this.dgvIssues.GridColor = System.Drawing.Color.Black;
+            this.dgvIssues.Location = new System.Drawing.Point(17, 264);
             this.dgvIssues.Name = "dgvIssues";
-            this.dgvIssues.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvIssues.Size = new System.Drawing.Size(493, 359);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.OliveDrab;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvIssues.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvIssues.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvIssues.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvIssues.Size = new System.Drawing.Size(800, 183);
             this.dgvIssues.TabIndex = 8;
             this.dgvIssues.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvIssues_CellDoubleClick);
             // 
@@ -240,68 +290,85 @@
             // cbIssueStatusValue
             // 
             this.cbIssueStatusValue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbIssueStatusValue.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbIssueStatusValue.FormattingEnabled = true;
             this.cbIssueStatusValue.Items.AddRange(new object[] {
             "Initiated",
             "In Work",
             "Fixed"});
-            this.cbIssueStatusValue.Location = new System.Drawing.Point(15, 384);
+            this.cbIssueStatusValue.Location = new System.Drawing.Point(18, 195);
             this.cbIssueStatusValue.Name = "cbIssueStatusValue";
-            this.cbIssueStatusValue.Size = new System.Drawing.Size(259, 24);
+            this.cbIssueStatusValue.Size = new System.Drawing.Size(259, 25);
             this.cbIssueStatusValue.TabIndex = 7;
             this.cbIssueStatusValue.Validating += new System.ComponentModel.CancelEventHandler(this.IssueManager_Validating);
             // 
             // lblIssueStatus
             // 
             this.lblIssueStatus.AutoSize = true;
-            this.lblIssueStatus.Location = new System.Drawing.Point(12, 364);
+            this.lblIssueStatus.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIssueStatus.Location = new System.Drawing.Point(15, 175);
             this.lblIssueStatus.Name = "lblIssueStatus";
-            this.lblIssueStatus.Size = new System.Drawing.Size(45, 16);
+            this.lblIssueStatus.Size = new System.Drawing.Size(46, 17);
             this.lblIssueStatus.TabIndex = 2;
             this.lblIssueStatus.Text = "Status";
             // 
             // lblIssueTitle
             // 
             this.lblIssueTitle.AutoSize = true;
-            this.lblIssueTitle.Location = new System.Drawing.Point(12, 83);
+            this.lblIssueTitle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIssueTitle.Location = new System.Drawing.Point(14, 57);
             this.lblIssueTitle.Name = "lblIssueTitle";
-            this.lblIssueTitle.Size = new System.Drawing.Size(34, 16);
+            this.lblIssueTitle.Size = new System.Drawing.Size(32, 17);
             this.lblIssueTitle.TabIndex = 2;
             this.lblIssueTitle.Text = "Title";
             // 
             // txtIssueNameValue
             // 
-            this.txtIssueNameValue.Location = new System.Drawing.Point(15, 102);
+            this.txtIssueNameValue.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIssueNameValue.Location = new System.Drawing.Point(17, 76);
             this.txtIssueNameValue.Name = "txtIssueNameValue";
-            this.txtIssueNameValue.Size = new System.Drawing.Size(259, 22);
+            this.txtIssueNameValue.Size = new System.Drawing.Size(259, 23);
             this.txtIssueNameValue.TabIndex = 5;
             this.txtIssueNameValue.Validating += new System.ComponentModel.CancelEventHandler(this.IssueManager_Validating);
             // 
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(12, 142);
+            this.lblDescription.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescription.Location = new System.Drawing.Point(14, 102);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(76, 16);
+            this.lblDescription.Size = new System.Drawing.Size(80, 17);
             this.lblDescription.TabIndex = 3;
             this.lblDescription.Text = "Description";
             // 
             // txtDescriptionValue
             // 
-            this.txtDescriptionValue.Location = new System.Drawing.Point(15, 161);
+            this.txtDescriptionValue.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescriptionValue.Location = new System.Drawing.Point(17, 121);
             this.txtDescriptionValue.Multiline = true;
             this.txtDescriptionValue.Name = "txtDescriptionValue";
-            this.txtDescriptionValue.Size = new System.Drawing.Size(259, 185);
+            this.txtDescriptionValue.Size = new System.Drawing.Size(259, 51);
             this.txtDescriptionValue.TabIndex = 6;
             // 
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(372, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(119, 17);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Select Filter Date:";
+            // 
             // IssueManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(829, 479);
             this.Controls.Add(this.pnlMainContent);
             this.Name = "IssueManager";
@@ -343,5 +410,6 @@
         private System.Windows.Forms.Label lblDateTo;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.Label label1;
     }
 }

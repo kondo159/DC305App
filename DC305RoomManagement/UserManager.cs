@@ -44,7 +44,6 @@ namespace DC305RoomManagement
         }
         private void BtnCreate_Click(object sender, EventArgs e)
         {
-            
             if (ValidateAll())
             {
                 try
@@ -116,7 +115,7 @@ namespace DC305RoomManagement
 
         private void UserManager_Load(object sender, EventArgs e)
         {
-            dtgGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 11);
+            dtgGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 10);
             LoadData();
             txtID.Hide();
         }
@@ -348,39 +347,46 @@ namespace DC305RoomManagement
 
         private void BtnCreate_MouseEnter(object sender, EventArgs e)
         {
-            btnCreate.ForeColor = Color.White;           
+            btnCreate.ForeColor = Color.White;
+            btnCreate.BackColor = Color.ForestGreen;
         }
 
         private void BtnCreate_MouseLeave(object sender, EventArgs e)
         {
             btnCreate.ForeColor = Color.Black;
+            btnCreate.BackColor = Color.DarkKhaki;
         }
 
         private void BtnUpdate_MouseEnter(object sender, EventArgs e)
         {
             btnUpdate.ForeColor = Color.White;
+            btnUpdate.BackColor = Color.ForestGreen;
         }
         private void BtnUpdate_MouseLeave_1(object sender, EventArgs e)
         {
-            btnUpdate.ForeColor = SystemColors.ControlText;
+            btnUpdate.ForeColor = Color.White;
+            btnUpdate.BackColor = Color.DarkKhaki;
         }
         private void BtnReset_MouseEnter_1(object sender, EventArgs e)
         {
             btnReset.ForeColor = Color.White;
+            btnReset.BackColor = Color.ForestGreen;
         }
-
         private void BtnReset_MouseLeave_1(object sender, EventArgs e)
         {
             btnReset.ForeColor = SystemColors.ControlText;
+            btnReset.BackColor = Color.DarkKhaki;
         }
 
         private void BtnDisable_MouseEnter(object sender, EventArgs e)
         {
             btnDisable.ForeColor = Color.White;
+            btnDisable.BackColor = Color.ForestGreen;
         }
         private void BtnDisable_MouseLeave(object sender, EventArgs e)
         {
             btnDisable.ForeColor = SystemColors.ControlText;
+            btnDisable.BackColor = Color.DarkKhaki;
         }
         
 

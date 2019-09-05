@@ -38,6 +38,7 @@ namespace DC305RoomManagement
         /// <param name="e"></param>
         private void BookingManager_Load(object sender, EventArgs e)
         {
+            dgvBookingList.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 10);
             dgvBookingList.AutoGenerateColumns = false;
             LoadComboBox("Select * from Rooms where Enable=1", "RoomId", cboxRoom);
             if (userRole == 3)
@@ -633,6 +634,77 @@ namespace DC305RoomManagement
             return valid;
         }
 
+        private void BtnCreate_MouseEnter(object sender, EventArgs e)
+        {
+            btnCreate.ForeColor = Color.White;
+            btnCreate.BackColor = Color.ForestGreen;
+        }
+
+        private void BtnCreate_MouseLeave(object sender, EventArgs e)
+        {
+            btnCreate.ForeColor = Color.Black;
+            btnCreate.BackColor = Color.DarkKhaki;
+        }
+
+        private void BtnUpdate_MouseEnter(object sender, EventArgs e)
+        {
+            btnUpdate.ForeColor = Color.White;
+            btnUpdate.BackColor = Color.ForestGreen;
+        }
+
+        private void BtnUpdate_MouseLeave(object sender, EventArgs e)
+        {
+            btnUpdate.ForeColor = Color.Black;
+            btnUpdate.BackColor = Color.DarkKhaki;
+        }
+
+        private void BtnReset_MouseEnter(object sender, EventArgs e)
+        {
+            btnReset.ForeColor = Color.White;
+            btnReset.BackColor = Color.ForestGreen;
+        }
+
+        private void BtnReset_MouseLeave(object sender, EventArgs e)
+        {
+            btnReset.ForeColor = Color.Black;
+            btnReset.BackColor = Color.DarkKhaki;
+        }
+
+        private void BtnFilter_MouseEnter(object sender, EventArgs e)
+        {
+            btnFilter.ForeColor = Color.White;
+            btnFilter.BackColor = Color.ForestGreen;
+        }
+
+        private void BtnFilter_MouseLeave(object sender, EventArgs e)
+        {
+            btnFilter.ForeColor = Color.Black;
+            btnFilter.BackColor = Color.DarkKhaki;
+        }
+
+        private void BtnPrint_MouseEnter(object sender, EventArgs e)
+        {
+            btnPrint.ForeColor = Color.White;
+            btnPrint.BackColor = Color.ForestGreen;
+        }
+
+        private void BtnPrint_MouseLeave(object sender, EventArgs e)
+        {
+            btnPrint.ForeColor = Color.Black;
+            btnPrint.BackColor = Color.DarkKhaki;
+        }
+
+        private void BtnCancel_MouseEnter(object sender, EventArgs e)
+        {
+            btnCancel.ForeColor = Color.White;
+            btnCancel.BackColor = Color.ForestGreen;
+        }
+
+        private void BtnCancel_MouseLeave(object sender, EventArgs e)
+        {
+            btnCancel.ForeColor = Color.Black;
+            btnCancel.BackColor = Color.DarkKhaki;
+        }
     }   
 
 }
