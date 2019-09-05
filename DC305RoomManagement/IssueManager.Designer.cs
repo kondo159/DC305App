@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlMainContent = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
             this.dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.lblDateTo = new System.Windows.Forms.Label();
@@ -58,7 +59,6 @@
             this.txtDescriptionValue = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.label1 = new System.Windows.Forms.Label();
             this.pnlMainContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIssues)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -89,6 +89,16 @@
             this.pnlMainContent.Name = "pnlMainContent";
             this.pnlMainContent.Size = new System.Drawing.Size(829, 479);
             this.pnlMainContent.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(358, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(119, 17);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Select Filter Date:";
             // 
             // dtpTo
             // 
@@ -154,6 +164,7 @@
             // btnPrint
             // 
             this.btnPrint.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnPrint.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrint.Location = new System.Drawing.Point(725, 29);
@@ -169,6 +180,7 @@
             // btnFilterDate
             // 
             this.btnFilterDate.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnFilterDate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFilterDate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnFilterDate.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFilterDate.Location = new System.Drawing.Point(634, 29);
@@ -184,9 +196,10 @@
             // btnCreateIssue
             // 
             this.btnCreateIssue.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnCreateIssue.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCreateIssue.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnCreateIssue.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateIssue.Location = new System.Drawing.Point(17, 226);
+            this.btnCreateIssue.Location = new System.Drawing.Point(18, 226);
             this.btnCreateIssue.Name = "btnCreateIssue";
             this.btnCreateIssue.Size = new System.Drawing.Size(260, 32);
             this.btnCreateIssue.TabIndex = 9;
@@ -353,16 +366,6 @@
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(372, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 17);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Select Filter Date:";
             // 
             // IssueManager
             // 

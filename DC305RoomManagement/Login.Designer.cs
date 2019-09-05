@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.txtUser = new System.Windows.Forms.TextBox();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
@@ -42,11 +43,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -81,7 +82,10 @@
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(24)))), ((int)(((byte)(7)))));
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.Location = new System.Drawing.Point(441, 243);
             this.btnLogin.Name = "btnLogin";
@@ -90,6 +94,8 @@
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
+            this.btnLogin.MouseEnter += new System.EventHandler(this.BtnLogin_MouseEnter);
+            this.btnLogin.MouseLeave += new System.EventHandler(this.BtnLogin_MouseLeave);
             // 
             // errorProvider1
             // 
@@ -192,6 +198,14 @@
             this.panel3.Size = new System.Drawing.Size(355, 299);
             this.panel3.TabIndex = 14;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.Location = new System.Drawing.Point(0, 289);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(357, 10);
+            this.panel2.TabIndex = 1;
+            // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::DC305RoomManagement.Properties.Resources.ITEdu_Information_Systems_Logo;
@@ -205,9 +219,9 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::DC305RoomManagement.Properties.Resources.icons8_enter_241;
-            this.pictureBox5.Location = new System.Drawing.Point(491, 252);
+            this.pictureBox5.Location = new System.Drawing.Point(499, 252);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(26, 18);
+            this.pictureBox5.Size = new System.Drawing.Size(18, 18);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox5.TabIndex = 15;
             this.pictureBox5.TabStop = false;
@@ -231,14 +245,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Location = new System.Drawing.Point(0, 289);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(357, 10);
-            this.panel2.TabIndex = 1;
             // 
             // panel6
             // 
@@ -269,6 +275,7 @@
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI Historic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Login";

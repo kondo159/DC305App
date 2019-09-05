@@ -56,7 +56,7 @@ namespace DC305RoomManagement
 
                 else
                 {
-                    MessageBox.Show("Incorrect Username or Password", "Login", MessageBoxButtons.OK);
+                    MessageBox.Show("Incorrect Email or Password", "Login", MessageBoxButtons.OK);
                     txtPass.Text = "";
                 }
             }
@@ -68,7 +68,7 @@ namespace DC305RoomManagement
                 Regex reg = new Regex(@"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*");
                 if (!reg.IsMatch(txtUser.Text))
                 {
-                    errorProvider1.SetError(txtUser,"Please provide valid Email");
+                    errorProvider1.SetError(txtUser,"Please provide a valid Email");
                     return false;
                 }
                 errorProvider1.SetError(txtUser, "");
@@ -106,6 +106,16 @@ namespace DC305RoomManagement
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void BtnLogin_MouseEnter(object sender, EventArgs e)
+        {
+            btnLogin.ForeColor = Color.White;
+        }
+
+        private void BtnLogin_MouseLeave(object sender, EventArgs e)
+        {
+            btnLogin.ForeColor = Color.Black;
         }
     }
 }
