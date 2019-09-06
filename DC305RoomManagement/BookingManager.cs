@@ -324,6 +324,10 @@ namespace DC305RoomManagement
         private void BtnReset_Click(object sender, EventArgs e)
         {
             ResetForm();
+            DataGridViewSelectionMode oldmode = dgvBookingList.SelectionMode;
+            dgvBookingList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvBookingList.ClearSelection();
+            dgvBookingList.SelectionMode = oldmode;
         }
         /// <summary>
         /// Event to bring the selected information to the form for edit

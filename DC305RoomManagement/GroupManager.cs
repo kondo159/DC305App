@@ -97,6 +97,8 @@ namespace DC305RoomManagement
         {
             LoadGroups();
             LoadMembers();
+            dgvGroups.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 9.75F);
+            dgvMembers.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 9.75F);
         }
 
         /// <summary>
@@ -181,6 +183,7 @@ namespace DC305RoomManagement
                 {
                     LoadMembers();
                 }
+                
             }
             else
             {
@@ -237,6 +240,14 @@ namespace DC305RoomManagement
         private void BtnResetData_Click(object sender, EventArgs e)
         {
             FormHelper.ClearFields(pnlMainContent, typeof(TextBox));
+            DataGridViewSelectionMode oldmode =  dgvGroups.SelectionMode;
+            dgvGroups.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvGroups.ClearSelection();
+            dgvGroups.SelectionMode = oldmode;
+            
+            dgvMembers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvMembers.ClearSelection();
+            dgvMembers.SelectionMode = oldmode;
         }
 
         private void GroupManager_Validating(object sender, CancelEventArgs e)
@@ -249,6 +260,51 @@ namespace DC305RoomManagement
             {
                 errorProvider.SetError((sender as TextBox), string.Empty);
             }
+        }
+
+        private void BtnSaveGroup_MouseEnter(object sender, EventArgs e)
+        {
+            btnSaveGroup.ForeColor = Color.White;
+        }
+
+        private void BtnSaveGroup_MouseLeave(object sender, EventArgs e)
+        {
+            btnSaveGroup.ForeColor = Color.Black;
+        }
+
+        private void BtnResetData_MouseEnter(object sender, EventArgs e)
+        {
+            btnResetData.ForeColor = Color.White;
+        }
+
+        private void BtnResetData_MouseLeave(object sender, EventArgs e)
+        {
+            btnResetData.ForeColor = Color.Black;
+        }
+
+        private void BtnAddMember_MouseEnter(object sender, EventArgs e)
+        {
+            btnAddMember.ForeColor = Color.White;
+        }
+
+        private void BtnAddMember_MouseLeave(object sender, EventArgs e)
+        {
+            btnAddMember.ForeColor = Color.Black;
+        }
+
+        private void BtnRemoveMember_MouseEnter(object sender, EventArgs e)
+        {
+            btnRemoveMember.ForeColor = Color.White;
+        }
+
+        private void BtnRemoveMember_MouseLeave(object sender, EventArgs e)
+        {
+            btnRemoveMember.ForeColor = Color.Black;
+        }
+
+        private void DgvGroups_MouseEnter(object sender, EventArgs e)
+        {
+
         }
     }
 

@@ -269,5 +269,30 @@ namespace DC305RoomManagement
                 }
             }
         }
+
+        private void BtnSave_MouseEnter(object sender, EventArgs e)
+        {
+            btnSave.ForeColor = Color.White;
+        }
+
+        private void BtnSave_MouseLeave(object sender, EventArgs e)
+        {
+            btnSave.ForeColor = Color.Black;
+        }
+
+        private void BtnEnableDisable_MouseEnter(object sender, EventArgs e)
+        {
+            btnEnableDisable.ForeColor = Color.White;
+        }
+
+        private void BtnEnableDisable_MouseLeave(object sender, EventArgs e)
+        {
+            btnEnableDisable.ForeColor = Color.Black;
+        }
+
+        private void InventoryManager_Load(object sender, EventArgs e)
+        {
+            dgvInventory.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 10);
+        }
     }
 }

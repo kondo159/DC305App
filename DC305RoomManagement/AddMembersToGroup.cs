@@ -38,6 +38,8 @@ namespace DC305RoomManagement
         private void AddMembersToGroup_Load(object sender, EventArgs e)
         {
             LoadUsers(1); // Get Students
+            dgvUsers.ClearSelection();
+            dgvUsers.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 10);
         }
 
         /// <summary>
@@ -73,6 +75,30 @@ namespace DC305RoomManagement
                     row.Cells[0].Value = false;
                 }
             }
+            DataGridViewSelectionMode oldmode = dgvUsers.SelectionMode;
+            dgvUsers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvUsers.ClearSelection();
+            dgvUsers.SelectionMode = oldmode;
+        }
+
+        private void BtnAddMembers_MouseEnter(object sender, EventArgs e)
+        {
+            btnAddMembers.ForeColor = Color.White;
+        }
+
+        private void BtnAddMembers_MouseLeave(object sender, EventArgs e)
+        {
+            btnAddMembers.ForeColor = Color.Black;
+        }
+
+        private void BtnReset_MouseEnter(object sender, EventArgs e)
+        {
+            btnReset.ForeColor = Color.White;
+        }
+
+        private void BtnReset_MouseLeave(object sender, EventArgs e)
+        {
+            btnReset.ForeColor = Color.Black;
         }
     }
 }

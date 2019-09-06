@@ -50,8 +50,10 @@ namespace DC305RoomManagement
 
                     }
                     this.Hide();
-                    Main ss = new Main(uemail, urole,uid);
+                    Main ss = new Main(uemail, urole, uid);
                     ss.Show();
+                    /*progressBar1.Visible = true;
+                    timer_login.Enabled = true;*/
                 }
 
                 else
@@ -59,6 +61,7 @@ namespace DC305RoomManagement
                     MessageBox.Show("Incorrect Email or Password", "Login", MessageBoxButtons.OK);
                     txtPass.Text = "";
                 }
+                
             }
         }
         private bool EmailValidation()
@@ -89,7 +92,8 @@ namespace DC305RoomManagement
         }
         private void Login_Load(object sender, EventArgs e)
         {
-          // lbl_header.Font = new Font(lbl_header.Font.Name, 28, FontStyle.Bold);
+            // lbl_header.Font = new Font(lbl_header.Font.Name, 28, FontStyle.Bold);
+            progressBar1.Visible = false;
         }
         private void pic_Exit_Click(object sender, EventArgs e)
         {
@@ -116,6 +120,18 @@ namespace DC305RoomManagement
         private void BtnLogin_MouseLeave(object sender, EventArgs e)
         {
             btnLogin.ForeColor = Color.Black;
+        }
+
+        private void Timer_login_Tick(object sender, EventArgs e)
+        {
+            progressBar1.Value = progressBar1.Value + 2;
+            /*if(progressBar1.Value>99)
+            {
+                Main main = new Main(user, role, id);
+                main.Show();
+                this.Hide();
+                timer_login.Enabled = false;
+            }*/
         }
     }
 }

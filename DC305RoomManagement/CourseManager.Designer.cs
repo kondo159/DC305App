@@ -29,7 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlMainContent = new System.Windows.Forms.Panel();
+            this.txtDuration = new System.Windows.Forms.TextBox();
             this.gbLevels = new System.Windows.Forms.GroupBox();
             this.rbLevel7 = new System.Windows.Forms.RadioButton();
             this.rbLevel6 = new System.Windows.Forms.RadioButton();
@@ -48,7 +52,6 @@
             this.lblCourseDescription = new System.Windows.Forms.Label();
             this.txtDescriptionValue = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.txtDuration = new System.Windows.Forms.TextBox();
             this.pnlMainContent.SuspendLayout();
             this.gbLevels.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourses)).BeginInit();
@@ -57,6 +60,7 @@
             // 
             // pnlMainContent
             // 
+            this.pnlMainContent.BackColor = System.Drawing.Color.White;
             this.pnlMainContent.Controls.Add(this.txtDuration);
             this.pnlMainContent.Controls.Add(this.gbLevels);
             this.pnlMainContent.Controls.Add(this.btnResetData);
@@ -74,12 +78,21 @@
             this.pnlMainContent.Size = new System.Drawing.Size(853, 393);
             this.pnlMainContent.TabIndex = 2;
             // 
+            // txtDuration
+            // 
+            this.txtDuration.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDuration.Location = new System.Drawing.Point(15, 185);
+            this.txtDuration.Name = "txtDuration";
+            this.txtDuration.Size = new System.Drawing.Size(259, 23);
+            this.txtDuration.TabIndex = 13;
+            // 
             // gbLevels
             // 
             this.gbLevels.Controls.Add(this.rbLevel7);
             this.gbLevels.Controls.Add(this.rbLevel6);
             this.gbLevels.Controls.Add(this.rbLevel5);
-            this.gbLevels.Location = new System.Drawing.Point(15, 274);
+            this.gbLevels.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbLevels.Location = new System.Drawing.Point(15, 232);
             this.gbLevels.Name = "gbLevels";
             this.gbLevels.Size = new System.Drawing.Size(259, 56);
             this.gbLevels.TabIndex = 12;
@@ -89,9 +102,10 @@
             // rbLevel7
             // 
             this.rbLevel7.AutoSize = true;
+            this.rbLevel7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbLevel7.Location = new System.Drawing.Point(183, 21);
             this.rbLevel7.Name = "rbLevel7";
-            this.rbLevel7.Size = new System.Drawing.Size(69, 20);
+            this.rbLevel7.Size = new System.Drawing.Size(70, 21);
             this.rbLevel7.TabIndex = 0;
             this.rbLevel7.TabStop = true;
             this.rbLevel7.Text = "Level 7";
@@ -100,9 +114,10 @@
             // rbLevel6
             // 
             this.rbLevel6.AutoSize = true;
+            this.rbLevel6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbLevel6.Location = new System.Drawing.Point(95, 21);
             this.rbLevel6.Name = "rbLevel6";
-            this.rbLevel6.Size = new System.Drawing.Size(69, 20);
+            this.rbLevel6.Size = new System.Drawing.Size(70, 21);
             this.rbLevel6.TabIndex = 0;
             this.rbLevel6.TabStop = true;
             this.rbLevel6.Text = "Level 6";
@@ -112,9 +127,10 @@
             // 
             this.rbLevel5.AutoSize = true;
             this.rbLevel5.Checked = true;
+            this.rbLevel5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbLevel5.Location = new System.Drawing.Point(7, 22);
             this.rbLevel5.Name = "rbLevel5";
-            this.rbLevel5.Size = new System.Drawing.Size(69, 20);
+            this.rbLevel5.Size = new System.Drawing.Size(70, 21);
             this.rbLevel5.TabIndex = 0;
             this.rbLevel5.TabStop = true;
             this.rbLevel5.Text = "Level 5";
@@ -122,40 +138,78 @@
             // 
             // btnResetData
             // 
-            this.btnResetData.Location = new System.Drawing.Point(147, 353);
+            this.btnResetData.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnResetData.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnResetData.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnResetData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnResetData.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetData.Location = new System.Drawing.Point(152, 306);
             this.btnResetData.Name = "btnResetData";
-            this.btnResetData.Size = new System.Drawing.Size(75, 23);
+            this.btnResetData.Size = new System.Drawing.Size(105, 30);
             this.btnResetData.TabIndex = 9;
             this.btnResetData.Text = "Reset";
-            this.btnResetData.UseVisualStyleBackColor = true;
+            this.btnResetData.UseVisualStyleBackColor = false;
             this.btnResetData.Click += new System.EventHandler(this.BtnResetData_Click);
+            this.btnResetData.MouseEnter += new System.EventHandler(this.BtnResetData_MouseEnter);
+            this.btnResetData.MouseLeave += new System.EventHandler(this.BtnResetData_MouseLeave);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(59, 353);
+            this.btnSave.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(27, 306);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(105, 30);
             this.btnSave.TabIndex = 9;
             this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
+            this.btnSave.MouseEnter += new System.EventHandler(this.BtnSave_MouseEnter);
+            this.btnSave.MouseLeave += new System.EventHandler(this.BtnSave_MouseLeave);
             // 
             // dgvCourses
             // 
             this.dgvCourses.AllowUserToAddRows = false;
             this.dgvCourses.AllowUserToDeleteRows = false;
-            this.dgvCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCourses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCourses.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCourses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvCourses.ColumnHeadersHeight = 30;
+            this.dgvCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvCourses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CourseID,
             this.CourseName,
             this.Description,
             this.Duration,
             this.Level});
-            this.dgvCourses.Location = new System.Drawing.Point(324, 39);
+            this.dgvCourses.EnableHeadersVisualStyles = false;
+            this.dgvCourses.GridColor = System.Drawing.Color.Black;
+            this.dgvCourses.Location = new System.Drawing.Point(296, 28);
             this.dgvCourses.Name = "dgvCourses";
             this.dgvCourses.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkOrange;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCourses.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvCourses.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvCourses.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCourses.Size = new System.Drawing.Size(517, 337);
+            this.dgvCourses.Size = new System.Drawing.Size(545, 308);
             this.dgvCourses.TabIndex = 8;
             this.dgvCourses.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCourses_CellDoubleClick);
             // 
@@ -170,22 +224,23 @@
             // CourseName
             // 
             this.CourseName.DataPropertyName = "CourseName";
+            this.CourseName.FillWeight = 121.8274F;
             this.CourseName.HeaderText = "Course Name";
             this.CourseName.Name = "CourseName";
             this.CourseName.ReadOnly = true;
-            this.CourseName.Width = 200;
             // 
             // Description
             // 
             this.Description.DataPropertyName = "Description";
+            this.Description.FillWeight = 92.7242F;
             this.Description.HeaderText = "Description";
             this.Description.Name = "Description";
             this.Description.ReadOnly = true;
-            this.Description.Width = 200;
             // 
             // Duration
             // 
             this.Duration.DataPropertyName = "Description";
+            this.Duration.FillWeight = 92.7242F;
             this.Duration.HeaderText = "Duration";
             this.Duration.Name = "Duration";
             this.Duration.ReadOnly = true;
@@ -193,6 +248,7 @@
             // Level
             // 
             this.Level.DataPropertyName = "Level";
+            this.Level.FillWeight = 92.7242F;
             this.Level.HeaderText = "Level";
             this.Level.Name = "Level";
             this.Level.ReadOnly = true;
@@ -200,41 +256,46 @@
             // lblDuration
             // 
             this.lblDuration.AutoSize = true;
-            this.lblDuration.Location = new System.Drawing.Point(12, 203);
+            this.lblDuration.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDuration.Location = new System.Drawing.Point(12, 166);
             this.lblDuration.Name = "lblDuration";
-            this.lblDuration.Size = new System.Drawing.Size(58, 16);
+            this.lblDuration.Size = new System.Drawing.Size(64, 17);
             this.lblDuration.TabIndex = 2;
             this.lblDuration.Text = "Duration";
             // 
             // lbICourseName
             // 
             this.lbICourseName.AutoSize = true;
-            this.lbICourseName.Location = new System.Drawing.Point(12, 20);
+            this.lbICourseName.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbICourseName.Location = new System.Drawing.Point(12, 9);
             this.lbICourseName.Name = "lbICourseName";
-            this.lbICourseName.Size = new System.Drawing.Size(91, 16);
+            this.lbICourseName.Size = new System.Drawing.Size(97, 17);
             this.lbICourseName.TabIndex = 2;
             this.lbICourseName.Text = "Course Name";
             // 
             // txtCourseNameValue
             // 
-            this.txtCourseNameValue.Location = new System.Drawing.Point(15, 39);
+            this.txtCourseNameValue.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCourseNameValue.Location = new System.Drawing.Point(15, 28);
             this.txtCourseNameValue.Name = "txtCourseNameValue";
-            this.txtCourseNameValue.Size = new System.Drawing.Size(259, 22);
+            this.txtCourseNameValue.Size = new System.Drawing.Size(259, 23);
             this.txtCourseNameValue.TabIndex = 5;
             this.txtCourseNameValue.Validating += new System.ComponentModel.CancelEventHandler(this.CourseManager_Validating);
             // 
             // lblCourseDescription
             // 
             this.lblCourseDescription.AutoSize = true;
-            this.lblCourseDescription.Location = new System.Drawing.Point(12, 86);
+            this.lblCourseDescription.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCourseDescription.Location = new System.Drawing.Point(12, 62);
             this.lblCourseDescription.Name = "lblCourseDescription";
-            this.lblCourseDescription.Size = new System.Drawing.Size(122, 16);
+            this.lblCourseDescription.Size = new System.Drawing.Size(129, 17);
             this.lblCourseDescription.TabIndex = 3;
             this.lblCourseDescription.Text = "Course Description";
             // 
             // txtDescriptionValue
             // 
-            this.txtDescriptionValue.Location = new System.Drawing.Point(15, 105);
+            this.txtDescriptionValue.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescriptionValue.Location = new System.Drawing.Point(15, 81);
             this.txtDescriptionValue.Multiline = true;
             this.txtDescriptionValue.Name = "txtDescriptionValue";
             this.txtDescriptionValue.Size = new System.Drawing.Size(259, 72);
@@ -243,13 +304,6 @@
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
-            // 
-            // txtDuration
-            // 
-            this.txtDuration.Location = new System.Drawing.Point(15, 222);
-            this.txtDuration.Name = "txtDuration";
-            this.txtDuration.Size = new System.Drawing.Size(259, 22);
-            this.txtDuration.TabIndex = 13;
             // 
             // CourseManager
             // 
@@ -284,13 +338,13 @@
         private System.Windows.Forms.RadioButton rbLevel7;
         private System.Windows.Forms.RadioButton rbLevel6;
         private System.Windows.Forms.RadioButton rbLevel5;
+        private System.Windows.Forms.Button btnResetData;
+        private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.TextBox txtDuration;
         private System.Windows.Forms.DataGridViewTextBoxColumn CourseID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CourseName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn Duration;
         private System.Windows.Forms.DataGridViewTextBoxColumn Level;
-        private System.Windows.Forms.Button btnResetData;
-        private System.Windows.Forms.ErrorProvider errorProvider;
-        private System.Windows.Forms.TextBox txtDuration;
     }
 }

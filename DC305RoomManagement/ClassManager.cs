@@ -5,6 +5,8 @@ using System;
 using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms;
+using System.Drawing;
+
 
 namespace DC305RoomManagement
 {
@@ -139,6 +141,7 @@ namespace DC305RoomManagement
             LoadCourses();
             LoadStaff();
             LoadGroups();
+            dgvClasses.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 10);
         }
 
         /// <summary>
@@ -188,6 +191,10 @@ namespace DC305RoomManagement
         {
             FormHelper.ClearFields(pnlMainContent, typeof(TextBox));
             FormHelper.ClearFields(pnlMainContent, typeof(ComboBox));
+            DataGridViewSelectionMode oldmode = dgvClasses.SelectionMode;
+            dgvClasses.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvClasses.ClearSelection();
+            dgvClasses.SelectionMode = oldmode;
         }
 
         private void ClassManager_Validating(object sender, CancelEventArgs e)
@@ -200,6 +207,36 @@ namespace DC305RoomManagement
             {
                 errorProvider.SetError((sender as TextBox), string.Empty);
             }
+        }
+
+        private void BtnCreate_MouseEnter(object sender, EventArgs e)
+        {
+            btnCreate.ForeColor = Color.White;
+        }
+
+        private void BtnCreate_MouseLeave(object sender, EventArgs e)
+        {
+            btnCreate.ForeColor = Color.Black;
+        }
+
+        private void BtnDeleteGroup_MouseEnter(object sender, EventArgs e)
+        {
+            btnDeleteGroup.ForeColor = Color.White;
+        }
+
+        private void BtnDeleteGroup_MouseLeave(object sender, EventArgs e)
+        {
+            btnDeleteGroup.ForeColor = Color.Black;
+        }
+
+        private void BtnReset_MouseEnter(object sender, EventArgs e)
+        {
+            btnReset.ForeColor = Color.White;
+        }
+
+        private void BtnReset_MouseLeave(object sender, EventArgs e)
+        {
+            btnReset.ForeColor = Color.Black;
         }
     }
 }

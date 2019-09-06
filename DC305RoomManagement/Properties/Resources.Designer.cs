@@ -179,5 +179,15 @@ namespace DC305RoomManagement.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap placeimg_853_504_tech {
+            get {
+                object obj = ResourceManager.GetObject("placeimg_853_504_tech", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

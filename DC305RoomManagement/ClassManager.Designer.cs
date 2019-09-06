@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlMainContent = new System.Windows.Forms.Panel();
             this.cbGroupNameValue = new System.Windows.Forms.ComboBox();
             this.cbStaffNameValue = new System.Windows.Forms.ComboBox();
@@ -68,83 +71,128 @@
             this.pnlMainContent.Controls.Add(this.txtClassNameValue);
             this.pnlMainContent.Controls.Add(this.lblGroupOfStudents);
             this.pnlMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMainContent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlMainContent.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlMainContent.Location = new System.Drawing.Point(0, 0);
             this.pnlMainContent.Name = "pnlMainContent";
-            this.pnlMainContent.Size = new System.Drawing.Size(840, 450);
+            this.pnlMainContent.Size = new System.Drawing.Size(837, 465);
             this.pnlMainContent.TabIndex = 2;
             // 
             // cbGroupNameValue
             // 
             this.cbGroupNameValue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGroupNameValue.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbGroupNameValue.FormattingEnabled = true;
-            this.cbGroupNameValue.Location = new System.Drawing.Point(15, 233);
+            this.cbGroupNameValue.Location = new System.Drawing.Point(15, 202);
             this.cbGroupNameValue.Name = "cbGroupNameValue";
-            this.cbGroupNameValue.Size = new System.Drawing.Size(259, 24);
+            this.cbGroupNameValue.Size = new System.Drawing.Size(259, 25);
             this.cbGroupNameValue.TabIndex = 10;
             // 
             // cbStaffNameValue
             // 
             this.cbStaffNameValue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbStaffNameValue.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbStaffNameValue.FormattingEnabled = true;
-            this.cbStaffNameValue.Location = new System.Drawing.Point(15, 165);
+            this.cbStaffNameValue.Location = new System.Drawing.Point(15, 143);
             this.cbStaffNameValue.Name = "cbStaffNameValue";
-            this.cbStaffNameValue.Size = new System.Drawing.Size(259, 24);
+            this.cbStaffNameValue.Size = new System.Drawing.Size(259, 25);
             this.cbStaffNameValue.TabIndex = 10;
             // 
             // cbCourseTitleValue
             // 
             this.cbCourseTitleValue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCourseTitleValue.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCourseTitleValue.FormattingEnabled = true;
-            this.cbCourseTitleValue.Location = new System.Drawing.Point(15, 102);
+            this.cbCourseTitleValue.Location = new System.Drawing.Point(15, 82);
             this.cbCourseTitleValue.Name = "cbCourseTitleValue";
-            this.cbCourseTitleValue.Size = new System.Drawing.Size(259, 24);
+            this.cbCourseTitleValue.Size = new System.Drawing.Size(259, 25);
             this.cbCourseTitleValue.TabIndex = 10;
             // 
             // btnDeleteGroup
             // 
-            this.btnDeleteGroup.Location = new System.Drawing.Point(386, 398);
+            this.btnDeleteGroup.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnDeleteGroup.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnDeleteGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteGroup.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteGroup.Location = new System.Drawing.Point(111, 245);
             this.btnDeleteGroup.Name = "btnDeleteGroup";
-            this.btnDeleteGroup.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteGroup.Size = new System.Drawing.Size(75, 33);
             this.btnDeleteGroup.TabIndex = 9;
             this.btnDeleteGroup.Text = "Delete";
-            this.btnDeleteGroup.UseVisualStyleBackColor = true;
+            this.btnDeleteGroup.UseVisualStyleBackColor = false;
+            this.btnDeleteGroup.MouseEnter += new System.EventHandler(this.BtnDeleteGroup_MouseEnter);
+            this.btnDeleteGroup.MouseLeave += new System.EventHandler(this.BtnDeleteGroup_MouseLeave);
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(199, 283);
+            this.btnReset.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.Location = new System.Drawing.Point(201, 245);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.Size = new System.Drawing.Size(75, 33);
             this.btnReset.TabIndex = 9;
             this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.BtnResetData_Click);
+            this.btnReset.MouseEnter += new System.EventHandler(this.BtnReset_MouseEnter);
+            this.btnReset.MouseLeave += new System.EventHandler(this.BtnReset_MouseLeave);
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(292, 398);
+            this.btnCreate.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnCreate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreate.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreate.Location = new System.Drawing.Point(17, 245);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(75, 23);
+            this.btnCreate.Size = new System.Drawing.Size(75, 33);
             this.btnCreate.TabIndex = 9;
             this.btnCreate.Text = "Save";
-            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.UseVisualStyleBackColor = false;
             this.btnCreate.Click += new System.EventHandler(this.BtnSave_Click);
+            this.btnCreate.MouseEnter += new System.EventHandler(this.BtnCreate_MouseEnter);
+            this.btnCreate.MouseLeave += new System.EventHandler(this.BtnCreate_MouseLeave);
             // 
             // dgvClasses
             // 
             this.dgvClasses.AllowUserToAddRows = false;
-            this.dgvClasses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClasses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvClasses.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvClasses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvClasses.ColumnHeadersHeight = 30;
+            this.dgvClasses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvClasses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ClassID,
             this.ClassName,
             this.Course,
             this.Staff,
             this.Group});
-            this.dgvClasses.Location = new System.Drawing.Point(324, 39);
+            this.dgvClasses.EnableHeadersVisualStyles = false;
+            this.dgvClasses.GridColor = System.Drawing.Color.Black;
+            this.dgvClasses.Location = new System.Drawing.Point(314, 28);
             this.dgvClasses.Name = "dgvClasses";
             this.dgvClasses.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkOrange;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvClasses.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvClasses.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvClasses.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvClasses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClasses.Size = new System.Drawing.Size(504, 325);
+            this.dgvClasses.Size = new System.Drawing.Size(504, 368);
             this.dgvClasses.TabIndex = 8;
             this.dgvClasses.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvClasses_CellDoubleClick);
             // 
@@ -162,7 +210,6 @@
             this.ClassName.HeaderText = "Class Name";
             this.ClassName.Name = "ClassName";
             this.ClassName.ReadOnly = true;
-            this.ClassName.Width = 200;
             // 
             // Course
             // 
@@ -191,44 +238,49 @@
             // lblStaff
             // 
             this.lblStaff.AutoSize = true;
-            this.lblStaff.Location = new System.Drawing.Point(12, 146);
+            this.lblStaff.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStaff.Location = new System.Drawing.Point(12, 124);
             this.lblStaff.Name = "lblStaff";
-            this.lblStaff.Size = new System.Drawing.Size(34, 16);
+            this.lblStaff.Size = new System.Drawing.Size(36, 17);
             this.lblStaff.TabIndex = 2;
             this.lblStaff.Text = "Staff";
             // 
             // lblCourseTitle
             // 
             this.lblCourseTitle.AutoSize = true;
-            this.lblCourseTitle.Location = new System.Drawing.Point(12, 83);
+            this.lblCourseTitle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCourseTitle.Location = new System.Drawing.Point(12, 63);
             this.lblCourseTitle.Name = "lblCourseTitle";
-            this.lblCourseTitle.Size = new System.Drawing.Size(80, 16);
+            this.lblCourseTitle.Size = new System.Drawing.Size(81, 17);
             this.lblCourseTitle.TabIndex = 2;
             this.lblCourseTitle.Text = "Course Title";
             // 
             // lbIClassName
             // 
             this.lbIClassName.AutoSize = true;
-            this.lbIClassName.Location = new System.Drawing.Point(12, 20);
+            this.lbIClassName.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbIClassName.Location = new System.Drawing.Point(12, 9);
             this.lbIClassName.Name = "lbIClassName";
-            this.lbIClassName.Size = new System.Drawing.Size(82, 16);
+            this.lbIClassName.Size = new System.Drawing.Size(85, 17);
             this.lbIClassName.TabIndex = 2;
             this.lbIClassName.Text = "Class Name";
             // 
             // txtClassNameValue
             // 
-            this.txtClassNameValue.Location = new System.Drawing.Point(15, 39);
+            this.txtClassNameValue.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClassNameValue.Location = new System.Drawing.Point(15, 28);
             this.txtClassNameValue.Name = "txtClassNameValue";
-            this.txtClassNameValue.Size = new System.Drawing.Size(259, 22);
+            this.txtClassNameValue.Size = new System.Drawing.Size(259, 23);
             this.txtClassNameValue.TabIndex = 5;
             this.txtClassNameValue.Validating += new System.ComponentModel.CancelEventHandler(this.ClassManager_Validating);
             // 
             // lblGroupOfStudents
             // 
             this.lblGroupOfStudents.AutoSize = true;
-            this.lblGroupOfStudents.Location = new System.Drawing.Point(12, 214);
+            this.lblGroupOfStudents.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGroupOfStudents.Location = new System.Drawing.Point(12, 183);
             this.lblGroupOfStudents.Name = "lblGroupOfStudents";
-            this.lblGroupOfStudents.Size = new System.Drawing.Size(116, 16);
+            this.lblGroupOfStudents.Size = new System.Drawing.Size(126, 17);
             this.lblGroupOfStudents.TabIndex = 3;
             this.lblGroupOfStudents.Text = "Group Of Students";
             // 
@@ -240,7 +292,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(840, 450);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(837, 465);
             this.Controls.Add(this.pnlMainContent);
             this.Name = "ClassManager";
             this.Text = "Class Manager";

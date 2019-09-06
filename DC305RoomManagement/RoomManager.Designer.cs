@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblRoomName = new System.Windows.Forms.Label();
             this.txtRoomNameValue = new System.Windows.Forms.TextBox();
             this.lblCapacity = new System.Windows.Forms.Label();
@@ -67,51 +73,57 @@
             // lblRoomName
             // 
             this.lblRoomName.AutoSize = true;
-            this.lblRoomName.Location = new System.Drawing.Point(12, 22);
+            this.lblRoomName.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRoomName.Location = new System.Drawing.Point(12, 9);
             this.lblRoomName.Name = "lblRoomName";
-            this.lblRoomName.Size = new System.Drawing.Size(85, 16);
+            this.lblRoomName.Size = new System.Drawing.Size(91, 17);
             this.lblRoomName.TabIndex = 0;
             this.lblRoomName.Text = "Room Name";
             // 
             // txtRoomNameValue
             // 
-            this.txtRoomNameValue.Location = new System.Drawing.Point(15, 41);
+            this.txtRoomNameValue.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRoomNameValue.Location = new System.Drawing.Point(15, 28);
             this.txtRoomNameValue.Name = "txtRoomNameValue";
-            this.txtRoomNameValue.Size = new System.Drawing.Size(209, 22);
+            this.txtRoomNameValue.Size = new System.Drawing.Size(259, 23);
             this.txtRoomNameValue.TabIndex = 1;
             // 
             // lblCapacity
             // 
             this.lblCapacity.AutoSize = true;
-            this.lblCapacity.Location = new System.Drawing.Point(12, 84);
+            this.lblCapacity.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCapacity.Location = new System.Drawing.Point(12, 63);
             this.lblCapacity.Name = "lblCapacity";
-            this.lblCapacity.Size = new System.Drawing.Size(61, 16);
+            this.lblCapacity.Size = new System.Drawing.Size(68, 17);
             this.lblCapacity.TabIndex = 0;
             this.lblCapacity.Text = "Capacity";
             // 
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(12, 149);
+            this.lblDescription.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescription.Location = new System.Drawing.Point(12, 119);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(76, 16);
+            this.lblDescription.Size = new System.Drawing.Size(80, 17);
             this.lblDescription.TabIndex = 0;
             this.lblDescription.Text = "Description";
             // 
             // txtDescriptionValue
             // 
-            this.txtDescriptionValue.Location = new System.Drawing.Point(15, 168);
+            this.txtDescriptionValue.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescriptionValue.Location = new System.Drawing.Point(15, 139);
             this.txtDescriptionValue.Multiline = true;
             this.txtDescriptionValue.Name = "txtDescriptionValue";
-            this.txtDescriptionValue.Size = new System.Drawing.Size(259, 232);
+            this.txtDescriptionValue.Size = new System.Drawing.Size(259, 153);
             this.txtDescriptionValue.TabIndex = 1;
             // 
             // lblRoomList
             // 
             this.lblRoomList.AutoSize = true;
-            this.lblRoomList.Location = new System.Drawing.Point(296, 22);
+            this.lblRoomList.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRoomList.Location = new System.Drawing.Point(296, 16);
             this.lblRoomList.Name = "lblRoomList";
-            this.lblRoomList.Size = new System.Drawing.Size(68, 16);
+            this.lblRoomList.Size = new System.Drawing.Size(70, 17);
             this.lblRoomList.TabIndex = 0;
             this.lblRoomList.Text = "Room List";
             // 
@@ -120,18 +132,42 @@
             this.dgvRoomList.AllowUserToAddRows = false;
             this.dgvRoomList.AllowUserToDeleteRows = false;
             this.dgvRoomList.AllowUserToOrderColumns = true;
-            this.dgvRoomList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRoomList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvRoomList.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRoomList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvRoomList.ColumnHeadersHeight = 30;
+            this.dgvRoomList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvRoomList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RoomName,
             this.RoomCapacity,
             this.RoomId,
             this.RoomDescription,
             this.RoomEnable});
+            this.dgvRoomList.EnableHeadersVisualStyles = false;
+            this.dgvRoomList.GridColor = System.Drawing.Color.Black;
             this.dgvRoomList.Location = new System.Drawing.Point(299, 41);
             this.dgvRoomList.MultiSelect = false;
             this.dgvRoomList.Name = "dgvRoomList";
             this.dgvRoomList.ReadOnly = true;
-            this.dgvRoomList.Size = new System.Drawing.Size(446, 172);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkOrange;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRoomList.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvRoomList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvRoomList.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvRoomList.Size = new System.Drawing.Size(527, 155);
             this.dgvRoomList.TabIndex = 2;
             // 
             // RoomName
@@ -172,27 +208,39 @@
             // 
             // btnDisableRoom
             // 
+            this.btnDisableRoom.BackColor = System.Drawing.Color.DarkKhaki;
             this.btnDisableRoom.Enabled = false;
-            this.btnDisableRoom.Location = new System.Drawing.Point(184, 414);
+            this.btnDisableRoom.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnDisableRoom.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDisableRoom.Location = new System.Drawing.Point(157, 315);
             this.btnDisableRoom.Name = "btnDisableRoom";
-            this.btnDisableRoom.Size = new System.Drawing.Size(75, 23);
+            this.btnDisableRoom.Size = new System.Drawing.Size(117, 28);
             this.btnDisableRoom.TabIndex = 3;
             this.btnDisableRoom.Text = "Disable";
-            this.btnDisableRoom.UseVisualStyleBackColor = true;
+            this.btnDisableRoom.UseVisualStyleBackColor = false;
             this.btnDisableRoom.Click += new System.EventHandler(this.BtnDisableRoom_Click);
+            this.btnDisableRoom.MouseEnter += new System.EventHandler(this.BtnDisableRoom_MouseEnter);
+            this.btnDisableRoom.MouseLeave += new System.EventHandler(this.BtnDisableRoom_MouseLeave);
             // 
             // btnEditRoom
             // 
-            this.btnEditRoom.Location = new System.Drawing.Point(670, 12);
+            this.btnEditRoom.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnEditRoom.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnEditRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditRoom.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditRoom.Location = new System.Drawing.Point(730, 16);
             this.btnEditRoom.Name = "btnEditRoom";
-            this.btnEditRoom.Size = new System.Drawing.Size(75, 23);
+            this.btnEditRoom.Size = new System.Drawing.Size(96, 23);
             this.btnEditRoom.TabIndex = 3;
             this.btnEditRoom.Text = "Edit";
-            this.btnEditRoom.UseVisualStyleBackColor = true;
+            this.btnEditRoom.UseVisualStyleBackColor = false;
             this.btnEditRoom.Click += new System.EventHandler(this.BtnEditRoom_Click);
+            this.btnEditRoom.MouseEnter += new System.EventHandler(this.BtnEditRoom_MouseEnter);
+            this.btnEditRoom.MouseLeave += new System.EventHandler(this.BtnEditRoom_MouseLeave);
             // 
             // pnlMainContent
             // 
+            this.pnlMainContent.BackColor = System.Drawing.Color.White;
             this.pnlMainContent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pnlMainContent.Controls.Add(this.numCapacity);
             this.pnlMainContent.Controls.Add(this.btnResetData);
@@ -214,12 +262,13 @@
             this.pnlMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMainContent.Location = new System.Drawing.Point(0, 0);
             this.pnlMainContent.Name = "pnlMainContent";
-            this.pnlMainContent.Size = new System.Drawing.Size(757, 461);
+            this.pnlMainContent.Size = new System.Drawing.Size(838, 465);
             this.pnlMainContent.TabIndex = 4;
             // 
             // numCapacity
             // 
-            this.numCapacity.Location = new System.Drawing.Point(15, 103);
+            this.numCapacity.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numCapacity.Location = new System.Drawing.Point(15, 82);
             this.numCapacity.Maximum = new decimal(new int[] {
             200,
             0,
@@ -231,7 +280,7 @@
             0,
             0});
             this.numCapacity.Name = "numCapacity";
-            this.numCapacity.Size = new System.Drawing.Size(58, 22);
+            this.numCapacity.Size = new System.Drawing.Size(58, 23);
             this.numCapacity.TabIndex = 4;
             this.numCapacity.Value = new decimal(new int[] {
             1,
@@ -241,30 +290,59 @@
             // 
             // btnResetData
             // 
-            this.btnResetData.Location = new System.Drawing.Point(265, 414);
+            this.btnResetData.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnResetData.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnResetData.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetData.Location = new System.Drawing.Point(157, 354);
             this.btnResetData.Name = "btnResetData";
-            this.btnResetData.Size = new System.Drawing.Size(75, 23);
+            this.btnResetData.Size = new System.Drawing.Size(117, 28);
             this.btnResetData.TabIndex = 0;
             this.btnResetData.Text = "Reset";
-            this.btnResetData.UseVisualStyleBackColor = true;
+            this.btnResetData.UseVisualStyleBackColor = false;
             this.btnResetData.Click += new System.EventHandler(this.BtnResetData_Click);
+            this.btnResetData.MouseEnter += new System.EventHandler(this.BtnResetData_MouseEnter);
+            this.btnResetData.MouseLeave += new System.EventHandler(this.BtnResetData_MouseLeave);
             // 
             // dgvEquipments
             // 
             this.dgvEquipments.AllowUserToAddRows = false;
             this.dgvEquipments.AllowUserToDeleteRows = false;
             this.dgvEquipments.AllowUserToOrderColumns = true;
-            this.dgvEquipments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEquipments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvEquipments.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEquipments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvEquipments.ColumnHeadersHeight = 30;
+            this.dgvEquipments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvEquipments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.EquipId,
             this.EquipName,
             this.EquipQuantity,
             this.EquipDescription});
+            this.dgvEquipments.EnableHeadersVisualStyles = false;
+            this.dgvEquipments.GridColor = System.Drawing.Color.Black;
             this.dgvEquipments.Location = new System.Drawing.Point(299, 245);
             this.dgvEquipments.MultiSelect = false;
             this.dgvEquipments.Name = "dgvEquipments";
             this.dgvEquipments.ReadOnly = true;
-            this.dgvEquipments.Size = new System.Drawing.Size(446, 155);
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DarkOrange;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEquipments.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvEquipments.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvEquipments.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvEquipments.Size = new System.Drawing.Size(527, 137);
             this.dgvEquipments.TabIndex = 2;
             // 
             // EquipId
@@ -298,53 +376,76 @@
             // 
             // btnUpdateRoom
             // 
+            this.btnUpdateRoom.BackColor = System.Drawing.Color.DarkKhaki;
             this.btnUpdateRoom.Enabled = false;
-            this.btnUpdateRoom.Location = new System.Drawing.Point(103, 414);
+            this.btnUpdateRoom.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnUpdateRoom.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateRoom.Location = new System.Drawing.Point(15, 354);
             this.btnUpdateRoom.Name = "btnUpdateRoom";
-            this.btnUpdateRoom.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdateRoom.Size = new System.Drawing.Size(120, 28);
             this.btnUpdateRoom.TabIndex = 0;
             this.btnUpdateRoom.Text = "Update";
-            this.btnUpdateRoom.UseVisualStyleBackColor = true;
+            this.btnUpdateRoom.UseVisualStyleBackColor = false;
             this.btnUpdateRoom.Click += new System.EventHandler(this.BtnUpdateRoom_Click);
+            this.btnUpdateRoom.MouseEnter += new System.EventHandler(this.BtnUpdateRoom_MouseEnter);
+            this.btnUpdateRoom.MouseLeave += new System.EventHandler(this.BtnUpdateRoom_MouseLeave);
             // 
             // btnCreateRoom
             // 
-            this.btnCreateRoom.Location = new System.Drawing.Point(22, 414);
+            this.btnCreateRoom.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnCreateRoom.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnCreateRoom.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateRoom.Location = new System.Drawing.Point(15, 315);
             this.btnCreateRoom.Name = "btnCreateRoom";
-            this.btnCreateRoom.Size = new System.Drawing.Size(75, 23);
+            this.btnCreateRoom.Size = new System.Drawing.Size(117, 28);
             this.btnCreateRoom.TabIndex = 0;
             this.btnCreateRoom.Text = "Create";
-            this.btnCreateRoom.UseVisualStyleBackColor = true;
+            this.btnCreateRoom.UseVisualStyleBackColor = false;
             this.btnCreateRoom.Click += new System.EventHandler(this.BtnCreateRoom_Click);
+            this.btnCreateRoom.MouseEnter += new System.EventHandler(this.BtnCreateRoom_MouseEnter);
+            this.btnCreateRoom.MouseLeave += new System.EventHandler(this.BtnCreateRoom_MouseLeave);
             // 
             // Equipments
             // 
             this.Equipments.AutoSize = true;
-            this.Equipments.Location = new System.Drawing.Point(296, 226);
+            this.Equipments.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Equipments.Location = new System.Drawing.Point(296, 219);
             this.Equipments.Name = "Equipments";
-            this.Equipments.Size = new System.Drawing.Size(79, 16);
+            this.Equipments.Size = new System.Drawing.Size(83, 17);
             this.Equipments.TabIndex = 0;
             this.Equipments.Text = "Equipments";
             // 
             // btnAddEquipment
             // 
-            this.btnAddEquipment.Location = new System.Drawing.Point(500, 219);
+            this.btnAddEquipment.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnAddEquipment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnAddEquipment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddEquipment.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddEquipment.Location = new System.Drawing.Point(628, 219);
             this.btnAddEquipment.Name = "btnAddEquipment";
-            this.btnAddEquipment.Size = new System.Drawing.Size(75, 23);
+            this.btnAddEquipment.Size = new System.Drawing.Size(96, 23);
             this.btnAddEquipment.TabIndex = 3;
             this.btnAddEquipment.Text = "Add";
-            this.btnAddEquipment.UseVisualStyleBackColor = true;
+            this.btnAddEquipment.UseVisualStyleBackColor = false;
             this.btnAddEquipment.Click += new System.EventHandler(this.BtnAddEquipment_Click);
+            this.btnAddEquipment.MouseEnter += new System.EventHandler(this.BtnAddEquipment_MouseEnter);
+            this.btnAddEquipment.MouseLeave += new System.EventHandler(this.BtnAddEquipment_MouseLeave);
             // 
             // btnRemoveEquipment
             // 
-            this.btnRemoveEquipment.Location = new System.Drawing.Point(581, 219);
+            this.btnRemoveEquipment.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnRemoveEquipment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnRemoveEquipment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoveEquipment.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveEquipment.Location = new System.Drawing.Point(730, 219);
             this.btnRemoveEquipment.Name = "btnRemoveEquipment";
-            this.btnRemoveEquipment.Size = new System.Drawing.Size(75, 23);
+            this.btnRemoveEquipment.Size = new System.Drawing.Size(96, 23);
             this.btnRemoveEquipment.TabIndex = 3;
             this.btnRemoveEquipment.Text = "Remove";
-            this.btnRemoveEquipment.UseVisualStyleBackColor = true;
+            this.btnRemoveEquipment.UseVisualStyleBackColor = false;
             this.btnRemoveEquipment.Click += new System.EventHandler(this.BtnRemoveEquipment_Click);
+            this.btnRemoveEquipment.MouseEnter += new System.EventHandler(this.BtnRemoveEquipment_MouseEnter);
+            this.btnRemoveEquipment.MouseLeave += new System.EventHandler(this.BtnRemoveEquipment_MouseLeave);
             // 
             // errorProvider1
             // 
@@ -354,12 +455,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(757, 461);
+            this.ClientSize = new System.Drawing.Size(838, 465);
             this.Controls.Add(this.pnlMainContent);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RoomManager";
             this.Text = "Room Manager";
+            this.Load += new System.EventHandler(this.RoomManager_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoomList)).EndInit();
             this.pnlMainContent.ResumeLayout(false);
             this.pnlMainContent.PerformLayout();

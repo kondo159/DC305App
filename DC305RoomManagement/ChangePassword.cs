@@ -70,11 +70,6 @@ namespace DC305RoomManagement
 
 
         }
-
-        private void ChangePassword_Load(object sender, EventArgs e)
-        {
-            
-        }
         private bool PasswordValidate()
         {
             bool validated = true;           
@@ -102,6 +97,16 @@ namespace DC305RoomManagement
                 errorProvider1.SetError(txtConfirm, "");
 
             return validated;
+        }
+
+        private void Button1_MouseEnter(object sender, EventArgs e)
+        {
+            button1.ForeColor = Color.White;
+        }
+
+        private void Button1_MouseLeave(object sender, EventArgs e)
+        {
+            button1.ForeColor = Color.Black;
         }
     }
 }

@@ -166,6 +166,7 @@
             this.btnPrint.BackColor = System.Drawing.Color.DarkKhaki;
             this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrint.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrint.Location = new System.Drawing.Point(725, 29);
             this.btnPrint.Name = "btnPrint";
@@ -182,6 +183,7 @@
             this.btnFilterDate.BackColor = System.Drawing.Color.DarkKhaki;
             this.btnFilterDate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFilterDate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnFilterDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFilterDate.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFilterDate.Location = new System.Drawing.Point(634, 29);
             this.btnFilterDate.Name = "btnFilterDate";
@@ -198,6 +200,7 @@
             this.btnCreateIssue.BackColor = System.Drawing.Color.DarkKhaki;
             this.btnCreateIssue.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCreateIssue.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnCreateIssue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateIssue.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateIssue.Location = new System.Drawing.Point(18, 226);
             this.btnCreateIssue.Name = "btnCreateIssue";
@@ -219,7 +222,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvIssues.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
@@ -239,7 +242,7 @@
             this.dgvIssues.Location = new System.Drawing.Point(17, 264);
             this.dgvIssues.Name = "dgvIssues";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.OliveDrab;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkOrange;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -250,6 +253,7 @@
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvIssues.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvIssues.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvIssues.Size = new System.Drawing.Size(800, 183);
             this.dgvIssues.TabIndex = 8;
             this.dgvIssues.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvIssues_CellDoubleClick);

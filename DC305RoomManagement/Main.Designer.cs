@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.pnlSideMenu = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picbox_MainHome = new System.Windows.Forms.PictureBox();
             this.btnInventory = new System.Windows.Forms.Button();
             this.btnRoom = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
@@ -46,15 +46,18 @@
             this.lblHeader = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.picbox_Main = new System.Windows.Forms.PictureBox();
             this.pnlSideMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbox_MainHome)).BeginInit();
             this.pnlHeader.SuspendLayout();
+            this.pnlMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picbox_Main)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSideMenu
             // 
             this.pnlSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(24)))), ((int)(((byte)(7)))));
-            this.pnlSideMenu.Controls.Add(this.pictureBox1);
+            this.pnlSideMenu.Controls.Add(this.picbox_MainHome);
             this.pnlSideMenu.Controls.Add(this.btnInventory);
             this.pnlSideMenu.Controls.Add(this.btnRoom);
             this.pnlSideMenu.Controls.Add(this.btnExit);
@@ -70,15 +73,16 @@
             this.pnlSideMenu.Size = new System.Drawing.Size(155, 601);
             this.pnlSideMenu.TabIndex = 0;
             // 
-            // pictureBox1
+            // picbox_MainHome
             // 
-            this.pictureBox1.Image = global::DC305RoomManagement.Properties.Resources.it_edu_logo_main;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(155, 97);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.picbox_MainHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picbox_MainHome.Image = global::DC305RoomManagement.Properties.Resources.it_edu_logo_main;
+            this.picbox_MainHome.Location = new System.Drawing.Point(0, 0);
+            this.picbox_MainHome.Name = "picbox_MainHome";
+            this.picbox_MainHome.Size = new System.Drawing.Size(155, 97);
+            this.picbox_MainHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picbox_MainHome.TabIndex = 0;
+            this.picbox_MainHome.TabStop = false;
             // 
             // btnInventory
             // 
@@ -258,13 +262,14 @@
             // 
             // pwd_Change
             // 
+            this.pwd_Change.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pwd_Change.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pwd_Change.Location = new System.Drawing.Point(710, 64);
             this.pwd_Change.Name = "pwd_Change";
             this.pwd_Change.Size = new System.Drawing.Size(140, 27);
             this.pwd_Change.TabIndex = 16;
             this.pwd_Change.Text = "Change Password";
-            this.pwd_Change.UseVisualStyleBackColor = true;
+            this.pwd_Change.UseVisualStyleBackColor = false;
             this.pwd_Change.Click += new System.EventHandler(this.BtnChangePass_Click);
             // 
             // label2
@@ -307,11 +312,22 @@
             // 
             this.pnlMain.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pnlMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlMain.Controls.Add(this.picbox_Main);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(155, 97);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(853, 504);
             this.pnlMain.TabIndex = 2;
+            // 
+            // picbox_Main
+            // 
+            this.picbox_Main.Image = global::DC305RoomManagement.Properties.Resources.placeimg_853_504_tech;
+            this.picbox_Main.Location = new System.Drawing.Point(0, 0);
+            this.picbox_Main.Name = "picbox_Main";
+            this.picbox_Main.Size = new System.Drawing.Size(853, 504);
+            this.picbox_Main.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picbox_Main.TabIndex = 0;
+            this.picbox_Main.TabStop = false;
             // 
             // Main
             // 
@@ -333,9 +349,11 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
             this.pnlSideMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbox_MainHome)).EndInit();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
+            this.pnlMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picbox_Main)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -355,9 +373,10 @@
         private System.Windows.Forms.Button btnRoom;
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Panel pnlMain;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picbox_MainHome;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button pwd_Change;
+        private System.Windows.Forms.PictureBox picbox_Main;
     }
 }

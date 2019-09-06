@@ -11,7 +11,8 @@ using System.Windows.Forms;
 namespace DC305RoomManagement
 {
     public partial class Main : Form
-    {
+    {        
+        public DataGridView dtgr { get; set; }
         string user;
         int role;
         int id;
@@ -84,8 +85,10 @@ namespace DC305RoomManagement
                     DisplayInPlanel(inventoryManager, "Inventory Manager");
                     break;
 
-                case "btnCalendar":
-                    break;
+                /*case "picbox_MainHome":
+                    Main main = new Main();
+                    DisplayInPlanel(main, "Main Menu");
+                    break;*/
 
                 case "btnExit":
 
@@ -134,7 +137,7 @@ namespace DC305RoomManagement
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
-            const string message = "Are you sure that you would like to close the form?";
+            const string message = "Are you sure you would like to exit?";
             const string caption = "Form Closing";
             var result = MessageBox.Show(message, caption,
                                          MessageBoxButtons.YesNo,

@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Collections.Generic;
+using System.Drawing;
 
 
 namespace DC305RoomManagement
@@ -120,6 +121,10 @@ namespace DC305RoomManagement
         private void BtnResetData_Click(object sender, EventArgs e)
         {
             ResetForm();
+            DataGridViewSelectionMode oldmode = dgvEquipments.SelectionMode;
+            dgvEquipments.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvEquipments.ClearSelection();
+            dgvEquipments.SelectionMode = oldmode;
         }
         
         public void ResetForm()//method to reset the form
@@ -354,6 +359,89 @@ namespace DC305RoomManagement
                 btnDisableRoom.Text = "Disable";
             else
                 btnDisableRoom.Text = "Enable";
+        }
+
+        private void BtnCreateRoom_MouseEnter(object sender, EventArgs e)
+        {
+            btnCreateRoom.ForeColor = Color.White;
+            btnCreateRoom.BackColor = Color.ForestGreen;
+        }
+
+        private void BtnCreateRoom_MouseLeave(object sender, EventArgs e)
+        {
+            btnCreateRoom.ForeColor = Color.Black;
+            btnCreateRoom.BackColor = Color.DarkKhaki;
+        }
+
+        private void BtnDisableRoom_MouseEnter(object sender, EventArgs e)
+        {
+            btnDisableRoom.ForeColor = Color.White;
+            btnDisableRoom.BackColor = Color.ForestGreen;
+        }
+
+        private void BtnDisableRoom_MouseLeave(object sender, EventArgs e)
+        {
+            btnDisableRoom.ForeColor = Color.Black;
+            btnDisableRoom.BackColor = Color.DarkKhaki;
+        }
+
+        private void BtnUpdateRoom_MouseEnter(object sender, EventArgs e)
+        {
+            btnUpdateRoom.ForeColor = Color.White;
+            btnUpdateRoom.BackColor = Color.ForestGreen;
+        }
+
+        private void BtnUpdateRoom_MouseLeave(object sender, EventArgs e)
+        {
+            btnUpdateRoom.ForeColor = Color.Black;
+            btnUpdateRoom.BackColor = Color.DarkKhaki;
+        }
+
+        private void BtnResetData_MouseEnter(object sender, EventArgs e)
+        {
+            btnResetData.ForeColor = Color.White;
+            btnResetData.BackColor = Color.ForestGreen;
+        }
+
+        private void BtnResetData_MouseLeave(object sender, EventArgs e)
+        {
+            btnResetData.ForeColor = Color.Black;
+            btnResetData.BackColor = Color.DarkKhaki;
+        }
+
+        private void BtnAddEquipment_MouseEnter(object sender, EventArgs e)
+        {
+            btnAddEquipment.ForeColor = Color.White;
+        }
+
+        private void BtnAddEquipment_MouseLeave(object sender, EventArgs e)
+        {
+            btnAddEquipment.ForeColor = Color.Black;
+        }
+
+        private void BtnRemoveEquipment_MouseEnter(object sender, EventArgs e)
+        {
+            btnRemoveEquipment.ForeColor = Color.White;
+        }
+
+        private void BtnRemoveEquipment_MouseLeave(object sender, EventArgs e)
+        {
+            btnRemoveEquipment.ForeColor = Color.Black;
+        }
+
+        private void BtnEditRoom_MouseEnter(object sender, EventArgs e)
+        {
+            btnEditRoom.ForeColor = Color.White;
+        }
+
+        private void BtnEditRoom_MouseLeave(object sender, EventArgs e)
+        {
+            btnEditRoom.ForeColor = Color.Black;
+        }
+
+        private void RoomManager_Load(object sender, EventArgs e)
+        {
+            dgvEquipments.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 10);
         }
     }    
 }

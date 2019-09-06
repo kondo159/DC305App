@@ -116,6 +116,7 @@ namespace DC305RoomManagement
         private void CourseManager_Load(object sender, EventArgs e)
         {
             LoadCourses();
+            dgvCourses.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 9.75F);
         }
 
         /// <summary>
@@ -165,6 +166,10 @@ namespace DC305RoomManagement
         {
             FormHelper.ClearFields(pnlMainContent, typeof(TextBox));
             FormHelper.ClearFields(pnlMainContent, typeof(ComboBox));
+            DataGridViewSelectionMode oldmode = dgvCourses.SelectionMode;
+            dgvCourses.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvCourses.ClearSelection();
+            dgvCourses.SelectionMode = oldmode;
         }
 
         private void CourseManager_Validating(object sender, CancelEventArgs e)
@@ -177,6 +182,26 @@ namespace DC305RoomManagement
             {
                 errorProvider.SetError((sender as TextBox), string.Empty);
             }
+        }
+
+        private void BtnSave_MouseEnter(object sender, EventArgs e)
+        {
+            btnSave.ForeColor = Color.White;
+        }
+
+        private void BtnSave_MouseLeave(object sender, EventArgs e)
+        {
+            btnSave.ForeColor = Color.Black;
+        }
+
+        private void BtnResetData_MouseEnter(object sender, EventArgs e)
+        {
+            btnResetData.ForeColor = Color.White;
+        }
+
+        private void BtnResetData_MouseLeave(object sender, EventArgs e)
+        {
+            btnResetData.ForeColor = Color.Black;
         }
     }
 }

@@ -47,6 +47,14 @@
             this.btnReset = new System.Windows.Forms.Button();
             this.btnDisable = new System.Windows.Forms.Button();
             this.dtgGrid = new System.Windows.Forms.DataGridView();
+            this.UserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DOB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Genders = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dtDOB = new System.Windows.Forms.DateTimePicker();
             this.lblDOB = new System.Windows.Forms.Label();
@@ -57,14 +65,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.UserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DOB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Genders = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.grpGender.SuspendLayout();
@@ -227,7 +227,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtgGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
@@ -256,7 +256,7 @@
             this.dtgGrid.Name = "dtgGrid";
             this.dtgGrid.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.OliveDrab;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkOrange;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -268,12 +268,77 @@
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
             this.dtgGrid.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dtgGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgGrid.Size = new System.Drawing.Size(813, 294);
             this.dtgGrid.TabIndex = 16;
             this.dtgGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgGrid_CellClick);
+            // 
+            // UserId
+            // 
+            this.UserId.DataPropertyName = "UserId";
+            this.UserId.HeaderText = "UserId";
+            this.UserId.Name = "UserId";
+            this.UserId.ReadOnly = true;
+            this.UserId.Visible = false;
+            // 
+            // NameC
+            // 
+            this.NameC.DataPropertyName = "Name";
+            this.NameC.FillWeight = 114.861F;
+            this.NameC.HeaderText = "Name";
+            this.NameC.Name = "NameC";
+            this.NameC.ReadOnly = true;
+            // 
+            // DOB
+            // 
+            this.DOB.DataPropertyName = "DOB";
+            this.DOB.FillWeight = 74.44115F;
+            this.DOB.HeaderText = "DOB";
+            this.DOB.Name = "DOB";
+            this.DOB.ReadOnly = true;
+            // 
+            // Genders
+            // 
+            this.Genders.DataPropertyName = "Gender";
+            this.Genders.FillWeight = 115.1675F;
+            this.Genders.HeaderText = "Gender";
+            this.Genders.Name = "Genders";
+            this.Genders.ReadOnly = true;
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "Email";
+            this.Email.FillWeight = 154.3872F;
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            // 
+            // Password
+            // 
+            this.Password.DataPropertyName = "Password";
+            this.Password.FillWeight = 96.338F;
+            this.Password.HeaderText = "Password";
+            this.Password.Name = "Password";
+            this.Password.ReadOnly = true;
+            // 
+            // RoleId
+            // 
+            this.RoleId.DataPropertyName = "Role";
+            this.RoleId.HeaderText = "RoleId";
+            this.RoleId.Name = "RoleId";
+            this.RoleId.ReadOnly = true;
+            this.RoleId.Visible = false;
+            // 
+            // Role
+            // 
+            this.Role.DataPropertyName = "RoleName";
+            this.Role.FillWeight = 62.73388F;
+            this.Role.HeaderText = "Role";
+            this.Role.Name = "Role";
+            this.Role.ReadOnly = true;
             // 
             // txtSearch
             // 
@@ -378,70 +443,6 @@
             this.label2.Size = new System.Drawing.Size(83, 14);
             this.label2.TabIndex = 28;
             this.label2.Text = "(yyyy-mm-dd)";
-            // 
-            // UserId
-            // 
-            this.UserId.DataPropertyName = "UserId";
-            this.UserId.HeaderText = "UserId";
-            this.UserId.Name = "UserId";
-            this.UserId.ReadOnly = true;
-            this.UserId.Visible = false;
-            // 
-            // NameC
-            // 
-            this.NameC.DataPropertyName = "Name";
-            this.NameC.FillWeight = 114.861F;
-            this.NameC.HeaderText = "Name";
-            this.NameC.Name = "NameC";
-            this.NameC.ReadOnly = true;
-            // 
-            // DOB
-            // 
-            this.DOB.DataPropertyName = "DOB";
-            this.DOB.FillWeight = 74.44115F;
-            this.DOB.HeaderText = "DOB";
-            this.DOB.Name = "DOB";
-            this.DOB.ReadOnly = true;
-            // 
-            // Genders
-            // 
-            this.Genders.DataPropertyName = "Gender";
-            this.Genders.FillWeight = 115.1675F;
-            this.Genders.HeaderText = "Gender";
-            this.Genders.Name = "Genders";
-            this.Genders.ReadOnly = true;
-            // 
-            // Email
-            // 
-            this.Email.DataPropertyName = "Email";
-            this.Email.FillWeight = 154.3872F;
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            // 
-            // Password
-            // 
-            this.Password.DataPropertyName = "Password";
-            this.Password.FillWeight = 96.338F;
-            this.Password.HeaderText = "Password";
-            this.Password.Name = "Password";
-            this.Password.ReadOnly = true;
-            // 
-            // RoleId
-            // 
-            this.RoleId.DataPropertyName = "Role";
-            this.RoleId.HeaderText = "RoleId";
-            this.RoleId.Name = "RoleId";
-            this.RoleId.ReadOnly = true;
-            this.RoleId.Visible = false;
-            // 
-            // Role
-            // 
-            this.Role.DataPropertyName = "RoleName";
-            this.Role.FillWeight = 62.73388F;
-            this.Role.HeaderText = "Role";
-            this.Role.Name = "Role";
-            this.Role.ReadOnly = true;
             // 
             // UserManager
             // 

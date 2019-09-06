@@ -15,7 +15,6 @@ namespace DC305RoomManagement
 {
     public partial class UserManager : Form
     {
-        
         SqlCommand cmd;
 
         Connection conn = new Connection();
@@ -157,6 +156,10 @@ namespace DC305RoomManagement
             btnCreate.Enabled = true;
             btnUpdate.Enabled = false;
             btnDisable.Text = "Disable";
+            DataGridViewSelectionMode oldmode = dtgGrid.SelectionMode;
+            dtgGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dtgGrid.ClearSelection();
+            dtgGrid.SelectionMode = oldmode;
         }
 
         private void BtnUpdate_Click(object sender, EventArgs e)

@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace DC305RoomManagement
 {
@@ -79,6 +80,26 @@ namespace DC305RoomManagement
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void BtnAdd_MouseEnter(object sender, EventArgs e)
+        {
+            btnAdd.ForeColor = Color.White;
+        }
+
+        private void BtnAdd_MouseLeave(object sender, EventArgs e)
+        {
+            btnAdd.ForeColor = Color.Black;
+        }
+
+        private void BtnCancel_MouseEnter(object sender, EventArgs e)
+        {
+            btnCancel.ForeColor = Color.White;
+        }
+
+        private void BtnCancel_MouseLeave(object sender, EventArgs e)
+        {
+            btnCancel.ForeColor = Color.Black;
         }
     }
 }
