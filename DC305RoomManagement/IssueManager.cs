@@ -147,6 +147,7 @@ namespace DC305RoomManagement
         /// <param name="e">Arguments</param>
         private void IssueManager_Load(object sender, EventArgs e)
         {
+            dgvIssues.ClearSelection();
             LoadIssueList();
             LoadRoomList();
             dgvIssues.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 9.75F);

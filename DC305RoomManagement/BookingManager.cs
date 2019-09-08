@@ -38,8 +38,10 @@ namespace DC305RoomManagement
         /// <param name="e"></param>
         private void BookingManager_Load(object sender, EventArgs e)
         {
+            
             dgvBookingList.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 10);
             dgvBookingList.AutoGenerateColumns = false;
+            
             LoadComboBox("Select * from Rooms where Enable=1", "RoomId", cboxRoom);
             if (userRole == 3)
             {
@@ -70,11 +72,9 @@ namespace DC305RoomManagement
                 SetStaffCUDMenu();
             else
                 cboxStaff.SelectedValueChanged += new EventHandler(CboxStaff_SelectedIndexChanged);
-
-
-
-
+            
         }
+        
         /// <summary>
         /// Method to populate the datagridview 
         /// </summary>
@@ -313,7 +313,6 @@ namespace DC305RoomManagement
                 btnUpdate.Enabled = false;
                 btnCreate.Enabled = true;
             }
-            
 
         }
         /// <summary>
@@ -326,7 +325,7 @@ namespace DC305RoomManagement
             ResetForm();
             DataGridViewSelectionMode oldmode = dgvBookingList.SelectionMode;
             dgvBookingList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvBookingList.ClearSelection();
+            //dgvBookingList.ClearSelection();
             dgvBookingList.SelectionMode = oldmode;
         }
         /// <summary>

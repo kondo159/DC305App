@@ -121,6 +121,7 @@ namespace DC305RoomManagement
             dtgGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 10);
             LoadData();
             txtID.Hide();
+            dtgGrid.ClearSelection();
         }
         //load the datagrid with the specific role and shows the role of the users
         private void LoadData()
