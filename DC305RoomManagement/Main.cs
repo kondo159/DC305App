@@ -254,6 +254,13 @@ namespace DC305RoomManagement
         {
             btnExit.ForeColor = Color.White;
         }
+
+        private void Picbox_MainHome_Click(object sender, EventArgs e)
+        {
+            pnlMain.Controls.Clear();
+            pnlMain.BackgroundImage = DC305RoomManagement.Properties.Resources.placeimg_853_504_tech;
+            lblHeader.Text = "Main Menu";
+        }
     }
 }
             

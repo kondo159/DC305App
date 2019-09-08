@@ -148,6 +148,11 @@ namespace DC305RoomManagement
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            else
+            {
+                MessageBox.Show("Name Field must be filled.\nData was not saved!", "Operation result",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>

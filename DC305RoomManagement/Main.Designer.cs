@@ -83,6 +83,7 @@
             this.picbox_MainHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picbox_MainHome.TabIndex = 0;
             this.picbox_MainHome.TabStop = false;
+            this.picbox_MainHome.Click += new System.EventHandler(this.Picbox_MainHome_Click);
             // 
             // btnInventory
             // 
