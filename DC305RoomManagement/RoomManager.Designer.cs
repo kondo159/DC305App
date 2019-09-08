@@ -136,7 +136,7 @@
             this.dgvRoomList.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -208,7 +208,7 @@
             // 
             // btnDisableRoom
             // 
-            this.btnDisableRoom.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnDisableRoom.BackColor = System.Drawing.Color.Gainsboro;
             this.btnDisableRoom.Enabled = false;
             this.btnDisableRoom.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnDisableRoom.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -224,8 +224,8 @@
             // 
             // btnEditRoom
             // 
-            this.btnEditRoom.BackColor = System.Drawing.Color.DarkKhaki;
-            this.btnEditRoom.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnEditRoom.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnEditRoom.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.btnEditRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditRoom.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditRoom.Location = new System.Drawing.Point(730, 16);
@@ -290,7 +290,7 @@
             // 
             // btnResetData
             // 
-            this.btnResetData.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnResetData.BackColor = System.Drawing.Color.Gainsboro;
             this.btnResetData.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnResetData.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResetData.Location = new System.Drawing.Point(157, 354);
@@ -312,7 +312,7 @@
             this.dgvEquipments.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -376,7 +376,7 @@
             // 
             // btnUpdateRoom
             // 
-            this.btnUpdateRoom.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnUpdateRoom.BackColor = System.Drawing.Color.Gainsboro;
             this.btnUpdateRoom.Enabled = false;
             this.btnUpdateRoom.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnUpdateRoom.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -392,7 +392,7 @@
             // 
             // btnCreateRoom
             // 
-            this.btnCreateRoom.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnCreateRoom.BackColor = System.Drawing.Color.Gainsboro;
             this.btnCreateRoom.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnCreateRoom.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateRoom.Location = new System.Drawing.Point(15, 315);
@@ -417,8 +417,8 @@
             // 
             // btnAddEquipment
             // 
-            this.btnAddEquipment.BackColor = System.Drawing.Color.DarkKhaki;
-            this.btnAddEquipment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnAddEquipment.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnAddEquipment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.btnAddEquipment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddEquipment.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddEquipment.Location = new System.Drawing.Point(628, 219);
@@ -433,8 +433,8 @@
             // 
             // btnRemoveEquipment
             // 
-            this.btnRemoveEquipment.BackColor = System.Drawing.Color.DarkKhaki;
-            this.btnRemoveEquipment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnRemoveEquipment.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnRemoveEquipment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.btnRemoveEquipment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoveEquipment.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemoveEquipment.Location = new System.Drawing.Point(730, 219);

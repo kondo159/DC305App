@@ -15,6 +15,7 @@ namespace DC305RoomManagement
 {
     public partial class Login : Form
     {
+        // Enable the drag option window when the borderstyle form is borderless 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
@@ -26,6 +27,9 @@ namespace DC305RoomManagement
         {
             InitializeComponent();
         }
+        //create connection
+        //verify login user details using email and password
+        //identify the user information
         private void BtnLogin_Click(object sender, EventArgs e)
         {
             if (EmailValidation()&& PasswordValidation())
@@ -52,8 +56,6 @@ namespace DC305RoomManagement
                     this.Hide();
                     Main ss = new Main(uemail, urole, uid);
                     ss.Show();
-                    /*progressBar1.Visible = true;
-                    timer_login.Enabled = true;*/
                 }
 
                 else
@@ -64,6 +66,8 @@ namespace DC305RoomManagement
                 
             }
         }
+        //email validation, email cannot be entered as non-email format (ex. @.*/ signs)
+        //textbox validation when nothing is entered to the textboxes, users are not allowed to continue
         private bool EmailValidation()
         {
             if (!string.IsNullOrWhiteSpace(txtUser.Text))
@@ -90,19 +94,17 @@ namespace DC305RoomManagement
             errorProvider1.SetError(txtPass, "Please insert your password");
             return false;
         }
-        private void Login_Load(object sender, EventArgs e)
-        {
-            // lbl_header.Font = new Font(lbl_header.Font.Name, 28, FontStyle.Bold);
-            progressBar1.Visible = false;
-        }
+        //the X image on the login page to allow the user to exit the login form
         private void pic_Exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+        //the minimize picture on the login page that allows user to minimize the current window
         private void PictureBox6_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
+        //allow user to drag the specific panel on the form
         private void Panel1_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -111,7 +113,7 @@ namespace DC305RoomManagement
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-
+        //font color of the text when mouse hover and mouse leave
         private void BtnLogin_MouseEnter(object sender, EventArgs e)
         {
             btnLogin.ForeColor = Color.White;
@@ -120,18 +122,6 @@ namespace DC305RoomManagement
         private void BtnLogin_MouseLeave(object sender, EventArgs e)
         {
             btnLogin.ForeColor = Color.Black;
-        }
-
-        private void Timer_login_Tick(object sender, EventArgs e)
-        {
-            progressBar1.Value = progressBar1.Value + 2;
-            /*if(progressBar1.Value>99)
-            {
-                Main main = new Main(user, role, id);
-                main.Show();
-                this.Hide();
-                timer_login.Enabled = false;
-            }*/
         }
     }
 }

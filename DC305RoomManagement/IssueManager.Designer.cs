@@ -163,9 +163,9 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnPrint.BackColor = System.Drawing.Color.Gainsboro;
             this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrint.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrint.Location = new System.Drawing.Point(725, 29);
@@ -180,9 +180,9 @@
             // 
             // btnFilterDate
             // 
-            this.btnFilterDate.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnFilterDate.BackColor = System.Drawing.Color.Gainsboro;
             this.btnFilterDate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFilterDate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnFilterDate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.btnFilterDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFilterDate.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFilterDate.Location = new System.Drawing.Point(634, 29);
@@ -197,9 +197,9 @@
             // 
             // btnCreateIssue
             // 
-            this.btnCreateIssue.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnCreateIssue.BackColor = System.Drawing.Color.Gainsboro;
             this.btnCreateIssue.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCreateIssue.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnCreateIssue.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.btnCreateIssue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateIssue.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateIssue.Location = new System.Drawing.Point(18, 226);

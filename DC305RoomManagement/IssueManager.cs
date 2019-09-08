@@ -312,37 +312,31 @@ namespace DC305RoomManagement
         private void BtnCreateIssue_MouseEnter(object sender, EventArgs e)
         {
             btnCreateIssue.ForeColor = Color.White;
-            btnCreateIssue.BackColor = Color.ForestGreen;
         }
 
         private void BtnCreateIssue_MouseLeave(object sender, EventArgs e)
         {
             btnCreateIssue.ForeColor = Color.Black;
-            btnCreateIssue.BackColor = Color.DarkKhaki;
         }
 
         private void BtnFilterDate_MouseEnter(object sender, EventArgs e)
         {
             btnFilterDate.ForeColor = Color.White;
-            btnFilterDate.BackColor = Color.ForestGreen;
         }
 
         private void BtnFilterDate_MouseLeave(object sender, EventArgs e)
         {
             btnFilterDate.ForeColor = Color.Black;
-            btnFilterDate.BackColor = Color.DarkKhaki;
         }
 
         private void BtnPrint_MouseEnter(object sender, EventArgs e)
         {
             btnPrint.ForeColor = Color.White;
-            btnPrint.BackColor = Color.ForestGreen;
         }
 
         private void BtnPrint_MouseLeave(object sender, EventArgs e)
         {
             btnPrint.ForeColor = Color.Black;
-            btnPrint.BackColor = Color.DarkKhaki;
         }
     }
 }

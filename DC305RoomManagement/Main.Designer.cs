@@ -262,7 +262,9 @@
             // 
             // pwd_Change
             // 
-            this.pwd_Change.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pwd_Change.BackColor = System.Drawing.Color.Gainsboro;
+            this.pwd_Change.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.pwd_Change.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pwd_Change.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pwd_Change.Location = new System.Drawing.Point(710, 64);
             this.pwd_Change.Name = "pwd_Change";
@@ -345,7 +347,6 @@
             this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ITEdu Systems";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
             this.pnlSideMenu.ResumeLayout(false);

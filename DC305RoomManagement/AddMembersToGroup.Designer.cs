@@ -87,9 +87,9 @@
             // 
             // btnReset
             // 
-            this.btnReset.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnReset.BackColor = System.Drawing.Color.Gainsboro;
             this.btnReset.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReset.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReset.Location = new System.Drawing.Point(382, 323);
@@ -104,9 +104,9 @@
             // 
             // btnAddMembers
             // 
-            this.btnAddMembers.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnAddMembers.BackColor = System.Drawing.Color.Gainsboro;
             this.btnAddMembers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddMembers.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnAddMembers.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.btnAddMembers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddMembers.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddMembers.Location = new System.Drawing.Point(217, 323);

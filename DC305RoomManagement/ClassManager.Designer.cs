@@ -109,8 +109,8 @@
             // 
             // btnDeleteGroup
             // 
-            this.btnDeleteGroup.BackColor = System.Drawing.Color.DarkKhaki;
-            this.btnDeleteGroup.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnDeleteGroup.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnDeleteGroup.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.btnDeleteGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteGroup.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteGroup.Location = new System.Drawing.Point(111, 245);
@@ -124,8 +124,8 @@
             // 
             // btnReset
             // 
-            this.btnReset.BackColor = System.Drawing.Color.DarkKhaki;
-            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnReset.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReset.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReset.Location = new System.Drawing.Point(201, 245);
@@ -140,8 +140,8 @@
             // 
             // btnCreate
             // 
-            this.btnCreate.BackColor = System.Drawing.Color.DarkKhaki;
-            this.btnCreate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnCreate.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnCreate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreate.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreate.Location = new System.Drawing.Point(17, 245);

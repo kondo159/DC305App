@@ -15,20 +15,23 @@ namespace DC305RoomManagement
 {
     public partial class UserManager : Form
     {
+        //create sql connection and datatable and dataadapter
         SqlCommand cmd;
 
         Connection conn = new Connection();
         DataTable dt;
         SqlDataAdapter sqlda;
-                
+        // load cbo role        
         public UserManager()
         {
             InitializeComponent();
             Load_cbRole();
         }
+        //global string for gender and oldEmail for datagrid validation
         string Gender;
         string oldEmail; 
 
+        //clear form after entering a success and not success field of texboxes,combo,radio button
         public void ClearForm()
         {
             txtEmail.Text = "";
@@ -41,6 +44,7 @@ namespace DC305RoomManagement
             txtID.Text = "";
 
         }
+        //user creation option with validation, with email response to the email entered 
         private void BtnCreate_Click(object sender, EventArgs e)
         {
             if (ValidateAll())
@@ -101,7 +105,7 @@ namespace DC305RoomManagement
 
           
         }
-
+        //selection for gender whether male or female
         private void RbtnMale_CheckedChanged(object sender, EventArgs e)
         {
             Gender = "Male";
@@ -111,13 +115,14 @@ namespace DC305RoomManagement
         {
             Gender = "Female";
         }   
-
+        // loads the datagrid with correct font style and size, hide the textbox for userID 
         private void UserManager_Load(object sender, EventArgs e)
         {
             dtgGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 10);
             LoadData();
             txtID.Hide();
         }
+        //load the datagrid with the specific role and shows the role of the users
         private void LoadData()
         {
           
@@ -148,7 +153,7 @@ namespace DC305RoomManagement
             }
             
         }
-
+        //allow to clear the textboxes and error providers when clicked. Loads the datargrid in a clearSelection view
         private void BtnReset_Click(object sender, EventArgs e)
         {
             errorProvider.Clear();
@@ -162,6 +167,7 @@ namespace DC305RoomManagement
             dtgGrid.SelectionMode = oldmode;
         }
 
+        //update the current information of the user with validation and email confirmation
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
 
@@ -216,12 +222,12 @@ namespace DC305RoomManagement
             }            
         }
 
-
+        //allow the admin to search for a specific name or email 
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
             SearchUserEmail(txtSearch.Text);           
         }
-      
+        //allow the admin to search for a specific name or email 
         public void SearchUserEmail(string search)
         {
           
@@ -233,7 +239,7 @@ namespace DC305RoomManagement
             dtgGrid.DataSource = dt;
             conn.CloseConn();
         }                
-
+        //data grid cell click changes information in order when clicked
         private void DtgGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >=0)
@@ -265,7 +271,7 @@ namespace DC305RoomManagement
             }
             
         }
-      
+        //currenty loads the user and its specific role
         private void Load_cbRole()
         {
             SqlCommand cmd = new SqlCommand("Select * from Roles", conn.OpenConn());
@@ -276,7 +282,7 @@ namespace DC305RoomManagement
             cboRole.DataSource = dt;
             conn.CloseConn();
         }
-
+        // disable and enable button for updating user information
         private void BtnDisable_Click(object sender, EventArgs e)
         {
             if (btnDisable.Text == "Enable")
@@ -285,6 +291,7 @@ namespace DC305RoomManagement
             btnDisable.Text = "Enable";
 
         }
+        //validation of the email format and textboxes, combo, radio, group if null is entered
         private bool ValidateAll()
         {
             bool validated = true;
@@ -347,49 +354,50 @@ namespace DC305RoomManagement
             
             return validated;
         }
-
+        //design
+        //creates the backcolor and forecolor of the buttons when mouse hover in and out
         private void BtnCreate_MouseEnter(object sender, EventArgs e)
         {
             btnCreate.ForeColor = Color.White;
-            btnCreate.BackColor = Color.ForestGreen;
+            btnCreate.BackColor = Color.DodgerBlue;
         }
 
         private void BtnCreate_MouseLeave(object sender, EventArgs e)
         {
             btnCreate.ForeColor = Color.Black;
-            btnCreate.BackColor = Color.DarkKhaki;
+            btnCreate.BackColor = Color.Gainsboro;
         }
 
         private void BtnUpdate_MouseEnter(object sender, EventArgs e)
         {
             btnUpdate.ForeColor = Color.White;
-            btnUpdate.BackColor = Color.ForestGreen;
+            btnUpdate.BackColor = Color.DodgerBlue;
         }
         private void BtnUpdate_MouseLeave_1(object sender, EventArgs e)
         {
-            btnUpdate.ForeColor = Color.White;
-            btnUpdate.BackColor = Color.DarkKhaki;
+            btnUpdate.ForeColor = Color.Black;
+            btnUpdate.BackColor = Color.Gainsboro;
         }
         private void BtnReset_MouseEnter_1(object sender, EventArgs e)
         {
             btnReset.ForeColor = Color.White;
-            btnReset.BackColor = Color.ForestGreen;
+            btnReset.BackColor = Color.DodgerBlue;
         }
         private void BtnReset_MouseLeave_1(object sender, EventArgs e)
         {
             btnReset.ForeColor = SystemColors.ControlText;
-            btnReset.BackColor = Color.DarkKhaki;
+            btnReset.BackColor = Color.Gainsboro;
         }
 
         private void BtnDisable_MouseEnter(object sender, EventArgs e)
         {
             btnDisable.ForeColor = Color.White;
-            btnDisable.BackColor = Color.ForestGreen;
+            btnDisable.BackColor = Color.DodgerBlue;
         }
         private void BtnDisable_MouseLeave(object sender, EventArgs e)
         {
             btnDisable.ForeColor = SystemColors.ControlText;
-            btnDisable.BackColor = Color.DarkKhaki;
+            btnDisable.BackColor = Color.Gainsboro;
         }
         
 

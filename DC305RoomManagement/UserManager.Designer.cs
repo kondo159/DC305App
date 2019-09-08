@@ -150,7 +150,7 @@
             // 
             // btnCreate
             // 
-            this.btnCreate.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnCreate.BackColor = System.Drawing.Color.Gainsboro;
             this.btnCreate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCreate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnCreate.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -167,7 +167,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnUpdate.BackColor = System.Drawing.Color.Gainsboro;
             this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdate.Enabled = false;
             this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
@@ -185,7 +185,7 @@
             // 
             // btnReset
             // 
-            this.btnReset.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnReset.BackColor = System.Drawing.Color.Gainsboro;
             this.btnReset.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnReset.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -202,7 +202,7 @@
             // 
             // btnDisable
             // 
-            this.btnDisable.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnDisable.BackColor = System.Drawing.Color.Gainsboro;
             this.btnDisable.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDisable.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnDisable.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

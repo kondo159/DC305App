@@ -29,16 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlMainContent = new System.Windows.Forms.Panel();
             this.cbItemTypeValue = new System.Windows.Forms.ComboBox();
             this.nudQtyValue = new System.Windows.Forms.NumericUpDown();
             this.btnEnableDisable = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.dgvInventory = new System.Windows.Forms.DataGridView();
+            this.EquipmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EquipmentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.lblItemQty = new System.Windows.Forms.Label();
             this.lblItemName = new System.Windows.Forms.Label();
             this.lbIItemType = new System.Windows.Forms.Label();
@@ -46,12 +51,6 @@
             this.lblDescription = new System.Windows.Forms.Label();
             this.txtDescriptionValue = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.EquipmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EquipmentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.pnlMainContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudQtyValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).BeginInit();
@@ -99,8 +98,8 @@
             // 
             // btnEnableDisable
             // 
-            this.btnEnableDisable.BackColor = System.Drawing.Color.DarkKhaki;
-            this.btnEnableDisable.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnEnableDisable.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnEnableDisable.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.btnEnableDisable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEnableDisable.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnableDisable.Location = new System.Drawing.Point(128, 356);
@@ -115,8 +114,8 @@
             // 
             // btnSave
             // 
-            this.btnSave.BackColor = System.Drawing.Color.DarkKhaki;
-            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnSave.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Location = new System.Drawing.Point(15, 356);
@@ -135,14 +134,14 @@
             this.dgvInventory.AllowUserToDeleteRows = false;
             this.dgvInventory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvInventory.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInventory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInventory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvInventory.ColumnHeadersHeight = 30;
             this.dgvInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvInventory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -152,36 +151,76 @@
             this.Description,
             this.Quantity,
             this.Active});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvInventory.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvInventory.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvInventory.EnableHeadersVisualStyles = false;
             this.dgvInventory.GridColor = System.Drawing.Color.Black;
             this.dgvInventory.Location = new System.Drawing.Point(243, 28);
             this.dgvInventory.Name = "dgvInventory";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.DarkOrange;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInventory.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkOrange;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInventory.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvInventory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvInventory.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvInventory.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvInventory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvInventory.Size = new System.Drawing.Size(582, 353);
             this.dgvInventory.TabIndex = 8;
             this.dgvInventory.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvInventory_CellDoubleClick);
             this.dgvInventory.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DgvInventory_DataError);
             this.dgvInventory.SelectionChanged += new System.EventHandler(this.DgvInventory_SelectionChanged);
+            // 
+            // EquipmentID
+            // 
+            this.EquipmentID.DataPropertyName = "EquipmentID";
+            this.EquipmentID.HeaderText = "EquipmentID";
+            this.EquipmentID.Name = "EquipmentID";
+            this.EquipmentID.Visible = false;
+            // 
+            // EquipmentName
+            // 
+            this.EquipmentName.DataPropertyName = "EquipmentName";
+            this.EquipmentName.FillWeight = 126.9036F;
+            this.EquipmentName.HeaderText = "Equipment Name";
+            this.EquipmentName.MinimumWidth = 50;
+            this.EquipmentName.Name = "EquipmentName";
+            // 
+            // EType
+            // 
+            this.EType.DataPropertyName = "ETypeID";
+            this.EType.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.EType.FillWeight = 93.27411F;
+            this.EType.HeaderText = "Type";
+            this.EType.Name = "EType";
+            this.EType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.EType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Description
+            // 
+            this.Description.DataPropertyName = "Description";
+            this.Description.FillWeight = 93.27411F;
+            this.Description.HeaderText = "Description";
+            this.Description.Name = "Description";
+            // 
+            // Quantity
+            // 
+            this.Quantity.DataPropertyName = "Quantity";
+            this.Quantity.FillWeight = 93.27411F;
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // Active
+            // 
+            this.Active.DataPropertyName = "Active";
+            this.Active.FillWeight = 93.27411F;
+            this.Active.HeaderText = "Active";
+            this.Active.Name = "Active";
+            this.Active.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Active.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // lblItemQty
             // 
@@ -244,54 +283,6 @@
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
-            // 
-            // EquipmentID
-            // 
-            this.EquipmentID.DataPropertyName = "EquipmentID";
-            this.EquipmentID.HeaderText = "EquipmentID";
-            this.EquipmentID.Name = "EquipmentID";
-            this.EquipmentID.Visible = false;
-            // 
-            // EquipmentName
-            // 
-            this.EquipmentName.DataPropertyName = "EquipmentName";
-            this.EquipmentName.FillWeight = 126.9036F;
-            this.EquipmentName.HeaderText = "Equipment Name";
-            this.EquipmentName.MinimumWidth = 50;
-            this.EquipmentName.Name = "EquipmentName";
-            // 
-            // EType
-            // 
-            this.EType.DataPropertyName = "ETypeID";
-            this.EType.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.EType.FillWeight = 93.27411F;
-            this.EType.HeaderText = "Type";
-            this.EType.Name = "EType";
-            this.EType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.EType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Description
-            // 
-            this.Description.DataPropertyName = "Description";
-            this.Description.FillWeight = 93.27411F;
-            this.Description.HeaderText = "Description";
-            this.Description.Name = "Description";
-            // 
-            // Quantity
-            // 
-            this.Quantity.DataPropertyName = "Quantity";
-            this.Quantity.FillWeight = 93.27411F;
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            // 
-            // Active
-            // 
-            this.Active.DataPropertyName = "Active";
-            this.Active.FillWeight = 93.27411F;
-            this.Active.HeaderText = "Active";
-            this.Active.Name = "Active";
-            this.Active.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Active.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // InventoryManager
             // 

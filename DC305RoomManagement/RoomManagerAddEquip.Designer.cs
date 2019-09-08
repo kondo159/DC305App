@@ -41,8 +41,8 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.DarkKhaki;
-            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnAdd.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Location = new System.Drawing.Point(83, 123);
@@ -81,8 +81,8 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.DarkKhaki;
-            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnCancel.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(174, 123);

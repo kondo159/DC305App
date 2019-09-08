@@ -364,49 +364,49 @@ namespace DC305RoomManagement
         private void BtnCreateRoom_MouseEnter(object sender, EventArgs e)
         {
             btnCreateRoom.ForeColor = Color.White;
-            btnCreateRoom.BackColor = Color.ForestGreen;
+            btnCreateRoom.BackColor = Color.DodgerBlue;
         }
 
         private void BtnCreateRoom_MouseLeave(object sender, EventArgs e)
         {
             btnCreateRoom.ForeColor = Color.Black;
-            btnCreateRoom.BackColor = Color.DarkKhaki;
+            btnCreateRoom.BackColor = Color.Gainsboro;
         }
 
         private void BtnDisableRoom_MouseEnter(object sender, EventArgs e)
         {
             btnDisableRoom.ForeColor = Color.White;
-            btnDisableRoom.BackColor = Color.ForestGreen;
+            btnDisableRoom.BackColor = Color.DodgerBlue;
         }
 
         private void BtnDisableRoom_MouseLeave(object sender, EventArgs e)
         {
             btnDisableRoom.ForeColor = Color.Black;
-            btnDisableRoom.BackColor = Color.DarkKhaki;
+            btnDisableRoom.BackColor = Color.Gainsboro;
         }
 
         private void BtnUpdateRoom_MouseEnter(object sender, EventArgs e)
         {
             btnUpdateRoom.ForeColor = Color.White;
-            btnUpdateRoom.BackColor = Color.ForestGreen;
+            btnUpdateRoom.BackColor = Color.DodgerBlue;
         }
 
         private void BtnUpdateRoom_MouseLeave(object sender, EventArgs e)
         {
             btnUpdateRoom.ForeColor = Color.Black;
-            btnUpdateRoom.BackColor = Color.DarkKhaki;
+            btnUpdateRoom.BackColor = Color.Gainsboro;
         }
 
         private void BtnResetData_MouseEnter(object sender, EventArgs e)
         {
             btnResetData.ForeColor = Color.White;
-            btnResetData.BackColor = Color.ForestGreen;
+            btnResetData.BackColor = Color.DodgerBlue;
         }
 
         private void BtnResetData_MouseLeave(object sender, EventArgs e)
         {
             btnResetData.ForeColor = Color.Black;
-            btnResetData.BackColor = Color.DarkKhaki;
+            btnResetData.BackColor = Color.Gainsboro;
         }
 
         private void BtnAddEquipment_MouseEnter(object sender, EventArgs e)

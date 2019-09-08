@@ -72,7 +72,7 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnPrint.BackColor = System.Drawing.Color.Gainsboro;
             this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnPrint.Font = new System.Drawing.Font("Century Gothic", 9.75F);
@@ -89,7 +89,7 @@
             // 
             // btnReset
             // 
-            this.btnReset.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnReset.BackColor = System.Drawing.Color.Gainsboro;
             this.btnReset.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnReset.Font = new System.Drawing.Font("Century Gothic", 9.75F);
@@ -106,7 +106,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnCancel.BackColor = System.Drawing.Color.Gainsboro;
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.Enabled = false;
             this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
@@ -124,7 +124,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnUpdate.BackColor = System.Drawing.Color.Gainsboro;
             this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnUpdate.Font = new System.Drawing.Font("Century Gothic", 9.75F);
@@ -141,7 +141,7 @@
             // 
             // btnCreate
             // 
-            this.btnCreate.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnCreate.BackColor = System.Drawing.Color.Gainsboro;
             this.btnCreate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCreate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnCreate.Font = new System.Drawing.Font("Century Gothic", 9.75F);
@@ -158,7 +158,7 @@
             // 
             // btnFilter
             // 
-            this.btnFilter.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnFilter.BackColor = System.Drawing.Color.Gainsboro;
             this.btnFilter.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFilter.Enabled = false;
             this.btnFilter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;

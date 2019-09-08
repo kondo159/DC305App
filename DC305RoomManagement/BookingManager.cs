@@ -641,73 +641,73 @@ namespace DC305RoomManagement
         private void BtnCreate_MouseEnter(object sender, EventArgs e)
         {
             btnCreate.ForeColor = Color.White;
-            btnCreate.BackColor = Color.ForestGreen;
+            btnCreate.BackColor = Color.DodgerBlue;
         }
 
         private void BtnCreate_MouseLeave(object sender, EventArgs e)
         {
             btnCreate.ForeColor = Color.Black;
-            btnCreate.BackColor = Color.DarkKhaki;
+            btnCreate.BackColor = Color.Gainsboro;
         }
 
         private void BtnUpdate_MouseEnter(object sender, EventArgs e)
         {
             btnUpdate.ForeColor = Color.White;
-            btnUpdate.BackColor = Color.ForestGreen;
+            btnUpdate.BackColor = Color.DodgerBlue;
         }
 
         private void BtnUpdate_MouseLeave(object sender, EventArgs e)
         {
             btnUpdate.ForeColor = Color.Black;
-            btnUpdate.BackColor = Color.DarkKhaki;
+            btnUpdate.BackColor = Color.Gainsboro;
         }
 
         private void BtnReset_MouseEnter(object sender, EventArgs e)
         {
             btnReset.ForeColor = Color.White;
-            btnReset.BackColor = Color.ForestGreen;
+            btnReset.BackColor = Color.DodgerBlue;
         }
 
         private void BtnReset_MouseLeave(object sender, EventArgs e)
         {
             btnReset.ForeColor = Color.Black;
-            btnReset.BackColor = Color.DarkKhaki;
+            btnReset.BackColor = Color.Gainsboro;
         }
 
         private void BtnFilter_MouseEnter(object sender, EventArgs e)
         {
             btnFilter.ForeColor = Color.White;
-            btnFilter.BackColor = Color.ForestGreen;
+            btnFilter.BackColor = Color.DodgerBlue;
         }
 
         private void BtnFilter_MouseLeave(object sender, EventArgs e)
         {
             btnFilter.ForeColor = Color.Black;
-            btnFilter.BackColor = Color.DarkKhaki;
+            btnFilter.BackColor = Color.Gainsboro;
         }
 
         private void BtnPrint_MouseEnter(object sender, EventArgs e)
         {
             btnPrint.ForeColor = Color.White;
-            btnPrint.BackColor = Color.ForestGreen;
+            btnPrint.BackColor = Color.DodgerBlue;
         }
 
         private void BtnPrint_MouseLeave(object sender, EventArgs e)
         {
             btnPrint.ForeColor = Color.Black;
-            btnPrint.BackColor = Color.DarkKhaki;
+            btnPrint.BackColor = Color.Gainsboro;
         }
 
         private void BtnCancel_MouseEnter(object sender, EventArgs e)
         {
             btnCancel.ForeColor = Color.White;
-            btnCancel.BackColor = Color.ForestGreen;
+            btnCancel.BackColor = Color.DodgerBlue;
         }
 
         private void BtnCancel_MouseLeave(object sender, EventArgs e)
         {
             btnCancel.ForeColor = Color.Black;
-            btnCancel.BackColor = Color.DarkKhaki;
+            btnCancel.BackColor = Color.Gainsboro;
         }
     }   
 
