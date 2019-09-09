@@ -119,7 +119,7 @@ namespace DC305RoomManagement
                 {
                     FormHelper.ClearFields(pnlMainContent, typeof(TextBox));
                     LoadGroups();
-
+                    ResetForm();
                     MessageBox.Show("Data was saved successfully!", "Operation result",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -128,6 +128,7 @@ namespace DC305RoomManagement
                     MessageBox.Show("An error occured.\nData was not saved!", "Operation result",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                
             }
         }
 
@@ -239,17 +240,21 @@ namespace DC305RoomManagement
         /// <param name="e">Event Arguments</param>
         private void BtnResetData_Click(object sender, EventArgs e)
         {
+            ResetForm();
+        }
+        private void ResetForm()
+        {
             FormHelper.ClearFields(pnlMainContent, typeof(TextBox));
-            DataGridViewSelectionMode oldmode =  dgvGroups.SelectionMode;
+            DataGridViewSelectionMode oldmode = dgvGroups.SelectionMode;
             dgvGroups.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvGroups.ClearSelection();
             dgvGroups.SelectionMode = oldmode;
-            
+
+            Group = new Group();
             dgvMembers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvMembers.ClearSelection();
             dgvMembers.SelectionMode = oldmode;
         }
-
         private void GroupManager_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace((sender as TextBox).Text))

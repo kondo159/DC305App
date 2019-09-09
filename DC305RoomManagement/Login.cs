@@ -35,7 +35,7 @@ namespace DC305RoomManagement
             if (EmailValidation()&& PasswordValidation())
             {
                 Connection con = new Connection();
-                SqlCommand cmd = new SqlCommand("Select * from [Users] where Email = '" + txtUser.Text + "' and Password = '" + txtPass.Text + "'", con.OpenConn());
+                SqlCommand cmd = new SqlCommand("Select * from [Users] where Active=1 and Email = '" + txtUser.Text + "' and Password = '" + txtPass.Text + "'", con.OpenConn());
                 SqlDataReader reader = cmd.ExecuteReader();
                 DataTable dtbl = new DataTable();
 

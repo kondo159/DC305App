@@ -162,9 +162,13 @@ namespace DC305RoomManagement
         /// <param name="e">Event Arguments</param>
         private void DgvCourses_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow row = dgvCourses.Rows[e.RowIndex];
-            fillCourseData(row);
-            fillFields(Course);
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvCourses.Rows[e.RowIndex];
+                fillCourseData(row);
+                fillFields(Course);
+            }
+            
         }
 
         private void BtnResetData_Click(object sender, EventArgs e)

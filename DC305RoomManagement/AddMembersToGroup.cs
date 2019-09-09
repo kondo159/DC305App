@@ -37,7 +37,7 @@ namespace DC305RoomManagement
         /// <param name="e">Event Arguments</param>
         private void AddMembersToGroup_Load(object sender, EventArgs e)
         {
-            LoadUsers(1); // Get Students
+            LoadUsers(3); // Get Students
             dgvUsers.ClearSelection();
             dgvUsers.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 10);
         }
