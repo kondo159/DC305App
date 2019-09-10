@@ -24,7 +24,7 @@ namespace DC305RoomManagement
             this.role = role;
             this.id = id;
             label1.Text = "Current User:";
-            label2.Text = user;
+            lbEmailCurrentUser.Text = user;
             
         }
         private void DisplayInPlanel(Form page, String Header)
@@ -84,12 +84,7 @@ namespace DC305RoomManagement
                     InventoryManager inventoryManager = new InventoryManager();
                     DisplayInPlanel(inventoryManager, "Inventory Manager");
                     break;
-
-                /*case "picbox_MainHome":
-                    Main main = new Main();
-                    DisplayInPlanel(main, "Main Menu");
-                    break;*/
-
+          
                 case "btnExit":
 
                     Application.Exit();
@@ -128,11 +123,6 @@ namespace DC305RoomManagement
                 btnExit.Location = new Point(0, 153);
             }
             
-        }
-
-        private void Label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)

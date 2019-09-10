@@ -371,6 +371,10 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintDocument1_PrintPage_1);
+            // 
             // IssueManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

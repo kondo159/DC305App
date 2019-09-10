@@ -251,7 +251,7 @@ namespace DC305RoomManagementClassLibrary.Models.Repository
                     new SqlParameter("@ClassName", classEvent.ClassName),
                     new SqlParameter("@CourseID", classEvent.CourseID),
                     new SqlParameter("@StaffID", classEvent.StaffID),
-                    new SqlParameter("@GroupID", classEvent.GroupID)
+                    new SqlParameter("@GroupID", classEvent.GroupID)                    
                 );
         }
 

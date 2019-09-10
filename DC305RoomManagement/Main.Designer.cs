@@ -42,7 +42,7 @@
             this.btnUser = new System.Windows.Forms.Button();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.pwd_Change = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbEmailCurrentUser = new System.Windows.Forms.Label();
             this.lblHeader = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
@@ -251,7 +251,7 @@
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.Black;
             this.pnlHeader.Controls.Add(this.pwd_Change);
-            this.pnlHeader.Controls.Add(this.label2);
+            this.pnlHeader.Controls.Add(this.lbEmailCurrentUser);
             this.pnlHeader.Controls.Add(this.lblHeader);
             this.pnlHeader.Controls.Add(this.label1);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
@@ -275,18 +275,17 @@
             this.pwd_Change.UseVisualStyleBackColor = false;
             this.pwd_Change.Click += new System.EventHandler(this.BtnChangePass_Click);
             // 
-            // label2
+            // lbEmailCurrentUser
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(566, 44);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(276, 17);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Current User";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label2.Click += new System.EventHandler(this.Label2_Click);
+            this.lbEmailCurrentUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbEmailCurrentUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbEmailCurrentUser.ForeColor = System.Drawing.Color.White;
+            this.lbEmailCurrentUser.Location = new System.Drawing.Point(566, 44);
+            this.lbEmailCurrentUser.Name = "lbEmailCurrentUser";
+            this.lbEmailCurrentUser.Size = new System.Drawing.Size(276, 17);
+            this.lbEmailCurrentUser.TabIndex = 15;
+            this.lbEmailCurrentUser.Text = "Current User";
+            this.lbEmailCurrentUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblHeader
             // 
@@ -376,7 +375,7 @@
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.PictureBox picbox_MainHome;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbEmailCurrentUser;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button pwd_Change;
         private System.Windows.Forms.PictureBox picbox_Main;

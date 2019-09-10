@@ -230,8 +230,9 @@ namespace DC305RoomManagement
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void PrintDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        private void PrintDocument1_PrintPage_1(object sender, PrintPageEventArgs e)
         {
+
             int cHeight = dgvIssues.Rows[0].Height;//Height of the cells
 
             int x = 100;//start position for the first collumn
@@ -270,7 +271,7 @@ namespace DC305RoomManagement
                     x += dgvIssues.Columns[c].Width;//move to the next collumn
                 }
             }
-        }
+        }   
         /// <summary>
         /// Checks if the field was filled
         /// </summary>
@@ -339,5 +340,7 @@ namespace DC305RoomManagement
         {
             btnPrint.ForeColor = Color.Black;
         }
+
+        
     }
 }

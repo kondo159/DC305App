@@ -110,7 +110,10 @@ namespace DC305RoomManagement
         {
             cbGroupNameValue.ValueMember = "GroupID";
             cbGroupNameValue.DisplayMember = "GroupName";
-            cbGroupNameValue.DataSource = repository.GetGroups();
+            cbGroupNameValue.DataSource = repository.GetGroups()
+                    .AsEnumerable()
+                    .Where(g=>g.Field<bool>("Active")==true)
+                    .CopyToDataTable();
             cbGroupNameValue.SelectedIndex = -1;
         }
 
